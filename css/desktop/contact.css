@@ -5059,3 +5059,253 @@ and
 
 }
 
+
+/* =========================================================
+   59. FINAL CROSS-DESKTOP OVERRIDES — V2
+
+   Prinsip:
+   1) Laptop / desktop dengan aspect ratio normal mempertahankan
+      posisi marquee baseline yang sebelumnya sudah pas.
+   2) Hanya monitor wide/short yang menurunkan marquee.
+   3) Tombol custom color (+) tetap satu ukuran di seluruh desktop.
+   4) Swatch warna yang menyesuaikan ruang, bukan tombol (+).
+   ========================================================= */
+
+
+/* =========================================================
+   A. AVATAR COLOR ROW — STABLE PLUS BUTTON
+   ========================================================= */
+
+#contact .avatar-control {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+#contact .avatar-colors {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  min-height: 34px;
+
+  gap: clamp(3px, .30vw, 6px);
+
+  padding:
+    0
+    4px
+    0
+    0;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+}
+
+
+/*
+   Swatch biasa boleh shrink jika ruang makin sempit.
+   Dengan ini row selalu muat tanpa mendorong tombol (+)
+   keluar dari profile box.
+*/
+#contact .avatar-color {
+  width: auto !important;
+
+  height: auto !important;
+
+  aspect-ratio: 1 / 1;
+
+  flex:
+    1
+    1
+    0;
+
+  min-width: 14px;
+  max-width: 23px;
+
+  margin: 0;
+
+  justify-self: auto;
+}
+
+
+/*
+   Tombol (+) dibuat konstan di seluruh desktop.
+   Jadi monitor dan laptop tidak menampilkan ukuran
+   tombol yang berbeda hanya karena lebar parent berubah.
+*/
+#contact .custom-color-wrap {
+  position: relative;
+
+  width: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+
+  aspect-ratio: 1 / 1;
+
+  flex:
+    0
+    0
+    28px;
+
+  margin: 0;
+
+  justify-self: auto;
+}
+
+
+#contact .custom-color-button {
+  width: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+}
+
+
+#contact .custom-color-button::before {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+
+#contact .custom-color-plus::before {
+  width: 11px !important;
+  height: 3px !important;
+  max-height: none;
+}
+
+
+#contact .custom-color-plus::after {
+  width: 3px !important;
+  max-width: none;
+  height: 11px !important;
+}
+
+
+/* =========================================================
+   B. NORMAL DESKTOP / LAPTOP
+   Aspect ratio di bawah 2:1 memakai baseline lama.
+   Ini mengembalikan posisi marquee laptop yang sebelumnya
+   sudah terlihat pas.
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-aspect-ratio: 199/100) {
+
+  #contact {
+    --marquee-lift: -56px;
+  }
+
+}
+
+
+/* =========================================================
+   C. WIDE MONITOR
+   Hanya layar yang benar-benar lebar dibanding tinggi.
+   Marquee diturunkan beberapa pixel agar center navbar.
+   ========================================================= */
+
+@media
+(min-width: 1600px)
+and
+(min-aspect-ratio: 2/1) {
+
+  #contact {
+    --marquee-lift: -32px;
+  }
+
+}
+
+
+/*
+   Monitor yang sekaligus sangat pendek:
+   turunkan sedikit lagi.
+*/
+@media
+(min-width: 1600px)
+and
+(max-height: 760px)
+and
+(min-aspect-ratio: 2/1) {
+
+  #contact {
+    --marquee-lift: -30px;
+  }
+
+}
+
+
+/* =========================================================
+   D. SMALL DESKTOP SAFETY
+   Tombol (+) tetap 28px. Swatch yang menyesuaikan.
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-width: 1199px) {
+
+  #contact .avatar-colors {
+    gap: 3px;
+
+    padding-right: 3px;
+  }
+
+  #contact .avatar-color {
+    min-width: 12px;
+    max-width: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   E. MEDIUM DESKTOP SAFETY
+   ========================================================= */
+
+@media
+(min-width: 1200px)
+and
+(max-width: 1599px) {
+
+  #contact .avatar-colors {
+    gap: clamp(3px, .22vw, 5px);
+  }
+
+  #contact .avatar-color {
+    min-width: 13px;
+    max-width: 21px;
+  }
+
+}
+
+
+/* =========================================================
+   F. LARGE / WIDE DESKTOP SAFETY
+   ========================================================= */
+
+@media
+(min-width: 1600px) {
+
+  #contact .avatar-color {
+    min-width: 14px;
+    max-width: 23px;
+  }
+
+}
+
