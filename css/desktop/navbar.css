@@ -1,0 +1,714 @@
+/* =========================================================
+   DESKTOP — NAVBAR
+   Clean floating navbar
+
+   NAV STATE:
+   - Normal = green semi-bold
+   - Hover = bold + orange dot
+   - Active section = bold + orange dot
+   - No underline
+   - No movement
+   ========================================================= */
+
+
+/* =========================================================
+   01. NAVBAR HEIGHT
+   ========================================================= */
+
+:root {
+  --nav-h: 124px;
+}
+
+
+section[id] {
+  scroll-margin-top: 136px;
+}
+
+
+/* =========================================================
+   02. NAVBAR ROOT
+   ========================================================= */
+
+#navbar-root {
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+  min-height: var(--nav-h);
+
+  background: transparent;
+
+  border: 0;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   03. NAV AREA
+   ========================================================= */
+
+.site-nav {
+  width: 100%;
+  height: var(--nav-h);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   04. NAV SHELL
+   ========================================================= */
+
+.nav-shell {
+  width: max-content;
+  max-width: calc(100% - 48px);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   05. MAIN NAV CAPSULE
+   ========================================================= */
+
+.nav-pill {
+  width: max-content;
+  height: 84px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  padding: 0 24px;
+
+  background: var(--paper);
+
+  border:
+    1px solid
+    rgba(0, 62, 37, 0.07);
+
+  border-radius: 44px;
+
+  box-shadow:
+    0 10px 24px
+    rgba(0, 62, 37, 0.07);
+}
+
+
+/* =========================================================
+   06. REMOVE OLD DIVIDERS
+   ========================================================= */
+
+.nav-divider {
+  display: none;
+}
+
+
+/* =========================================================
+   07. BRAND
+   ========================================================= */
+
+.brand {
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color: var(--green);
+
+  white-space: nowrap;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   08. DA CIRCLE
+   ========================================================= */
+
+.brand-circle {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  color: #ffffff;
+
+  font:
+    900
+    12px / 1
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+  letter-spacing: 0.4px;
+
+  box-shadow:
+    0 7px 16px
+    rgba(0, 62, 37, 0.16);
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+/* =========================================================
+   09. DA HOVER
+   NO MOVEMENT
+   ========================================================= */
+
+.brand:hover .brand-circle {
+  background: var(--orange);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 16px
+    rgba(253, 99, 37, 0.16);
+}
+
+
+/* =========================================================
+   10. BRAND NAME
+   ========================================================= */
+
+.brand-name {
+  color: var(--green);
+
+  font:
+    900
+    18px / 1
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+  letter-spacing: 0.2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   11. NAV LINKS CONTAINER
+   ========================================================= */
+
+.nav-links {
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   12. NAV LINK — NORMAL
+   ========================================================= */
+
+.nav-links a {
+  position: relative;
+
+  height: 40px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  border-bottom: 0;
+
+  background: transparent;
+  background-image: none;
+
+  color: var(--green);
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15px;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transform: none;
+
+  transition:
+    color 180ms ease,
+    font-weight 180ms ease;
+}
+
+
+/* =========================================================
+   13. REMOVE OLD UNDERLINE
+   ========================================================= */
+
+.nav-links a::before {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+/* =========================================================
+   14. DOT — DEFAULT HIDDEN
+   ========================================================= */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 1px;
+
+  width: 5px;
+  height: 5px;
+
+  min-width: 5px;
+  max-width: 5px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: var(--orange);
+
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    scale(0);
+
+  transform-origin: center;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+
+/* =========================================================
+   15. HOVER
+   BOLD + DOT
+   NO MOVEMENT
+   ========================================================= */
+
+.nav-links a:hover {
+  color: var(--green);
+
+  font-weight: 900;
+
+  border: 0;
+  border-bottom: 0;
+
+  background: transparent;
+  background-image: none;
+
+  text-decoration: none;
+
+  transform: none;
+}
+
+
+.nav-links a:hover::after {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    scale(1);
+}
+
+
+/* =========================================================
+   16. ACTIVE SECTION
+   BOLD + DOT
+   ========================================================= */
+
+.nav-links a.active,
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  color: var(--green);
+
+  font-weight: 900;
+
+  border: 0;
+  border-bottom: 0;
+
+  background: transparent;
+  background-image: none;
+
+  text-decoration: none;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   17. ACTIVE DOT
+   ========================================================= */
+
+.nav-links a.active::after,
+.nav-links a.is-active::after,
+.nav-links a[aria-current="page"]::after {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    scale(1);
+}
+
+
+/* =========================================================
+   18. RESUME BUTTON
+   ========================================================= */
+
+.resume-link {
+  width: 132px;
+  height: 48px;
+
+  flex: 0 0 132px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 0 18px;
+
+  border: 0;
+
+  border-radius: 26px;
+
+  background: var(--green);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: 0.2px;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  overflow: visible;
+
+  box-shadow:
+    0 7px 16px
+    rgba(0, 62, 37, 0.15);
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+/* =========================================================
+   19. RESUME TEXT
+   ========================================================= */
+
+.resume-link span {
+  display: inline-block;
+
+  flex: 0 0 auto;
+
+  color: #ffffff;
+
+  font-weight: 900;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition:
+    color 180ms ease;
+}
+
+
+/* =========================================================
+   20. RESUME ARROW
+   ========================================================= */
+
+.resume-link svg {
+  width: 16px;
+  height: 16px;
+
+  min-width: 16px;
+
+  flex: 0 0 16px;
+
+  display: block;
+
+  color: #ffffff;
+
+  overflow: visible;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease;
+}
+
+
+/* =========================================================
+   21. RESUME HOVER
+   BUTTON STAYS IN PLACE
+   ========================================================= */
+
+.resume-link:hover {
+  background: var(--orange);
+
+  color: #ffffff;
+
+  transform: none;
+
+  box-shadow:
+    0 10px 20px
+    rgba(253, 99, 37, 0.18);
+}
+
+
+.resume-link:hover span {
+  color: #ffffff;
+}
+
+
+.resume-link:hover svg {
+  color: #ffffff;
+
+  transform:
+    translateX(3px);
+}
+
+
+/* =========================================================
+   22. FOCUS
+   ========================================================= */
+
+.brand:focus-visible,
+.nav-links a:focus-visible,
+.resume-link:focus-visible {
+  outline:
+    3px solid
+    var(--orange);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   23. MEDIUM DESKTOP
+   1200px — 1399px
+   ========================================================= */
+
+@media
+  (min-width: 1200px)
+  and
+  (max-width: 1399px) {
+
+  .nav-pill {
+    gap: 24px;
+
+    padding:
+      0
+      20px;
+  }
+
+
+  .brand-circle {
+    width: 44px;
+    height: 44px;
+
+    flex-basis: 44px;
+  }
+
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+
+  .nav-links {
+    gap: 23px;
+  }
+
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+
+  .resume-link {
+    width: 122px;
+    height: 46px;
+
+    flex-basis: 122px;
+
+    padding:
+      0
+      15px;
+
+    font-size: 12px;
+  }
+
+
+  .resume-link svg {
+    width: 15px;
+    height: 15px;
+
+    min-width: 15px;
+
+    flex-basis: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   24. FINAL SAFETY OVERRIDE
+   NO UNDERLINE
+   HOVER / ACTIVE = BOLD + DOT
+   ========================================================= */
+
+.nav-links a,
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:active,
+.nav-links a.active,
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  border: 0 !important;
+  border-bottom: 0 !important;
+
+  text-decoration: none !important;
+
+  background-image: none !important;
+
+  transform: none !important;
+}
+
+
+/* NORMAL */
+
+.nav-links a {
+  color: var(--green) !important;
+
+  font-weight: 600 !important;
+}
+
+
+/* HOVER + ACTIVE = BOLD */
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  color: var(--green) !important;
+
+  font-weight: 900 !important;
+}
+
+
+/* NEVER USE ::BEFORE */
+
+.nav-links a::before {
+  content: none !important;
+
+  display: none !important;
+}
+
+
+/* FORCE ::AFTER TO BE SMALL DOT */
+
+.nav-links a::after {
+  content: "" !important;
+
+  display: block !important;
+
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: 1px !important;
+
+  width: 5px !important;
+  height: 5px !important;
+
+  min-width: 5px !important;
+  max-width: 5px !important;
+
+  border: 0 !important;
+
+  border-radius: 50% !important;
+
+  background: var(--orange) !important;
+
+  opacity: 0 !important;
+
+  transform:
+    translateX(-50%)
+    scale(0) !important;
+}
+
+
+/* HOVER DOT */
+
+.nav-links a:hover::after {
+  opacity: 1 !important;
+
+  transform:
+    translateX(-50%)
+    scale(1) !important;
+}
+
+
+/* ACTIVE DOT */
+
+.nav-links a.active::after,
+.nav-links a.is-active::after,
+.nav-links a[aria-current="page"]::after {
+  opacity: 1 !important;
+
+  transform:
+    translateX(-50%)
+    scale(1) !important;
+}

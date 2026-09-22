@@ -1,0 +1,785 @@
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro-screen {
+
+  /* =====================================================
+     PORTFOLIO COLORS
+     ===================================================== */
+
+  --intro-green:
+    #004636;
+
+  --intro-orange:
+    #DC6D40;
+
+  /*
+    BACKGROUND PERSIS DARI GAMBAR LU
+
+    RGB:
+    226, 215, 185
+  */
+
+  --intro-bg:
+    #E2D7B9;
+
+
+
+  /* =====================================================
+     SCREEN
+     ===================================================== */
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+
+  width:
+    100%;
+
+  height:
+    100dvh;
+
+
+  z-index:
+    999999;
+
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+
+  overflow:
+    hidden;
+
+
+
+  /* =====================================================
+     BACKGROUND
+
+     POLOS.
+     TIDAK ADA TITIK.
+     ===================================================== */
+
+  background:
+    var(--intro-bg);
+
+
+
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+  pointer-events:
+    auto;
+
+
+  will-change:
+    opacity;
+
+}
+
+
+
+/* =========================================================
+   LOCK PAGE
+   ========================================================= */
+
+body.intro-active {
+
+  overflow:
+    hidden;
+
+}
+
+
+
+/* =========================================================
+   INTRO CONTENT
+   ========================================================= */
+
+.intro-content {
+
+  width:
+    100%;
+
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+
+  gap:
+    8px;
+
+
+
+  /* =====================================================
+     INITIAL STATE
+     ===================================================== */
+
+  opacity:
+    0;
+
+
+  transform:
+    translate3d(
+      0,
+      24px,
+      0
+    )
+    scale(.96);
+
+
+  transform-origin:
+    center center;
+
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
+
+
+  will-change:
+    transform,
+    opacity;
+
+
+
+  /* =====================================================
+     SMOOTH ENTRANCE
+
+     Tidak ada bounce.
+     Tidak ada hentakan.
+     ===================================================== */
+
+  transition:
+
+    opacity
+    1.25s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    ),
+
+    transform
+    1.25s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    );
+
+}
+
+
+
+/* =========================================================
+   CONTENT VISIBLE
+   ========================================================= */
+
+.intro-content.is-visible {
+
+  opacity:
+    1;
+
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    )
+    scale(1);
+
+}
+
+
+
+/* =========================================================
+   GHOST WRAPPER
+   ========================================================= */
+
+.intro-ghost-wrap {
+
+  width:
+    clamp(
+      230px,
+      27vw,
+      410px
+    );
+
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+}
+
+
+
+/* =========================================================
+   GHOST GIF
+   ========================================================= */
+
+.intro-ghost {
+
+  display:
+    block;
+
+
+  width:
+    100%;
+
+  height:
+    auto;
+
+
+  object-fit:
+    contain;
+
+
+  user-select:
+    none;
+
+
+  pointer-events:
+    none;
+
+
+  -webkit-user-drag:
+    none;
+
+
+
+  /* GPU render */
+
+  transform:
+    translateZ(0);
+
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
+
+}
+
+
+
+/* =========================================================
+   WELCOME COPY
+   ========================================================= */
+
+.intro-copy {
+
+  position:
+    relative;
+
+
+  margin-top:
+    -2px;
+
+
+  text-align:
+    center;
+
+
+
+  /* =====================================================
+     INITIAL
+     ===================================================== */
+
+  opacity:
+    0;
+
+
+  transform:
+    translate3d(
+      0,
+      12px,
+      0
+    );
+
+
+
+  /* =====================================================
+     SMOOTH TEXT ENTRANCE
+     ===================================================== */
+
+  transition:
+
+    opacity
+    .95s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    )
+    .22s,
+
+    transform
+    .95s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    )
+    .22s;
+
+
+  will-change:
+    opacity,
+    transform;
+
+}
+
+
+
+/* =========================================================
+   COPY VISIBLE
+   ========================================================= */
+
+.intro-content.is-visible
+.intro-copy {
+
+  opacity:
+    1;
+
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+}
+
+
+
+/* =========================================================
+   WELCOME TITLE
+   ========================================================= */
+
+.intro-title {
+
+  margin:
+    0;
+
+
+  padding:
+    0;
+
+
+  color:
+    var(--intro-green);
+
+
+
+  /* =====================================================
+     SAME VISUAL STYLE AS PORTFOLIO
+     ===================================================== */
+
+  font:
+    900
+    clamp(
+      52px,
+      6.6vw,
+      104px
+    )
+    / .90
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+
+  letter-spacing:
+    .045em;
+
+
+  text-transform:
+    uppercase;
+
+
+  text-shadow:
+    none;
+
+}
+
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.intro-subtitle {
+
+  margin:
+    14px
+    0
+    0;
+
+
+  color:
+    var(--intro-orange);
+
+
+  font-family:
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+
+  font-size:
+    clamp(
+      15px,
+      1.55vw,
+      24px
+    );
+
+
+  line-height:
+    1;
+
+
+  font-weight:
+    900;
+
+
+  letter-spacing:
+    .30em;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+/* =========================================================
+   ORANGE DECORATIVE LINE
+   ========================================================= */
+
+.intro-copy::after {
+
+  content:
+    "";
+
+
+  display:
+    block;
+
+
+  width:
+    54px;
+
+  height:
+    4px;
+
+
+  margin:
+    17px
+    auto
+    0;
+
+
+  border-radius:
+    999px;
+
+
+  background:
+    var(--intro-orange);
+
+}
+
+
+
+/* =========================================================
+   CONTENT LEAVING
+   ========================================================= */
+
+.intro-content.is-leaving {
+
+  opacity:
+    0;
+
+
+  transform:
+    translate3d(
+      0,
+      -14px,
+      0
+    )
+    scale(.975);
+
+
+  transition:
+
+    opacity
+    .72s
+    cubic-bezier(
+      .4,
+      0,
+      .2,
+      1
+    ),
+
+    transform
+    .72s
+    cubic-bezier(
+      .4,
+      0,
+      .2,
+      1
+    );
+
+}
+
+
+
+/* =========================================================
+   COPY LEAVING
+   ========================================================= */
+
+.intro-content.is-leaving
+.intro-copy {
+
+  opacity:
+    0;
+
+
+  transform:
+    translate3d(
+      0,
+      -8px,
+      0
+    );
+
+
+  transition:
+
+    opacity
+    .52s
+    ease,
+
+    transform
+    .52s
+    ease;
+
+}
+
+
+
+/* =========================================================
+   SCREEN CLOSING
+   ========================================================= */
+
+.intro-screen.is-closing {
+
+  opacity:
+    0;
+
+
+  visibility:
+    hidden;
+
+
+  pointer-events:
+    none;
+
+
+  transition:
+
+    opacity
+    .55s
+    cubic-bezier(
+      .4,
+      0,
+      .2,
+      1
+    ),
+
+    visibility
+    .55s;
+
+}
+
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media
+(
+  min-width: 768px
+)
+and
+(
+  max-width: 1199px
+) {
+
+  .intro-ghost-wrap {
+
+    width:
+      clamp(
+        220px,
+        38vw,
+        360px
+      );
+
+  }
+
+
+  .intro-title {
+
+    font-size:
+      clamp(
+        48px,
+        8vw,
+        82px
+      );
+
+  }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media
+(
+  max-width: 767px
+) {
+
+  .intro-content {
+
+    gap:
+      4px;
+
+  }
+
+
+  .intro-ghost-wrap {
+
+    width:
+      clamp(
+        180px,
+        56vw,
+        285px
+      );
+
+  }
+
+
+  .intro-title {
+
+    font-size:
+      clamp(
+        42px,
+        14vw,
+        68px
+      );
+
+
+    letter-spacing:
+      .025em;
+
+  }
+
+
+  .intro-subtitle {
+
+    margin-top:
+      10px;
+
+
+    font-size:
+      clamp(
+        11px,
+        3.6vw,
+        16px
+      );
+
+
+    letter-spacing:
+      .22em;
+
+  }
+
+
+  .intro-copy::after {
+
+    width:
+      42px;
+
+
+    height:
+      3px;
+
+
+    margin-top:
+      13px;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media
+(
+  prefers-reduced-motion: reduce
+) {
+
+  .intro-content,
+  .intro-copy,
+  .intro-screen {
+
+    transition-duration:
+      .01ms !important;
+
+  }
+
+}

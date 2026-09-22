@@ -1,0 +1,775 @@
+/* =========================================================
+   DESKTOP — HOME
+   Breakpoint: 1200px+
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+  min-height:
+    calc(
+      100svh -
+      var(--nav-h)
+    );
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  padding-top:
+    20px;
+
+}
+
+
+/* =========================================================
+   HERO MAIN
+   ========================================================= */
+
+.hero-main {
+
+  flex:
+    1;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    0;
+
+  padding:
+    0
+    8px;
+
+  overflow:
+    hidden;
+
+  position:
+    relative;
+
+}
+
+
+/* =========================================================
+   PORTFOLIO TITLE
+   ========================================================= */
+
+.portfolio-title {
+
+  width:
+    100%;
+
+  margin:
+    0;
+
+  text-align:
+    center;
+
+  white-space:
+    nowrap;
+
+
+  /* ======================================
+     TITLE COLOR
+     ====================================== */
+
+  color:
+    #e66a3d;
+
+
+  /* ======================================
+     FONT
+     ====================================== */
+
+  font-family:
+
+    "Road Rage",
+
+    Impact,
+
+    sans-serif;
+
+
+  /* ======================================
+     TITLE SIZE
+     TIDAK DIUBAH
+     ====================================== */
+
+  font-size:
+
+    clamp(
+      160px,
+      27vw,
+      540px
+    );
+
+
+  font-weight:
+    400;
+
+  line-height:
+    .76;
+
+  letter-spacing:
+    0;
+
+  text-transform:
+    uppercase;
+
+
+  /* ======================================
+     GREEN OUTLINE
+     ====================================== */
+
+  -webkit-text-stroke:
+
+    2px
+
+    var(--green);
+
+
+  /* ======================================
+     GREEN SHADOW
+     ====================================== */
+
+  text-shadow:
+
+    5px
+
+    5px
+
+    0
+
+    var(--green);
+
+
+  /* ======================================
+     OPTICAL CENTER
+     TIDAK DIUBAH
+     ====================================== */
+
+  position:
+    relative;
+
+  top:
+    -25px;
+
+}
+
+
+/* =========================================================
+   SCROLL TEXT
+   ========================================================= */
+
+.hero-main::before {
+
+  content:
+    "SCROLL";
+
+
+  position:
+    absolute;
+
+
+  left:
+    50%;
+
+
+  bottom:
+    58px;
+
+
+  z-index:
+    5;
+
+
+  color:
+    var(--orange);
+
+
+  font-family:
+
+    "Manrope",
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
+
+
+  font-size:
+    10px;
+
+
+  line-height:
+    1;
+
+
+  font-weight:
+    600;
+
+
+  letter-spacing:
+    2.8px;
+
+
+  text-transform:
+    uppercase;
+
+
+  white-space:
+    nowrap;
+
+
+  pointer-events:
+    none;
+
+
+  opacity:
+    0;
+
+
+  transform:
+
+    translateX(-50%)
+
+    translateY(6px);
+
+
+  /* ======================================
+     TIMING
+
+     1.5s muncul
+     1.5s menghilang
+     4s hidden
+
+     TOTAL = 7s
+     ====================================== */
+
+  animation:
+
+    scrollTextHint
+
+    7s
+
+    linear
+
+    infinite;
+
+}
+
+
+/* =========================================================
+   DOUBLE ORANGE CHEVRON
+   ========================================================= */
+
+.hero-main::after {
+
+  content:
+    "";
+
+
+  position:
+    absolute;
+
+
+  left:
+    50%;
+
+
+  bottom:
+    33px;
+
+
+  /* ======================================
+     SIZE
+     ====================================== */
+
+  width:
+    18px;
+
+
+  height:
+    18px;
+
+
+  z-index:
+    5;
+
+
+  pointer-events:
+    none;
+
+
+  opacity:
+    0;
+
+
+  /* ======================================
+     CHEVRON ATAS
+
+     Tetap tipis.
+     ====================================== */
+
+  border-right:
+
+    2.5px
+
+    solid
+
+    var(--orange);
+
+
+  border-bottom:
+
+    2.5px
+
+    solid
+
+    var(--orange);
+
+
+  border-radius:
+    0;
+
+
+  /* ======================================
+     CHEVRON BAWAH
+
+     Offset diperbesar agar ada jarak
+     yang jelas dari chevron atas.
+
+     8px = lebih renggang.
+     ====================================== */
+
+  filter:
+
+    drop-shadow(
+      8px
+      8px
+      0
+      var(--orange)
+    );
+
+
+  transform:
+
+    translateX(-50%)
+
+    translateY(5px)
+
+    rotate(45deg);
+
+
+  /* ======================================
+     TIMING SAMA DENGAN TEXT
+     ====================================== */
+
+  animation:
+
+    scrollArrowHint
+
+    7s
+
+    linear
+
+    infinite;
+
+}
+
+
+/* =========================================================
+   SCROLL TEXT ANIMATION
+
+   0.0s - 1.5s  muncul perlahan
+   1.5s - 3.0s  menghilang perlahan
+   3.0s - 7.0s  hilang 4 detik
+   ========================================================= */
+
+@keyframes scrollTextHint {
+
+
+  /* ======================================
+     START
+     ====================================== */
+
+  0% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(6px);
+
+  }
+
+
+  /* ======================================
+     1.5 DETIK
+     FULL VISIBLE
+     ====================================== */
+
+  21.43% {
+
+    opacity:
+      1;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(0);
+
+  }
+
+
+  /* ======================================
+     3 DETIK
+     FULL HIDDEN
+     ====================================== */
+
+  42.86% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(-4px);
+
+  }
+
+
+  /* ======================================
+     HIDDEN 4 DETIK
+     ====================================== */
+
+  100% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(-4px);
+
+  }
+
+}
+
+
+/* =========================================================
+   DOUBLE ARROW ANIMATION
+   ========================================================= */
+
+@keyframes scrollArrowHint {
+
+
+  /* ======================================
+     START
+     ====================================== */
+
+  0% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(5px)
+
+      rotate(45deg);
+
+  }
+
+
+  /* ======================================
+     1.5 DETIK
+     FULL VISIBLE
+     ====================================== */
+
+  21.43% {
+
+    opacity:
+      1;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(0)
+
+      rotate(45deg);
+
+  }
+
+
+  /* ======================================
+     3 DETIK
+     FULL HIDDEN
+     ====================================== */
+
+  42.86% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(6px)
+
+      rotate(45deg);
+
+  }
+
+
+  /* ======================================
+     HIDDEN 4 DETIK
+     ====================================== */
+
+  100% {
+
+    opacity:
+      0;
+
+
+    transform:
+
+      translateX(-50%)
+
+      translateY(6px)
+
+      rotate(45deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   TICKER
+   ========================================================= */
+
+.ticker {
+
+  flex:
+    0
+    0
+    auto;
+
+  width:
+    100%;
+
+  overflow:
+    hidden;
+
+
+  /* ======================================
+     ORANGE TOP BORDER
+     ====================================== */
+
+  border-top:
+
+    var(--border)
+
+    solid
+
+    var(--orange);
+
+
+  /* ======================================
+     ORANGE BOTTOM BORDER
+     ====================================== */
+
+  border-bottom:
+
+    var(--border)
+
+    solid
+
+    var(--orange);
+
+
+  /* ======================================
+     GREEN BACKGROUND
+     ====================================== */
+
+  background:
+
+    var(--green);
+
+}
+
+
+/* =========================================================
+   TICKER TRACK
+   ========================================================= */
+
+.ticker-track {
+
+  width:
+    max-content;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    40px;
+
+
+  /* ======================================
+     TICKER HEIGHT
+     TIDAK DIUBAH
+     ====================================== */
+
+  padding:
+
+    22px
+
+    0;
+
+
+  /* ======================================
+     TEXT COLOR
+     ====================================== */
+
+  color:
+    var(--cream);
+
+
+  /* ======================================
+     MARQUEE
+     ====================================== */
+
+  animation:
+
+    marquee
+
+    22s
+
+    linear
+
+    infinite;
+
+
+  /* ======================================
+     FONT
+     TIDAK DIUBAH
+     ====================================== */
+
+  font:
+
+    900
+
+    17px / 1
+
+    Impact,
+
+    "Arial Black",
+
+    sans-serif;
+
+
+  letter-spacing:
+    2px;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+
+}
+
+
+/* =========================================================
+   OPTIONAL ACCENT
+   ========================================================= */
+
+.ticker-track .accent {
+
+  color:
+    var(--orange);
+
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+@keyframes marquee {
+
+  from {
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  to {
+
+    transform:
+      translateX(-50%);
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media
+(
+  prefers-reduced-motion: reduce
+) {
+
+  .hero-main::before,
+  .hero-main::after {
+
+    animation:
+      none;
+
+    opacity:
+      .85;
+
+  }
+
+}

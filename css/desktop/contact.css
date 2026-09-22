@@ -1,0 +1,4662 @@
+/* =========================================================
+   CONTACT — DESKTOP
+   CONTINUOUS MARQUEE + FINAL VERTICAL POSITION
+   ========================================================= */
+
+
+/* =========================================================
+   01. VARIABLES
+   ========================================================= */
+
+#contact {
+  --green: #004636;
+  --orange: #ff602f;
+
+  --paper: #f5ecd8;
+  --field: #f8f2e3;
+  --profile: #ead7bd;
+
+  --sage: #91aa9d;
+  --sage-light: #bcc9c0;
+
+  --shadow: #55745e;
+
+  --message-gutter: 18px;
+  --visual-edge-offset: 10px;
+
+  /*
+     Marquee dinaikkan jauh supaya
+     center-nya berada di area center navbar.
+  */
+  --marquee-lift: -56px;
+
+  /*
+     Isi Contact hanya naik sedikit.
+  */
+  --contact-lift: -12px;
+
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   02. SECTION
+   ========================================================= */
+
+#contact.slide {
+  position: relative;
+
+  display: flex !important;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  min-height: 0 !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   03. MARQUEE
+
+   IMPORTANT:
+   - tetap full width
+   - berada di belakang navbar
+   - naik ke center navbar
+   ========================================================= */
+
+#contact .contact-end-marquee {
+  position: relative;
+
+  z-index: 500;
+
+  width: 100vw;
+
+  height: 38px;
+
+  flex:
+    0
+    0
+    38px;
+
+  display: flex;
+
+  align-items: center;
+
+  margin:
+    0
+    0
+    6px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    var(--green);
+
+  border-top:
+    2px solid
+    var(--orange);
+
+  border-bottom:
+    2px solid
+    var(--orange);
+
+  box-sizing: border-box;
+
+  transform:
+    translateY(
+      var(--marquee-lift)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   04. MARQUEE TRACK
+
+   Dua sequence IDENTIK.
+
+   Track bergeser tepat satu sequence.
+   Saat selesai, visual kembali ke posisi yang identik.
+   Tidak ada blank / habis.
+   ========================================================= */
+
+#contact .contact-end-track {
+  display: flex;
+
+  align-items: center;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  flex:
+    0
+    0
+    auto;
+
+  animation:
+    contactMarqueeMove
+    34s
+    linear
+    infinite;
+
+  will-change:
+    transform;
+}
+
+
+/* =========================================================
+   05. MARQUEE SEQUENCE
+   ========================================================= */
+
+#contact .contact-end-sequence {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+
+  flex:
+    0
+    0
+    auto;
+
+  min-width:
+    max-content;
+
+  padding-right:
+    26px;
+
+  color:
+    var(--paper);
+
+  font-family:
+    "Arial Narrow",
+    "Roboto Condensed",
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    13px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    1.2px;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+}
+
+
+#contact .contact-end-sequence span,
+#contact .contact-end-sequence b {
+  display: block;
+
+  flex:
+    0
+    0
+    auto;
+
+  white-space:
+    nowrap;
+}
+
+
+#contact .contact-end-sequence b {
+  font-size:
+    11px;
+
+  line-height:
+    1;
+}
+
+
+/* =========================================================
+   06. MARQUEE ANIMATION
+
+   Karena sequence 1 dan 2 sama persis,
+   -50% menghasilkan infinite seamless loop.
+   ========================================================= */
+
+@keyframes contactMarqueeMove {
+
+  from {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  to {
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
+  }
+
+}
+
+
+/* =========================================================
+   07. CONTACT SHELL
+
+   Gambar 2:
+   isi Contact naik sedikit lagi.
+   ========================================================= */
+
+#contact .contact-shell {
+  position: relative;
+
+  z-index: 1;
+
+  width:
+    min(
+      1560px,
+      calc(100% - 56px)
+    );
+
+  margin:
+    0
+    auto;
+
+  padding:
+    14px
+    0
+    18px;
+
+  box-sizing:
+    border-box;
+
+  transform:
+    translateY(
+      var(--contact-lift)
+    );
+}
+
+
+/* =========================================================
+   08. MAIN LAYOUT
+   ========================================================= */
+
+#contact .contact-layout {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, .78fr)
+    minmax(0, 1.32fr);
+
+  gap:
+    34px;
+
+  align-items:
+    stretch;
+
+  min-height:
+    650px;
+}
+
+
+#contact .contact-left,
+#contact .contact-right {
+  min-width: 0;
+
+  min-height:
+    650px;
+}
+
+
+/* =========================================================
+   09. LEFT
+   ========================================================= */
+
+#contact .contact-left {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    flex-start;
+}
+
+
+/* =========================================================
+   10. CONTACT LABEL
+   ========================================================= */
+
+#contact .contact-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  align-self:
+    flex-start;
+
+  min-width:
+    170px;
+
+  height:
+    44px;
+
+  margin:
+    0
+    0
+    18px;
+
+  padding:
+    0
+    30px;
+
+  border:
+    2px solid
+    var(--green);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--orange);
+
+  color:
+    var(--green);
+
+  box-sizing:
+    border-box;
+
+  font-size:
+    12px;
+
+  line-height:
+    1;
+
+  font-weight:
+    850;
+
+  letter-spacing:
+    3px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   11. TITLE
+   ========================================================= */
+
+#contact .contact-title {
+  margin: 0;
+
+  color:
+    var(--green);
+
+  font-family:
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(
+      76px,
+      5vw,
+      102px
+    );
+
+  line-height:
+    .88;
+
+  font-weight:
+    850;
+
+  letter-spacing:
+    -3px;
+
+  text-transform:
+    uppercase;
+}
+
+
+#contact .contact-title span {
+  display: block;
+
+  color:
+    #dc6d40;
+}
+
+
+/* =========================================================
+   12. INTRO
+   ========================================================= */
+
+#contact .contact-intro {
+  max-width:
+    650px;
+
+  margin:
+    24px
+    0
+    18px;
+
+  color:
+    var(--green);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.55;
+
+  font-weight:
+    500;
+}
+
+
+/* =========================================================
+   13. SOCIAL GRID
+   ========================================================= */
+
+#contact .contact-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    18px;
+
+  width:
+    100%;
+
+  margin-top:
+    4px;
+}
+
+
+/* =========================================================
+   14. SOCIAL CARD
+   ========================================================= */
+
+#contact .contact-item {
+  position: relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  height:
+    108px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding:
+    14px
+    18px;
+
+  border:
+    3px solid
+    var(--green);
+
+  background:
+    var(--paper);
+
+  color:
+    var(--green);
+
+  box-shadow:
+    10px
+    10px
+    0
+    var(--shadow);
+
+  box-sizing:
+    border-box;
+
+  text-decoration:
+    none;
+
+  overflow:
+    hidden;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+
+#contact .contact-item::before {
+  content: "";
+
+  position: absolute;
+
+  inset:
+    10px;
+
+  border:
+    2px solid
+    var(--green);
+
+  pointer-events:
+    none;
+}
+
+
+#contact .contact-item:hover {
+  transform:
+    translate(-2px, -2px);
+
+  box-shadow:
+    13px
+    13px
+    0
+    var(--shadow);
+}
+
+
+/* =========================================================
+   15. SOCIAL MAIN
+   ========================================================= */
+
+#contact .contact-item-main {
+  position: relative;
+
+  z-index: 1;
+
+  width:
+    calc(100% - 26px);
+
+  max-width:
+    calc(100% - 26px);
+
+  min-width:
+    0;
+
+  margin:
+    0
+    auto;
+
+  display: grid;
+
+  grid-template-columns:
+    68px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  column-gap:
+    16px;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   16. SOCIAL LOGO
+   ========================================================= */
+
+#contact .contact-item-logo {
+  width:
+    68px;
+
+  height:
+    62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    0
+    13px
+    0
+    3px;
+
+  border-right:
+    2px solid
+    var(--green);
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .contact-item-logo img {
+  display: block;
+
+  width:
+    46px;
+
+  height:
+    46px;
+
+  object-fit:
+    contain;
+
+  margin:
+    0
+    auto;
+}
+
+
+/* =========================================================
+   17. SOCIAL TEXT
+   ========================================================= */
+
+#contact .contact-item-text {
+  min-width:
+    0;
+
+  width:
+    100%;
+}
+
+
+#contact .contact-item-text h3 {
+  margin:
+    0
+    0
+    7px;
+
+  color:
+    var(--green);
+
+  font-family:
+    "Arial Narrow",
+    "Roboto Condensed",
+    "Manrope",
+    sans-serif;
+
+  font-size:
+    clamp(
+      14px,
+      .85vw,
+      17px
+    );
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+
+  overflow:
+    visible;
+
+  text-overflow:
+    clip;
+}
+
+
+#contact .contact-item-text p {
+  width:
+    100%;
+
+  margin: 0;
+
+  color:
+    var(--green);
+
+  font-size:
+    clamp(
+      8px,
+      .55vw,
+      10px
+    );
+
+  line-height:
+    1.25;
+
+  font-weight:
+    700;
+
+  white-space:
+    nowrap;
+
+  overflow:
+    hidden;
+
+  text-overflow:
+    ellipsis;
+}
+
+
+/* =========================================================
+   18. RIGHT
+   ========================================================= */
+
+#contact .contact-right {
+  display: flex;
+
+  min-width:
+    0;
+
+  min-height:
+    650px;
+}
+
+
+/* =========================================================
+   19. PANEL
+   ========================================================= */
+
+#contact .contact-panel {
+  position: relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    650px;
+
+  height:
+    100%;
+
+  padding:
+    var(--message-gutter);
+
+  border:
+    3px solid
+    var(--green);
+
+  background:
+    var(--paper);
+
+  box-shadow:
+    10px
+    10px
+    0
+    var(--shadow);
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    visible;
+}
+
+
+#contact .contact-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset:
+    var(--visual-edge-offset);
+
+  border:
+    2px solid
+    var(--green);
+
+  pointer-events:
+    none;
+
+  z-index:
+    0;
+}
+
+
+/* =========================================================
+   20. PANEL HEADER
+   ========================================================= */
+
+#contact .contact-panel-head {
+  position: relative;
+
+  z-index:
+    1;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  gap:
+    15px;
+
+  min-height:
+    72px;
+
+  padding:
+    3px
+    3px
+    13px;
+
+  margin-bottom:
+    13px;
+
+  border-bottom:
+    2px solid
+    var(--sage-light);
+}
+
+
+/* =========================================================
+   21. HEADER AVATAR
+   ========================================================= */
+
+#contact .contact-avatar {
+  width:
+    54px;
+
+  height:
+    54px;
+
+  flex:
+    0
+    0
+    54px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--green);
+
+  color:
+    #ffffff;
+
+  font-size:
+    14px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+}
+
+
+#contact .contact-panel-head-text {
+  min-width:
+    0;
+}
+
+
+#contact .contact-panel-head-text h3 {
+  margin:
+    0
+    0
+    5px;
+
+  color:
+    var(--green);
+
+  font-size:
+    22px;
+
+  line-height:
+    1.1;
+
+  font-weight:
+    850;
+}
+
+
+#contact .contact-panel-head-text p {
+  margin: 0;
+
+  color:
+    #397064;
+
+  font-size:
+    10.5px;
+
+  line-height:
+    1.4;
+
+  font-weight:
+    650;
+}
+
+
+/* =========================================================
+   22. MESSAGE LAYOUT
+   ========================================================= */
+
+#contact .message-layout {
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap:
+    0 !important;
+
+  column-gap:
+    0 !important;
+
+  row-gap:
+    0 !important;
+
+  width:
+    100%;
+
+  min-height:
+    520px;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  box-sizing:
+    border-box;
+
+  align-items:
+    stretch;
+}
+
+
+/* =========================================================
+   23. COMPOSE
+   ========================================================= */
+
+#contact .message-compose {
+  min-width:
+    0;
+
+  min-height:
+    520px;
+
+  margin:
+    0 !important;
+
+  padding:
+    0
+    var(--message-gutter)
+    0
+    var(--visual-edge-offset) !important;
+
+  border-right:
+    2px solid
+    var(--sage-light);
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   24. FORM
+   ========================================================= */
+
+#contact .contact-form {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    520px;
+
+  height:
+    100%;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    11px;
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   25. FORM GROUP
+   ========================================================= */
+
+#contact .form-group {
+  width:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   26. FORM LABEL
+   ========================================================= */
+
+#contact .form-group label {
+  display:
+    block;
+
+  margin:
+    0
+    0
+    6px;
+
+  color:
+    var(--green);
+
+  font-size:
+    12px;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    800;
+}
+
+
+#contact .form-group label span {
+  color:
+    var(--orange);
+}
+
+
+/* =========================================================
+   27. FORM FIELDS
+   ========================================================= */
+
+#contact .form-group input,
+#contact .form-group textarea {
+  display:
+    block;
+
+  width:
+    100%;
+
+  max-width:
+    none;
+
+  margin:
+    0;
+
+  border:
+    2px solid
+    var(--sage);
+
+  border-radius:
+    0;
+
+  background:
+    var(--field);
+
+  color:
+    var(--green);
+
+  box-shadow:
+    none;
+
+  outline:
+    none;
+
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+
+  font-size:
+    13px;
+
+  line-height:
+    1.4;
+
+  font-weight:
+    650;
+}
+
+
+#contact .form-group input {
+  height:
+    49px;
+
+  padding:
+    0
+    16px;
+}
+
+
+#contact .form-group textarea {
+  height:
+    103px;
+
+  min-height:
+    103px;
+
+  max-height:
+    103px;
+
+  padding:
+    15px
+    16px;
+
+  resize:
+    none;
+}
+
+
+#contact .form-group input::placeholder,
+#contact .form-group textarea::placeholder {
+  color:
+    #809d91;
+
+  opacity:
+    1;
+}
+
+
+#contact .form-group input:focus,
+#contact .form-group textarea:focus {
+  border-color:
+    var(--orange);
+
+  background:
+    #fff9eb;
+}
+
+
+/* =========================================================
+   28. PROFILE BUILDER
+   ========================================================= */
+
+#contact .profile-builder {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    145px;
+
+  margin:
+    0;
+
+  padding:
+    14px
+    16px;
+
+  border:
+    2px solid
+    var(--sage);
+
+  background:
+    var(--profile);
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   29. PROFILE HEAD
+   ========================================================= */
+
+#contact .profile-builder-head {
+  display:
+    grid;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr);
+
+  column-gap:
+    14px;
+
+  align-items:
+    center;
+
+  margin:
+    0
+    0
+    11px;
+}
+
+
+#contact .profile-preview-avatar {
+  width:
+    48px;
+
+  height:
+    48px;
+
+  flex:
+    0
+    0
+    48px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--green);
+
+  color:
+    #ffffff;
+
+  font-size:
+    12px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+}
+
+
+#contact .profile-builder-copy {
+  flex:
+    1
+    1
+    auto;
+
+  min-width:
+    0;
+}
+
+
+#contact .profile-builder-copy strong {
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--green);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    850;
+}
+
+
+#contact .profile-builder-copy p {
+  margin:
+    0;
+
+  color:
+    #397064;
+
+  font-size:
+    9px;
+
+  line-height:
+    1.4;
+
+  font-weight:
+    650;
+}
+
+
+/* =========================================================
+   30. PROFILE CONTROLS
+   ========================================================= */
+
+#contact .profile-controls {
+  display:
+    grid;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr);
+
+  column-gap:
+    14px;
+
+  row-gap:
+    0;
+
+  width:
+    100%;
+
+  align-items:
+    end;
+}
+
+
+/* =========================================================
+   31. INITIALS
+   ========================================================= */
+
+#contact .initials-control {
+  width:
+    48px;
+
+  min-width:
+    48px;
+
+  align-self:
+    end;
+
+  transform:
+    translateY(-3px);
+}
+
+
+#contact .initials-control label {
+  display:
+    none !important;
+}
+
+
+#contact #contactInitials {
+  display:
+    block;
+
+  width:
+    48px;
+
+  height:
+    34px;
+
+  margin:
+    0;
+
+  padding:
+    0
+    4px;
+
+  border:
+    2px solid
+    var(--sage);
+
+  background:
+    var(--field);
+
+  color:
+    var(--green);
+
+  outline:
+    none;
+
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  line-height:
+    1;
+
+  font-weight:
+    850;
+
+  text-align:
+    center;
+
+  text-transform:
+    uppercase;
+}
+
+
+#contact #contactInitials:focus {
+  border-color:
+    var(--orange);
+}
+
+
+/* =========================================================
+   32. AVATAR CONTROL
+   ========================================================= */
+
+#contact .avatar-control {
+  position:
+    relative;
+
+  min-width:
+    0;
+}
+
+
+#contact .avatar-control > label {
+  display:
+    block;
+
+  margin:
+    0
+    0
+    6px;
+
+  color:
+    var(--green);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    850;
+}
+
+
+/* =========================================================
+   33. AVATAR COLORS
+   ========================================================= */
+
+#contact .avatar-colors {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-start;
+
+  gap:
+    8px;
+
+  width:
+    100%;
+
+  min-height:
+    34px;
+
+  overflow:
+    visible;
+}
+
+
+/* =========================================================
+   34. SWATCH
+   ========================================================= */
+
+#contact .avatar-color {
+  appearance:
+    none;
+
+  width:
+    23px;
+
+  height:
+    23px;
+
+  flex:
+    0
+    0
+    23px;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--swatch);
+
+  cursor:
+    pointer;
+
+  box-sizing:
+    border-box;
+
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease;
+}
+
+
+#contact .avatar-color:hover {
+  transform:
+    scale(1.1);
+}
+
+
+#contact .avatar-color.is-active {
+  box-shadow:
+    0
+    0
+    0
+    2px
+    var(--profile),
+
+    0
+    0
+    0
+    4px
+    var(--green);
+}
+
+
+/* =========================================================
+   35. CUSTOM COLOR
+
+   FIX:
+   - white inner circle benar-benar center
+   - simbol + dibuat dengan CSS, bukan glyph font
+   - hasil + presisi di tengah secara horizontal & vertical
+   ========================================================= */
+
+#contact .custom-color-wrap {
+  position:
+    relative;
+
+  width:
+    28px;
+
+  height:
+    28px;
+
+  flex:
+    0
+    0
+    28px;
+}
+
+
+#contact .custom-color-button {
+  position:
+    relative;
+
+  width:
+    28px;
+
+  height:
+    28px;
+
+  display:
+    block;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  border-radius:
+    50%;
+
+  background:
+    conic-gradient(
+      #ff1744,
+      #ff9100,
+      #ffea00,
+      #00e676,
+      #00e5ff,
+      #2979ff,
+      #651fff,
+      #d500f9,
+      #ff1744
+    );
+
+  cursor:
+    pointer;
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    hidden;
+}
+
+
+/* white circle di tengah rainbow */
+#contact .custom-color-button::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    20px;
+
+  height:
+    20px;
+
+  border-radius:
+    50%;
+
+  background:
+    #ffffff;
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events:
+    none;
+}
+
+
+/*
+  Wrapper plus memenuhi seluruh button.
+  Text + bawaan disembunyikan lalu digambar ulang
+  supaya tidak terpengaruh baseline font.
+*/
+#contact .custom-color-plus {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  z-index:
+    2;
+
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  color:
+    transparent;
+
+  font-size:
+    0;
+
+  line-height:
+    0;
+
+  transform:
+    none;
+
+  pointer-events:
+    none;
+}
+
+
+/* horizontal bar */
+#contact .custom-color-plus::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    11px;
+
+  height:
+    3px;
+
+  border-radius:
+    2px;
+
+  background:
+    #1c1c1c;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+/* vertical bar */
+#contact .custom-color-plus::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    3px;
+
+  height:
+    11px;
+
+  border-radius:
+    2px;
+
+  background:
+    #1c1c1c;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   36. CUSTOM COLOR POPOVER
+   ========================================================= */
+
+#contact .custom-color-popover {
+  position:
+    absolute;
+
+  right:
+    0;
+
+  bottom:
+    calc(100% + 13px);
+
+  z-index:
+    9999;
+
+  width:
+    315px;
+
+  padding:
+    18px;
+
+  border:
+    3px solid
+    var(--green);
+
+  background:
+    #fffdf8;
+
+  box-shadow:
+    10px
+    10px
+    0
+    var(--shadow);
+
+  box-sizing:
+    border-box;
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  pointer-events:
+    none;
+
+  transform:
+    translateY(8px);
+
+  transition:
+    opacity .15s ease,
+    visibility .15s ease,
+    transform .15s ease;
+}
+
+
+#contact .custom-color-popover.is-open {
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+  pointer-events:
+    auto;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   37. PICKER HEAD
+   ========================================================= */
+
+#contact .color-picker-head {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  margin-bottom:
+    13px;
+
+  padding-bottom:
+    10px;
+
+  border-bottom:
+    3px solid
+    #9a42ff;
+}
+
+
+#contact .color-picker-head strong {
+  color:
+    var(--green);
+
+  font-size:
+    15px;
+
+  line-height:
+    1;
+
+  font-weight:
+    850;
+}
+
+
+/* =========================================================
+   38. SV PICKER
+   ========================================================= */
+
+#contact .sv-picker {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    160px;
+
+  border-radius:
+    12px;
+
+  background:
+    hsl(160 100% 50%);
+
+  overflow:
+    hidden;
+
+  cursor:
+    crosshair;
+
+  touch-action:
+    none;
+
+  outline:
+    none;
+}
+
+
+#contact .sv-picker::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      to right,
+      #ffffff,
+      rgba(255,255,255,0)
+    );
+}
+
+
+#contact .sv-picker::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0),
+      #000000
+    );
+}
+
+
+/* =========================================================
+   39. SV CURSOR
+   ========================================================= */
+
+#contact .sv-picker-cursor {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    18px;
+
+  height:
+    18px;
+
+  border:
+    3px solid
+    #ffffff;
+
+  border-radius:
+    50%;
+
+  box-shadow:
+    0
+    0
+    0
+    1px
+    rgba(0,0,0,.35);
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   40. HUE
+   ========================================================= */
+
+#contact .hue-picker {
+  margin-top:
+    13px;
+}
+
+
+#contact #hueSlider {
+  appearance:
+    none;
+
+  -webkit-appearance:
+    none;
+
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    18px;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  border-radius:
+    999px;
+
+  outline:
+    none;
+
+  cursor:
+    pointer;
+
+  background:
+    linear-gradient(
+      to right,
+      #ff0000 0%,
+      #ffff00 16.66%,
+      #00ff00 33.33%,
+      #00ffff 50%,
+      #0000ff 66.66%,
+      #ff00ff 83.33%,
+      #ff0000 100%
+    );
+}
+
+
+#contact #hueSlider::-webkit-slider-thumb {
+  appearance:
+    none;
+
+  -webkit-appearance:
+    none;
+
+  width:
+    21px;
+
+  height:
+    21px;
+
+  border:
+    3px solid
+    #ffffff;
+
+  border-radius:
+    50%;
+
+  background:
+    transparent;
+
+  box-shadow:
+    0
+    0
+    0
+    2px
+    #71818b;
+
+  cursor:
+    grab;
+}
+
+
+#contact #hueSlider::-moz-range-thumb {
+  width:
+    17px;
+
+  height:
+    17px;
+
+  border:
+    3px solid
+    #ffffff;
+
+  border-radius:
+    50%;
+
+  background:
+    transparent;
+
+  box-shadow:
+    0
+    0
+    0
+    2px
+    #71818b;
+
+  cursor:
+    grab;
+}
+
+
+/* =========================================================
+   41. HEX ROW
+   ========================================================= */
+
+#contact .hex-picker-row {
+  display:
+    grid;
+
+  grid-template-columns:
+    35px
+    minmax(0, 1fr);
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  margin-top:
+    14px;
+}
+
+
+#contact .hex-color-preview {
+  width:
+    35px;
+
+  height:
+    35px;
+
+  border:
+    2px solid
+    var(--sage);
+
+  border-radius:
+    50%;
+
+  background:
+    var(--green);
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .hex-input-wrap {
+  height:
+    39px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  border:
+    2px solid
+    var(--sage);
+
+  background:
+    var(--field);
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .hex-input-wrap span {
+  padding-left:
+    10px;
+
+  color:
+    var(--green);
+
+  font-family:
+    monospace;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+
+#contact #customHexInput {
+  flex:
+    1
+    1
+    auto;
+
+  min-width:
+    0;
+
+  height:
+    100%;
+
+  padding:
+    0
+    10px
+    0
+    2px;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--green);
+
+  outline:
+    none;
+
+  font-family:
+    monospace;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   42. SEND
+   ========================================================= */
+
+#contact .contact-submit {
+  width:
+    100%;
+
+  height:
+    52px;
+
+  flex:
+    0
+    0
+    52px;
+
+  margin:
+    8px
+    0
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    0;
+
+  padding:
+    0
+    24px;
+
+  border:
+    2px solid
+    var(--green);
+
+  border-radius:
+    0;
+
+  background:
+    var(--green);
+
+  color:
+    var(--paper);
+
+  box-shadow:
+    none;
+
+  box-sizing:
+    border-box;
+
+  font-family:
+    inherit;
+
+  font-size:
+    14px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .2px;
+
+  text-align:
+    center;
+
+  cursor:
+    pointer;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    color .18s ease;
+}
+
+
+#contact .contact-submit > * {
+  margin:
+    0;
+
+  padding:
+    0;
+
+  transform:
+    none;
+}
+
+
+#contact .contact-submit:hover {
+  background:
+    var(--orange);
+
+  border-color:
+    var(--orange);
+
+  color:
+    var(--paper);
+}
+
+
+#contact .contact-submit:active {
+  background:
+    var(--green);
+
+  border-color:
+    var(--green);
+}
+
+
+#contact .contact-submit:focus-visible {
+  outline:
+    3px solid
+    rgba(255, 102, 45, .28);
+
+  outline-offset:
+    3px;
+
+  box-shadow:
+    none;
+}
+
+
+/* Arrow / icon di tombol dihapus */
+#contact .submit-arrow {
+  display:
+    none !important;
+}
+
+
+
+
+/* =========================================================
+   43. GHOST DECORATION
+   ========================================================= */
+
+#contact .contact-ghost {
+  width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    0;
+
+  flex:
+    1
+    1
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  margin:
+    0;
+
+  padding:
+    2px
+    0
+    0;
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    hidden;
+
+  pointer-events:
+    none;
+
+  user-select:
+    none;
+}
+
+
+#contact .contact-ghost img {
+  display:
+    block;
+
+  width:
+    clamp(
+      120px,
+      9vw,
+      170px
+    );
+
+  max-width:
+    68%;
+
+  max-height:
+    100%;
+
+  height:
+    auto;
+
+  object-fit:
+    contain;
+
+  object-position:
+    center;
+
+  margin:
+    auto;
+}
+
+
+/* =========================================================
+   43. COMMENTS
+   ========================================================= */
+
+#contact .message-comments {
+  min-width:
+    0;
+
+  width:
+    100%;
+
+  min-height:
+    520px;
+
+  margin:
+    0 !important;
+
+  padding:
+    0
+    var(--visual-edge-offset)
+    0
+    var(--message-gutter) !important;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   44. COMMENTS HEAD
+   ========================================================= */
+
+#contact .comments-head {
+  width:
+    100%;
+
+  margin:
+    0
+    0
+    11px
+    0 !important;
+
+  padding:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
+
+  border-bottom:
+    none;
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .comments-eyebrow {
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--orange);
+
+  font-size:
+    9px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    1.7px;
+
+  text-transform:
+    uppercase;
+}
+
+
+#contact .comments-head h3 {
+  margin:
+    0;
+
+  color:
+    var(--green);
+
+  font-size:
+    19px;
+
+  line-height:
+    1.1;
+
+  font-weight:
+    850;
+}
+
+
+/* =========================================================
+   45. COMMENT COUNT
+   ========================================================= */
+
+#contact .comment-count {
+  width:
+    36px;
+
+  min-width:
+    36px;
+
+  height:
+    36px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    2px solid
+    var(--green);
+
+  border-radius:
+    50%;
+
+  background:
+    var(--orange);
+
+  color:
+    var(--green);
+
+  box-sizing:
+    border-box;
+
+  font-size:
+    10px;
+
+  font-weight:
+    900;
+}
+
+
+/* =========================================================
+   46. EMPTY COMMENTS
+   ========================================================= */
+
+#contact .comments-empty {
+  width:
+    100%;
+
+  flex:
+    1
+    1
+    auto;
+
+  min-height:
+    440px;
+
+  margin:
+    0 !important;
+
+  padding:
+    20px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    2px dashed
+    var(--sage);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .13
+    );
+
+  box-sizing:
+    border-box;
+
+  text-align:
+    center;
+}
+
+
+#contact .comments-empty-icon {
+  margin-bottom:
+    12px;
+
+  color:
+    var(--orange);
+
+  font-size:
+    32px;
+
+  line-height:
+    1;
+}
+
+
+#contact .comments-empty strong {
+  margin-bottom:
+    7px;
+
+  color:
+    var(--green);
+
+  font-size:
+    15px;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    850;
+}
+
+
+#contact .comments-empty p {
+  margin:
+    0;
+
+  color:
+    #397064;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.4;
+
+  font-weight:
+    600;
+}
+
+
+/* =========================================================
+   47. COMMENTS LIST
+   ========================================================= */
+
+#contact .comments-list {
+  width:
+    100%;
+
+  flex:
+    1
+    1
+    auto;
+
+  margin:
+    0 !important;
+
+  padding:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    10px;
+
+  max-height:
+    440px;
+
+  overflow-y:
+    auto;
+
+  overflow-x:
+    hidden;
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .comments-list[hidden] {
+  display:
+    none !important;
+}
+
+
+/* =========================================================
+   48. COMMENT CARD
+   ========================================================= */
+
+#contact .comment-card {
+  width:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    11px;
+
+  padding:
+    12px;
+
+  margin:
+    0;
+
+  border:
+    2px solid
+    var(--sage);
+
+  background:
+    var(--field);
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .comment-avatar {
+  width:
+    40px;
+
+  height:
+    40px;
+
+  flex:
+    0
+    0
+    40px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  color:
+    #ffffff;
+
+  font-size:
+    11px;
+
+  font-weight:
+    900;
+}
+
+
+#contact .comment-body {
+  min-width:
+    0;
+
+  flex:
+    1
+    1
+    auto;
+}
+
+
+#contact .comment-name {
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--green);
+
+  font-size:
+    12px;
+
+  font-weight:
+    850;
+}
+
+
+#contact .comment-message {
+  margin:
+    0;
+
+  color:
+    #397064;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.45;
+
+  white-space:
+    pre-wrap;
+
+  overflow-wrap:
+    anywhere;
+}
+
+
+/* =========================================================
+   49. FOOTER GAP
+   ========================================================= */
+
+#contact {
+  margin-bottom:
+    0 !important;
+}
+
+
+#main-root {
+  margin-bottom:
+    0 !important;
+
+  padding-bottom:
+    0 !important;
+}
+
+
+#footer-root {
+  margin-top:
+    0 !important;
+}
+
+
+/* =========================================================
+   50. DESKTOP RESPONSIVE — MEDIUM WIDTH
+   1200px–1599px
+
+   Tujuan:
+   - tetap dua kolom seperti desain utama
+   - spacing dan ukuran elemen mengecil secara halus
+   - aman untuk laptop/desktop umum 1280, 1366, 1440, 1536
+   ========================================================= */
+
+@media
+(min-width: 1200px)
+and
+(max-width: 1599px) {
+
+  #contact {
+    --message-gutter: 16px;
+    --visual-edge-offset: 9px;
+  }
+
+  #contact .contact-shell {
+    width:
+      min(
+        1500px,
+        calc(100% - 40px)
+      );
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(0, .78fr)
+      minmax(0, 1.32fr);
+
+    gap:
+      clamp(24px, 2vw, 30px);
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        64px,
+        5vw,
+        90px
+      );
+
+    letter-spacing:
+      -2.6px;
+  }
+
+  #contact .contact-intro {
+    max-width:
+      600px;
+
+    font-size:
+      13px;
+  }
+
+  #contact .contact-list {
+    gap:
+      14px;
+  }
+
+  #contact .contact-item {
+    height:
+      96px;
+
+    padding:
+      12px
+      15px;
+  }
+
+  #contact .contact-item-main {
+    width:
+      calc(100% - 20px);
+
+    max-width:
+      calc(100% - 20px);
+
+    grid-template-columns:
+      60px
+      minmax(0, 1fr);
+
+    column-gap:
+      13px;
+  }
+
+  #contact .contact-item-logo {
+    width:
+      60px;
+
+    height:
+      54px;
+
+    padding:
+      0
+      11px
+      0
+      2px;
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      40px;
+
+    height:
+      40px;
+  }
+
+  #contact .contact-item-text h3 {
+    font-size:
+      clamp(
+        12px,
+        1vw,
+        15px
+      );
+  }
+
+  #contact .contact-item-text p {
+    font-size:
+      clamp(
+        7.5px,
+        .62vw,
+        9px
+      );
+  }
+
+  #contact .contact-panel {
+    padding:
+      var(--message-gutter);
+  }
+
+  #contact .contact-panel-head {
+    gap:
+      13px;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    font-size:
+      20px;
+  }
+
+  #contact .contact-panel-head-text p {
+    font-size:
+      9.5px;
+  }
+
+  #contact .custom-color-popover {
+    width:
+      min(
+        300px,
+        calc(100vw - 40px)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   51. DESKTOP RESPONSIVE — NARROW WIDTH
+   1025px–1199px
+
+   Masih DESKTOP, bukan tablet.
+   Layout utama tetap dua kolom, tetapi social card dibuat
+   satu kolom supaya tidak terlalu sempit.
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-width: 1199px) {
+
+  #contact {
+    --message-gutter:
+      13px;
+
+    --visual-edge-offset:
+      8px;
+
+    --marquee-lift:
+      -50px;
+
+    --contact-lift:
+      -8px;
+  }
+
+  #contact .contact-end-marquee {
+    height:
+      34px;
+
+    flex-basis:
+      34px;
+  }
+
+  #contact .contact-end-sequence {
+    gap:
+      20px;
+
+    padding-right:
+      20px;
+
+    font-size:
+      10.5px;
+
+    letter-spacing:
+      1px;
+  }
+
+  #contact .contact-shell {
+    width:
+      calc(100% - 28px);
+
+    padding:
+      12px
+      0
+      14px;
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(310px, .72fr)
+      minmax(0, 1.28fr);
+
+    gap:
+      18px;
+
+    min-height:
+      610px;
+  }
+
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      610px;
+  }
+
+  #contact .contact-label {
+    min-width:
+      145px;
+
+    height:
+      38px;
+
+    margin-bottom:
+      13px;
+
+    padding:
+      0
+      22px;
+
+    font-size:
+      10px;
+
+    letter-spacing:
+      2.3px;
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        54px,
+        5.6vw,
+        66px
+      );
+
+    line-height:
+      .9;
+
+    letter-spacing:
+      -2px;
+  }
+
+  #contact .contact-intro {
+    max-width:
+      100%;
+
+    margin:
+      15px
+      0
+      12px;
+
+    font-size:
+      11.5px;
+
+    line-height:
+      1.48;
+  }
+
+  #contact .contact-list {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      10px;
+
+    margin-top:
+      2px;
+  }
+
+  #contact .contact-item {
+    height:
+      66px;
+
+    padding:
+      9px
+      12px;
+
+    box-shadow:
+      7px
+      7px
+      0
+      var(--shadow);
+  }
+
+  #contact .contact-item:hover {
+    box-shadow:
+      10px
+      10px
+      0
+      var(--shadow);
+  }
+
+  #contact .contact-item::before {
+    inset:
+      7px;
+  }
+
+  #contact .contact-item-main {
+    width:
+      calc(100% - 14px);
+
+    max-width:
+      calc(100% - 14px);
+
+    grid-template-columns:
+      46px
+      minmax(0, 1fr);
+
+    column-gap:
+      11px;
+  }
+
+  #contact .contact-item-logo {
+    width:
+      46px;
+
+    height:
+      40px;
+
+    padding:
+      0
+      9px
+      0
+      1px;
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      31px;
+
+    height:
+      31px;
+  }
+
+  #contact .contact-item-text h3 {
+    margin-bottom:
+      4px;
+
+    font-size:
+      12px;
+  }
+
+  #contact .contact-item-text p {
+    font-size:
+      8px;
+  }
+
+  #contact .contact-panel {
+    padding:
+      var(--message-gutter);
+
+    box-shadow:
+      8px
+      8px
+      0
+      var(--shadow);
+  }
+
+  #contact .contact-panel-head {
+    gap:
+      11px;
+
+    min-height:
+      60px;
+
+    padding:
+      2px
+      2px
+      9px;
+
+    margin-bottom:
+      10px;
+  }
+
+  #contact .contact-avatar {
+    width:
+      44px;
+
+    height:
+      44px;
+
+    flex-basis:
+      44px;
+
+    font-size:
+      11px;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    margin-bottom:
+      4px;
+
+    font-size:
+      17px;
+  }
+
+  #contact .contact-panel-head-text p {
+    font-size:
+      8px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      485px;
+  }
+
+  #contact .message-compose {
+    padding:
+      0
+      var(--message-gutter)
+      0
+      var(--visual-edge-offset) !important;
+  }
+
+  #contact .message-comments {
+    padding:
+      0
+      var(--visual-edge-offset)
+      0
+      var(--message-gutter) !important;
+  }
+
+  #contact .contact-form {
+    gap:
+      8px;
+  }
+
+  #contact .form-group label {
+    margin-bottom:
+      4px;
+
+    font-size:
+      9.5px;
+  }
+
+  #contact .form-group input {
+    height:
+      40px;
+
+    padding:
+      0
+      11px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      78px;
+
+    min-height:
+      78px;
+
+    max-height:
+      78px;
+
+    padding:
+      11px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      116px;
+
+    padding:
+      9px
+      10px;
+  }
+
+  #contact .profile-builder-head {
+    grid-template-columns:
+      38px
+      minmax(0, 1fr);
+
+    column-gap:
+      10px;
+
+    margin-bottom:
+      7px;
+  }
+
+  #contact .profile-preview-avatar {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex-basis:
+      38px;
+
+    font-size:
+      9px;
+  }
+
+  #contact .profile-builder-copy strong {
+    font-size:
+      10px;
+  }
+
+  #contact .profile-builder-copy p {
+    font-size:
+      7.4px;
+  }
+
+  #contact .profile-controls {
+    grid-template-columns:
+      38px
+      minmax(0, 1fr);
+
+    column-gap:
+      10px;
+  }
+
+  #contact .initials-control {
+    width:
+      38px;
+
+    min-width:
+      38px;
+
+    transform:
+      translateY(-2px);
+  }
+
+  #contact #contactInitials {
+    width:
+      38px;
+
+    height:
+      29px;
+
+    font-size:
+      8px;
+  }
+
+  #contact .avatar-control > label {
+    margin-bottom:
+      4px;
+
+    font-size:
+      9.5px;
+  }
+
+  #contact .avatar-colors {
+    gap:
+      5px;
+
+    min-height:
+      29px;
+  }
+
+  #contact .avatar-color {
+    width:
+      18px;
+
+    height:
+      18px;
+
+    flex-basis:
+      18px;
+  }
+
+  #contact .custom-color-wrap,
+  #contact .custom-color-button {
+    width:
+      22px;
+
+    height:
+      22px;
+  }
+
+  #contact .custom-color-wrap {
+    flex-basis:
+      22px;
+  }
+
+  #contact .custom-color-button::before {
+    width:
+      15px;
+
+    height:
+      15px;
+  }
+
+  #contact .custom-color-plus::before {
+    width:
+      8px;
+
+    height:
+      2px;
+  }
+
+  #contact .custom-color-plus::after {
+    width:
+      2px;
+
+    height:
+      8px;
+  }
+
+  #contact .contact-submit {
+    height:
+      40px;
+
+    flex-basis:
+      40px;
+
+    margin-top:
+      3px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .contact-ghost img {
+    width:
+      clamp(
+        88px,
+        8vw,
+        110px
+      );
+
+    max-width:
+      52%;
+  }
+
+  #contact .comments-head {
+    margin-bottom:
+      7px !important;
+  }
+
+  #contact .comments-head h3 {
+    font-size:
+      14px;
+  }
+
+  #contact .comments-eyebrow {
+    font-size:
+      7px;
+  }
+
+  #contact .comment-count {
+    width:
+      28px;
+
+    min-width:
+      28px;
+
+    height:
+      28px;
+
+    font-size:
+      8px;
+  }
+
+  #contact .comments-empty {
+    min-height:
+      395px;
+
+    padding:
+      14px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      395px;
+  }
+
+  #contact .comments-empty-icon {
+    font-size:
+      24px;
+  }
+
+  #contact .comments-empty strong {
+    font-size:
+      11px;
+  }
+
+  #contact .comments-empty p {
+    font-size:
+      8px;
+  }
+
+  #contact .custom-color-popover {
+    width:
+      min(
+        270px,
+        calc(100vw - 32px)
+      );
+
+    padding:
+      14px;
+  }
+
+  #contact .sv-picker {
+    height:
+      132px;
+  }
+
+}
+
+
+/* =========================================================
+   52. SHORT LAPTOP / DESKTOP
+   Tinggi <= 900px, lebar >= 1200px
+   ========================================================= */
+
+@media
+(max-height: 900px)
+and
+(min-width: 1200px) {
+
+  #contact {
+    --message-gutter:
+      16px;
+
+    --visual-edge-offset:
+      10px;
+
+    --marquee-lift:
+      -52px;
+
+    --contact-lift:
+      -10px;
+  }
+
+  #contact .contact-end-marquee {
+    height:
+      34px;
+
+    flex-basis:
+      34px;
+
+    margin-bottom:
+      6px;
+  }
+
+  #contact .contact-end-sequence {
+    gap:
+      24px;
+
+    padding-right:
+      24px;
+
+    font-size:
+      11px;
+
+    letter-spacing:
+      1.1px;
+  }
+
+  #contact .contact-shell {
+    width:
+      min(
+        1580px,
+        calc(100% - 40px)
+      );
+
+    padding:
+      13px
+      0
+      13px;
+  }
+
+  #contact .contact-layout {
+    min-height:
+      585px;
+
+    gap:
+      28px;
+  }
+
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      585px;
+  }
+
+  #contact .contact-label {
+    min-width:
+      155px;
+
+    height:
+      38px;
+
+    margin-bottom:
+      13px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        66px,
+        4.6vw,
+        88px
+      );
+  }
+
+  #contact .contact-intro {
+    margin:
+      16px
+      0
+      13px;
+
+    font-size:
+      12px;
+
+    line-height:
+      1.5;
+  }
+
+  #contact .contact-list {
+    gap:
+      14px;
+
+    margin-top:
+      3px;
+  }
+
+  #contact .contact-item {
+    height:
+      86px;
+
+    padding:
+      11px
+      15px;
+  }
+
+  #contact .contact-item-main {
+    width:
+      calc(100% - 18px);
+
+    max-width:
+      calc(100% - 18px);
+
+    grid-template-columns:
+      58px
+      minmax(0, 1fr);
+
+    column-gap:
+      13px;
+  }
+
+  #contact .contact-item-logo {
+    width:
+      58px;
+
+    height:
+      48px;
+
+    padding:
+      0
+      11px
+      0
+      2px;
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      38px;
+
+    height:
+      38px;
+  }
+
+  #contact .contact-item-text h3 {
+    font-size:
+      13px;
+  }
+
+  #contact .contact-item-text p {
+    font-size:
+      8px;
+  }
+
+  #contact .contact-panel-head {
+    min-height:
+      58px;
+
+    padding-bottom:
+      9px;
+
+    margin-bottom:
+      9px;
+  }
+
+  #contact .contact-avatar {
+    width:
+      43px;
+
+    height:
+      43px;
+
+    flex-basis:
+      43px;
+
+    font-size:
+      11px;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    font-size:
+      18px;
+  }
+
+  #contact .contact-panel-head-text p {
+    font-size:
+      8.5px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      470px;
+  }
+
+  #contact .contact-form {
+    gap:
+      8px;
+  }
+
+  #contact .form-group label {
+    margin-bottom:
+      4px;
+
+    font-size:
+      9.5px;
+  }
+
+  #contact .form-group input {
+    height:
+      40px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      78px;
+
+    min-height:
+      78px;
+
+    max-height:
+      78px;
+
+    font-size:
+      10px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      116px;
+
+    padding:
+      9px
+      11px;
+  }
+
+  #contact .profile-builder-head,
+  #contact .profile-controls {
+    grid-template-columns:
+      38px
+      minmax(0, 1fr);
+
+    column-gap:
+      14px;
+  }
+
+  #contact .profile-builder-head {
+    margin-bottom:
+      7px;
+  }
+
+  #contact .profile-preview-avatar {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex-basis:
+      38px;
+
+    font-size:
+      9px;
+  }
+
+  #contact .profile-builder-copy strong {
+    font-size:
+      10.5px;
+  }
+
+  #contact .profile-builder-copy p {
+    font-size:
+      7.5px;
+  }
+
+  #contact .initials-control {
+    width:
+      38px;
+
+    min-width:
+      38px;
+
+    transform:
+      translateY(-2px);
+  }
+
+  #contact #contactInitials {
+    width:
+      38px;
+
+    height:
+      29px;
+
+    font-size:
+      8.5px;
+  }
+
+  #contact .avatar-control > label {
+    margin-bottom:
+      5px;
+
+    font-size:
+      10.5px;
+  }
+
+  #contact .avatar-colors {
+    gap:
+      6px;
+
+    min-height:
+      29px;
+  }
+
+  #contact .avatar-color {
+    width:
+      19px;
+
+    height:
+      19px;
+
+    flex-basis:
+      19px;
+  }
+
+  #contact .custom-color-wrap,
+  #contact .custom-color-button {
+    width:
+      23px;
+
+    height:
+      23px;
+  }
+
+  #contact .custom-color-wrap {
+    flex-basis:
+      23px;
+  }
+
+  #contact .custom-color-button::before {
+    width:
+      16px;
+
+    height:
+      16px;
+  }
+
+  #contact .custom-color-plus::before {
+    width:
+      9px;
+
+    height:
+      2.5px;
+  }
+
+  #contact .custom-color-plus::after {
+    width:
+      2.5px;
+
+    height:
+      9px;
+  }
+
+  #contact .contact-submit {
+    height:
+      39px;
+
+    flex-basis:
+      39px;
+
+    margin-top:
+      3px;
+
+    font-size:
+      10.5px;
+  }
+
+  #contact .contact-ghost img {
+    width:
+      clamp(
+        96px,
+        7vw,
+        130px
+      );
+
+    max-width:
+      58%;
+  }
+
+  #contact .comments-head {
+    margin-bottom:
+      7px !important;
+
+    padding-bottom:
+      7px;
+  }
+
+  #contact .comments-head h3 {
+    font-size:
+      14px;
+  }
+
+  #contact .comments-eyebrow {
+    font-size:
+      7px;
+  }
+
+  #contact .comment-count {
+    width:
+      28px;
+
+    min-width:
+      28px;
+
+    height:
+      28px;
+
+    font-size:
+      8px;
+  }
+
+  #contact .comments-empty {
+    min-height:
+      385px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      385px;
+  }
+
+  #contact .comments-empty-icon {
+    font-size:
+      24px;
+  }
+
+  #contact .comments-empty strong {
+    font-size:
+      11px;
+  }
+
+  #contact .comments-empty p {
+    font-size:
+      8px;
+  }
+
+  #contact .custom-color-popover {
+    width:
+      290px;
+
+    padding:
+      15px;
+  }
+
+  #contact .sv-picker {
+    height:
+      140px;
+  }
+
+}
+
+
+/* =========================================================
+   53. EXTRA SHORT LAPTOP / DESKTOP
+   Tinggi <= 760px, lebar >= 1200px
+   ========================================================= */
+
+@media
+(max-height: 760px)
+and
+(min-width: 1200px) {
+
+  #contact {
+    --marquee-lift:
+      -48px;
+
+    --contact-lift:
+      -8px;
+  }
+
+  #contact .contact-shell {
+    padding-top:
+      11px;
+  }
+
+  #contact .contact-layout,
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      555px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      440px;
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        62px,
+        4.4vw,
+        82px
+      );
+  }
+
+  #contact .contact-item {
+    height:
+      82px;
+  }
+
+  #contact .form-group input {
+    height:
+      38px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      72px;
+
+    min-height:
+      72px;
+
+    max-height:
+      72px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      108px;
+  }
+
+  #contact .contact-submit {
+    height:
+      37px;
+
+    flex-basis:
+      37px;
+  }
+
+  #contact .contact-ghost {
+    padding-top:
+      0;
+  }
+
+  #contact .contact-ghost img {
+    width:
+      clamp(
+        82px,
+        6.2vw,
+        112px
+      );
+
+    max-width:
+      50%;
+  }
+
+  #contact .comments-empty {
+    min-height:
+      357px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      357px;
+  }
+
+}
+
+
+/* =========================================================
+   54. NARROW + SHORT DESKTOP
+   1025px–1199px dan tinggi <= 900px
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-width: 1199px)
+and
+(max-height: 900px) {
+
+  #contact {
+    --marquee-lift:
+      -46px;
+
+    --contact-lift:
+      -6px;
+  }
+
+  #contact .contact-shell {
+    padding:
+      10px
+      0
+      11px;
+  }
+
+  #contact .contact-layout,
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      545px;
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        48px,
+        5.2vw,
+        60px
+      );
+  }
+
+  #contact .contact-intro {
+    margin:
+      11px
+      0
+      9px;
+
+    font-size:
+      10.5px;
+  }
+
+  #contact .contact-list {
+    gap:
+      8px;
+  }
+
+  #contact .contact-item {
+    height:
+      58px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      425px;
+  }
+
+  #contact .contact-panel-head {
+    min-height:
+      52px;
+
+    margin-bottom:
+      7px;
+  }
+
+  #contact .contact-avatar {
+    width:
+      38px;
+
+    height:
+      38px;
+
+    flex-basis:
+      38px;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    font-size:
+      15px;
+  }
+
+  #contact .contact-panel-head-text p {
+    font-size:
+      7.5px;
+  }
+
+  #contact .form-group input {
+    height:
+      36px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      68px;
+
+    min-height:
+      68px;
+
+    max-height:
+      68px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      103px;
+  }
+
+  #contact .contact-submit {
+    height:
+      36px;
+
+    flex-basis:
+      36px;
+  }
+
+  #contact .contact-ghost img {
+    width:
+      clamp(
+        76px,
+        7vw,
+        94px
+      );
+  }
+
+  #contact .comments-empty {
+    min-height:
+      342px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      342px;
+  }
+
+}
+
+
+/* =========================================================
+   55. FORM STEP GUIDANCE BLINK
+
+   FLOW
+   ---------------------------------------------------------
+   Name ada + Message kosong
+   -> textarea Message berkedip merah.
+
+   Name ada + Message ada
+   -> Profile Avatar / Initials box berkedip merah.
+
+   Name kosong
+   -> tidak ada guidance blink.
+
+   Message dihapus sampai kosong
+   -> Profile berhenti berkedip.
+   -> Message kembali berkedip jika Name masih berisi.
+   ========================================================= */
+
+
+/* =========================================================
+   MESSAGE FIELD BLINK
+   ========================================================= */
+
+@keyframes contactMessageGuidanceBlink {
+
+  0%,
+  49% {
+    border-color:
+      #ff3b30;
+
+    background:
+      #fff7ee;
+
+    box-shadow:
+      0
+      0
+      0
+      2px
+      rgba(255, 59, 48, .14),
+
+      0
+      0
+      13px
+      rgba(255, 59, 48, .22);
+  }
+
+
+  50%,
+  100% {
+    border-color:
+      var(--sage);
+
+    background:
+      var(--field);
+
+    box-shadow:
+      none;
+  }
+
+}
+
+
+#contact #contactMessage.is-guidance-blink {
+  animation:
+    contactMessageGuidanceBlink
+    1s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   PROFILE / INITIALS BOX BLINK
+   ========================================================= */
+
+@keyframes contactProfileGuidanceBlink {
+
+  0%,
+  49% {
+    border-color:
+      #ff3b30;
+
+    box-shadow:
+      0
+      0
+      0
+      2px
+      rgba(255, 59, 48, .14),
+
+      0
+      0
+      13px
+      rgba(255, 59, 48, .22);
+  }
+
+
+  50%,
+  100% {
+    border-color:
+      var(--sage);
+
+    box-shadow:
+      none;
+  }
+
+}
+
+
+#contact .profile-builder.is-guidance-blink {
+  animation:
+    contactProfileGuidanceBlink
+    1s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+
+   Jika user/browser meminta reduced motion,
+   jangan berkedip. Tetap beri highlight merah statis.
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #contact #contactMessage.is-guidance-blink {
+    animation:
+      none;
+
+    border-color:
+      #ff3b30;
+
+    background:
+      #fff7ee;
+
+    box-shadow:
+      0
+      0
+      0
+      2px
+      rgba(255, 59, 48, .14);
+  }
+
+
+  #contact .profile-builder.is-guidance-blink {
+    animation:
+      none;
+
+    border-color:
+      #ff3b30;
+
+    box-shadow:
+      0
+      0
+      0
+      2px
+      rgba(255, 59, 48, .14);
+  }
+
+}
+

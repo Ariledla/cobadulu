@@ -1,0 +1,1224 @@
+/* =========================================================
+   DESKTOP — FOOTER
+   FINAL
+   CENTERED QUOTE
+   AUTO WIDTH STATUS
+   PERFECT CENTER HOME ARROW
+   ========================================================= */
+
+
+/* =========================================================
+   01. FOOTER
+   ========================================================= */
+
+.site-footer {
+  width: 100%;
+
+  padding:
+    22px
+    0
+    20px;
+
+  background:
+    var(--green);
+
+  color:
+    #ffffff;
+
+  border: 0;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   02. FOOTER CARD
+   ========================================================= */
+
+.site-footer .footer-card {
+  width:
+    min(
+      1240px,
+      calc(100% - 80px)
+    );
+
+  margin:
+    0
+    auto;
+
+  padding: 0;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(240px, 1fr)
+    minmax(420px, 1.35fr)
+    auto;
+
+  align-items:
+    center;
+
+  column-gap:
+    42px;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  box-shadow:
+    none;
+}
+
+
+/* =========================================================
+   03. LEFT — IDENTITY
+   ========================================================= */
+
+.site-footer .footer-identity {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    center;
+
+  align-items:
+    flex-start;
+
+  min-width:
+    0;
+}
+
+
+/* =========================================================
+   04. NAME
+   ========================================================= */
+
+.site-footer .footer-name {
+  margin:
+    0;
+
+  color:
+    #ffffff;
+
+  font-size:
+    30px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    -0.6px;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   05. COPYRIGHT
+   ========================================================= */
+
+.site-footer .footer-rights {
+  margin-top:
+    9px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.60
+    );
+
+  font-size:
+    9px;
+
+  line-height:
+    1.35;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1px;
+
+  text-transform:
+    uppercase;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   06. CENTER — QUOTE
+   ========================================================= */
+
+.site-footer .footer-quote {
+  position:
+    relative;
+
+  justify-self:
+    center;
+
+  align-self:
+    center;
+
+  width:
+    min(
+      100%,
+      600px
+    );
+
+  margin:
+    0
+    auto;
+
+  padding:
+    0
+    10px
+    0
+    42px;
+
+  border:
+    0;
+
+  box-sizing:
+    border-box;
+
+  text-align:
+    left;
+}
+
+
+/* =========================================================
+   07. QUOTE MARK
+   ========================================================= */
+
+.site-footer .footer-quote::before {
+  content:
+    "“";
+
+  position:
+    absolute;
+
+  top:
+    -16px;
+
+  left:
+    0;
+
+  color:
+    var(--orange);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    64px;
+
+  line-height:
+    1;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================================
+   08. QUOTE TEXT
+   ========================================================= */
+
+.site-footer .footer-quote p {
+  margin:
+    0;
+
+  color:
+    #ffffff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    18px;
+
+  line-height:
+    1.5;
+
+  font-weight:
+    400;
+
+  font-style:
+    italic;
+}
+
+
+/* =========================================================
+   09. QUOTE AUTHOR
+   ========================================================= */
+
+.site-footer .footer-quote cite {
+  display:
+    block;
+
+  margin-top:
+    10px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.64
+    );
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.3;
+
+  font-style:
+    normal;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    1.2px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   10. RIGHT — STATUS
+
+   Lebar mengikuti isi terpanjang.
+   ========================================================= */
+
+.site-footer .footer-status {
+  display:
+    inline-grid;
+
+  grid-template-columns:
+    max-content;
+
+  grid-auto-rows:
+    auto;
+
+  justify-self:
+    end;
+
+  justify-items:
+    stretch;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  width:
+    max-content;
+
+  min-width:
+    max-content;
+}
+
+
+/* =========================================================
+   11. STATUS PILL
+
+   TIDAK ADA FIXED WIDTH.
+   ========================================================= */
+
+.site-footer .footer-stat {
+  width:
+    100%;
+
+  min-width:
+    max-content;
+
+  height:
+    38px;
+
+  padding:
+    0
+    16px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    10px;
+
+  box-sizing:
+    border-box;
+
+  border-radius:
+    999px;
+
+  font-size:
+    11px;
+
+  line-height:
+    1;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+
+  box-shadow:
+    0
+    6px
+    14px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+}
+
+
+/* =========================================================
+   12. VISITOR
+   ========================================================= */
+
+.site-footer .footer-visitors {
+  background:
+    var(--paper);
+
+  color:
+    var(--green);
+
+  border:
+    2px solid
+    var(--orange);
+}
+
+
+/* =========================================================
+   13. TIME
+   ========================================================= */
+
+.site-footer .footer-time {
+  background:
+    var(--orange);
+
+  color:
+    #ffffff;
+
+  border:
+    2px solid
+    var(--orange);
+}
+
+
+/* =========================================================
+   14. STATUS ICON
+   ========================================================= */
+
+.site-footer .footer-stat-icon {
+  width:
+    20px;
+
+  height:
+    20px;
+
+  flex:
+    0
+    0
+    20px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  color:
+    inherit;
+
+  font-size:
+    16px;
+
+  line-height:
+    1;
+}
+
+
+/* =========================================================
+   15. EYE ICON
+   ========================================================= */
+
+.site-footer .footer-eye {
+  display:
+    grid;
+
+  place-items:
+    center;
+}
+
+
+.site-footer .footer-eye svg {
+  display:
+    block;
+
+  width:
+    20px;
+
+  height:
+    20px;
+}
+
+
+/* =========================================================
+   16. VISITOR TEXT
+   ========================================================= */
+
+.site-footer .footer-stat-value {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    6px;
+
+  width:
+    max-content;
+
+  min-width:
+    max-content;
+
+  color:
+    inherit;
+
+  white-space:
+    nowrap;
+}
+
+
+.site-footer #visitorCount {
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+}
+
+
+.site-footer #visitorLabel {
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   17. TIME TEXT
+   ========================================================= */
+
+.site-footer #footerTime {
+  display:
+    inline-block;
+
+  width:
+    max-content;
+
+  margin:
+    0;
+
+  color:
+    #ffffff;
+
+  font-size:
+    11px;
+
+  line-height:
+    1;
+
+  font-weight:
+    850;
+
+  letter-spacing:
+    0.2px;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   18. CLOCK ICON
+   ========================================================= */
+
+.site-footer .footer-clock-icon {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  color:
+    #ffffff;
+
+  font-size:
+    16px;
+}
+
+
+/* =========================================================
+   19. BACK HOME
+   ========================================================= */
+
+.back-home {
+  position:
+    fixed;
+
+  right:
+    8px;
+
+  bottom:
+    12px;
+
+  z-index:
+    900;
+
+  width:
+    106px;
+
+  height:
+    43px;
+
+  padding:
+    0
+    10px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  border:
+    2px solid
+    var(--green);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--paper);
+
+  color:
+    var(--green);
+
+  box-sizing:
+    border-box;
+
+  font-size:
+    10px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    1px;
+
+  text-decoration:
+    none;
+
+  text-transform:
+    uppercase;
+
+  box-shadow:
+    0
+    7px
+    18px
+    rgba(
+      0,
+      62,
+      37,
+      0.10
+    );
+
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease,
+    opacity 150ms ease,
+    visibility 150ms ease;
+}
+
+
+/* =========================================================
+   20. BACK HOME HOVER
+   ========================================================= */
+
+.back-home:hover {
+  background:
+    var(--orange);
+
+  color:
+    #ffffff;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0
+    10px
+    22px
+    rgba(
+      253,
+      99,
+      37,
+      0.18
+    );
+}
+
+
+/* =========================================================
+   21. HOME ICON CIRCLE
+
+   Lingkaran benar-benar center.
+   ========================================================= */
+
+.back-home .home-icon {
+  position:
+    relative;
+
+  width:
+    27px;
+
+  height:
+    27px;
+
+  flex:
+    0
+    0
+    27px;
+
+  display:
+    block;
+
+  border:
+    2px solid
+    var(--green);
+
+  border-radius:
+    50%;
+
+  background:
+    var(--green);
+
+  color:
+    transparent;
+
+  font-size:
+    0;
+
+  line-height:
+    0;
+
+  overflow:
+    hidden;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   22. ARROW STEM
+
+   Batang panah dibuat secara geometris,
+   bukan karakter font.
+   ========================================================= */
+
+.back-home .home-icon::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    2px;
+
+  height:
+    13px;
+
+  background:
+    #ffffff;
+
+  border-radius:
+    999px;
+
+  transform:
+    translate(
+      -50%,
+      -40%
+    );
+
+  transform-origin:
+    center;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   23. ARROW HEAD
+
+   Kepala panah juga center secara geometris.
+   ========================================================= */
+
+.back-home .home-icon::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-top:
+    2px solid
+    #ffffff;
+
+  border-left:
+    2px solid
+    #ffffff;
+
+  transform:
+    translate(
+      -50%,
+      -78%
+    )
+    rotate(
+      45deg
+    );
+
+  transform-origin:
+    center;
+
+  box-sizing:
+    border-box;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   24. HOME ICON HOVER
+   ========================================================= */
+
+.back-home:hover .home-icon {
+  border-color:
+    #ffffff;
+
+  background:
+    transparent;
+}
+
+
+.back-home:hover .home-icon::before {
+  background:
+    #ffffff;
+}
+
+
+.back-home:hover .home-icon::after {
+  border-color:
+    #ffffff;
+}
+
+
+/* =========================================================
+   25. HOME TEXT
+   ========================================================= */
+
+.back-home .home-text {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  color:
+    inherit;
+
+  font-size:
+    10px;
+
+  line-height:
+    1;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================================================
+   26. HIDDEN
+   ========================================================= */
+
+.back-home.is-hidden {
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   27. SHORT DESKTOP
+   ========================================================= */
+
+@media
+(max-height: 900px)
+and
+(min-width: 1200px) {
+
+  .site-footer {
+    padding:
+      19px
+      0
+      18px;
+  }
+
+
+  .site-footer .footer-card {
+    column-gap:
+      38px;
+  }
+
+
+  .site-footer .footer-name {
+    font-size:
+      28px;
+  }
+
+
+  .site-footer .footer-quote {
+    max-width:
+      560px;
+  }
+
+
+  .site-footer .footer-quote p {
+    font-size:
+      17px;
+  }
+
+
+  .site-footer .footer-quote::before {
+    font-size:
+      58px;
+  }
+
+
+  .site-footer .footer-stat {
+    width:
+      100%;
+
+    min-width:
+      max-content;
+
+    height:
+      36px;
+
+    padding:
+      0
+      15px;
+
+    gap:
+      9px;
+  }
+
+
+  .site-footer .footer-stat-icon {
+    width:
+      19px;
+
+    height:
+      19px;
+
+    flex-basis:
+      19px;
+  }
+
+
+  .site-footer .footer-eye svg {
+    width:
+      19px;
+
+    height:
+      19px;
+  }
+
+
+  .site-footer #footerTime,
+  .site-footer .footer-stat {
+    font-size:
+      10.5px;
+  }
+
+
+  .back-home {
+    right:
+      7px;
+
+    bottom:
+      10px;
+
+    width:
+      102px;
+
+    height:
+      41px;
+  }
+
+
+  .back-home .home-icon {
+    width:
+      26px;
+
+    height:
+      26px;
+
+    flex-basis:
+      26px;
+  }
+
+
+  .back-home .home-icon::before {
+    height:
+      12px;
+  }
+
+
+  .back-home .home-icon::after {
+    width:
+      7px;
+
+    height:
+      7px;
+  }
+
+}
+
+
+/* =========================================================
+   28. VERY SHORT DESKTOP
+   ========================================================= */
+
+@media
+(max-height: 760px)
+and
+(min-width: 1200px) {
+
+  .site-footer {
+    padding:
+      16px
+      0
+      15px;
+  }
+
+
+  .site-footer .footer-name {
+    font-size:
+      26px;
+  }
+
+
+  .site-footer .footer-rights {
+    margin-top:
+      7px;
+
+    font-size:
+      8px;
+  }
+
+
+  .site-footer .footer-quote {
+    max-width:
+      530px;
+  }
+
+
+  .site-footer .footer-quote p {
+    font-size:
+      15px;
+  }
+
+
+  .site-footer .footer-quote cite {
+    margin-top:
+      7px;
+
+    font-size:
+      9px;
+  }
+
+
+  .site-footer .footer-quote::before {
+    top:
+      -10px;
+
+    font-size:
+      52px;
+  }
+
+
+  .site-footer .footer-status {
+    gap:
+      8px;
+  }
+
+
+  .site-footer .footer-stat {
+    width:
+      100%;
+
+    min-width:
+      max-content;
+
+    height:
+      34px;
+
+    padding:
+      0
+      14px;
+
+    gap:
+      8px;
+  }
+
+
+  .site-footer .footer-stat-icon {
+    width:
+      18px;
+
+    height:
+      18px;
+
+    flex-basis:
+      18px;
+  }
+
+
+  .site-footer .footer-eye svg {
+    width:
+      18px;
+
+    height:
+      18px;
+  }
+
+
+  .site-footer #footerTime,
+  .site-footer .footer-stat {
+    font-size:
+      10px;
+  }
+
+
+  .back-home {
+    width:
+      98px;
+
+    height:
+      39px;
+  }
+
+
+  .back-home .home-icon {
+    width:
+      25px;
+
+    height:
+      25px;
+
+    flex-basis:
+      25px;
+  }
+
+}
