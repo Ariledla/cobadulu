@@ -3008,10 +3008,10 @@
    50. DESKTOP RESPONSIVE — MEDIUM WIDTH
    1200px–1599px
 
-   Tujuan:
-   - tetap dua kolom seperti desain utama
-   - spacing dan ukuran elemen mengecil secara halus
-   - aman untuk laptop/desktop umum 1280, 1366, 1440, 1536
+   Fokus:
+   - tetap dua kolom
+   - mengecil secara halus berdasarkan WIDTH
+   - tidak mengubah desain dasar laptop yang sudah bagus
    ========================================================= */
 
 @media
@@ -3034,11 +3034,11 @@ and
 
   #contact .contact-layout {
     grid-template-columns:
-      minmax(0, .78fr)
-      minmax(0, 1.32fr);
+      minmax(0, .82fr)
+      minmax(0, 1.28fr);
 
     gap:
-      clamp(24px, 2vw, 30px);
+      clamp(22px, 2vw, 30px);
   }
 
   #contact .contact-title {
@@ -3050,12 +3050,12 @@ and
       );
 
     letter-spacing:
-      -2.6px;
+      -2.5px;
   }
 
   #contact .contact-intro {
     max-width:
-      600px;
+      620px;
 
     font-size:
       13px;
@@ -3063,7 +3063,7 @@ and
 
   #contact .contact-list {
     gap:
-      14px;
+      clamp(12px, 1.2vw, 16px);
   }
 
   #contact .contact-item {
@@ -3072,51 +3072,51 @@ and
 
     padding:
       12px
-      15px;
+      14px;
   }
 
   #contact .contact-item-main {
     width:
-      calc(100% - 20px);
+      calc(100% - 18px);
 
     max-width:
-      calc(100% - 20px);
+      calc(100% - 18px);
 
     grid-template-columns:
-      60px
+      58px
       minmax(0, 1fr);
 
     column-gap:
-      13px;
+      12px;
   }
 
   #contact .contact-item-logo {
     width:
-      60px;
+      58px;
 
     height:
-      54px;
+      52px;
 
     padding:
       0
-      11px
+      10px
       0
       2px;
   }
 
   #contact .contact-item-logo img {
     width:
-      40px;
+      39px;
 
     height:
-      40px;
+      39px;
   }
 
   #contact .contact-item-text h3 {
     font-size:
       clamp(
         12px,
-        1vw,
+        .95vw,
         15px
       );
   }
@@ -3125,29 +3125,48 @@ and
     font-size:
       clamp(
         7.5px,
-        .62vw,
+        .6vw,
         9px
       );
   }
 
-  #contact .contact-panel {
-    padding:
-      var(--message-gutter);
-  }
-
-  #contact .contact-panel-head {
+  /* Defensive fix: palette tidak boleh keluar box */
+  #contact .avatar-colors {
     gap:
-      13px;
+      clamp(4px, .42vw, 7px);
   }
 
-  #contact .contact-panel-head-text h3 {
-    font-size:
-      20px;
+  #contact .avatar-color {
+    width:
+      clamp(18px, 1.25vw, 22px);
+
+    height:
+      clamp(18px, 1.25vw, 22px);
+
+    flex-basis:
+      clamp(18px, 1.25vw, 22px);
   }
 
-  #contact .contact-panel-head-text p {
-    font-size:
-      9.5px;
+  #contact .custom-color-wrap,
+  #contact .custom-color-button {
+    width:
+      clamp(23px, 1.45vw, 27px);
+
+    height:
+      clamp(23px, 1.45vw, 27px);
+  }
+
+  #contact .custom-color-wrap {
+    flex-basis:
+      clamp(23px, 1.45vw, 27px);
+  }
+
+  #contact .custom-color-button::before {
+    width:
+      clamp(16px, 1.05vw, 19px);
+
+    height:
+      clamp(16px, 1.05vw, 19px);
   }
 
   #contact .custom-color-popover {
@@ -3165,9 +3184,8 @@ and
    51. DESKTOP RESPONSIVE — NARROW WIDTH
    1025px–1199px
 
-   Masih DESKTOP, bukan tablet.
-   Layout utama tetap dua kolom, tetapi social card dibuat
-   satu kolom supaya tidak terlalu sempit.
+   Masih desktop. Social card dibuat 1 kolom supaya
+   teks tidak terpotong dan elemen tidak saling dorong.
    ========================================================= */
 
 @media
@@ -3176,17 +3194,10 @@ and
 (max-width: 1199px) {
 
   #contact {
-    --message-gutter:
-      13px;
-
-    --visual-edge-offset:
-      8px;
-
-    --marquee-lift:
-      -50px;
-
-    --contact-lift:
-      -8px;
+    --message-gutter: 13px;
+    --visual-edge-offset: 8px;
+    --marquee-lift: -50px;
+    --contact-lift: -8px;
   }
 
   #contact .contact-end-marquee {
@@ -3223,8 +3234,8 @@ and
 
   #contact .contact-layout {
     grid-template-columns:
-      minmax(310px, .72fr)
-      minmax(0, 1.28fr);
+      minmax(315px, .76fr)
+      minmax(0, 1.24fr);
 
     gap:
       18px;
@@ -3265,7 +3276,7 @@ and
     font-size:
       clamp(
         54px,
-        5.6vw,
+        5.5vw,
         66px
       );
 
@@ -3587,7 +3598,7 @@ and
 
   #contact .avatar-colors {
     gap:
-      5px;
+      4px;
 
     min-height:
       29px;
@@ -3595,35 +3606,35 @@ and
 
   #contact .avatar-color {
     width:
-      18px;
+      16px;
 
     height:
-      18px;
+      16px;
 
     flex-basis:
-      18px;
+      16px;
   }
 
   #contact .custom-color-wrap,
   #contact .custom-color-button {
     width:
-      22px;
+      20px;
 
     height:
-      22px;
+      20px;
   }
 
   #contact .custom-color-wrap {
     flex-basis:
-      22px;
+      20px;
   }
 
   #contact .custom-color-button::before {
     width:
-      15px;
+      14px;
 
     height:
-      15px;
+      14px;
   }
 
   #contact .custom-color-plus::before {
@@ -3745,8 +3756,205 @@ and
 
 
 /* =========================================================
-   52. SHORT LAPTOP / DESKTOP
+   52. LARGE / HIGH-RES DESKTOP
+   >= 2200px dan tinggi cukup
+
+   Supaya monitor QHD/4K tidak membuat contact terlalu kecil
+   di tengah layar. Laptop baseline 2048px tidak tersentuh.
+   ========================================================= */
+
+@media
+(min-width: 2200px)
+and
+(min-height: 901px) {
+
+  #contact .contact-shell {
+    width:
+      min(
+        1760px,
+        calc(100% - 96px)
+      );
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(0, .82fr)
+      minmax(0, 1.28fr);
+
+    gap:
+      40px;
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        88px,
+        4.4vw,
+        108px
+      );
+  }
+
+  #contact .contact-intro {
+    max-width:
+      690px;
+
+    font-size:
+      14.5px;
+  }
+
+  #contact .contact-item {
+    height:
+      112px;
+  }
+
+  #contact .contact-panel,
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-layout {
+    min-height:
+      675px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      540px;
+  }
+
+  #contact .comments-empty {
+    min-height:
+      458px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      458px;
+  }
+
+}
+
+
+/* =========================================================
+   53. VERY WIDE / ULTRAWIDE DESKTOP
+   >= 1600px + aspect ratio >= 2:1
+
+   Ini menangani monitor yang sangat lebar dibanding tingginya.
+   Kuncinya: content dibuat lebih lebar, BUKAN dikecilkan.
+   ========================================================= */
+
+@media
+(min-width: 1600px)
+and
+(min-aspect-ratio: 2/1) {
+
+  #contact .contact-shell {
+    width:
+      min(
+        1760px,
+        calc(100% - 72px)
+      );
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(0, .88fr)
+      minmax(0, 1.22fr);
+
+    gap:
+      clamp(28px, 2vw, 36px);
+  }
+
+  #contact .contact-title {
+    font-size:
+      clamp(
+        76px,
+        4.7vw,
+        98px
+      );
+  }
+
+  #contact .contact-intro {
+    max-width:
+      680px;
+  }
+
+  #contact .contact-list {
+    gap:
+      16px;
+  }
+
+  #contact .contact-item-main {
+    grid-template-columns:
+      62px
+      minmax(0, 1fr);
+
+    column-gap:
+      14px;
+  }
+
+  #contact .contact-item-logo {
+    width:
+      62px;
+  }
+
+  #contact .message-layout {
+    grid-template-columns:
+      minmax(0, .96fr)
+      minmax(0, 1.04fr);
+  }
+
+  /* palette selalu aman di dalam profile box */
+  #contact .avatar-colors {
+    gap:
+      clamp(5px, .38vw, 7px);
+  }
+
+  #contact .avatar-color {
+    width:
+      clamp(19px, 1vw, 22px);
+
+    height:
+      clamp(19px, 1vw, 22px);
+
+    flex-basis:
+      clamp(19px, 1vw, 22px);
+  }
+
+  #contact .custom-color-wrap,
+  #contact .custom-color-button {
+    width:
+      25px;
+
+    height:
+      25px;
+  }
+
+  #contact .custom-color-wrap {
+    flex-basis:
+      25px;
+  }
+
+  #contact .custom-color-button::before {
+    width:
+      17px;
+
+    height:
+      17px;
+  }
+
+}
+
+
+/* =========================================================
+   54. SHORT DESKTOP / MONITOR
    Tinggi <= 900px, lebar >= 1200px
+
+   PENTING:
+   - hanya kompres VERTIKAL
+   - tidak mengecilkan semua font / icon secara brutal
+   - horizontal sizing tetap ditentukan oleh width/aspect ratio
    ========================================================= */
 
 @media
@@ -3756,16 +3964,16 @@ and
 
   #contact {
     --message-gutter:
-      16px;
+      15px;
 
     --visual-edge-offset:
-      10px;
+      9px;
 
     --marquee-lift:
       -52px;
 
     --contact-lift:
-      -10px;
+      -8px;
   }
 
   #contact .contact-end-marquee {
@@ -3776,7 +3984,7 @@ and
       34px;
 
     margin-bottom:
-      6px;
+      5px;
   }
 
   #contact .contact-end-sequence {
@@ -3788,581 +3996,6 @@ and
 
     font-size:
       11px;
-
-    letter-spacing:
-      1.1px;
-  }
-
-  #contact .contact-shell {
-    width:
-      min(
-        1580px,
-        calc(100% - 40px)
-      );
-
-    padding:
-      13px
-      0
-      13px;
-  }
-
-  #contact .contact-layout {
-    min-height:
-      585px;
-
-    gap:
-      28px;
-  }
-
-  #contact .contact-left,
-  #contact .contact-right,
-  #contact .contact-panel {
-    min-height:
-      585px;
-  }
-
-  #contact .contact-label {
-    min-width:
-      155px;
-
-    height:
-      38px;
-
-    margin-bottom:
-      13px;
-
-    font-size:
-      10px;
-  }
-
-  #contact .contact-title {
-    font-size:
-      clamp(
-        66px,
-        4.6vw,
-        88px
-      );
-  }
-
-  #contact .contact-intro {
-    margin:
-      16px
-      0
-      13px;
-
-    font-size:
-      12px;
-
-    line-height:
-      1.5;
-  }
-
-  #contact .contact-list {
-    gap:
-      14px;
-
-    margin-top:
-      3px;
-  }
-
-  #contact .contact-item {
-    height:
-      86px;
-
-    padding:
-      11px
-      15px;
-  }
-
-  #contact .contact-item-main {
-    width:
-      calc(100% - 18px);
-
-    max-width:
-      calc(100% - 18px);
-
-    grid-template-columns:
-      58px
-      minmax(0, 1fr);
-
-    column-gap:
-      13px;
-  }
-
-  #contact .contact-item-logo {
-    width:
-      58px;
-
-    height:
-      48px;
-
-    padding:
-      0
-      11px
-      0
-      2px;
-  }
-
-  #contact .contact-item-logo img {
-    width:
-      38px;
-
-    height:
-      38px;
-  }
-
-  #contact .contact-item-text h3 {
-    font-size:
-      13px;
-  }
-
-  #contact .contact-item-text p {
-    font-size:
-      8px;
-  }
-
-  #contact .contact-panel-head {
-    min-height:
-      58px;
-
-    padding-bottom:
-      9px;
-
-    margin-bottom:
-      9px;
-  }
-
-  #contact .contact-avatar {
-    width:
-      43px;
-
-    height:
-      43px;
-
-    flex-basis:
-      43px;
-
-    font-size:
-      11px;
-  }
-
-  #contact .contact-panel-head-text h3 {
-    font-size:
-      18px;
-  }
-
-  #contact .contact-panel-head-text p {
-    font-size:
-      8.5px;
-  }
-
-  #contact .message-layout,
-  #contact .message-compose,
-  #contact .contact-form,
-  #contact .message-comments {
-    min-height:
-      470px;
-  }
-
-  #contact .contact-form {
-    gap:
-      8px;
-  }
-
-  #contact .form-group label {
-    margin-bottom:
-      4px;
-
-    font-size:
-      9.5px;
-  }
-
-  #contact .form-group input {
-    height:
-      40px;
-
-    font-size:
-      10px;
-  }
-
-  #contact .form-group textarea {
-    height:
-      78px;
-
-    min-height:
-      78px;
-
-    max-height:
-      78px;
-
-    font-size:
-      10px;
-  }
-
-  #contact .profile-builder {
-    min-height:
-      116px;
-
-    padding:
-      9px
-      11px;
-  }
-
-  #contact .profile-builder-head,
-  #contact .profile-controls {
-    grid-template-columns:
-      38px
-      minmax(0, 1fr);
-
-    column-gap:
-      14px;
-  }
-
-  #contact .profile-builder-head {
-    margin-bottom:
-      7px;
-  }
-
-  #contact .profile-preview-avatar {
-    width:
-      38px;
-
-    height:
-      38px;
-
-    flex-basis:
-      38px;
-
-    font-size:
-      9px;
-  }
-
-  #contact .profile-builder-copy strong {
-    font-size:
-      10.5px;
-  }
-
-  #contact .profile-builder-copy p {
-    font-size:
-      7.5px;
-  }
-
-  #contact .initials-control {
-    width:
-      38px;
-
-    min-width:
-      38px;
-
-    transform:
-      translateY(-2px);
-  }
-
-  #contact #contactInitials {
-    width:
-      38px;
-
-    height:
-      29px;
-
-    font-size:
-      8.5px;
-  }
-
-  #contact .avatar-control > label {
-    margin-bottom:
-      5px;
-
-    font-size:
-      10.5px;
-  }
-
-  #contact .avatar-colors {
-    gap:
-      6px;
-
-    min-height:
-      29px;
-  }
-
-  #contact .avatar-color {
-    width:
-      19px;
-
-    height:
-      19px;
-
-    flex-basis:
-      19px;
-  }
-
-  #contact .custom-color-wrap,
-  #contact .custom-color-button {
-    width:
-      23px;
-
-    height:
-      23px;
-  }
-
-  #contact .custom-color-wrap {
-    flex-basis:
-      23px;
-  }
-
-  #contact .custom-color-button::before {
-    width:
-      16px;
-
-    height:
-      16px;
-  }
-
-  #contact .custom-color-plus::before {
-    width:
-      9px;
-
-    height:
-      2.5px;
-  }
-
-  #contact .custom-color-plus::after {
-    width:
-      2.5px;
-
-    height:
-      9px;
-  }
-
-  #contact .contact-submit {
-    height:
-      39px;
-
-    flex-basis:
-      39px;
-
-    margin-top:
-      3px;
-
-    font-size:
-      10.5px;
-  }
-
-  #contact .contact-ghost img {
-    width:
-      clamp(
-        96px,
-        7vw,
-        130px
-      );
-
-    max-width:
-      58%;
-  }
-
-  #contact .comments-head {
-    margin-bottom:
-      7px !important;
-
-    padding-bottom:
-      7px;
-  }
-
-  #contact .comments-head h3 {
-    font-size:
-      14px;
-  }
-
-  #contact .comments-eyebrow {
-    font-size:
-      7px;
-  }
-
-  #contact .comment-count {
-    width:
-      28px;
-
-    min-width:
-      28px;
-
-    height:
-      28px;
-
-    font-size:
-      8px;
-  }
-
-  #contact .comments-empty {
-    min-height:
-      385px;
-  }
-
-  #contact .comments-list {
-    max-height:
-      385px;
-  }
-
-  #contact .comments-empty-icon {
-    font-size:
-      24px;
-  }
-
-  #contact .comments-empty strong {
-    font-size:
-      11px;
-  }
-
-  #contact .comments-empty p {
-    font-size:
-      8px;
-  }
-
-  #contact .custom-color-popover {
-    width:
-      290px;
-
-    padding:
-      15px;
-  }
-
-  #contact .sv-picker {
-    height:
-      140px;
-  }
-
-}
-
-
-/* =========================================================
-   53. EXTRA SHORT LAPTOP / DESKTOP
-   Tinggi <= 760px, lebar >= 1200px
-   ========================================================= */
-
-@media
-(max-height: 760px)
-and
-(min-width: 1200px) {
-
-  #contact {
-    --marquee-lift:
-      -48px;
-
-    --contact-lift:
-      -8px;
-  }
-
-  #contact .contact-shell {
-    padding-top:
-      11px;
-  }
-
-  #contact .contact-layout,
-  #contact .contact-left,
-  #contact .contact-right,
-  #contact .contact-panel {
-    min-height:
-      555px;
-  }
-
-  #contact .message-layout,
-  #contact .message-compose,
-  #contact .contact-form,
-  #contact .message-comments {
-    min-height:
-      440px;
-  }
-
-  #contact .contact-title {
-    font-size:
-      clamp(
-        62px,
-        4.4vw,
-        82px
-      );
-  }
-
-  #contact .contact-item {
-    height:
-      82px;
-  }
-
-  #contact .form-group input {
-    height:
-      38px;
-  }
-
-  #contact .form-group textarea {
-    height:
-      72px;
-
-    min-height:
-      72px;
-
-    max-height:
-      72px;
-  }
-
-  #contact .profile-builder {
-    min-height:
-      108px;
-  }
-
-  #contact .contact-submit {
-    height:
-      37px;
-
-    flex-basis:
-      37px;
-  }
-
-  #contact .contact-ghost {
-    padding-top:
-      0;
-  }
-
-  #contact .contact-ghost img {
-    width:
-      clamp(
-        82px,
-        6.2vw,
-        112px
-      );
-
-    max-width:
-      50%;
-  }
-
-  #contact .comments-empty {
-    min-height:
-      357px;
-  }
-
-  #contact .comments-list {
-    max-height:
-      357px;
-  }
-
-}
-
-
-/* =========================================================
-   54. NARROW + SHORT DESKTOP
-   1025px–1199px dan tinggi <= 900px
-   ========================================================= */
-
-@media
-(min-width: 1025px)
-and
-(max-width: 1199px)
-and
-(max-height: 900px) {
-
-  #contact {
-    --marquee-lift:
-      -46px;
-
-    --contact-lift:
-      -6px;
   }
 
   #contact .contact-shell {
@@ -4377,36 +4010,54 @@ and
   #contact .contact-right,
   #contact .contact-panel {
     min-height:
-      545px;
+      585px;
   }
 
-  #contact .contact-title {
-    font-size:
-      clamp(
-        48px,
-        5.2vw,
-        60px
-      );
+  #contact .contact-label {
+    height:
+      40px;
+
+    margin-bottom:
+      13px;
   }
 
   #contact .contact-intro {
     margin:
-      11px
+      16px
       0
-      9px;
-
-    font-size:
-      10.5px;
-  }
-
-  #contact .contact-list {
-    gap:
-      8px;
+      13px;
   }
 
   #contact .contact-item {
     height:
-      58px;
+      88px;
+  }
+
+  #contact .contact-panel-head {
+    min-height:
+      60px;
+
+    padding-bottom:
+      9px;
+
+    margin-bottom:
+      9px;
+  }
+
+  #contact .contact-avatar {
+    width:
+      46px;
+
+    height:
+      46px;
+
+    flex-basis:
+      46px;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    font-size:
+      19px;
   }
 
   #contact .message-layout,
@@ -4414,91 +4065,282 @@ and
   #contact .contact-form,
   #contact .message-comments {
     min-height:
-      425px;
+      468px;
   }
 
-  #contact .contact-panel-head {
-    min-height:
-      52px;
+  #contact .contact-form {
+    gap:
+      8px;
+  }
 
+  #contact .form-group label {
     margin-bottom:
-      7px;
-  }
-
-  #contact .contact-avatar {
-    width:
-      38px;
-
-    height:
-      38px;
-
-    flex-basis:
-      38px;
-  }
-
-  #contact .contact-panel-head-text h3 {
-    font-size:
-      15px;
-  }
-
-  #contact .contact-panel-head-text p {
-    font-size:
-      7.5px;
+      4px;
   }
 
   #contact .form-group input {
     height:
-      36px;
+      40px;
   }
 
   #contact .form-group textarea {
     height:
-      68px;
+      78px;
 
     min-height:
-      68px;
+      78px;
 
     max-height:
-      68px;
+      78px;
   }
 
   #contact .profile-builder {
     min-height:
-      103px;
+      118px;
+
+    padding:
+      10px
+      12px;
+  }
+
+  #contact .profile-builder-head {
+    margin-bottom:
+      7px;
   }
 
   #contact .contact-submit {
     height:
-      36px;
+      40px;
 
     flex-basis:
-      36px;
+      40px;
+
+    margin-top:
+      3px;
   }
 
   #contact .contact-ghost img {
     width:
       clamp(
-        76px,
-        7vw,
-        94px
+        100px,
+        7.2vw,
+        130px
       );
+
+    max-width:
+      58%;
+  }
+
+  #contact .comments-head {
+    margin-bottom:
+      7px !important;
   }
 
   #contact .comments-empty {
     min-height:
-      342px;
+      382px;
   }
 
   #contact .comments-list {
     max-height:
-      342px;
+      382px;
   }
 
 }
 
 
 /* =========================================================
-   55. FORM STEP GUIDANCE BLINK
+   55. EXTRA SHORT DESKTOP
+   Tinggi <= 760px, lebar >= 1200px
+
+   Sedikit lebih padat vertikal, tetapi ukuran horizontal,
+   font utama, social text, dan palette tetap terbaca.
+   ========================================================= */
+
+@media
+(max-height: 760px)
+and
+(min-width: 1200px) {
+
+  #contact {
+    --marquee-lift:
+      -48px;
+
+    --contact-lift:
+      -6px;
+  }
+
+  #contact .contact-shell {
+    padding-top:
+      8px;
+
+    padding-bottom:
+      8px;
+  }
+
+  #contact .contact-layout,
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      548px;
+  }
+
+  #contact .contact-label {
+    height:
+      38px;
+
+    margin-bottom:
+      10px;
+  }
+
+  #contact .contact-intro {
+    margin:
+      12px
+      0
+      10px;
+  }
+
+  #contact .contact-item {
+    height:
+      82px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      430px;
+  }
+
+  #contact .contact-panel-head {
+    min-height:
+      55px;
+
+    margin-bottom:
+      7px;
+  }
+
+  #contact .form-group input {
+    height:
+      38px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      70px;
+
+    min-height:
+      70px;
+
+    max-height:
+      70px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      108px;
+
+    padding:
+      8px
+      11px;
+  }
+
+  #contact .contact-submit {
+    height:
+      37px;
+
+    flex-basis:
+      37px;
+  }
+
+  #contact .contact-ghost img {
+    width:
+      clamp(
+        88px,
+        6.3vw,
+        112px
+      );
+  }
+
+  #contact .comments-empty {
+    min-height:
+      350px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      350px;
+  }
+
+}
+
+
+/* =========================================================
+   56. NARROW + SHORT DESKTOP
+   1025px–1199px dan tinggi <= 800px
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-width: 1199px)
+and
+(max-height: 800px) {
+
+  #contact .contact-layout,
+  #contact .contact-left,
+  #contact .contact-right,
+  #contact .contact-panel {
+    min-height:
+      565px;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .contact-form,
+  #contact .message-comments {
+    min-height:
+      445px;
+  }
+
+  #contact .contact-item {
+    height:
+      62px;
+  }
+
+  #contact .form-group textarea {
+    height:
+      70px;
+
+    min-height:
+      70px;
+
+    max-height:
+      70px;
+  }
+
+  #contact .profile-builder {
+    min-height:
+      108px;
+  }
+
+  #contact .comments-empty {
+    min-height:
+      360px;
+  }
+
+  #contact .comments-list {
+    max-height:
+      360px;
+  }
+
+}
+
+
+/* =========================================================
+   57. FORM STEP GUIDANCE BLINK
 
    FLOW
    ---------------------------------------------------------
