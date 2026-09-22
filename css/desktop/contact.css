@@ -4339,8 +4339,565 @@ and
 }
 
 
+
 /* =========================================================
-   57. FORM STEP GUIDANCE BLINK
+   57. FINAL DESKTOP STABILITY / POLISH
+
+   Tujuan:
+   - Laptop/tall desktop tetap jadi baseline.
+   - Monitor wide/short tidak tampak mini.
+   - Social icon + divider selalu center dan konsisten.
+   - Avatar color row selalu muat di parent.
+   - Tombol custom color (+) tidak menabrak divider.
+   - Marquee pada desktop pendek turun sedikit agar lebih
+     center terhadap tinggi navbar.
+   ========================================================= */
+
+
+/* =========================================================
+   SOCIAL CARD — STABLE ICON COLUMN
+   ========================================================= */
+
+#contact .contact-item-main {
+  grid-template-columns:
+    clamp(54px, 3.6vw, 68px)
+    minmax(0, 1fr);
+
+  column-gap:
+    clamp(10px, .85vw, 16px);
+}
+
+
+#contact .contact-item-logo {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  height:
+    clamp(44px, 3.25vw, 62px);
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  padding:
+    0;
+
+  border-right:
+    0;
+
+  box-sizing:
+    border-box;
+}
+
+
+#contact .contact-item-logo::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  right:
+    0;
+
+  bottom:
+    0;
+
+  width:
+    2px;
+
+  background:
+    var(--green);
+
+  pointer-events:
+    none;
+}
+
+
+#contact .contact-item-logo img {
+  display:
+    block;
+
+  width:
+    clamp(32px, 2.45vw, 46px);
+
+  height:
+    clamp(32px, 2.45vw, 46px);
+
+  margin:
+    0;
+
+  object-fit:
+    contain;
+
+  object-position:
+    center;
+
+  transform:
+    none;
+}
+
+
+/* =========================================================
+   PROFILE / AVATAR — CONSTRAINT BASED
+   ========================================================= */
+
+#contact .profile-controls {
+  width:
+    100%;
+
+  min-width:
+    0;
+}
+
+
+#contact .avatar-control {
+  position:
+    relative;
+
+  width:
+    100%;
+
+  max-width:
+    100%;
+
+  min-width:
+    0;
+}
+
+
+/*
+   Auto-fit membuat jumlah track mengikuti ruang parent.
+   Item boleh mengecil halus tanpa pernah keluar parent.
+   Overflow tetap visible agar color popover tidak terpotong.
+*/
+#contact .avatar-colors {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(13px, 1fr)
+    );
+
+  align-items:
+    center;
+
+  justify-items:
+    center;
+
+  gap:
+    clamp(2px, .26vw, 5px);
+
+  width:
+    100%;
+
+  max-width:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    34px;
+
+  padding:
+    0
+    2px
+    0
+    0;
+
+  box-sizing:
+    border-box;
+
+  overflow:
+    visible;
+}
+
+
+#contact .avatar-color {
+  width:
+    min(
+      23px,
+      100%
+    );
+
+  height:
+    auto;
+
+  aspect-ratio:
+    1 / 1;
+
+  min-width:
+    13px;
+
+  max-width:
+    23px;
+
+  flex:
+    none;
+
+  justify-self:
+    center;
+}
+
+
+#contact .avatar-color.is-active {
+  box-shadow:
+    0
+    0
+    0
+    2px
+    var(--profile),
+
+    0
+    0
+    0
+    3px
+    var(--green);
+}
+
+
+#contact .custom-color-wrap {
+  position:
+    relative;
+
+  width:
+    min(
+      26px,
+      100%
+    );
+
+  height:
+    auto;
+
+  aspect-ratio:
+    1 / 1;
+
+  min-width:
+    17px;
+
+  max-width:
+    26px;
+
+  flex:
+    none;
+
+  justify-self:
+    center;
+}
+
+
+#contact .custom-color-button {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  min-width:
+    0;
+
+  min-height:
+    0;
+}
+
+
+#contact .custom-color-button::before {
+  width:
+    72%;
+
+  height:
+    72%;
+}
+
+
+#contact .custom-color-plus::before {
+  width:
+    42%;
+
+  height:
+    3px;
+
+  max-height:
+    3px;
+}
+
+
+#contact .custom-color-plus::after {
+  width:
+    3px;
+
+  max-width:
+    3px;
+
+  height:
+    42%;
+}
+
+
+/* =========================================================
+   DESKTOP 1025–1199
+   ========================================================= */
+
+@media
+(min-width: 1025px)
+and
+(max-width: 1199px) {
+
+  #contact .contact-item-main {
+    grid-template-columns:
+      46px
+      minmax(0, 1fr);
+
+    column-gap:
+      10px;
+  }
+
+  #contact .contact-item-logo {
+    height:
+      40px;
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      31px;
+
+    height:
+      31px;
+  }
+
+  #contact .avatar-colors {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(11px, 1fr)
+      );
+
+    gap:
+      2px;
+
+    min-height:
+      29px;
+  }
+
+  #contact .avatar-color {
+    width:
+      min(
+        18px,
+        100%
+      );
+
+    min-width:
+      11px;
+
+    max-width:
+      18px;
+  }
+
+  #contact .custom-color-wrap {
+    width:
+      min(
+        21px,
+        100%
+      );
+
+    min-width:
+      15px;
+
+    max-width:
+      21px;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP 1200–1599
+   ========================================================= */
+
+@media
+(min-width: 1200px)
+and
+(max-width: 1599px) {
+
+  #contact .contact-item-main {
+    grid-template-columns:
+      58px
+      minmax(0, 1fr);
+
+    column-gap:
+      12px;
+  }
+
+  #contact .contact-item-logo {
+    height:
+      52px;
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      39px;
+
+    height:
+      39px;
+  }
+
+  #contact .avatar-colors {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(12px, 1fr)
+      );
+
+    gap:
+      clamp(2px, .2vw, 4px);
+  }
+
+  #contact .avatar-color {
+    width:
+      min(
+        21px,
+        100%
+      );
+
+    min-width:
+      12px;
+
+    max-width:
+      21px;
+  }
+
+  #contact .custom-color-wrap {
+    width:
+      min(
+        24px,
+        100%
+      );
+
+    min-width:
+      16px;
+
+    max-width:
+      24px;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP >= 1600
+   ========================================================= */
+
+@media
+(min-width: 1600px) {
+
+  #contact .contact-item-main {
+    grid-template-columns:
+      clamp(62px, 3.4vw, 68px)
+      minmax(0, 1fr);
+
+    column-gap:
+      clamp(12px, .8vw, 16px);
+  }
+
+  #contact .contact-item-logo {
+    height:
+      clamp(54px, 3.1vw, 62px);
+  }
+
+  #contact .contact-item-logo img {
+    width:
+      clamp(40px, 2.3vw, 46px);
+
+    height:
+      clamp(40px, 2.3vw, 46px);
+  }
+
+}
+
+
+/* =========================================================
+   SHORT / WIDE DESKTOP — MARQUEE POSITION
+
+   Kurangi nilai negatif = marquee turun.
+   Tidak mengubah ukuran navbar atau layout utama.
+   ========================================================= */
+
+@media
+(min-width: 1200px)
+and
+(max-height: 900px) {
+
+  #contact {
+    --marquee-lift:
+      -42px;
+  }
+
+}
+
+
+@media
+(min-width: 1200px)
+and
+(max-height: 760px) {
+
+  #contact {
+    --marquee-lift:
+      -38px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY WIDE + SHORT MONITOR
+   Tambahan breathing room horizontal tanpa scale-down.
+   ========================================================= */
+
+@media
+(min-width: 1600px)
+and
+(max-height: 900px)
+and
+(min-aspect-ratio: 2/1) {
+
+  #contact .contact-shell {
+    width:
+      min(
+        1760px,
+        calc(100% - 64px)
+      );
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(0, .90fr)
+      minmax(0, 1.20fr);
+
+    gap:
+      clamp(28px, 1.8vw, 36px);
+  }
+
+  #contact .avatar-colors {
+    gap:
+      clamp(2px, .2vw, 4px);
+  }
+
+}
+
+
+/* =========================================================
+   58. FORM STEP GUIDANCE BLINK
 
    FLOW
    ---------------------------------------------------------
