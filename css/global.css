@@ -691,3 +691,49 @@ and (max-width: 1199px) {
   }
 
 }
+
+
+/* =========================================================
+   DESKTOP FOOTER BOTTOM FIX
+   Laptop: 1200px - 1599px
+   Monitor: 1600px+
+   ========================================================= */
+
+@media screen and (min-width: 1200px) {
+
+  html {
+    background-color: #003E25;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    overscroll-behavior-y: none;
+  }
+
+  #main-root {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  #footer-root {
+    display: block;
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background-color: #003E25;
+  }
+
+  #footer-root .site-footer {
+    width: 100%;
+    margin: 0 !important;
+    background-color: #003E25;
+  }
+
+  #footer-root .site-footer > :last-child {
+    margin-bottom: 0;
+  }
+}
