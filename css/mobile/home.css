@@ -3,109 +3,120 @@
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    MOBILE — HOME
 
-   FULL REVISION
+   FINAL REVISION — BIG & TIGHT VERTICAL TITLE
+
    BREAKPOINT: 0px - 767px
 
-   DESIGN:
+   FEATURES:
    - Vertical PORTFOLIO
-   - Wider lettering
-   - Larger characters
-   - Tight letter spacing
-   - Orange textured font
-   - Green outline and shadow
+   - Much wider letters
+   - Bigger letters
+   - Very tight spacing
+   - Full title visible in one mobile screen
+   - No extra height from the title
    - Scroll indicator
-   - Animated ticker
+   - Infinite ticker
    ========================================================= */
 
 @media screen and (max-width: 767px) {
 
   /* =====================================================
-     01. MOBILE SETTINGS
+     01. MAIN CONTROLS
 
-     EDIT THESE THREE VALUES TO ADJUST TITLE
+     SIZE    = Ukuran dasar huruf
+     WIDE    = Lebar huruf
+     TIGHT   = Pemadatan tinggi visual
 
-     SIZE:
-     Increase = larger letters
+     LETTER SPACING:
+     Negative value makes consecutive letters closer.
 
-     WIDTH:
-     Increase = wider letters
-
-     COMPACT:
-     Lower = tighter vertical lettering
+     NOTE:
+     The title is visually scaled after layout.
      ===================================================== */
 
   #home {
-    --portfolio-mobile-size: 77px;
-    --portfolio-mobile-width: 1.35;
-    --portfolio-mobile-compact: 0.76;
+    --portfolio-size: clamp(76px, 10svh, 105px);
+    --portfolio-wide: 2.15;
+    --portfolio-tight: 0.78;
+    --portfolio-gap: -0.28em;
 
-    --portfolio-title-green: #003E25;
-    --portfolio-title-orange: #E66A3D;
+    --portfolio-orange: #E66A3D;
+    --portfolio-green: #003E25;
   }
 
 
   /* =====================================================
      02. HOME SECTION
+
+     Exactly one available viewport height,
+     excluding mobile navbar.
      ===================================================== */
 
   #home.hero {
-    position: relative;
+    position: relative !important;
 
     display: flex !important;
     flex-direction: column !important;
 
-    width: 100%;
-    min-width: 0;
+    width: 100% !important;
+    min-width: 0 !important;
 
-    height: auto !important;
-    min-height: calc(100svh - var(--nav-h, 112px));
+    height:
+      calc(100svh - var(--nav-h, 112px)) !important;
+
+    min-height: 0 !important;
+    max-height: none !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
-    background: transparent;
+    background: transparent !important;
 
-    overflow: hidden;
+    overflow: hidden !important;
+
+    align-items: stretch !important;
   }
 
 
   /* =====================================================
      03. HERO MAIN
+
+     Uses the space left after ticker.
      ===================================================== */
 
   #home .hero-main {
-    position: relative;
+    position: relative !important;
 
     display: flex !important;
-    flex: 1 1 auto;
 
+    flex: 1 1 auto !important;
     flex-direction: column !important;
+
     align-items: center !important;
     justify-content: center !important;
 
-    width: 100%;
-    min-width: 0;
-
-    min-height: max(
-      540px,
-      calc(100svh - var(--nav-h, 112px) - 60px)
-    );
+    width: 100% !important;
+    min-width: 0 !important;
 
     height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
 
     margin: 0 !important;
+    padding: 0 !important;
 
-    padding:
-      28px
-      14px
-      86px !important;
+    background: transparent !important;
 
-    overflow: hidden;
+    overflow: hidden !important;
+
+    isolation: isolate;
   }
 
 
   /* =====================================================
      04. VERTICAL PORTFOLIO TITLE
+
+     Letter order:
 
      P
      O
@@ -117,27 +128,38 @@
      I
      O
 
-     WIDER + BIGGER + COMPACT
+     IMPORTANT FIXES:
+
+     1. Negative letter-spacing removes empty gaps.
+     2. scaleX makes each letter wider.
+     3. scaleY compresses vertical arrangement.
+     4. Absolute positioning prevents extra page height.
+     5. Centering keeps the title in the hero.
      ===================================================== */
 
   #home .portfolio-title {
-    position: relative !important;
+    position: absolute !important;
 
-    inset: auto !important;
+    top: 46% !important;
+    left: 50% !important;
 
-    z-index: 2;
+    right: auto !important;
+    bottom: auto !important;
+
+    z-index: 2 !important;
 
     display: block !important;
-
-    flex: 0 0 auto;
 
     width: max-content !important;
     max-width: none !important;
 
-    height: auto !important;
+    height: max-content !important;
     max-height: none !important;
 
-    margin: 0 auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
     padding: 0 !important;
 
     writing-mode: vertical-rl !important;
@@ -145,7 +167,7 @@
 
     white-space: nowrap !important;
 
-    color: var(--portfolio-title-orange) !important;
+    color: var(--portfolio-orange) !important;
 
     font-family:
       "Road Rage",
@@ -153,35 +175,58 @@
       "Arial Black",
       sans-serif !important;
 
-    font-size: var(--portfolio-mobile-size) !important;
+    font-size: var(--portfolio-size) !important;
 
     font-weight: 400 !important;
+    font-style: normal !important;
 
-    font-stretch: expanded;
+    /*
+       Remove default vertical spacing.
+    */
 
-    line-height: 0.75 !important;
+    line-height: 0.72 !important;
 
-    letter-spacing: -15px !important;
+    /*
+       Critical fix:
+       Negative letter spacing makes each
+       upright letter closer to the next.
+    */
+
+    letter-spacing: var(--portfolio-gap) !important;
 
     text-align: center !important;
     text-transform: uppercase !important;
 
+    /*
+       Stronger outline for wider letters.
+    */
+
     -webkit-text-stroke:
-      1.5px var(--portfolio-title-green) !important;
+      2.2px var(--portfolio-green) !important;
 
     text-shadow:
-      3px 3px 0 var(--portfolio-title-green) !important;
+      3px 3px 0 var(--portfolio-green) !important;
+
+    /*
+       Translate centers the whole title.
+
+       scaleX = increase letter width
+       scaleY = compress vertical distance
+    */
 
     transform:
-      scaleX(var(--portfolio-mobile-width))
-      scaleY(var(--portfolio-mobile-compact)) !important;
+      translate(-50%, -50%)
+      scaleX(var(--portfolio-wide))
+      scaleY(var(--portfolio-tight)) !important;
 
-    transform-origin: center !important;
+    transform-origin: center center !important;
 
     opacity: 1 !important;
     visibility: visible !important;
 
     overflow: visible !important;
+
+    pointer-events: none;
   }
 
 
@@ -195,7 +240,7 @@
     position: absolute;
 
     left: 50%;
-    bottom: 59px;
+    bottom: 49px;
 
     z-index: 5;
 
@@ -210,9 +255,10 @@
     font-weight: 800;
 
     line-height: 1;
-    letter-spacing: 2.5px;
 
+    letter-spacing: 2.5px;
     text-transform: uppercase;
+
     white-space: nowrap;
 
     pointer-events: none;
@@ -225,12 +271,14 @@
 
     animation:
       scrollTextHintMobile
-      7s linear infinite;
+      7s
+      linear
+      infinite;
   }
 
 
   /* =====================================================
-     06. SCROLL ARROW
+     06. SCROLL CHEVRON
      ===================================================== */
 
   #home .hero-main::after {
@@ -239,21 +287,25 @@
     position: absolute;
 
     left: 50%;
-    bottom: 32px;
+    bottom: 24px;
 
     z-index: 5;
 
     width: 15px;
     height: 15px;
 
-    border-right: 2px solid var(--orange, #FD6325);
-    border-bottom: 2px solid var(--orange, #FD6325);
+    border-right:
+      2px solid var(--orange, #FD6325);
 
-    filter: drop-shadow(
-      7px 7px 0 var(--orange, #FD6325)
-    );
+    border-bottom:
+      2px solid var(--orange, #FD6325);
 
     opacity: 0;
+
+    filter:
+      drop-shadow(
+        7px 7px 0 var(--orange, #FD6325)
+      );
 
     pointer-events: none;
 
@@ -264,7 +316,9 @@
 
     animation:
       scrollArrowHintMobile
-      7s linear infinite;
+      7s
+      linear
+      infinite;
   }
 
 
@@ -357,25 +411,33 @@
      ===================================================== */
 
   #home .ticker {
-    position: relative;
+    position: relative !important;
 
-    display: flex;
-    align-items: center;
+    z-index: 3;
 
-    flex: 0 0 auto;
+    display: flex !important;
+    align-items: center !important;
 
-    width: 100%;
-    min-width: 0;
+    flex: 0 0 auto !important;
 
-    margin: 0;
-    padding: 0;
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
 
     background: var(--green, #003E25);
 
-    border-top: 2px solid var(--orange, #FD6325);
-    border-bottom: 2px solid var(--orange, #FD6325);
+    border-top:
+      2px solid var(--orange, #FD6325);
 
-    overflow: hidden;
+    border-bottom:
+      2px solid var(--orange, #FD6325);
+
+    overflow: hidden !important;
   }
 
 
@@ -417,7 +479,9 @@
 
     animation:
       marqueeMobile
-      26s linear infinite;
+      26s
+      linear
+      infinite;
   }
 
 
@@ -469,7 +533,7 @@
 
 
   /* =====================================================
-     12. TICKER ACCENT
+     13. TICKER ACCENT
      ===================================================== */
 
   #home .ticker-track .accent {
@@ -485,7 +549,7 @@
 
 
   /* =====================================================
-     13. INFINITE TICKER ANIMATION
+     14. INFINITE TICKER ANIMATION
      ===================================================== */
 
   @keyframes marqueeMobile {
@@ -501,40 +565,38 @@
 
 
   /* =====================================================
-     14. EXTRA SMALL PHONES
+     15. VERY SMALL PHONES
      BELOW 360PX
+
+     Keep full title visible.
      ===================================================== */
 
   @media screen and (max-width: 359px) {
 
     #home {
-      --portfolio-mobile-size: 65px;
-      --portfolio-mobile-width: 1.27;
-      --portfolio-mobile-compact: 0.77;
-    }
-
-    #home .hero-main {
-      min-height: 470px;
-      padding: 20px 8px 75px !important;
+      --portfolio-size: clamp(60px, 9svh, 78px);
+      --portfolio-wide: 1.95;
+      --portfolio-tight: 0.70;
+      --portfolio-gap: -0.30em;
     }
 
     #home .portfolio-title {
-      letter-spacing: -12px !important;
+      top: 45% !important;
 
       -webkit-text-stroke:
-        1.3px var(--portfolio-title-green) !important;
+        1.8px var(--portfolio-green) !important;
 
       text-shadow:
-        2px 2px 0 var(--portfolio-title-green) !important;
+        2px 2px 0 var(--portfolio-green) !important;
     }
 
     #home .hero-main::before {
-      bottom: 51px;
+      bottom: 44px;
       font-size: 9px;
     }
 
     #home .hero-main::after {
-      bottom: 29px;
+      bottom: 21px;
 
       width: 13px;
       height: 13px;
@@ -554,26 +616,24 @@
 
 
   /* =====================================================
-     15. REGULAR PHONES
+     16. REGULAR PHONES
      360PX - 479PX
+
+     Main mobile portrait layout.
      ===================================================== */
 
   @media screen and (min-width: 360px)
   and (max-width: 479px) {
 
     #home {
-      --portfolio-mobile-size: 77px;
-      --portfolio-mobile-width: 1.35;
-      --portfolio-mobile-compact: 0.76;
-    }
-
-    #home .hero-main {
-      min-height: 540px;
-      padding: 25px 10px 85px !important;
+      --portfolio-size: clamp(78px, 10.4svh, 102px);
+      --portfolio-wide: 2.2;
+      --portfolio-tight: 0.75;
+      --portfolio-gap: -0.30em;
     }
 
     #home .portfolio-title {
-      letter-spacing: -15px !important;
+      top: 46% !important;
     }
 
     #home .ticker-track {
@@ -584,32 +644,27 @@
 
 
   /* =====================================================
-     16. LARGE PHONES
+     17. LARGE PHONES
      480PX - 767PX
      ===================================================== */
 
   @media screen and (min-width: 480px) {
 
     #home {
-      --portfolio-mobile-size: 88px;
-      --portfolio-mobile-width: 1.4;
-      --portfolio-mobile-compact: 0.75;
-    }
-
-    #home .hero-main {
-      min-height: 615px;
-
-      padding:
-        30px
-        12px
-        95px !important;
+      --portfolio-size: clamp(85px, 10.8svh, 115px);
+      --portfolio-wide: 2.35;
+      --portfolio-tight: 0.73;
+      --portfolio-gap: -0.30em;
     }
 
     #home .portfolio-title {
-      letter-spacing: -17px !important;
+      top: 46% !important;
 
       -webkit-text-stroke:
-        1.8px var(--portfolio-title-green) !important;
+        2.5px var(--portfolio-green) !important;
+
+      text-shadow:
+        4px 4px 0 var(--portfolio-green) !important;
     }
 
     #home .ticker-track {
@@ -618,80 +673,89 @@
     }
 
     #home .hero-main::before {
-      bottom: 71px;
+      bottom: 57px;
     }
 
     #home .hero-main::after {
-      bottom: 42px;
+      bottom: 29px;
     }
   }
 
 
   /* =====================================================
-     17. SHORT MOBILE SCREENS
-     HEIGHT <= 650PX
+     18. SHORT SCREENS
+
+     Shorter available height:
+     tighten scale without shrinking width too much.
      ===================================================== */
 
-  @media screen and (max-height: 650px) {
+  @media screen and (max-height: 700px) {
 
-    #home .hero-main {
-      min-height: 480px;
-      padding-top: 20px !important;
+    #home {
+      --portfolio-size: clamp(65px, 10svh, 90px);
+      --portfolio-tight: 0.67;
+      --portfolio-gap: -0.32em;
+    }
+
+    #home .portfolio-title {
+      top: 45% !important;
     }
 
     #home .hero-main::before {
-      bottom: 51px;
+      bottom: 45px;
     }
 
     #home .hero-main::after {
-      bottom: 28px;
+      bottom: 20px;
     }
   }
 
 
   /* =====================================================
-     18. MOBILE LANDSCAPE
+     19. MOBILE LANDSCAPE
      ===================================================== */
 
   @media screen and (orientation: landscape)
   and (max-height: 500px) {
 
     #home {
-      --portfolio-mobile-size: 60px;
-      --portfolio-mobile-width: 1.3;
-      --portfolio-mobile-compact: 0.77;
+      --portfolio-size: 56px;
+      --portfolio-wide: 1.8;
+      --portfolio-tight: 0.55;
+      --portfolio-gap: -0.35em;
     }
 
     #home.hero {
-      min-height: 0;
-    }
+      height:
+        calc(100svh - var(--nav-h, 112px)) !important;
 
-    #home .hero-main {
-      min-height: 430px;
-      padding: 20px 8px 75px !important;
+      min-height: 0 !important;
     }
 
     #home .portfolio-title {
-      letter-spacing: -12px !important;
+      top: 44% !important;
+
+      -webkit-text-stroke:
+        1.5px var(--portfolio-green) !important;
     }
 
     #home .hero-main::before {
-      bottom: 46px;
+      bottom: 32px;
     }
 
     #home .hero-main::after {
-      bottom: 23px;
+      bottom: 10px;
     }
 
     #home .ticker-track {
-      padding: 11px 0;
-      font-size: 11px;
+      padding: 10px 0;
+      font-size: 10px;
     }
   }
 
 
   /* =====================================================
-     19. REDUCED MOTION
+     20. REDUCED MOTION
      ===================================================== */
 
   @media (prefers-reduced-motion: reduce) {
