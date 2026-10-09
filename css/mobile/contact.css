@@ -1,0 +1,1829 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE — CONTACT
+
+   BREAKPOINT: 0px - 767px
+
+   BASED ON:
+   - sections/contact.html
+   - js/contact.js
+   - css/desktop-laptop/contact.css
+
+   MOBILE LAYOUT:
+   01. Contact marquee
+   02. Let's Connect
+   03. Social links
+   04. Leave a message
+   05. Profile avatar builder
+   06. Comments
+
+   Existing HTML and JavaScript are preserved.
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. VARIABLES
+     ===================================================== */
+
+  #contact {
+    --green: #004636;
+    --orange: #FF602F;
+    --paper: #F5ECD8;
+    --card: #FBF5E8;
+    --field: #F8F2E3;
+    --profile: #EAD7BD;
+    --text-soft: #55746A;
+    --shadow: #55745E;
+    --error: #FF3535;
+
+    position: relative;
+
+    display: flex !important;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 0 55px !important;
+
+    background: transparent;
+    color: var(--green);
+
+    overflow: visible;
+  }
+
+  #contact *,
+  #contact *::before,
+  #contact *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     02. MARQUEE
+     ===================================================== */
+
+  #contact .contact-end-marquee {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 34px;
+
+    width: 100%;
+    height: 34px;
+
+    margin: 0 0 33px;
+    padding: 0;
+
+    background: var(--green);
+
+    border-top: 2px solid var(--orange);
+    border-bottom: 2px solid var(--orange);
+
+    overflow: hidden;
+
+    transform: none;
+    pointer-events: none;
+  }
+
+  #contact .contact-end-track {
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    width: max-content;
+    min-width: max-content;
+
+    animation: contactMarqueeMove 34s linear infinite;
+    will-change: transform;
+  }
+
+  #contact .contact-end-sequence {
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    gap: 20px;
+    min-width: max-content;
+
+    padding-right: 20px;
+
+    color: var(--paper);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  #contact .contact-end-sequence span,
+  #contact .contact-end-sequence b {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  #contact .contact-end-sequence b {
+    color: var(--orange);
+  }
+
+  @keyframes contactMarqueeMove {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+
+  /* =====================================================
+     03. MAIN SHELL
+     ===================================================== */
+
+  #contact .contact-shell {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    width: calc(100% - 32px);
+    max-width: 540px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    transform: none;
+  }
+
+
+  /* =====================================================
+     04. MAIN LAYOUT
+     ===================================================== */
+
+  #contact .contact-layout {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 27px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact .contact-left,
+  #contact .contact-right {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+
+  /* =====================================================
+     05. CONTACT LABEL
+     ===================================================== */
+
+  #contact .contact-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+
+    min-width: 120px;
+    height: 34px;
+
+    margin: 0;
+    padding: 0 17px;
+
+    background: var(--orange);
+
+    border: 2px solid var(--green);
+    border-radius: 999px;
+
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+
+  /* =====================================================
+     06. CONTACT TITLE
+     ===================================================== */
+
+  #contact .contact-title {
+    display: block;
+
+    width: 100%;
+
+    margin: 18px 0 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    font-size: clamp(55px, 14vw, 86px);
+    font-weight: 900;
+
+    letter-spacing: -2.5px;
+    line-height: 0.95;
+
+    text-transform: uppercase;
+    overflow-wrap: normal;
+  }
+
+  #contact .contact-title span {
+    display: block;
+    color: #DC6D40;
+  }
+
+
+  /* =====================================================
+     07. INTRO DESCRIPTION
+     ===================================================== */
+
+  #contact .contact-intro {
+    width: 100%;
+    max-width: 450px;
+
+    margin: 18px 0 25px;
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 500;
+
+    line-height: 1.65;
+  }
+
+
+  /* =====================================================
+     08. CONNECT WITH ME PANEL
+     ===================================================== */
+
+  #contact .contact-list {
+    position: relative;
+    isolation: isolate;
+
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 64px 12px 13px;
+
+    background: var(--paper);
+
+    border: 2px solid var(--green);
+    border-radius: 11px;
+
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+
+  /* =====================================================
+     09. CONNECT HEADER
+     ===================================================== */
+
+  #contact .contact-list::before {
+    content: "Connect With Me";
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+    right: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    background: var(--green);
+    border-radius: 6px;
+
+    color: var(--paper);
+
+    font-size: 15px;
+    font-weight: 850;
+    text-align: center;
+
+    z-index: 1;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  #contact .contact-list:hover::before,
+  #contact .contact-list:focus-within::before {
+    background: var(--orange);
+    color: var(--green);
+  }
+
+  #contact .contact-list::after {
+    content: none;
+    display: none;
+  }
+
+
+  /* =====================================================
+     10. SOCIAL CARDS
+     ===================================================== */
+
+  #contact .contact-item {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 76px;
+
+    margin: 0;
+    padding: 9px;
+
+    background: var(--card);
+
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+
+    color: var(--green);
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #contact .contact-item:hover,
+  #contact .contact-item:active {
+    background: #F0E2CB;
+  }
+
+  #contact .contact-item:active {
+    transform: scale(0.98);
+  }
+
+  #contact .contact-item::before {
+    content: none;
+    display: none;
+  }
+
+
+  /* =====================================================
+     11. SOCIAL CONTENT
+     ===================================================== */
+
+  #contact .contact-item-main {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+
+    gap: 7px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact .contact-item-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 4px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--green);
+    border-radius: 6px;
+  }
+
+  #contact .contact-item-logo img {
+    display: block;
+
+    width: 25px;
+    height: 25px;
+
+    object-fit: contain;
+  }
+
+  #contact .contact-item-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #contact .contact-item-text h3 {
+    margin: 0 0 4px;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 850;
+    line-height: 1.2;
+  }
+
+  #contact .contact-item-text p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+    line-height: 1.4;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+
+  /* =====================================================
+     12. SOCIAL ARROWS
+     ===================================================== */
+
+  #contact .contact-item::after {
+    content: "";
+
+    display: block;
+
+    flex: 0 0 21px;
+
+    width: 21px;
+    height: 21px;
+
+    margin-left: 5px;
+
+    background-color: var(--paper);
+
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004636' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19 19 5M9 5h10v10'/%3E%3C/svg%3E");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+
+    border: 1px solid var(--green);
+    border-radius: 50%;
+  }
+
+
+  /* =====================================================
+     13. RIGHT MESSAGE PANEL
+     ===================================================== */
+
+  #contact .contact-panel {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 13px;
+
+    background: var(--paper);
+
+    border: 2px solid var(--green);
+    border-radius: 11px;
+
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+  #contact .contact-panel::before,
+  #contact .contact-panel::after {
+    content: none;
+    display: none;
+  }
+
+
+  /* =====================================================
+     14. MESSAGE HEADER
+     ===================================================== */
+
+  #contact .contact-panel-head {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    width: 100%;
+
+    min-height: 51px;
+
+    margin: 0 0 14px;
+    padding: 0;
+
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #contact .contact-panel-head::before,
+  #contact .contact-panel-head::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  #contact .contact-avatar {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 40px;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+    background: var(--green);
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  #contact .contact-panel-head-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #contact .contact-panel-head-text h3 {
+    margin: 0 0 4px;
+
+    color: var(--green);
+
+    font-size: 17px;
+    font-weight: 850;
+    line-height: 1.2;
+  }
+
+  #contact .contact-panel-head-text p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+
+  /* =====================================================
+     15. MESSAGE LAYOUT
+     ===================================================== */
+
+  #contact .message-layout {
+    display: flex !important;
+    flex-direction: column;
+
+    gap: 13px !important;
+
+    width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0;
+  }
+
+  #contact .message-compose,
+  #contact .message-comments {
+    width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0;
+    padding: 12px;
+
+    background: var(--card);
+
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+  }
+
+  #contact .message-compose {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contact .message-comments {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    overflow: visible;
+  }
+
+
+  /* =====================================================
+     16. CONTACT FORM
+     ===================================================== */
+
+  #contact .contact-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact .form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+  }
+
+  #contact .form-group label {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    margin: 0;
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  #contact .form-group label span {
+    color: var(--orange);
+  }
+
+
+  /* =====================================================
+     17. FORM INPUTS
+     ===================================================== */
+
+  #contact .form-group input,
+  #contact .form-group textarea {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 11px 12px;
+
+    background: #FFFFFF;
+
+    border: 1.5px solid var(--green);
+    border-radius: 6px;
+
+    color: var(--green);
+
+    font: inherit;
+    font-size: 12px;
+
+    outline: none;
+    box-shadow: none;
+  }
+
+  #contact .form-group input {
+    height: 42px;
+  }
+
+  #contact .form-group textarea {
+    height: 105px;
+    min-height: 105px;
+    max-height: 200px;
+
+    resize: vertical;
+  }
+
+  #contact .form-group input:focus,
+  #contact .form-group textarea:focus {
+    border-color: var(--orange);
+
+    box-shadow:
+      0 0 0 2px rgba(255, 96, 47, 0.12);
+  }
+
+  #contact .form-group input::placeholder,
+  #contact .form-group textarea::placeholder {
+    color: var(--text-soft);
+  }
+
+
+  /* =====================================================
+     18. PROFILE BUILDER
+     ===================================================== */
+
+  #contact .profile-builder {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 12px;
+
+    background: var(--profile);
+
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+
+    animation: none;
+    box-shadow: none;
+  }
+
+  #contact .profile-builder-head {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin: 0 0 12px;
+  }
+
+  #contact .profile-preview-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    background: var(--green);
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-size: 10px;
+    font-weight: 850;
+  }
+
+  #contact .profile-builder-copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #contact .profile-builder-copy strong {
+    display: block;
+
+    margin: 0 0 4px;
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #contact .profile-builder-copy p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+
+  /* =====================================================
+     19. PROFILE CONTROLS
+     ===================================================== */
+
+  #contact .profile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  #contact .profile-control {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #contact .profile-control label {
+    display: block;
+
+    margin: 0 0 8px;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  #contact .initials-control {
+    order: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #contact .initials-control label {
+    display: none;
+  }
+
+  #contact #contactInitials {
+    display: block;
+
+    width: 48px;
+    height: 32px;
+
+    padding: 4px;
+
+    background: var(--card);
+
+    border: 1.5px solid var(--green);
+    border-radius: 5px;
+
+    color: var(--green);
+
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+
+    outline: none;
+    box-shadow: none;
+  }
+
+
+  /* =====================================================
+     20. AVATAR COLORS
+     ===================================================== */
+
+  #contact .avatar-colors {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 5px 2px;
+  }
+
+  #contact .avatar-color {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 25px;
+
+    width: 25px;
+    height: 25px;
+
+    min-width: 25px;
+    min-height: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--swatch, var(--green));
+
+    border: none;
+    border-radius: 50%;
+
+    outline: none;
+    box-shadow: none;
+
+    cursor: pointer;
+
+    transition:
+      transform 0.2s ease;
+  }
+
+  #contact .avatar-color:hover {
+    transform: scale(1.08);
+  }
+
+  #contact .avatar-colors > .avatar-color:nth-of-type(7),
+  #contact .avatar-colors > .avatar-color:nth-of-type(8),
+  #contact .avatar-colors > .avatar-color:nth-of-type(9) {
+    display: none !important;
+  }
+
+  #contact .avatar-color.is-active {
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow:
+      inset 0 0 0 2px var(--card) !important;
+  }
+
+  #contact .avatar-color:focus-visible {
+    outline: 2px solid var(--green) !important;
+    outline-offset: 2px !important;
+  }
+
+
+  /* =====================================================
+     21. CUSTOM COLOR BUTTON
+     ===================================================== */
+
+  #contact .custom-color-wrap {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 25px;
+
+    width: 25px;
+    height: 25px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact .custom-color-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    min-width: 25px;
+    min-height: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    background:
+      linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+      conic-gradient(
+        red,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        magenta,
+        red
+      ) border-box;
+
+    border: 2px solid transparent;
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+
+  #contact .custom-color-plus {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+
+    background: #FFFFFF;
+    border-radius: 50%;
+
+    font-size: 0;
+    line-height: 0;
+  }
+
+  #contact .custom-color-plus::before,
+  #contact .custom-color-plus::after {
+    content: "";
+
+    position: absolute;
+
+    background: var(--green);
+    border-radius: 1px;
+  }
+
+  #contact .custom-color-plus::before {
+    width: 9px;
+    height: 2px;
+  }
+
+  #contact .custom-color-plus::after {
+    width: 2px;
+    height: 9px;
+  }
+
+
+  /* =====================================================
+     22. CUSTOM COLOR POPOVER
+     ===================================================== */
+
+  #contact .custom-color-popover {
+    position: absolute;
+
+    top: calc(100% + 12px);
+    right: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    width: min(245px, calc(100vw - 65px));
+
+    padding: 13px;
+
+    background: #FFFFFF;
+
+    border: 2px solid var(--green);
+    border-radius: 8px;
+
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+  #contact .custom-color-popover.is-open {
+    display: block;
+  }
+
+  #contact .custom-color-popover[hidden] {
+    display: none !important;
+  }
+
+  #contact .color-picker-head {
+    margin-bottom: 10px;
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  #contact .sv-picker {
+    position: relative;
+
+    width: 100%;
+    height: 125px;
+
+    background:
+      linear-gradient(to top, black, transparent),
+      linear-gradient(to right, white, transparent),
+      red;
+
+    cursor: crosshair;
+    touch-action: none;
+  }
+
+  #contact .sv-picker-cursor {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 13px;
+    height: 13px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    box-shadow: 0 0 2px black;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+  }
+
+  #contact .hue-picker {
+    margin-top: 10px;
+  }
+
+  #contact .hue-picker input {
+    width: 100%;
+  }
+
+  #contact .hex-picker-row {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+  }
+
+  #contact .hex-color-preview {
+    flex: 0 0 27px;
+
+    width: 27px;
+    height: 27px;
+
+    border: 1px solid var(--green);
+    border-radius: 4px;
+  }
+
+  #contact .hex-input-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #contact .hex-input-wrap input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 7px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--green);
+    border-radius: 4px;
+
+    color: var(--green);
+
+    font-size: 11px;
+  }
+
+
+  /* =====================================================
+     23. SEND MESSAGE BUTTON
+     ===================================================== */
+
+  #contact .contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 43px;
+
+    width: 100%;
+    min-height: 43px;
+    height: 43px;
+
+    margin: 0;
+    padding: 10px 12px;
+
+    background: var(--green);
+
+    border: 0;
+    border-radius: 6px;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 850;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #contact .contact-submit:not(:disabled):hover,
+  #contact .contact-submit:not(:disabled):active,
+  #contact .contact-submit:not(:disabled):focus-visible {
+    background: var(--orange);
+    color: #FFFFFF;
+  }
+
+  #contact .contact-submit:not(:disabled):active {
+    transform: scale(0.99);
+  }
+
+  #contact .contact-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  #contact .submit-arrow {
+    display: none;
+  }
+
+
+  /* =====================================================
+     24. GHOST GIF
+     ===================================================== */
+
+  #contact .contact-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 100%;
+    min-height: 75px;
+
+    margin: 8px 0 0;
+    padding: 0;
+
+    pointer-events: none;
+  }
+
+  #contact .contact-ghost img {
+    display: block;
+
+    width: 72px;
+    max-width: 45%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  /* =====================================================
+     25. COMMENTS HEADER
+     ===================================================== */
+
+  #contact .comments-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    width: 100%;
+  }
+
+  #contact .comments-eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--orange);
+
+    font-size: 9px;
+    font-weight: 850;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  #contact .comments-head h3 {
+    margin: 0;
+
+    color: var(--green);
+
+    font-size: 16px;
+    font-weight: 850;
+  }
+
+  #contact .comment-count {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 31px;
+
+    width: 31px;
+    height: 31px;
+
+    padding: 0;
+
+    background: var(--orange);
+
+    border: 2px solid var(--green);
+    border-radius: 50%;
+
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+
+  /* =====================================================
+     26. EMPTY COMMENTS
+     ===================================================== */
+
+  #contact .comments-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 190px;
+
+    margin: 0;
+    padding: 16px;
+
+    background: var(--paper);
+
+    border: 1.5px solid var(--green);
+    border-radius: 7px;
+
+    text-align: center;
+  }
+
+  #contact .comments-empty-icon {
+    margin: 0 0 10px;
+
+    color: var(--orange);
+
+    font-size: 24px;
+  }
+
+  #contact .comments-empty strong,
+  #contact .comments-empty h3,
+  #contact .comments-empty h4 {
+    display: block;
+
+    margin: 0 0 8px;
+
+    color: var(--green);
+
+    font-size: 12px;
+  }
+
+  #contact .comments-empty p {
+    margin: 0;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  #contact .comments-empty[hidden],
+  #contact .comments-list[hidden] {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     27. COMMENTS LIST
+     ===================================================== */
+
+  #contact .comments-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    max-height: 340px;
+
+    margin: 0;
+    padding: 0 3px 0 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #contact .comment-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--green);
+    border-radius: 7px;
+
+    overflow-wrap: anywhere;
+  }
+
+  #contact .comment-avatar {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 33px;
+
+    width: 33px;
+    height: 33px;
+
+    background: var(--green);
+
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-size: 10px;
+    font-weight: 850;
+  }
+
+  #contact .comment-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #contact .comment-name {
+    margin: 0 0 5px;
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  #contact .comment-message {
+    margin: 0;
+
+    color: var(--green);
+
+    font-size: 11px;
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =====================================================
+     28. VALIDATION ANIMATIONS
+     ===================================================== */
+
+  @keyframes contactFieldBlink {
+    0%, 49% {
+      border-color: var(--error);
+    }
+
+    50%, 100% {
+      border-color: var(--green);
+    }
+  }
+
+  @keyframes contactInitialsBlink {
+    0%, 49% {
+      border-color: var(--error);
+    }
+
+    50%, 100% {
+      border-color: var(--green);
+    }
+  }
+
+  #contact #contactMessage.is-guidance-blink {
+    animation: contactFieldBlink 1s linear infinite;
+
+    background: #FFFFFF;
+
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  #contact .profile-builder.is-guidance-blink {
+    animation: none !important;
+
+    border-color: var(--green);
+    box-shadow: none !important;
+  }
+
+  #contact .profile-builder.is-guidance-blink #contactInitials,
+  #contact #contactInitials.is-guidance-blink {
+    animation: contactInitialsBlink 1s linear infinite;
+
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  #contact .profile-builder.is-guidance-blink::before,
+  #contact .profile-builder.is-guidance-blink::after {
+    content: none;
+    display: none;
+  }
+
+
+  /* =====================================================
+     29. SMALL PHONES
+     BELOW 390PX
+     ===================================================== */
+
+  @media screen and (max-width: 389px) {
+
+    #contact .contact-shell {
+      width: calc(100% - 26px);
+    }
+
+    #contact .contact-title {
+      font-size: clamp(48px, 13.5vw, 55px);
+      letter-spacing: -2px;
+    }
+
+    #contact .contact-list {
+      gap: 8px;
+      padding: 59px 9px 10px;
+    }
+
+    #contact .contact-list::before {
+      top: 10px;
+      left: 9px;
+      right: 9px;
+
+      height: 37px;
+      font-size: 14px;
+    }
+
+    #contact .contact-item {
+      min-height: 70px;
+      padding: 7px;
+    }
+
+    #contact .contact-item-logo {
+      flex-basis: 29px;
+      width: 29px;
+      height: 29px;
+      padding: 3px;
+    }
+
+    #contact .contact-item-logo img {
+      width: 22px;
+      height: 22px;
+    }
+
+    #contact .contact-item-text h3 {
+      font-size: 10px;
+    }
+
+    #contact .contact-item-text p {
+      font-size: 7.5px;
+    }
+
+    #contact .contact-item::after {
+      flex-basis: 18px;
+      width: 18px;
+      height: 18px;
+      margin-left: 3px;
+      background-size: 10px 10px;
+    }
+
+    #contact .contact-panel {
+      padding: 10px;
+    }
+
+    #contact .message-compose,
+    #contact .message-comments {
+      padding: 10px;
+    }
+  }
+
+
+  /* =====================================================
+     30. EXTRA SMALL PHONES
+     BELOW 340PX
+     ===================================================== */
+
+  @media screen and (max-width: 339px) {
+
+    #contact .contact-list {
+      grid-template-columns: 1fr;
+    }
+
+    #contact .contact-item {
+      min-height: 59px;
+    }
+
+    #contact .contact-item-logo {
+      flex-basis: 35px;
+      width: 35px;
+      height: 35px;
+    }
+
+    #contact .contact-item-text h3 {
+      font-size: 12px;
+    }
+
+    #contact .contact-item-text p {
+      font-size: 9px;
+    }
+
+    #contact .contact-item::after {
+      flex-basis: 23px;
+      width: 23px;
+      height: 23px;
+      background-size: 13px 13px;
+    }
+  }
+
+
+  /* =====================================================
+     31. LARGE PHONES
+     480PX - 767PX
+     ===================================================== */
+
+  @media screen and (min-width: 480px) {
+
+    #contact .contact-shell {
+      width: calc(100% - 48px);
+    }
+
+    #contact .contact-layout {
+      gap: 34px;
+    }
+
+    #contact .contact-title {
+      font-size: clamp(67px, 12vw, 90px);
+    }
+
+    #contact .contact-intro {
+      font-size: 14px;
+    }
+
+    #contact .contact-list {
+      gap: 14px;
+      padding: 75px 16px 17px;
+    }
+
+    #contact .contact-list::before {
+      top: 15px;
+      left: 16px;
+      right: 16px;
+
+      height: 45px;
+      font-size: 18px;
+    }
+
+    #contact .contact-item {
+      min-height: 90px;
+      padding: 12px;
+    }
+
+    #contact .contact-item-logo {
+      flex-basis: 43px;
+      width: 43px;
+      height: 43px;
+    }
+
+    #contact .contact-item-logo img {
+      width: 31px;
+      height: 31px;
+    }
+
+    #contact .contact-item-text h3 {
+      font-size: 14px;
+    }
+
+    #contact .contact-item-text p {
+      font-size: 10px;
+    }
+
+    #contact .contact-item::after {
+      flex-basis: 27px;
+      width: 27px;
+      height: 27px;
+      background-size: 15px 15px;
+    }
+
+    #contact .contact-panel {
+      padding: 17px;
+    }
+
+    #contact .message-compose,
+    #contact .message-comments {
+      padding: 15px;
+    }
+
+    #contact .form-group label {
+      font-size: 13px;
+    }
+
+    #contact .form-group input {
+      height: 45px;
+    }
+
+    #contact .form-group textarea {
+      height: 125px;
+      min-height: 125px;
+    }
+
+    #contact .contact-submit {
+      height: 47px;
+      flex-basis: 47px;
+    }
+  }
+
+
+  /* =====================================================
+     32. ACCESSIBILITY
+     ===================================================== */
+
+  #contact button:focus-visible,
+  #contact a:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+  }
+
+  #contact input:focus-visible,
+  #contact textarea:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+
+  /* =====================================================
+     33. REDUCED MOTION
+     ===================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    #contact .contact-end-track {
+      animation: none;
+    }
+
+    #contact .contact-item,
+    #contact .avatar-color,
+    #contact .contact-submit,
+    #contact .contact-list::before {
+      transition: none;
+    }
+
+    #contact .contact-item:active,
+    #contact .contact-submit:active {
+      transform: none;
+    }
+
+    #contact #contactMessage.is-guidance-blink {
+      animation: none;
+      border-color: var(--error);
+    }
+
+    #contact .profile-builder.is-guidance-blink #contactInitials,
+    #contact #contactInitials.is-guidance-blink {
+      animation: none;
+      border-color: var(--error);
+    }
+  }
+
+}

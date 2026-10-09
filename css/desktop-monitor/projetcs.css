@@ -1,0 +1,345 @@
+
+/* ==========================================================
+   PROJECTS — DESKTOP MONITOR
+   1600px+
+   ========================================================== */
+
+@media screen and (min-width: 1600px) {
+
+  #projects {
+    --slide-w: min(880px, 56vw);
+    --slide-gap: 32px;
+
+    margin-top: -75px;
+    padding: 28px 0 55px;
+  }
+
+  /* SECTION HEADER */
+
+  #projects .section-title-row {
+    width: min(1200px, calc(100% - 120px));
+    margin-bottom: 24px;
+  }
+
+  #projects .section-title {
+    font-size: clamp(72px, 4.4vw, 94px);
+  }
+
+  #projects .section-copy {
+    max-width: 490px;
+    font-size: 15px;
+  }
+
+  /* CAROUSEL */
+
+  #projects .projects-static {
+    gap: var(--slide-gap) !important;
+
+    padding-left: max(
+      25px,
+      calc((100% - var(--slide-w)) / 2)
+    );
+
+    padding-right: max(
+      25px,
+      calc((100% - var(--slide-w)) / 2)
+    );
+  }
+
+  #projects .projects-static > .project-tile {
+    flex: 0 0 var(--slide-w) !important;
+
+    width: var(--slide-w) !important;
+    max-width: var(--slide-w);
+
+    padding: 34px 38px !important;
+    border-radius: 24px;
+  }
+
+  /* ACTIVE / SIDE */
+
+  #projects .project-tile.pc-active {
+    opacity: 1;
+    filter: none;
+  }
+
+  #projects .project-tile:not(.pc-active) {
+    opacity: .30;
+    filter: blur(2.3px) saturate(.65);
+    pointer-events: auto !important;
+  }
+
+  #projects .project-tile:not(.pc-active):hover {
+    opacity: .48;
+    filter: blur(1.5px) saturate(.85);
+  }
+
+  /* HEADER */
+
+  #projects .pc-slide-header {
+    margin-bottom: 26px;
+  }
+
+  #projects .pc-number {
+    font-size: 56px;
+  }
+
+  #projects .pc-slide-title {
+    font-size: clamp(36px, 2.35vw, 46px);
+  }
+
+  /* META */
+
+  #projects .project-meta {
+    margin-bottom: 27px;
+  }
+
+  #projects .meta-item {
+    font-size: 13px;
+  }
+
+  /* PROBLEM / KEY FINDING */
+
+  #projects .project-insights {
+    gap: 25px !important;
+    margin-bottom: 30px;
+  }
+
+  #projects .insight-label,
+  #projects .focus-label,
+  #projects .impact-label {
+    font-size: 12px;
+  }
+
+  #projects .insight-item p,
+  #projects .impact-row p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* ANALYSIS FOCUS */
+
+  #projects .focus-row {
+    margin-bottom: 29px;
+  }
+
+  #projects .focus-items span {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  /* IMPACT */
+
+  #projects .impact-row {
+    margin-bottom: 29px;
+  }
+
+  /* FOOTER */
+
+  #projects .project-footer {
+    padding-top: 22px;
+  }
+
+  #projects .project-tag {
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  #projects .project-link {
+    min-height: 46px;
+    padding: 0 21px;
+    font-size: 12px;
+  }
+
+  /* NAVIGATION */
+
+  #projects .pc-navigation {
+    margin-top: 14px;
+  }
+
+  #projects .pc-tabs {
+    gap: 10px;
+  }
+
+  #projects .pc-tab {
+    min-height: 42px;
+    padding: 0 18px;
+  }
+
+  #projects .pc-tab-number,
+  #projects .pc-tab-label {
+    font-size: 12px;
+  }
+
+  #projects .pc-hint {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  /* MODAL */
+
+  .case-study-panel {
+    width: min(1140px, 66vw) !important;
+    height: min(730px, 80vh) !important;
+  }
+}
+
+/* 1600–1919 */
+
+@media screen and (min-width: 1600px)
+and (max-width: 1919px) {
+
+  #projects {
+    --slide-w: min(800px, 56vw);
+    --slide-gap: 28px;
+  }
+
+  #projects .projects-static > .project-tile {
+    padding: 29px 32px !important;
+  }
+
+  #projects .pc-slide-title {
+    font-size: 38px;
+  }
+}
+
+/* 1920–2559 */
+
+@media screen and (min-width: 1920px)
+and (max-width: 2559px) {
+
+  #projects {
+    --slide-w: min(880px, 49vw);
+    --slide-gap: 34px;
+  }
+}
+
+/* 2560+ */
+
+@media screen and (min-width: 2560px) {
+
+  #projects {
+    --slide-w: min(1040px, 43vw);
+    --slide-gap: 42px;
+  }
+
+  #projects .projects-static > .project-tile {
+    padding: 40px 45px !important;
+  }
+
+  #projects .pc-slide-title {
+    font-size: 50px;
+  }
+
+  #projects .insight-item p,
+  #projects .impact-row p {
+    font-size: 19px;
+  }
+}
+
+/* SHORT MONITOR */
+
+@media screen and (min-width: 1600px)
+and (max-height: 900px) {
+
+  #projects {
+    margin-top: -60px;
+    padding: 20px 0 37px;
+  }
+
+  #projects .section-title-row {
+    margin-bottom: 14px;
+  }
+
+  #projects .projects-static > .project-tile {
+    padding: 23px 28px !important;
+  }
+
+  #projects .pc-slide-header {
+    margin-bottom: 16px;
+  }
+
+  #projects .pc-number {
+    font-size: 44px;
+  }
+
+  #projects .pc-slide-title {
+    font-size: 33px;
+  }
+
+  #projects .project-meta {
+    margin-bottom: 16px;
+  }
+
+  #projects .project-insights {
+    gap: 16px !important;
+    margin-bottom: 17px;
+  }
+
+  #projects .insight-item p,
+  #projects .impact-row p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #projects .focus-row,
+  #projects .impact-row {
+    margin-bottom: 16px;
+  }
+
+  #projects .project-footer {
+    padding-top: 13px;
+  }
+
+  #projects .pc-navigation {
+    margin-top: 8px;
+  }
+
+  #projects .pc-tab {
+    min-height: 36px;
+    padding: 0 13px;
+  }
+
+  #projects .pc-tab-number,
+  #projects .pc-tab-label {
+    font-size: 10px;
+  }
+
+  #projects .pc-hint {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .case-study-panel {
+    height: min(650px, 82vh) !important;
+  }
+}
+
+
+/* =========================================
+   ALIGN SELECTED WORK
+   DESKTOP MONITOR 1600px+
+   ========================================= */
+
+@media screen and (min-width: 1600px) {
+
+  #projects .section-title-row {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #projects .section-title {
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+  }
+
+}

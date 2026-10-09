@@ -1,0 +1,1100 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE — ABOUT
+
+   BREAKPOINT: 0px - 767px
+
+   ORIGINAL HTML:
+   sections/about.html
+
+   CONTENT:
+   01. Introduction
+   02. Education
+   03. Experience
+   04. Technical Skills
+
+   Mobile layout:
+   Single-column content with responsive cards.
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. ABOUT SECTION
+     ===================================================== */
+
+  #about.about-section {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding:
+      42px
+      16px
+      65px;
+
+    background: var(--cream);
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    overflow-x: clip;
+  }
+
+
+  /* =====================================================
+     02. BOX SIZING
+     ===================================================== */
+
+  #about *,
+  #about *::before,
+  #about *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     03. MAIN ABOUT WRAPPER
+     ===================================================== */
+
+  #about .about-layout {
+    display: block;
+
+    width: 100%;
+    max-width: 540px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     04. INTRO BLOCK
+     ===================================================== */
+
+  #about .intro-block {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     05. NAME
+     ===================================================== */
+
+  #about .about-name {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    font-size: clamp(43px, 10.8vw, 73px);
+    font-weight: 500;
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+
+    overflow-wrap: normal;
+  }
+
+
+  /* =====================================================
+     06. SURNAME ORANGE
+     ===================================================== */
+
+  #about .about-name span {
+    display: block;
+
+    margin: 2px 0 0;
+    padding: 0;
+
+    color: var(--orange);
+
+    font-weight: 500;
+  }
+
+
+  /* =====================================================
+     07. ABOUT COPY
+     ===================================================== */
+
+  #about .about-copy {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 20px 0 0;
+    padding: 0;
+  }
+
+
+  #about .about-copy p {
+    margin: 0;
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.8;
+
+    letter-spacing: 0;
+
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     08. MAIN CONTENT GRID
+     ===================================================== */
+
+  #about .about-content-grid {
+    display: flex;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 34px 0 0;
+    padding: 0;
+
+    gap: 34px;
+
+    grid-template-columns: none;
+  }
+
+
+  /* =====================================================
+     09. LEFT COLUMN
+     ===================================================== */
+
+  #about .about-records {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 28px;
+  }
+
+
+  /* =====================================================
+     10. RECORD SECTIONS
+     ===================================================== */
+
+  #about .record-section,
+  #about .education-section,
+  #about .experience-section {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     11. SECTION HEADINGS
+     ===================================================== */
+
+  #about .section-heading {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    width: 100%;
+
+    margin: 0 0 15px;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     12. HEADING ICON CIRCLE
+     ===================================================== */
+
+  #about .section-heading::before {
+    content: "";
+
+    display: block;
+
+    flex: 0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    background-color: #003e25;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+
+    border: none;
+    border-radius: 50%;
+  }
+
+
+  /* =====================================================
+     13. EDUCATION ICON
+     ===================================================== */
+
+  #about .education-section .section-heading::before {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5ecd8' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5.5A2.5 2.5 0 016.5 3H11a3 3 0 013 3v14a3 3 0 00-3-3H6.5A2.5 2.5 0 004 19.5v-14z'/%3E%3Cpath d='M20 5.5A2.5 2.5 0 0017.5 3H14v17a3 3 0 013-3h.5a2.5 2.5 0 012.5 2.5v-14z'/%3E%3C/svg%3E");
+  }
+
+
+  /* =====================================================
+     14. EXPERIENCE ICON
+     ===================================================== */
+
+  #about .experience-section .section-heading::before {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5ecd8' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='18' height='13' rx='2'/%3E%3Cpath d='M8 7V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V7'/%3E%3Cpath d='M3 12h18'/%3E%3Cpath d='M10 12v2h4v-2'/%3E%3C/svg%3E");
+  }
+
+
+  /* =====================================================
+     15. TECHNICAL SKILLS ICON
+     ===================================================== */
+
+  #about .skills-section .section-heading::before {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5ecd8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M19.4 15a1.7 1.7 0 00.34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0015 19.4a1.7 1.7 0 00-1 .6 1.7 1.7 0 00-.4 1.1V21h-4v-.09A1.7 1.7 0 009 19.4a1.7 1.7 0 00-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 004.6 15a1.7 1.7 0 00-.6-1 1.7 1.7 0 00-1.1-.4H3v-4h.09A1.7 1.7 0 004.6 9a1.7 1.7 0 00-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 009 4.6a1.7 1.7 0 001-.6 1.7 1.7 0 00.4-1.1V3h4v.09A1.7 1.7 0 0015 4.6a1.7 1.7 0 001.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0019.4 9a1.7 1.7 0 00.6 1 1.7 1.7 0 001.1.4H21v4h-.09A1.7 1.7 0 0019.4 15z'/%3E%3C/svg%3E");
+  }
+
+
+  /* =====================================================
+     16. HEADING TEXT
+     ===================================================== */
+
+  #about .section-heading h2 {
+    margin: 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    font-size: clamp(23px, 6.5vw, 28px);
+    font-weight: 650;
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+  }
+
+
+  /* =====================================================
+     17. REMOVE DECORATIVE LINES
+     ===================================================== */
+
+  #about .section-heading::after,
+  #about .section-heading h2::before,
+  #about .section-heading h2::after {
+    content: none !important;
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     18. RECORD LIST
+     ===================================================== */
+
+  #about .record-list {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     19. RECORD CARD
+     ===================================================== */
+
+  #about .record-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+      69px
+      1px
+      50px
+      minmax(0, 1fr);
+
+    align-items: center;
+    justify-content: stretch;
+
+    column-gap: 10px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    min-height: 93px;
+
+    margin: 0;
+    padding: 10px;
+
+    background:
+      linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0.44),
+        rgba(255, 255, 255, 0.26)
+      );
+
+    border: 1px solid #003e25;
+    border-radius: 13px;
+
+    box-shadow:
+      0 6px 18px
+      rgba(0, 55, 40, 0.035);
+
+    overflow: hidden;
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+
+  /* =====================================================
+     20. RECORD HOVER
+     ===================================================== */
+
+  #about .record-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 10px 23px
+      rgba(0, 55, 40, 0.07);
+  }
+
+
+  /* =====================================================
+     21. DATE BOX
+     ===================================================== */
+
+  #about .record-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    align-self: stretch;
+
+    gap: 2px;
+
+    width: 69px;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 7px 3px;
+
+    background: #D9DFC8;
+
+    border-radius: 9px;
+
+    color: #003e25;
+
+    text-align: center;
+    line-height: 1;
+  }
+
+
+  /* =====================================================
+     22. DATE TEXT
+     ===================================================== */
+
+  #about .record-date .date-top,
+  #about .record-date .date-bottom {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #003e25;
+
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    white-space: nowrap;
+  }
+
+
+  #about .record-date .date-dash {
+    display: block;
+
+    margin: 1px 0;
+
+    color: #003e25;
+
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+
+  /* =====================================================
+     23. RECORD DIVIDER
+     ===================================================== */
+
+  #about .record-marker {
+    position: relative;
+
+    display: block;
+
+    width: 1px;
+    min-width: 1px;
+
+    height: 58%;
+    min-height: 42px;
+
+    margin: 0;
+    padding: 0;
+
+    align-self: center;
+
+    background: #003e25;
+  }
+
+
+  #about .record-marker span,
+  #about .record-marker::before,
+  #about .record-marker::after {
+    content: none !important;
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     24. RECORD LOGO
+     ===================================================== */
+
+  #about .record-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 5px;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 8px;
+
+    overflow: hidden;
+  }
+
+
+  /* =====================================================
+     25. RECORD LOGO IMAGE
+     ===================================================== */
+
+  #about .record-logo img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+
+  /* =====================================================
+     26. RECORD CONTENT
+     ===================================================== */
+
+  #about .record-content {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     27. RECORD TITLE
+     ===================================================== */
+
+  #about .record-content h3 {
+    margin: 0 0 4px;
+    padding: 0;
+
+    color: var(--green);
+
+    font-family:
+      "Manrope",
+      Arial,
+      sans-serif;
+
+    font-size: clamp(12px, 3.6vw, 15px);
+    font-weight: 650;
+    line-height: 1.3;
+
+    letter-spacing: -0.3px;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     28. RECORD DESCRIPTION
+     ===================================================== */
+
+  #about .record-content p {
+    margin: 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-size: clamp(9px, 2.6vw, 11px);
+    font-weight: 400;
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =====================================================
+     29. TECHNICAL SKILLS SECTION
+     ===================================================== */
+
+  #about .skills-section {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     30. SKILLS GRID
+     ===================================================== */
+
+  #about .skills-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    column-gap: 10px;
+    row-gap: 11px;
+
+    align-items: stretch;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     31. SKILL CARD
+     ===================================================== */
+
+  #about .skill-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    min-height: 77px;
+
+    margin: 0;
+    padding: 11px 9px;
+
+    background:
+      linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0.48),
+        rgba(255, 255, 255, 0.27)
+      );
+
+    border: 1px solid #003e25;
+    border-radius: 12px;
+
+    box-shadow:
+      0 6px 16px
+      rgba(0, 55, 40, 0.035);
+
+    overflow: hidden;
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+
+  /* =====================================================
+     32. SKILL HOVER
+     ===================================================== */
+
+  #about .skill-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 9px 20px
+      rgba(0, 55, 40, 0.07);
+  }
+
+
+  /* =====================================================
+     33. SKILL ICON
+     ===================================================== */
+
+  #about .skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 37px;
+
+    width: 37px;
+    height: 37px;
+    min-width: 37px;
+
+    margin: 0;
+    padding: 4px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border: 1px solid rgba(0, 62, 37, 0.15);
+    border-radius: 9px;
+  }
+
+
+  /* =====================================================
+     34. SKILL ICON IMAGE
+     ===================================================== */
+
+  #about .skill-icon img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+
+  /* =====================================================
+     35. SKILL TEXT
+     ===================================================== */
+
+  #about .skill-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1 1 auto;
+
+    gap: 3px;
+
+    width: auto;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     36. SKILL NAME
+     ===================================================== */
+
+  #about .skill-name {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =====================================================
+     37. SKILL DESCRIPTION
+     ===================================================== */
+
+  #about .skill-desc {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--green);
+
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =====================================================
+     38. SMALL PHONES
+     ===================================================== */
+
+  @media screen and (max-width: 389px) {
+
+    #about.about-section {
+      padding:
+        35px
+        13px
+        55px;
+    }
+
+    #about .about-name {
+      font-size: clamp(39px, 10.7vw, 48px);
+      letter-spacing: -2px;
+    }
+
+    #about .about-copy p {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    #about .about-content-grid {
+      margin-top: 29px;
+      gap: 30px;
+    }
+
+    #about .record-item {
+      grid-template-columns:
+        62px
+        1px
+        43px
+        minmax(0, 1fr);
+
+      column-gap: 7px;
+
+      padding: 9px;
+
+      min-height: 87px;
+    }
+
+    #about .record-date {
+      width: 62px;
+      padding: 6px 2px;
+    }
+
+    #about .record-date .date-top,
+    #about .record-date .date-bottom {
+      font-size: 8px;
+    }
+
+    #about .record-logo {
+      width: 43px;
+      height: 43px;
+      padding: 3px;
+    }
+
+    #about .record-content h3 {
+      font-size: 12px;
+    }
+
+    #about .record-content p {
+      font-size: 9px;
+    }
+
+    #about .skills-grid {
+      gap: 8px;
+    }
+
+    #about .skill-item {
+      gap: 6px;
+      padding: 9px 7px;
+      min-height: 72px;
+    }
+
+    #about .skill-icon {
+      flex-basis: 30px;
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      padding: 3px;
+    }
+
+    #about .skill-name {
+      font-size: 10px;
+    }
+
+    #about .skill-desc {
+      font-size: 8px;
+    }
+  }
+
+
+  /* =====================================================
+     39. EXTRA SMALL PHONES
+     ===================================================== */
+
+  @media screen and (max-width: 339px) {
+
+    #about.about-section {
+      padding-left: 11px;
+      padding-right: 11px;
+    }
+
+    #about .record-item {
+      grid-template-columns:
+        56px
+        1px
+        36px
+        minmax(0, 1fr);
+
+      column-gap: 6px;
+
+      padding: 7px;
+    }
+
+    #about .record-date {
+      width: 56px;
+    }
+
+    #about .record-date .date-top,
+    #about .record-date .date-bottom {
+      font-size: 7px;
+    }
+
+    #about .record-logo {
+      width: 36px;
+      height: 36px;
+      padding: 2px;
+    }
+
+    #about .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #about .skill-item {
+      min-height: 62px;
+      gap: 12px;
+      padding: 10px;
+    }
+
+    #about .skill-icon {
+      flex-basis: 39px;
+      width: 39px;
+      height: 39px;
+      min-width: 39px;
+    }
+
+    #about .skill-name {
+      font-size: 12px;
+    }
+
+    #about .skill-desc {
+      font-size: 10px;
+    }
+  }
+
+
+  /* =====================================================
+     40. LARGE PHONES
+     ===================================================== */
+
+  @media screen and (min-width: 480px) {
+
+    #about.about-section {
+      padding:
+        55px
+        24px
+        80px;
+    }
+
+    #about .about-name {
+      font-size: clamp(55px, 10vw, 73px);
+    }
+
+    #about .about-copy p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    #about .about-content-grid {
+      margin-top: 40px;
+      gap: 40px;
+    }
+
+    #about .record-item {
+      grid-template-columns:
+        76px
+        1px
+        60px
+        minmax(0, 1fr);
+
+      column-gap: 13px;
+      padding: 12px;
+      min-height: 100px;
+    }
+
+    #about .record-date {
+      width: 76px;
+    }
+
+    #about .record-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    #about .record-content h3 {
+      font-size: 17px;
+    }
+
+    #about .record-content p {
+      font-size: 11px;
+    }
+
+    #about .skills-grid {
+      gap: 13px;
+    }
+
+    #about .skill-item {
+      min-height: 85px;
+      padding: 12px;
+      gap: 11px;
+    }
+
+    #about .skill-icon {
+      flex-basis: 43px;
+      width: 43px;
+      height: 43px;
+      min-width: 43px;
+    }
+
+    #about .skill-name {
+      font-size: 14px;
+    }
+
+    #about .skill-desc {
+      font-size: 10px;
+    }
+  }
+
+
+  /* =====================================================
+     41. ACCESSIBILITY
+     ===================================================== */
+
+  #about .record-item:focus-within,
+  #about .skill-item:focus-within {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+  }
+
+
+  /* =====================================================
+     42. REDUCED MOTION
+     ===================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    #about .record-item,
+    #about .skill-item {
+      transition: none;
+    }
+
+    #about .record-item:hover,
+    #about .skill-item:hover {
+      transform: none;
+    }
+  }
+
+}

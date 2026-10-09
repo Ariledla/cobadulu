@@ -1,0 +1,686 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE — FAQ
+
+   BREAKPOINT: 0px - 767px
+
+   BASED ON:
+   - sections/faq5.html
+   - js/faq.js
+   - css/desktop-laptop/faq.css
+
+   FEATURES:
+   - Five original FAQ questions
+   - Native details/summary accordion
+   - Only one answer open at a time via FAQ JS
+   - Pure CSS orange chevrons
+   - Responsive mobile typography
+   - No horizontal scrolling
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. SECTION
+     ===================================================== */
+
+  #faq,
+  #faq.slide,
+  #faq.faq-slide {
+    position: relative;
+
+    display: block !important;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 46px 0 76px !important;
+
+    background: transparent;
+
+    color: #004636;
+
+    box-sizing: border-box;
+
+    overflow: visible !important;
+  }
+
+
+  /* =====================================================
+     02. BOX SIZING
+     ===================================================== */
+
+  #faq *,
+  #faq *::before,
+  #faq *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     03. MAIN WRAPPER
+     ===================================================== */
+
+  #faq .faq-wrap {
+    display: block;
+
+    width: calc(100% - 32px) !important;
+    max-width: 540px !important;
+    min-width: 0;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    overflow: visible;
+  }
+
+
+  /* =====================================================
+     04. HEADING
+     ===================================================== */
+
+  #faq .faq-heading {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 28px;
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     05. HEADING TITLE
+     ===================================================== */
+
+  #faq .faq-heading h2 {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: #004636;
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(35px, 9.2vw, 58px);
+    font-weight: 900;
+
+    line-height: 1.02;
+    letter-spacing: -0.5px;
+
+    text-align: center;
+
+    overflow-wrap: normal;
+  }
+
+
+  /* =====================================================
+     06. FAQ LIST
+     ===================================================== */
+
+  #faq .faq-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+  }
+
+
+  /* =====================================================
+     07. FAQ CARD
+     ===================================================== */
+
+  #faq .faq-item,
+  #faq details.faq-item {
+    position: relative;
+
+    display: block;
+
+    flex: 0 0 auto;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    margin: 0;
+    padding: 0;
+
+    background: #F4EBD7;
+
+    border: 2px solid #004636;
+    border-radius: 17px;
+
+    color: #004636;
+
+    overflow: hidden;
+
+    box-shadow: none;
+  }
+
+
+  /* =====================================================
+     08. FAQ SUMMARY
+     ===================================================== */
+
+  #faq .faq-item > summary {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      26px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+
+    min-height: 66px;
+
+    margin: 0;
+    padding: 15px 16px;
+
+    background: transparent;
+
+    border: none;
+    border-radius: inherit;
+
+    list-style: none;
+
+    cursor: pointer;
+    user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+      background-color 0.18s ease;
+  }
+
+
+  /* =====================================================
+     09. REMOVE BROWSER DEFAULT ARROW
+     ===================================================== */
+
+  #faq .faq-item > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #faq .faq-item > summary::marker {
+    content: "";
+  }
+
+
+  /* =====================================================
+     10. QUESTION TEXT
+     ===================================================== */
+
+  #faq .faq-question,
+  #faq .faq-item > summary h3 {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: #004636;
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    line-height: 1.45;
+    letter-spacing: 0;
+
+    text-align: left;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     11. CHEVRON CONTAINER
+     ===================================================== */
+
+  #faq .faq-chevron {
+    position: relative;
+
+    display: block;
+
+    justify-self: end;
+
+    flex: 0 0 26px;
+
+    width: 26px;
+    height: 26px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #FF602F;
+  }
+
+
+  /* =====================================================
+     12. PURE CSS CHEVRON
+     ===================================================== */
+
+  #faq .faq-chevron::before {
+    content: "";
+
+    position: absolute;
+
+    top: 43%;
+    left: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    border-right: 2.5px solid #FF602F;
+    border-bottom: 2.5px solid #FF602F;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg);
+
+    transform-origin: center;
+
+    transition:
+      transform 0.18s ease;
+  }
+
+
+  /* =====================================================
+     13. HIDE UNUSED SVG
+     ===================================================== */
+
+  #faq .faq-chevron svg {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     14. OPEN STATE CHEVRON
+     ===================================================== */
+
+  #faq .faq-item[open] .faq-chevron::before {
+    transform:
+      translate(-50%, -35%)
+      rotate(225deg);
+  }
+
+
+  /* =====================================================
+     15. ANSWER CONTAINER
+     ===================================================== */
+
+  #faq .faq-answer {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0 16px 18px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #004636;
+  }
+
+
+  /* =====================================================
+     16. ANSWER TEXT
+     ===================================================== */
+
+  #faq .faq-answer p {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: #004636;
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    line-height: 1.65;
+
+    text-align: left;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     17. HOVER
+     ===================================================== */
+
+  #faq .faq-item > summary:hover {
+    background:
+      rgba(231, 196, 164, 0.25);
+  }
+
+
+  /* =====================================================
+     18. TOUCH
+     ===================================================== */
+
+  #faq .faq-item > summary:active {
+    background:
+      rgba(231, 196, 164, 0.35);
+  }
+
+
+  /* =====================================================
+     19. OPEN CARD
+     ===================================================== */
+
+  #faq .faq-item[open] {
+    background: #F4EBD7;
+
+    height: auto;
+    max-height: none;
+  }
+
+
+  /* =====================================================
+     20. OPEN SUMMARY
+     ===================================================== */
+
+  #faq .faq-item[open] > summary {
+    background: transparent;
+
+    border-radius:
+      15px 15px 0 0;
+  }
+
+
+  /* =====================================================
+     21. OPEN ANSWER SPACING
+     ===================================================== */
+
+  #faq .faq-item[open] .faq-answer {
+    padding-top: 0;
+    padding-bottom: 19px;
+  }
+
+
+  /* =====================================================
+     22. KEYBOARD FOCUS
+     ===================================================== */
+
+  #faq .faq-item > summary:focus {
+    outline: none;
+  }
+
+  #faq .faq-item > summary:focus-visible {
+    outline: 3px solid #FF602F;
+    outline-offset: -4px;
+
+    border-radius: 15px;
+  }
+
+
+  /* =====================================================
+     23. SMALL PHONES
+     BELOW 390PX
+     ===================================================== */
+
+  @media screen and (max-width: 389px) {
+
+    #faq,
+    #faq.slide,
+    #faq.faq-slide {
+      padding-top: 37px !important;
+      padding-bottom: 63px !important;
+    }
+
+    #faq .faq-wrap {
+      width: calc(100% - 26px) !important;
+    }
+
+    #faq .faq-heading {
+      margin-bottom: 23px;
+    }
+
+    #faq .faq-heading h2 {
+      font-size: clamp(32px, 9vw, 37px);
+      line-height: 1.04;
+    }
+
+    #faq .faq-list {
+      gap: 10px;
+    }
+
+    #faq .faq-item {
+      border-radius: 15px;
+    }
+
+    #faq .faq-item > summary {
+      min-height: 62px;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        24px;
+
+      gap: 9px;
+
+      padding: 13px 13px;
+    }
+
+    #faq .faq-question,
+    #faq .faq-item > summary h3 {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #faq .faq-chevron {
+      width: 24px;
+      height: 24px;
+    }
+
+    #faq .faq-chevron::before {
+      width: 8px;
+      height: 8px;
+    }
+
+    #faq .faq-answer {
+      padding:
+        0 13px 15px;
+    }
+
+    #faq .faq-answer p {
+      font-size: 11.5px;
+      line-height: 1.6;
+    }
+  }
+
+
+  /* =====================================================
+     24. EXTRA SMALL PHONES
+     BELOW 340PX
+     ===================================================== */
+
+  @media screen and (max-width: 339px) {
+
+    #faq .faq-heading h2 {
+      font-size: 30px;
+    }
+
+    #faq .faq-item > summary {
+      min-height: 60px;
+      padding: 12px 11px;
+    }
+
+    #faq .faq-question,
+    #faq .faq-item > summary h3 {
+      font-size: 11px;
+    }
+
+    #faq .faq-answer {
+      padding-left: 11px;
+      padding-right: 11px;
+    }
+
+    #faq .faq-answer p {
+      font-size: 11px;
+    }
+  }
+
+
+  /* =====================================================
+     25. LARGE PHONES
+     480PX - 767PX
+     ===================================================== */
+
+  @media screen and (min-width: 480px) {
+
+    #faq,
+    #faq.slide,
+    #faq.faq-slide {
+      padding-top: 60px !important;
+      padding-bottom: 90px !important;
+    }
+
+    #faq .faq-wrap {
+      width: calc(100% - 48px) !important;
+    }
+
+    #faq .faq-heading {
+      margin-bottom: 34px;
+    }
+
+    #faq .faq-heading h2 {
+      font-size: clamp(48px, 8.2vw, 62px);
+    }
+
+    #faq .faq-list {
+      gap: 14px;
+    }
+
+    #faq .faq-item {
+      border-radius: 21px;
+    }
+
+    #faq .faq-item > summary {
+      min-height: 76px;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        30px;
+
+      gap: 16px;
+
+      padding: 17px 22px;
+    }
+
+    #faq .faq-question,
+    #faq .faq-item > summary h3 {
+      font-size: 16px;
+    }
+
+    #faq .faq-chevron {
+      width: 30px;
+      height: 30px;
+    }
+
+    #faq .faq-answer {
+      padding:
+        0 22px 21px;
+    }
+
+    #faq .faq-answer p {
+      font-size: 14px;
+    }
+  }
+
+
+  /* =====================================================
+     26. LANDSCAPE PHONES
+     ===================================================== */
+
+  @media screen and (orientation: landscape)
+  and (max-height: 500px) {
+
+    #faq,
+    #faq.slide,
+    #faq.faq-slide {
+      padding-top: 30px !important;
+      padding-bottom: 50px !important;
+    }
+
+    #faq .faq-heading {
+      margin-bottom: 22px;
+    }
+
+    #faq .faq-item > summary {
+      min-height: 56px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  }
+
+
+  /* =====================================================
+     27. REDUCED MOTION
+     ===================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    #faq .faq-item > summary,
+    #faq .faq-chevron::before {
+      transition: none;
+    }
+  }
+
+}

@@ -1,0 +1,1406 @@
+
+/* =========================================================
+   CONTACT — DESKTOP LAPTOP
+   FULL CSS — ORANGE HOVER REVISION
+   ========================================================= */
+
+/* 01. VARIABLES */
+
+#contact {
+  --green: #004636;
+  --orange: #ff602f;
+  --paper: #f5ecd8;
+  --card: #fbf5e8;
+  --field: #f8f2e3;
+  --profile: #ead7bd;
+  --sage: #004636;
+  --sage-light: #004636;
+  --text-soft: #55746a;
+  --shadow: #55745e;
+  --error: #ff3535;
+
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: var(--green);
+  box-sizing: border-box;
+}
+
+#contact *,
+#contact *::before,
+#contact *::after {
+  box-sizing: border-box;
+}
+
+#contact.slide {
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible;
+}
+
+/* =========================================================
+   02. MARQUEE
+   ========================================================= */
+
+#contact .contact-end-marquee {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex: 0 0 36px;
+  width: 100%;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--green);
+  border-top: 2px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
+  transform: translateY(-60px);
+  pointer-events: none;
+}
+
+#contact .contact-end-track {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  min-width: max-content;
+  animation: contactMarqueeMove 34s linear infinite;
+  will-change: transform;
+}
+
+#contact .contact-end-sequence {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 26px;
+  min-width: max-content;
+  padding-right: 26px;
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#contact .contact-end-sequence span,
+#contact .contact-end-sequence b {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+#contact .contact-end-sequence b {
+  color: var(--orange);
+}
+
+@keyframes contactMarqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   03. MAIN LAYOUT
+   ========================================================= */
+
+#contact .contact-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1440px, calc(100% - 88px));
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 0 30px;
+  transform: translateY(-12px);
+}
+
+#contact .contact-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.82fr)
+    minmax(0, 1.18fr);
+  gap: 30px;
+  align-items: start;
+  width: 100%;
+}
+
+#contact .contact-left,
+#contact .contact-right {
+  width: 100%;
+  min-width: 0;
+}
+
+#contact .contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#contact .contact-right {
+  display: flex;
+}
+
+/* =========================================================
+   04. LEFT TITLE
+   ========================================================= */
+
+#contact .contact-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-width: 150px;
+  height: 38px;
+  padding: 0 24px;
+  background: var(--orange);
+  border: 2px solid var(--green);
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+#contact .contact-title {
+  margin: 18px 0 0;
+  color: var(--green);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(52px, 4.9vw, 80px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 0.91;
+  text-transform: uppercase;
+}
+
+#contact .contact-title span {
+  display: block;
+  color: #dc6d40;
+}
+
+#contact .contact-intro {
+  max-width: 520px;
+  margin: 18px 0;
+  color: var(--green);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   05. CONNECT WITH ME
+   ========================================================= */
+
+#contact .contact-list {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 68px 14px 15px;
+  background: var(--paper);
+  border: 2px solid var(--green);
+  border-radius: 9px;
+  box-shadow: 6px 6px 0 var(--shadow);
+}
+
+#contact .contact-list::before {
+  content: "Connect With Me";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  background: var(--green);
+  color: var(--paper);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 850;
+  letter-spacing: -0.2px;
+  text-align: center;
+  z-index: 1;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* GREEN TO ORANGE */
+
+#contact .contact-list:hover::before {
+  background: var(--orange);
+  color: var(--green);
+}
+
+#contact .contact-list:focus-within::before {
+  background: var(--orange);
+  color: var(--green);
+}
+
+#contact .contact-list::after {
+  content: none;
+}
+
+/* =========================================================
+   06. SOCIAL CARDS
+   ========================================================= */
+
+#contact .contact-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 86px;
+  margin: 0;
+  padding: 11px;
+  background: var(--card);
+  border: 1.5px solid var(--green);
+  border-radius: 7px;
+  color: var(--green);
+  text-decoration: none;
+  overflow: hidden;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#contact .contact-item::before {
+  content: none;
+  display: none;
+}
+
+#contact .contact-item:hover {
+  background: #f0e2cb;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--shadow);
+}
+
+#contact .contact-item-main {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#contact .contact-item-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  background: white;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+}
+
+#contact .contact-item-logo img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+#contact .contact-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+#contact .contact-item-text h3 {
+  margin: 0 0 5px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+#contact .contact-item-text p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   07. SOCIAL ARROW
+   ========================================================= */
+
+#contact .contact-item::after {
+  content: "";
+  display: block;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  margin-left: 7px;
+  padding: 0;
+  border: 1.5px solid var(--green);
+  border-radius: 50%;
+  background-color: var(--paper);
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004636' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19 19 5M9 5h10v10'/%3E%3C/svg%3E");
+
+  background-size: 15px 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#contact .contact-item:hover::after {
+  background-color: #e5d4b7;
+}
+
+/* =========================================================
+   08. RIGHT PANEL
+   ========================================================= */
+
+#contact .contact-panel {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 15px;
+  background: var(--paper);
+  border: 2px solid var(--green);
+  border-radius: 9px;
+  box-shadow: 7px 7px 0 var(--shadow);
+}
+
+#contact .contact-panel::before,
+#contact .contact-panel::after {
+  content: none;
+  display: none;
+}
+
+#contact .contact-panel-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 0 8px;
+  margin-bottom: 10px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#contact .contact-panel-head::before,
+#contact .contact-panel-head::after {
+  content: none !important;
+  display: none !important;
+}
+
+#contact .contact-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  background: var(--green);
+  border-radius: 50%;
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+#contact .contact-panel-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
+#contact .contact-panel-head-text h3 {
+  margin: 0 0 4px;
+  color: var(--green);
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+#contact .contact-panel-head-text p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   09. FORM AND COMMENTS
+   ========================================================= */
+
+#contact .message-layout {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px !important;
+  width: 100%;
+  min-height: 420px;
+  align-items: stretch;
+}
+
+#contact .message-compose,
+#contact .message-comments {
+  width: 100%;
+  min-width: 0;
+  min-height: 420px;
+  padding: 12px;
+  background: var(--card);
+  border: 1.5px solid var(--green);
+  border-radius: 7px;
+}
+
+#contact .message-compose {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact .message-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================================================
+   10. CONTACT FORM
+   ========================================================= */
+
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  min-height: 395px;
+}
+
+#contact .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+#contact .form-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+#contact .form-group label span {
+  color: var(--orange);
+}
+
+#contact .form-group input,
+#contact .form-group textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  background: white;
+  border: 1.5px solid var(--green);
+  border-radius: 5px;
+  color: var(--green);
+  font: inherit;
+  font-size: 11px;
+  outline: none;
+  box-shadow: none;
+}
+
+#contact .form-group input {
+  height: 37px;
+}
+
+#contact .form-group textarea {
+  height: 67px;
+  min-height: 67px;
+  max-height: 67px;
+  resize: none;
+}
+
+#contact .form-group input:focus,
+#contact .form-group textarea:focus {
+  border-color: var(--green);
+  box-shadow: none;
+}
+
+#contact .form-group input::placeholder,
+#contact .form-group textarea::placeholder {
+  color: #55746a;
+}
+
+/* =========================================================
+   11. PROFILE BUILDER
+   ========================================================= */
+
+#contact .profile-builder {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  background: var(--profile);
+  border: 1.5px solid var(--green);
+  border-radius: 7px;
+  animation: none;
+  box-shadow: none;
+}
+
+#contact .profile-builder-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#contact .profile-preview-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+#contact .profile-builder-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+#contact .profile-builder-copy strong {
+  display: block;
+  margin: 0 0 3px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+#contact .profile-builder-copy p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   12. PROFILE CONTROLS
+   ========================================================= */
+
+#contact .profile-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+#contact .profile-control {
+  width: 100%;
+  min-width: 0;
+}
+
+#contact .profile-control label {
+  display: block;
+  margin: 0 0 7px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+#contact .initials-control {
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#contact .initials-control label {
+  display: none;
+}
+
+#contact #contactInitials {
+  display: block;
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  background: var(--card);
+  border: 1.5px solid var(--green);
+  border-radius: 5px;
+  color: var(--green);
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+  box-shadow: none;
+  animation: none;
+}
+
+/* =========================================================
+   13. AVATAR COLORS
+   ========================================================= */
+
+#contact .avatar-colors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  row-gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 4px 2px;
+}
+
+#contact .avatar-color {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  min-height: 21px;
+  margin: 0;
+  padding: 0;
+  background: var(--swatch, var(--green));
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#contact .avatar-color:hover {
+  transform: scale(1.08);
+}
+
+#contact .avatar-colors > .avatar-color:nth-of-type(7),
+#contact .avatar-colors > .avatar-color:nth-of-type(8),
+#contact .avatar-colors > .avatar-color:nth-of-type(9) {
+  display: none !important;
+}
+
+#contact .avatar-color.is-active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border: none !important;
+  box-shadow:
+    inset 0 0 0 2px var(--card) !important;
+}
+
+#contact .avatar-color:focus-visible {
+  outline: 2px solid var(--green) !important;
+  outline-offset: 2px !important;
+}
+
+/* =========================================================
+   14. CUSTOM COLOR BUTTON
+   ========================================================= */
+
+#contact .custom-color-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 21px;
+  width: 21px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+}
+
+#contact .custom-color-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  min-height: 21px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background:
+    linear-gradient(white, white) padding-box,
+    conic-gradient(
+      red, yellow, lime,
+      cyan, blue, magenta, red
+    ) border-box;
+  cursor: pointer;
+}
+
+#contact .custom-color-plus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  padding: 0;
+  background: white;
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 0;
+}
+
+#contact .custom-color-plus::before,
+#contact .custom-color-plus::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: var(--green);
+  border-radius: 1px;
+}
+
+#contact .custom-color-plus::before {
+  width: 8px;
+  height: 2px;
+}
+
+#contact .custom-color-plus::after {
+  width: 2px;
+  height: 8px;
+}
+
+/* =========================================================
+   15. CUSTOM COLOR POPOVER
+   ========================================================= */
+
+#contact .custom-color-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 1000;
+  display: none;
+  width: 245px;
+  padding: 13px;
+  background: white;
+  border: 2px solid var(--green);
+  border-radius: 7px;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+
+#contact .custom-color-popover.is-open {
+  display: block;
+}
+
+#contact .custom-color-popover[hidden] {
+  display: none !important;
+}
+
+#contact .color-picker-head {
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+#contact .sv-picker {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  background:
+    linear-gradient(to top, black, transparent),
+    linear-gradient(to right, white, transparent),
+    red;
+  cursor: crosshair;
+}
+
+#contact .sv-picker-cursor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px black;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#contact .hue-picker {
+  margin-top: 10px;
+}
+
+#contact .hue-picker input {
+  width: 100%;
+}
+
+#contact .hex-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#contact .hex-color-preview {
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+}
+
+#contact .hex-input-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+#contact .hex-input-wrap input {
+  width: 100%;
+  padding: 6px;
+  background: white;
+  border: 1px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 11px;
+}
+
+/* =========================================================
+   16. SEND MESSAGE
+   ========================================================= */
+
+#contact .contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 100%;
+  height: 36px;
+  margin: 0;
+  padding: 8px 10px;
+  background: var(--green);
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+  font-weight: 850;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* GREEN TO ORANGE */
+
+#contact .contact-submit:not(:disabled):hover,
+#contact .contact-submit:not(:disabled):active,
+#contact .contact-submit:not(:disabled):focus-visible {
+  background: var(--orange);
+  color: white;
+}
+
+#contact .contact-submit:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+#contact .contact-submit:not(:disabled):active {
+  transform: translateY(0);
+}
+
+#contact .contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#contact .submit-arrow {
+  display: none;
+}
+
+/* =========================================================
+   17. GHOST
+   ========================================================= */
+
+#contact .contact-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  min-height: 45px;
+  margin: 5px 0 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+#contact .contact-ghost img {
+  display: block;
+  width: 62px;
+  max-width: 40%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================================================
+   18. COMMENTS HEADER
+   ========================================================= */
+
+#contact .comments-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#contact .comments-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--orange);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+#contact .comments-head h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+#contact .comment-count {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  background: var(--orange);
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   19. EMPTY COMMENTS
+   ========================================================= */
+
+#contact .comments-empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 320px;
+  padding: 13px;
+  background: var(--paper);
+  border: 1.5px solid var(--green);
+  border-radius: 6px;
+  text-align: center;
+}
+
+#contact .comments-empty-icon {
+  margin-bottom: 10px;
+  color: var(--orange);
+  font-size: 24px;
+}
+
+#contact .comments-empty strong,
+#contact .comments-empty h3,
+#contact .comments-empty h4 {
+  display: block;
+  margin: 0 0 7px;
+  color: var(--green);
+  font-size: 11px;
+}
+
+#contact .comments-empty p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+#contact .comments-empty[hidden],
+#contact .comments-list[hidden] {
+  display: none !important;
+}
+
+/* =========================================================
+   20. COMMENTS LIST
+   ========================================================= */
+
+#contact .comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-height: 320px;
+  margin: 0;
+  padding: 0 3px 0 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#contact .comment-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  padding: 10px;
+  background: white;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+#contact .comment-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 31px;
+  width: 31px;
+  height: 31px;
+  background: var(--green);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+#contact .comment-body {
+  flex: 1;
+  min-width: 0;
+}
+
+#contact .comment-name {
+  margin: 0 0 4px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+#contact .comment-message {
+  margin: 0;
+  color: var(--green);
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   21. VALIDATION ANIMATIONS
+   ========================================================= */
+
+@keyframes contactFieldBlink {
+  0%, 49% {
+    border-color: var(--error);
+  }
+
+  50%, 100% {
+    border-color: var(--green);
+  }
+}
+
+@keyframes contactInitialsBlink {
+  0%, 49% {
+    border-color: var(--error);
+  }
+
+  50%, 100% {
+    border-color: var(--green);
+  }
+}
+
+#contact #contactMessage.is-guidance-blink {
+  animation: contactFieldBlink 1s linear infinite;
+  background: white;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#contact .profile-builder.is-guidance-blink {
+  animation: none !important;
+  border-color: var(--green);
+  box-shadow: none !important;
+}
+
+#contact .profile-builder.is-guidance-blink #contactInitials,
+#contact #contactInitials.is-guidance-blink {
+  animation: contactInitialsBlink 1s linear infinite;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#contact .profile-builder.is-guidance-blink::before,
+#contact .profile-builder.is-guidance-blink::after {
+  content: none;
+  display: none;
+}
+
+/* =========================================================
+   22. SMALL LAPTOP
+   ========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+
+  #contact .contact-end-marquee {
+    transform: translateY(-50px);
+  }
+
+  #contact .contact-shell {
+    width: calc(100% - 46px);
+    padding-top: 5px;
+    padding-bottom: 30px;
+  }
+
+  #contact .contact-layout {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
+    gap: 18px;
+  }
+
+  #contact .contact-title {
+    font-size: clamp(46px, 4.7vw, 62px);
+    letter-spacing: -2px;
+  }
+
+  #contact .contact-intro {
+    font-size: 10px;
+  }
+
+  #contact .contact-list {
+    gap: 9px;
+    padding: 59px 10px 12px;
+  }
+
+  #contact .contact-list::before {
+    top: 13px;
+    left: 12px;
+    right: 12px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  #contact .contact-item {
+    min-height: 76px;
+    padding: 8px;
+  }
+
+  #contact .contact-item-main {
+    gap: 7px;
+  }
+
+  #contact .contact-item-logo {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    padding: 4px;
+  }
+
+  #contact .contact-item-logo img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #contact .contact-item-text h3 {
+    font-size: 11px;
+  }
+
+  #contact .contact-item-text p {
+    font-size: 8px;
+  }
+
+  #contact .contact-item::after {
+    flex-basis: 22px;
+    width: 22px;
+    height: 22px;
+    margin-left: 4px;
+    background-size: 12px 12px;
+  }
+
+  #contact .contact-panel {
+    padding: 11px;
+  }
+
+  #contact .message-layout {
+    gap: 9px !important;
+  }
+
+  #contact .message-compose,
+  #contact .message-comments {
+    padding: 9px;
+  }
+
+  #contact .profile-builder {
+    padding: 9px;
+  }
+
+  #contact .avatar-colors {
+    gap: 7px;
+  }
+
+  #contact .avatar-color,
+  #contact .custom-color-wrap,
+  #contact .custom-color-button {
+    flex-basis: 19px;
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    min-height: 19px;
+  }
+}
+
+/* =========================================================
+   23. SHORT LAPTOP SCREEN
+   ========================================================= */
+
+@media (min-width: 1024px) and (max-height: 800px) {
+
+  #contact .contact-end-marquee {
+    transform: translateY(-51px);
+  }
+
+  #contact .contact-shell {
+    padding-top: 2px;
+    padding-bottom: 30px;
+  }
+
+  #contact .contact-title {
+    font-size: clamp(47px, 4.4vw, 68px);
+  }
+
+  #contact .contact-intro {
+    margin: 13px 0;
+  }
+
+  #contact .message-layout,
+  #contact .message-compose,
+  #contact .message-comments {
+    min-height: 380px;
+  }
+
+  #contact .contact-form {
+    min-height: 355px;
+    gap: 9px;
+  }
+
+  #contact .form-group input {
+    height: 34px;
+  }
+
+  #contact .form-group textarea {
+    height: 58px;
+    min-height: 58px;
+    max-height: 58px;
+  }
+
+  #contact .profile-builder {
+    padding: 9px;
+  }
+
+  #contact .contact-submit {
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  #contact .contact-ghost img {
+    width: 55px;
+  }
+
+  #contact .comments-empty {
+    min-height: 280px;
+  }
+
+  #contact .comments-list {
+    max-height: 280px;
+  }
+}
+
+/* =========================================================
+   24. ACCESSIBILITY
+   ========================================================= */
+
+#contact button:focus-visible,
+#contact a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+#contact input:focus-visible,
+#contact textarea:focus-visible {
+  outline: none;
+  border-color: var(--green);
+}
+
+/* =========================================================
+   25. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #contact .contact-end-track {
+    animation: none;
+  }
+
+  #contact .contact-item,
+  #contact .avatar-color,
+  #contact .contact-submit,
+  #contact .contact-list::before {
+    transition: none;
+  }
+
+  #contact .contact-item:hover,
+  #contact .contact-submit:hover {
+    transform: none;
+  }
+
+  #contact #contactMessage.is-guidance-blink {
+    animation: none;
+    border-color: var(--error);
+  }
+
+  #contact .profile-builder.is-guidance-blink #contactInitials,
+  #contact #contactInitials.is-guidance-blink {
+    animation: none;
+    border-color: var(--error);
+  }
+}

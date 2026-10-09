@@ -1,0 +1,625 @@
+
+/* ==========================================================
+   FAQ — DESKTOP MONITOR
+   FULL RESPONSIVE CSS
+
+   FILE:
+   portfolio/css/desktop-monitor/faq.css
+
+   GOALS:
+   - U27: heading not hidden behind navbar
+   - U28: content not too small
+   - Smooth responsive scaling
+   - Five FAQ cards stay proportional
+   - Open answers expand naturally
+   - Safe spacing before Contact marquee
+   - Preserve original FAQ accordion behavior
+   ========================================================== */
+
+
+/* ==========================================================
+   01. VARIABLES
+   ========================================================== */
+
+@media screen and (min-width: 1600px) {
+
+  #faq {
+    --faq-green: #004636;
+    --faq-orange: #ff602f;
+    --faq-cream: #f5ecd8;
+
+    /* Container */
+    --faq-max-width: 1450px;
+    --faq-gutter: clamp(36px, 5vw, 90px);
+
+    /* Section position */
+    --faq-top-space: clamp(135px, 15vh, 175px);
+    --faq-bottom-space: clamp(155px, 18vh, 205px);
+
+    /* Heading */
+    --faq-heading-size: clamp(69px, 4.65vw, 90px);
+    --faq-heading-gap: clamp(28px, 3.5vh, 40px);
+
+    /* Cards */
+    --faq-card-height: clamp(65px, 7.5vh, 82px);
+    --faq-card-gap: clamp(11px, 1.5vh, 16px);
+    --faq-card-radius: 25px;
+
+    /* Text */
+    --faq-question-size: clamp(16px, 1.08vw, 20px);
+    --faq-answer-size: clamp(14px, 0.88vw, 17px);
+
+    /* Inner spacing */
+    --faq-card-padding-x: clamp(22px, 1.5vw, 32px);
+    --faq-card-padding-y: 17px;
+
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    box-sizing: border-box;
+
+    color: var(--faq-green);
+  }
+
+  #faq *,
+  #faq *::before,
+  #faq *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ========================================================
+     02. SECTION
+     ======================================================== */
+
+  #faq.slide {
+    position: relative;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding:
+      var(--faq-top-space)
+      0
+      var(--faq-bottom-space) !important;
+
+    overflow: visible !important;
+  }
+
+  /* Prevent anchor navigation hiding heading */
+
+  #faq {
+    scroll-margin-top: 125px;
+  }
+
+
+  /* ========================================================
+     03. MAIN CONTAINER
+     ======================================================== */
+
+  #faq .faq-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: min(
+      var(--faq-max-width),
+      calc(100% - var(--faq-gutter) * 2)
+    );
+
+    max-width: 100%;
+    min-width: 0;
+
+    height: auto;
+    min-height: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    position: relative;
+  }
+
+
+  /* ========================================================
+     04. HEADING WRAPPER
+     ======================================================== */
+
+  #faq .faq-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 0 0 var(--faq-heading-gap);
+    padding: 0;
+
+    position: relative;
+    text-align: center;
+
+    transform: none;
+  }
+
+
+  /* ========================================================
+     05. MAIN HEADING
+     ======================================================== */
+
+  #faq .faq-heading h2,
+  #faq .faq-title {
+    display: block;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    color: var(--faq-green);
+
+    font-family: "Anton", Impact, sans-serif;
+    font-size: var(--faq-heading-size);
+    font-weight: 900;
+
+    line-height: 0.98;
+    letter-spacing: -1.2px;
+
+    text-align: center;
+
+    overflow-wrap: normal;
+    transform: none;
+  }
+
+  #faq .faq-heading h2 span,
+  #faq .faq-title span {
+    color: inherit;
+  }
+
+
+  /* ========================================================
+     06. FAQ ACCORDION CONTAINER
+     ======================================================== */
+
+  #faq .faq-list,
+  #faq .faq-accordion,
+  #faq .faq-items {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: var(--faq-card-gap);
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+
+  /* ========================================================
+     07. FAQ CARDS
+     ======================================================== */
+
+  #faq details.faq-item,
+  #faq .faq-item {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    height: auto;
+    min-height: var(--faq-card-height);
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--faq-cream);
+
+    border: 2px solid var(--faq-green);
+    border-radius: var(--faq-card-radius);
+
+    box-shadow: none;
+
+    overflow: hidden;
+
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  /* Gap even if FAQ items have no list wrapper */
+
+  #faq .faq-wrap > .faq-item + .faq-item,
+  #faq .faq-wrap > details.faq-item + details.faq-item {
+    margin-top: var(--faq-card-gap);
+  }
+
+  #faq .faq-item:hover {
+    background: #f8efdc;
+  }
+
+
+  /* ========================================================
+     08. FAQ QUESTION / SUMMARY
+     ======================================================== */
+
+  #faq details.faq-item > summary,
+  #faq .faq-item > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    width: 100%;
+    min-width: 0;
+
+    min-height: calc(var(--faq-card-height) - 4px);
+
+    margin: 0;
+
+    padding:
+      var(--faq-card-padding-y)
+      var(--faq-card-padding-x);
+
+    background: transparent;
+
+    border: 0;
+    border-radius: inherit;
+
+    color: var(--faq-green);
+
+    font-family: inherit;
+    font-size: var(--faq-question-size);
+    font-weight: 750;
+
+    line-height: 1.4;
+    text-align: left;
+
+    cursor: pointer;
+
+    list-style: none;
+  }
+
+  #faq .faq-item > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #faq .faq-item > summary::marker {
+    content: "";
+  }
+
+  #faq .faq-item > summary:focus-visible {
+    outline: 3px solid var(--faq-orange);
+    outline-offset: -5px;
+  }
+
+
+  /* ========================================================
+     09. QUESTION TEXT
+     ======================================================== */
+
+  #faq .faq-item > summary span:first-child,
+  #faq .faq-question-text {
+    flex: 1;
+    min-width: 0;
+
+    color: var(--faq-green);
+
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* ========================================================
+     10. ORANGE ARROWS
+     Keep existing accordion arrow behavior
+     ======================================================== */
+
+  #faq .faq-arrow,
+  #faq .faq-chevron,
+  #faq .faq-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 22px;
+
+    width: 22px;
+    height: 22px;
+
+    margin-left: auto;
+
+    color: var(--faq-orange);
+  }
+
+  #faq .faq-arrow svg,
+  #faq .faq-chevron svg,
+  #faq .faq-icon svg {
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    stroke: currentColor;
+  }
+
+
+  /* ========================================================
+     11. FAQ ANSWERS
+     Do not force closed panels to be visible
+     ======================================================== */
+
+  #faq .faq-answer,
+  #faq .faq-panel,
+  #faq .faq-content {
+    width: 100%;
+    min-width: 0;
+
+    color: var(--faq-green);
+
+    font-size: var(--faq-answer-size);
+    line-height: 1.65;
+
+    overflow-wrap: break-word;
+  }
+
+  #faq .faq-answer p,
+  #faq .faq-panel p,
+  #faq .faq-content p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  /* FAQ content must grow when opened */
+
+  #faq details.faq-item[open] {
+    height: auto;
+    max-height: none;
+  }
+
+  #faq details.faq-item[open] > summary {
+    border-radius:
+      var(--faq-card-radius)
+      var(--faq-card-radius)
+      0 0;
+  }
+
+
+  /* ========================================================
+     12. NO OVERFLOW INTO CONTACT
+     ======================================================== */
+
+  #faq .faq-wrap,
+  #faq .faq-list,
+  #faq .faq-accordion {
+    overflow: visible;
+  }
+
+  #faq details.faq-item:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* ==========================================================
+   13. MONITOR 1600–1919px
+   Fluid standard-monitor layout
+   ========================================================== */
+
+@media screen and (min-width: 1600px)
+and (max-width: 1919px) {
+
+  #faq {
+    --faq-max-width: 1400px;
+
+    --faq-heading-size: clamp(70px, 4.5vw, 85px);
+
+    --faq-card-height: clamp(66px, 7.3vh, 79px);
+
+    --faq-question-size: clamp(16px, 1.05vw, 19px);
+
+    --faq-top-space: clamp(130px, 15vh, 165px);
+
+    --faq-bottom-space: clamp(155px, 18vh, 195px);
+  }
+
+}
+
+
+/* ==========================================================
+   14. MONITOR 1920–2559px
+   No sudden enlargement at 1920px
+   ========================================================== */
+
+@media screen and (min-width: 1920px)
+and (max-width: 2559px) {
+
+  #faq {
+    --faq-max-width: 1500px;
+
+    --faq-heading-size: clamp(78px, 4.4vw, 92px);
+
+    --faq-card-height: clamp(72px, 7.5vh, 84px);
+
+    --faq-question-size: clamp(18px, 0.98vw, 21px);
+
+    --faq-top-space: clamp(145px, 16vh, 185px);
+
+    --faq-bottom-space: clamp(165px, 18vh, 210px);
+  }
+
+}
+
+
+/* ==========================================================
+   15. MONITOR 2560px+
+   2K / 4K / ULTRAWIDE
+   Keep readable content rather than scaling endlessly
+   ========================================================== */
+
+@media screen and (min-width: 2560px) {
+
+  #faq {
+    --faq-max-width: 1650px;
+
+    --faq-heading-size: clamp(85px, 3.5vw, 105px);
+
+    --faq-card-height: clamp(78px, 6.5vh, 96px);
+
+    --faq-question-size: clamp(19px, 0.82vw, 23px);
+
+    --faq-answer-size: clamp(16px, 0.7vw, 19px);
+
+    --faq-top-space: clamp(150px, 15vh, 210px);
+
+    --faq-bottom-space: clamp(175px, 17vh, 225px);
+  }
+
+}
+
+
+/* ==========================================================
+   16. SHORT MONITORS
+   Height <= 900px
+   Prevent FAQ from overflowing into next section
+   ========================================================== */
+
+@media screen and (min-width: 1600px)
+and (max-height: 900px) {
+
+  #faq {
+    --faq-top-space: 125px;
+
+    --faq-bottom-space: 145px;
+
+    --faq-heading-size: clamp(65px, 4vw, 78px);
+
+    --faq-heading-gap: 25px;
+
+    --faq-card-height: 65px;
+
+    --faq-card-gap: 10px;
+
+    --faq-question-size: clamp(15px, 0.95vw, 18px);
+
+    --faq-card-padding-y: 13px;
+  }
+
+}
+
+
+/* ==========================================================
+   17. VERY SHORT MONITORS
+   Height <= 750px
+   ========================================================== */
+
+@media screen and (min-width: 1600px)
+and (max-height: 750px) {
+
+  #faq {
+    --faq-top-space: 115px;
+
+    --faq-bottom-space: 125px;
+
+    --faq-heading-size: clamp(60px, 3.7vw, 72px);
+
+    --faq-heading-gap: 20px;
+
+    --faq-card-height: 58px;
+
+    --faq-card-gap: 9px;
+
+    --faq-question-size: 15px;
+
+    --faq-answer-size: 13px;
+
+    --faq-card-padding-y: 11px;
+  }
+
+}
+
+
+/* ==========================================================
+   18. ACCESSIBILITY
+   ========================================================== */
+
+@media (min-width: 1600px)
+and (prefers-reduced-motion: reduce) {
+
+  #faq *,
+  #faq *::before,
+  #faq *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+
+/* ==========================================
+   FAQ MONITOR — NAIK 20PX LAGI
+   ========================================== */
+
+@media screen and (min-width: 1600px) {
+  #faq {
+    --faq-top-space: 25px;
+    --faq-bottom-space: 250px;
+  }
+
+  #faq.slide {
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding-top: var(--faq-top-space) !important;
+    padding-bottom: var(--faq-bottom-space) !important;
+
+    overflow: visible !important;
+  }
+
+  #faq .faq-wrap {
+    position: relative;
+    transform: none !important;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #faq details.faq-item {
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* Monitor dengan tinggi layar pendek */
+
+@media screen and (min-width: 1600px)
+and (max-height: 800px) {
+  #faq {
+    --faq-top-space: 15px;
+    --faq-bottom-space: 230px;
+  }
+}

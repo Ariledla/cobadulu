@@ -1,0 +1,1142 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE — PROJECTS
+
+   BREAKPOINT: 0px - 767px
+
+   BASED ON:
+   sections/projects.html
+
+   THREE ORIGINAL PROJECTS:
+   01. Sales Performance Analysis
+   02. Campaign Performance Analysis
+   03. Delivery Performance Analysis
+
+   MOBILE:
+   - Vertical project cards
+   - No horizontal carousel
+   - Full original project details
+   - Case Study modal
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. PROJECT VARIABLES
+     ===================================================== */
+
+  #projects {
+    --pg: #004636;
+    --po: #DC6D40;
+    --paper: #E2D7B9;
+    --card: #F4EBD7;
+
+    position: relative;
+
+    display: block !important;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 38px 0 68px !important;
+
+    background: transparent;
+    color: var(--pg);
+
+    overflow: visible;
+  }
+
+  #projects *,
+  #projects *::before,
+  #projects *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     02. MAIN SHELL
+     ===================================================== */
+
+  #projects > .shell {
+    display: block;
+
+    width: calc(100% - 32px);
+    max-width: 540px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     03. SECTION HEADER
+     ===================================================== */
+
+  #projects .section-title-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 13px;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 27px;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     04. SELECTED WORK TITLE
+     ===================================================== */
+
+  #projects .section-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    column-gap: 9px;
+    row-gap: 0;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--pg);
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(43px, 11.4vw, 69px);
+    font-weight: 900;
+    line-height: 0.98;
+
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+
+    overflow-wrap: normal;
+  }
+
+  #projects .section-title .title-green {
+    color: var(--pg);
+  }
+
+  #projects .section-title .title-orange {
+    color: var(--po);
+  }
+
+
+  /* =====================================================
+     05. SECTION DESCRIPTION
+     ===================================================== */
+
+  #projects .section-copy {
+    display: block;
+
+    width: 100%;
+    max-width: 470px;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--pg);
+
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.65;
+
+    text-align: left;
+  }
+
+
+  /* =====================================================
+     06. PROJECTS LIST
+     ===================================================== */
+
+  #projects .projects-static {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    grid-template-columns: none !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+
+    height: auto;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    scroll-snap-type: none !important;
+    scroll-behavior: auto !important;
+
+    transform: none !important;
+
+    cursor: default;
+  }
+
+
+  /* =====================================================
+     07. PROJECT CARD
+     ===================================================== */
+
+  #projects .projects-static > .project-tile {
+    position: relative;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 22px 19px !important;
+
+    background: var(--card) !important;
+
+    border: 2px solid var(--pg);
+    border-radius: 18px;
+
+    box-shadow:
+      4px 4px 0 rgba(0, 70, 54, 0.12);
+
+    color: var(--pg);
+
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+
+    overflow: hidden;
+
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+
+    cursor: default;
+
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+
+  /* =====================================================
+     08. PROJECT CARD INTERACTION
+     ===================================================== */
+
+  #projects .project-tile:hover,
+  #projects .project-tile:focus-within {
+    opacity: 1 !important;
+    filter: none !important;
+
+    box-shadow:
+      5px 5px 0 rgba(0, 70, 54, 0.18);
+  }
+
+  #projects .projects-static >
+  .project-tile:not(.pc-active) {
+    opacity: 1 !important;
+    filter: none !important;
+
+    pointer-events: auto !important;
+    cursor: default;
+  }
+
+  #projects .projects-static >
+  .project-tile:not(.pc-active):hover {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  #projects .project-tile a,
+  #projects .project-tile button,
+  #projects .project-tile:not(.pc-active) a,
+  #projects .project-tile:not(.pc-active) button {
+    pointer-events: auto !important;
+  }
+
+
+  /* =====================================================
+     09. HIDE OLD PROJECT ART
+     ===================================================== */
+
+  #projects .project-art,
+  #projects .project-kicker,
+  #projects .pc-category,
+  #projects .pc-view-details {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     10. PROJECT TITLE
+     ===================================================== */
+
+  #projects .project-tile > h3 {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 17px;
+    padding: 0;
+
+    color: var(--pg);
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(27px, 7.5vw, 36px);
+    font-weight: 900;
+    line-height: 1.1;
+
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =====================================================
+     11. DESKTOP HEADER FALLBACK
+
+     Desktop JS normally runs at >=1200px.
+     If a header already exists, keep it usable.
+     ===================================================== */
+
+  #projects .pc-slide-header {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 17px;
+  }
+
+  #projects .pc-heading-group {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+    min-width: 0;
+  }
+
+  #projects .pc-number {
+    flex: 0 0 auto;
+
+    color: var(--po);
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  #projects .pc-heading-text {
+    min-width: 0;
+  }
+
+  #projects .pc-slide-title {
+    margin: 0;
+
+    color: var(--pg);
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(24px, 6.5vw, 34px);
+    font-weight: 900;
+    line-height: 1.06;
+
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  #projects .project-tile.pc-ready > h3 {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     12. PROJECT META
+     ===================================================== */
+
+  #projects .project-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 7px 11px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 24px;
+    padding: 0;
+  }
+
+  #projects .meta-item {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    min-width: 0;
+
+    padding-right: 10px;
+
+    border-right:
+      1px solid rgba(0, 70, 54, 0.25);
+
+    color: var(--pg);
+
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  #projects .meta-item:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  #projects .meta-icon {
+    color: var(--po);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  #projects .meta-item strong {
+    color: var(--pg);
+
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+
+  /* =====================================================
+     13. PROBLEM + KEY FINDING
+     ===================================================== */
+
+  #projects .project-insights {
+    display: flex !important;
+    flex-direction: column !important;
+
+    grid-template-columns: none !important;
+
+    gap: 20px !important;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 24px;
+    padding: 0;
+  }
+
+  #projects .insight-item {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+  }
+
+  #projects .insight-accent {
+    display: block;
+
+    width: 28px;
+    height: 4px;
+
+    margin: 0 0 9px;
+
+    background: var(--po);
+
+    border-radius: 999px;
+  }
+
+  #projects .insight-label {
+    display: block;
+
+    margin: 0 0 9px;
+
+    color: var(--po);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  #projects .insight-item p {
+    margin: 0;
+
+    color: var(--pg);
+
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.55;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     14. ANALYSIS FOCUS
+     ===================================================== */
+
+  #projects .focus-row {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 24px;
+    padding: 0;
+  }
+
+  #projects .focus-label {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 12px;
+
+    color: var(--po);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  #projects .focus-label::before {
+    content: "";
+
+    flex: 0 0 7px;
+
+    width: 7px;
+    height: 7px;
+
+    background: var(--po);
+    border-radius: 50%;
+  }
+
+  #projects .focus-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #projects .focus-items span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 32px;
+
+    padding: 7px 11px;
+
+    background: transparent;
+
+    border: 1px solid var(--pg);
+    border-radius: 7px;
+
+    color: var(--pg);
+
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    text-align: center;
+
+    white-space: normal;
+  }
+
+
+  /* =====================================================
+     15. BUSINESS IMPACT
+     ===================================================== */
+
+  #projects .impact-row {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 0 25px;
+    padding: 0;
+  }
+
+  #projects .impact-mark {
+    flex: 0 0 7px;
+
+    width: 7px;
+    height: 7px;
+
+    margin-top: 5px;
+
+    background: var(--po);
+    border-radius: 50%;
+  }
+
+  #projects .impact-row > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #projects .impact-label {
+    display: block;
+
+    margin: 0 0 9px;
+
+    color: var(--po);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+  }
+
+  #projects .impact-row p {
+    margin: 0;
+
+    color: var(--pg);
+
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.55;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     16. PROJECT FOOTER
+     ===================================================== */
+
+  #projects .project-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top: auto;
+    padding-top: 18px;
+
+    border-top:
+      1px solid rgba(0, 70, 54, 0.22);
+  }
+
+
+  /* =====================================================
+     17. PROJECT TAGS
+     ===================================================== */
+
+  #projects .project-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  #projects .project-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 30px;
+
+    padding: 6px 10px;
+
+    background: transparent;
+
+    border: 1px solid var(--pg);
+    border-radius: 7px;
+
+    color: var(--pg);
+
+    font-size: 10px;
+    font-weight: 850;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    white-space: normal;
+  }
+
+
+  /* =====================================================
+     18. VIEW CASE STUDY BUTTON
+     ===================================================== */
+
+  #projects .project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 44px;
+
+    margin: 0;
+    padding: 10px 14px;
+
+    background: var(--po);
+
+    border: 1.5px solid var(--po);
+    border-radius: 9px;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.2;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  #projects .project-link:hover,
+  #projects .project-link:focus-visible {
+    background: var(--pg);
+    border-color: var(--pg);
+    color: #FFFFFF;
+  }
+
+  #projects .project-link:active {
+    background: var(--pg);
+    border-color: var(--pg);
+  }
+
+  #projects .project-link span {
+    display: none;
+  }
+
+
+  /* =====================================================
+     19. HIDE DESKTOP CAROUSEL CONTROLS
+
+     Mobile uses vertical cards.
+     ===================================================== */
+
+  #projects .pc-navigation,
+  #projects .pc-tabs,
+  #projects .pc-hint {
+    display: none !important;
+  }
+
+  #projects .projects-carousel {
+    width: 100%;
+    overflow: visible !important;
+  }
+
+
+  /* =====================================================
+     20. SMALL PHONES
+     WIDTH BELOW 390PX
+     ===================================================== */
+
+  @media screen and (max-width: 389px) {
+
+    #projects {
+      padding-top: 32px !important;
+      padding-bottom: 55px !important;
+    }
+
+    #projects > .shell {
+      width: calc(100% - 26px);
+    }
+
+    #projects .section-title {
+      font-size: clamp(38px, 11.3vw, 45px);
+      column-gap: 7px;
+    }
+
+    #projects .section-copy {
+      font-size: 11px;
+    }
+
+    #projects .projects-static {
+      gap: 15px !important;
+    }
+
+    #projects .projects-static > .project-tile {
+      padding: 19px 15px !important;
+      border-radius: 15px;
+    }
+
+    #projects .project-tile > h3 {
+      font-size: 26px;
+    }
+
+    #projects .project-meta {
+      gap: 7px 8px;
+    }
+
+    #projects .meta-item {
+      font-size: 9px;
+      padding-right: 7px;
+    }
+
+    #projects .meta-item strong {
+      font-size: 9px;
+    }
+
+    #projects .insight-item p,
+    #projects .impact-row p {
+      font-size: 12px;
+    }
+
+    #projects .focus-items span,
+    #projects .project-tag {
+      font-size: 9px;
+    }
+  }
+
+
+  /* =====================================================
+     21. LARGE PHONES
+     WIDTH 480PX - 767PX
+     ===================================================== */
+
+  @media screen and (min-width: 480px) {
+
+    #projects {
+      padding-top: 52px !important;
+      padding-bottom: 85px !important;
+    }
+
+    #projects > .shell {
+      width: calc(100% - 48px);
+    }
+
+    #projects .section-title-row {
+      gap: 17px;
+      margin-bottom: 32px;
+    }
+
+    #projects .section-title {
+      font-size: clamp(54px, 10vw, 72px);
+    }
+
+    #projects .section-copy {
+      font-size: 14px;
+    }
+
+    #projects .projects-static {
+      gap: 22px !important;
+    }
+
+    #projects .projects-static > .project-tile {
+      padding: 28px 27px !important;
+    }
+
+    #projects .project-tile > h3 {
+      font-size: 36px;
+    }
+
+    #projects .meta-item {
+      font-size: 12px;
+    }
+
+    #projects .meta-item strong {
+      font-size: 12px;
+    }
+
+    #projects .insight-item p,
+    #projects .impact-row p {
+      font-size: 15px;
+    }
+
+    #projects .focus-items span,
+    #projects .project-tag {
+      font-size: 11px;
+    }
+
+    #projects .project-link {
+      min-height: 48px;
+      font-size: 13px;
+    }
+  }
+
+
+  /* =====================================================
+     22. ACCESSIBILITY
+     ===================================================== */
+
+  #projects .project-tile:focus-visible {
+    outline: 3px solid var(--po);
+    outline-offset: 3px;
+  }
+
+  #projects .project-link:focus-visible {
+    outline: 3px solid var(--pg);
+    outline-offset: 3px;
+  }
+
+}
+
+
+/* =========================================================
+   23. CASE STUDY MODAL — MOBILE
+
+   The modal is appended to document.body
+   by js/app.js, so these rules are global.
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  .case-study-modal {
+    position: fixed !important;
+    inset: 0 !important;
+
+    z-index: 999999 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100vw;
+    height: 100dvh;
+
+    padding: 16px !important;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      opacity 0.18s ease,
+      visibility 0.18s ease;
+  }
+
+  .case-study-modal.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .case-study-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(8, 27, 21, 0.62);
+
+    backdrop-filter: blur(2px);
+  }
+
+  .case-study-panel {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 100% !important;
+    max-width: 540px !important;
+
+    height: min(78dvh, 720px) !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - 32px) !important;
+
+    margin: 0 !important;
+    padding: 0;
+
+    background: #E2D7B9;
+
+    border: 2px solid #004636;
+    border-radius: 18px;
+
+    box-shadow:
+      0 22px 60px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .case-study-content {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background: #E2D7B9;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .case-study-close {
+    position: absolute;
+
+    top: 13px;
+    right: 13px;
+
+    z-index: 5;
+
+    display: grid !important;
+    place-items: center !important;
+
+    width: 38px;
+    height: 38px;
+
+    margin: 0;
+    padding: 0 !important;
+
+    background: #E2D7B9;
+
+    border: 1.5px solid #004636;
+    border-radius: 50%;
+
+    color: #004636;
+
+    font-size: 0 !important;
+
+    cursor: pointer;
+  }
+
+  .case-study-close::before,
+  .case-study-close::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    width: 17px !important;
+    height: 2.5px !important;
+
+    margin: 0 !important;
+
+    background: currentColor !important;
+    border-radius: 999px;
+
+    transform-origin: center !important;
+
+    pointer-events: none;
+  }
+
+  .case-study-close::before {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg) !important;
+  }
+
+  .case-study-close::after {
+    transform:
+      translate(-50%, -50%)
+      rotate(-45deg) !important;
+  }
+
+  .case-study-close:hover,
+  .case-study-close:active {
+    background: #004636;
+    color: #E2D7B9;
+  }
+
+  .case-study-close:focus-visible {
+    outline: 3px solid #DC6D40;
+    outline-offset: 3px;
+  }
+
+  html.modal-open,
+  body.modal-open,
+  html.case-study-open,
+  body.case-study-open {
+    overflow: hidden !important;
+  }
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+   ========================================================= */
+
+@media screen and (max-width: 767px)
+and (prefers-reduced-motion: reduce) {
+
+  #projects .project-tile,
+  #projects .project-link,
+  .case-study-modal {
+    transition: none !important;
+  }
+
+}

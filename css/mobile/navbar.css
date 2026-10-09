@@ -1,0 +1,610 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE NAVBAR
+
+   BREAKPOINT: 0px - 767px
+
+   Based on:
+   - components/navbar.html
+   - css/global.css
+   - css/desktop-laptop/navbar.css
+
+   MOBILE STRUCTURE:
+   Row 1: DA Logo | Udin Saipudin | Resume
+   Row 2: Home | About | Projects | FAQ | Contact
+
+   No hamburger menu.
+   No additional JavaScript required.
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. MOBILE VARIABLES
+     ===================================================== */
+
+  :root {
+    --nav-h: 112px;
+    --mobile-nav-green: #003E25;
+    --mobile-nav-orange: #FD6325;
+    --mobile-nav-paper: #F4EBD7;
+  }
+
+
+  /* =====================================================
+     02. NAVBAR ROOT
+     ===================================================== */
+
+  #navbar-root {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+    min-width: 0;
+
+    min-height: var(--nav-h);
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    box-shadow: none;
+  }
+
+
+  /* =====================================================
+     03. SITE NAV
+     ===================================================== */
+
+  .site-nav {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    min-height: var(--nav-h);
+
+    margin: 0;
+    padding: 9px 0 7px;
+
+    background: transparent;
+  }
+
+
+  /* =====================================================
+     04. NAV SHELL
+     ===================================================== */
+
+  .nav-shell {
+    width: calc(100% - 24px);
+    max-width: 540px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     05. MAIN NAV PILL
+     ===================================================== */
+
+  .nav-pill {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto;
+
+    grid-template-rows:
+      auto
+      auto;
+
+    align-items: center;
+
+    column-gap: 8px;
+    row-gap: 9px;
+
+    width: 100%;
+    min-width: 0;
+
+    height: auto;
+    min-height: 91px;
+
+    margin: 0;
+
+    padding:
+      11px
+      13px
+      9px;
+
+    background: var(--mobile-nav-paper);
+
+    border: 1px solid rgba(0, 62, 37, 0.12);
+    border-radius: 23px;
+
+    box-shadow:
+      0 6px 20px
+      rgba(0, 62, 37, 0.08);
+  }
+
+
+  /* =====================================================
+     06. BRAND
+     ===================================================== */
+
+  .site-nav .brand {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    width: fit-content;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--mobile-nav-green);
+    text-decoration: none;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================================
+     07. DA CIRCLE
+     ===================================================== */
+
+  .site-nav .brand-circle {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 36px;
+
+    width: 36px;
+    height: 36px;
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--mobile-nav-green);
+
+    border: none;
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: 0.3px;
+
+    box-shadow:
+      0 4px 11px
+      rgba(0, 62, 37, 0.13);
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+
+  /* =====================================================
+     08. BRAND HOVER / TOUCH
+     ===================================================== */
+
+  .site-nav .brand:hover .brand-circle,
+  .site-nav .brand:active .brand-circle {
+    background: var(--mobile-nav-orange);
+    color: #FFFFFF;
+  }
+
+
+  /* =====================================================
+     09. BRAND NAME
+     ===================================================== */
+
+  .site-nav .brand-name {
+    display: block;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--mobile-nav-green);
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(13px, 3.8vw, 17px);
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================================
+     10. RESUME LINK
+     ===================================================== */
+
+  .site-nav .resume-link {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: auto;
+    min-width: 0;
+
+    height: 34px;
+
+    margin: 0;
+    padding: 0 11px;
+
+    background: transparent;
+
+    border: 1.5px solid var(--mobile-nav-green);
+    border-radius: 999px;
+
+    color: var(--mobile-nav-green);
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+
+  /* =====================================================
+     11. RESUME ARROW
+     ===================================================== */
+
+  .site-nav .resume-link svg {
+    display: block;
+
+    flex: 0 0 13px;
+
+    width: 13px;
+    height: 13px;
+
+    fill: none;
+    color: currentColor;
+  }
+
+
+  /* =====================================================
+     12. RESUME HOVER / TOUCH
+     ===================================================== */
+
+  .site-nav .resume-link:hover,
+  .site-nav .resume-link:active {
+    background: var(--mobile-nav-orange);
+    border-color: var(--mobile-nav-orange);
+    color: #FFFFFF;
+  }
+
+
+  /* =====================================================
+     13. NAVIGATION LINKS CONTAINER
+     ===================================================== */
+
+  .site-nav .nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 2px 2px 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+
+
+  /* =====================================================
+     14. HIDE HORIZONTAL SCROLLBAR
+     ===================================================== */
+
+  .site-nav .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* =====================================================
+     15. NAV LINKS
+     ===================================================== */
+
+  .site-nav .nav-links a {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    min-width: max-content;
+    min-height: 32px;
+
+    margin: 0;
+    padding: 0 1px 8px;
+
+    background: transparent;
+    border: none;
+
+    color: var(--mobile-nav-green);
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transform: none;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+      color 0.18s ease,
+      font-weight 0.18s ease;
+  }
+
+
+  /* =====================================================
+     16. REMOVE OLD UNDERLINE
+     ===================================================== */
+
+  .site-nav .nav-links a::before {
+    content: none !important;
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     17. ORANGE DOT
+     ===================================================== */
+
+  .site-nav .nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 1px;
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--mobile-nav-orange);
+
+    border: none;
+    border-radius: 50%;
+
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      scale(0);
+
+    transform-origin: center;
+
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease;
+  }
+
+
+  /* =====================================================
+     18. HOVER / ACTIVE LINK
+     ===================================================== */
+
+  .site-nav .nav-links a:hover,
+  .site-nav .nav-links a.active,
+  .site-nav .nav-links a.is-active,
+  .site-nav .nav-links a[aria-current="page"] {
+    color: var(--mobile-nav-green);
+    font-weight: 900;
+    background: transparent;
+    text-decoration: none;
+  }
+
+
+  /* =====================================================
+     19. SHOW ORANGE DOT
+     ===================================================== */
+
+  .site-nav .nav-links a:hover::after,
+  .site-nav .nav-links a.active::after,
+  .site-nav .nav-links a.is-active::after,
+  .site-nav .nav-links a[aria-current="page"]::after {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scale(1);
+  }
+
+
+  /* =====================================================
+     20. HIDE OLD NAV DIVIDERS
+     ===================================================== */
+
+  .site-nav .nav-divider {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     21. MOBILE SECTION SCROLL OFFSET
+     ===================================================== */
+
+  section[id] {
+    scroll-margin-top: 125px;
+  }
+
+
+  /* =====================================================
+     22. EXTRA SMALL PHONES
+     0px - 359px
+     ===================================================== */
+
+  @media (max-width: 359px) {
+
+    .nav-shell {
+      width: calc(100% - 16px);
+    }
+
+    .nav-pill {
+      padding: 10px 10px 8px;
+      border-radius: 19px;
+    }
+
+    .site-nav .brand {
+      gap: 6px;
+    }
+
+    .site-nav .brand-circle {
+      flex-basis: 32px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .site-nav .brand-name {
+      font-size: 12px;
+    }
+
+    .site-nav .resume-link {
+      height: 32px;
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .site-nav .nav-links {
+      gap: 12px;
+      justify-content: flex-start;
+    }
+
+    .site-nav .nav-links a {
+      font-size: 10px;
+    }
+  }
+
+
+  /* =====================================================
+     23. MOBILE LANDSCAPE / SHORT SCREENS
+     ===================================================== */
+
+  @media (max-height: 500px) {
+
+    .site-nav {
+      padding-top: 5px;
+      padding-bottom: 4px;
+    }
+
+    .nav-pill {
+      row-gap: 5px;
+      padding-top: 8px;
+      padding-bottom: 6px;
+    }
+
+    .site-nav .brand-circle {
+      width: 32px;
+      height: 32px;
+      flex-basis: 32px;
+    }
+  }
+
+
+  /* =====================================================
+     24. ACCESSIBILITY
+     ===================================================== */
+
+  .site-nav a:focus-visible {
+    outline: 2px solid var(--mobile-nav-orange);
+    outline-offset: 3px;
+    border-radius: 5px;
+  }
+
+
+  /* =====================================================
+     25. REDUCED MOTION
+     ===================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .site-nav .brand-circle,
+    .site-nav .resume-link,
+    .site-nav .nav-links a,
+    .site-nav .nav-links a::after {
+      transition: none;
+    }
+
+    .site-nav .nav-links {
+      scroll-behavior: auto;
+    }
+  }
+
+}

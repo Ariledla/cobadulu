@@ -1,3 +1,4 @@
+
 /* =========================================================
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    GLOBAL FOUNDATION
@@ -8,7 +9,9 @@
    01. FONT
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
+@import url(
+  "https://fonts.googleapis.com/css2?family=Road+Rage&display=swap"
+);
 
 
 /* =========================================================
@@ -25,13 +28,18 @@
 
   --unit: 4px;
 
-  /* normal shell: navbar + home */
+  /* Normal shell: Navbar + Home */
   --gutter: 24px;
   --max-width: 1560px;
 
   /*
-     Desktop inner canvas:
-     About / Projects / Dashboard / FAQ / Contact
+     Desktop laptop inner canvas:
+     About / Projects / FAQ / Contact
+
+     Berlaku hanya pada 1200px–1599px.
+
+     Monitor 1600px+ diatur oleh:
+     css/desktop-monitor/*.css
   */
   --desktop-content-max: 1280px;
   --desktop-content-gutter: 56px;
@@ -189,7 +197,7 @@ svg polygon {
 /* =========================================================
    06. NORMAL MASTER SHELL
 
-   Navbar + Home tetap memakai ukuran besar.
+   Navbar + Home memakai ukuran besar.
    ========================================================= */
 
 .shell {
@@ -232,35 +240,33 @@ section[id] {
 
 
 /* =========================================================
-   08. DESKTOP ONLY — SMALLER CONTENT CANVAS
+   08. DESKTOP LAPTOP ONLY
+   SMALLER CONTENT CANVAS
 
-   Yang diperkecil:
+   1200px–1599px
+
+   Sections:
    - About
    - Projects
-   - Dashboards
    - FAQ
    - Contact
 
-   Yang TIDAK berubah:
-   - Navbar
-   - Home
-   - Footer
-   - Tablet
-   - Mobile
+   Monitor 1600px+ tidak dikunci.
    ========================================================= */
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px)
+and (max-width: 1599px) {
 
   /* ABOUT */
+
   #main-root > #about > .shell,
 
   /* PROJECTS */
+
   #main-root > #projects > .shell,
 
-  /* DASHBOARDS */
-  #main-root > #dashboards > .shell,
-
   /* CONTACT */
+
   #main-root > #contact > .shell {
 
     width:
@@ -270,8 +276,7 @@ section[id] {
         calc(
           100% -
           (
-            var(--desktop-content-gutter)
-            * 2
+            var(--desktop-content-gutter) * 2
           )
         )
       );
@@ -282,9 +287,10 @@ section[id] {
 
 
   /*
-     FAQ punya wrapper sendiri,
-     jadi tidak bergantung pada .shell.
+     FAQ menggunakan wrapper sendiri.
+     Tidak bergantung pada .shell.
   */
+
   #main-root > #faq .faq-wrap {
 
     width:
@@ -294,8 +300,7 @@ section[id] {
         calc(
           100% -
           (
-            var(--desktop-content-gutter)
-            * 2
+            var(--desktop-content-gutter) * 2
           )
         )
       );
@@ -308,7 +313,35 @@ section[id] {
 
 
 /* =========================================================
-   09. SHARED SECTION HEADER
+   09. DESKTOP MONITOR
+   1600px+
+
+   Lebar masing-masing section ditentukan oleh:
+
+   css/desktop-monitor/about.css
+   css/desktop-monitor/projects.css
+   css/desktop-monitor/faq.css
+   css/desktop-monitor/contact.css
+
+   Tidak ada pembatas 1280px di sini.
+   ========================================================= */
+
+@media screen and (min-width: 1600px) {
+
+  /*
+     Tidak menerapkan width atau max-width
+     tambahan pada About, Projects, FAQ,
+     maupun Contact.
+
+     Setiap section mengikuti stylesheet
+     monitor masing-masing.
+  */
+
+}
+
+
+/* =========================================================
+   10. SHARED SECTION HEADER
    ========================================================= */
 
 .section-title-row {
@@ -358,16 +391,12 @@ section[id] {
 
 
 /* =========================================================
-   10. TABLET
-
-   Tetap mengikuti layout tablet sendiri.
-   Tidak terkena 1280px desktop.
+   11. TABLET
+   768px–1199px
    ========================================================= */
 
-@media
-  (min-width: 768px)
-  and
-  (max-width: 1199px) {
+@media screen and (min-width: 768px)
+and (max-width: 1199px) {
 
   .shell {
     width:
@@ -391,12 +420,11 @@ section[id] {
 
 
 /* =========================================================
-   11. MOBILE
-
-   Tetap hampir full width.
+   12. MOBILE
+   0px–767px
    ========================================================= */
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
 
   :root {
     --gutter: 16px;
@@ -425,7 +453,7 @@ section[id] {
 
 
 /* =========================================================
-   12. ACCESSIBILITY
+   13. ACCESSIBILITY
    ========================================================= */
 
 :focus-visible {
@@ -439,7 +467,7 @@ section[id] {
 
 
 /* =========================================================
-   13. UTILITY
+   14. UTILITY
    ========================================================= */
 
 .is-hidden {
@@ -452,7 +480,9 @@ section[id] {
 
 
 /* =========================================================
-   14. REDUCED MOTION
+   15. REDUCED MOTION
+
+   Dashboard-specific animations removed.
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -464,17 +494,13 @@ section[id] {
 
   .ticker-track,
   .availability-dot,
-  .bars span,
-  .line-chart path,
-  .table-bar::before,
-  .kpi-meter::before {
+  .bars span {
     animation: none;
   }
 
 
   .contact-card,
-  .faq-chevron svg,
-  .dashboard-card {
+  .faq-chevron svg {
     transition: none;
   }
 

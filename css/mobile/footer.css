@@ -1,0 +1,930 @@
+
+/* =========================================================
+   UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
+   MOBILE — FOOTER
+
+   BREAKPOINT: 0px - 767px
+
+   BASED ON:
+   - components/footer.html
+   - css/desktop-laptop/footer.css
+   - js/footer.js
+
+   MOBILE ELEMENTS:
+   01. Footer identity
+   02. Copyright
+   03. Tim Berners-Lee quote
+   04. Visitor counter
+   05. WIB clock
+   06. Back Home floating button
+
+   Existing HTML and JavaScript are preserved.
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* =====================================================
+     01. FOOTER ROOT
+     ===================================================== */
+
+  #footer-root {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     02. SITE FOOTER
+     ===================================================== */
+
+  .site-footer {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+
+    padding:
+      37px
+      0
+      32px;
+
+    background: #003E25;
+
+    color: #FFFFFF;
+
+    border: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     03. BOX SIZING
+     ===================================================== */
+
+  .site-footer *,
+  .site-footer *::before,
+  .site-footer *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     04. FOOTER CARD
+     ===================================================== */
+
+  .site-footer .footer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 26px;
+
+    width: calc(100% - 36px);
+    max-width: 540px;
+    min-width: 0;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    grid-template-columns: none;
+  }
+
+
+  /* =====================================================
+     05. FOOTER IDENTITY
+     ===================================================== */
+
+  .site-footer .footer-identity {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+  }
+
+
+  /* =====================================================
+     06. FOOTER NAME
+     ===================================================== */
+
+  .site-footer .footer-name {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    color: #FFFFFF;
+
+    font-family:
+      Impact,
+      "Arial Black",
+      sans-serif;
+
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 900;
+    line-height: 1.05;
+
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    white-space: normal;
+  }
+
+
+  /* =====================================================
+     07. COPYRIGHT
+     ===================================================== */
+
+  .site-footer .footer-rights {
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0 0;
+    padding: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    white-space: normal;
+  }
+
+
+  /* =====================================================
+     08. FOOTER QUOTE
+     ===================================================== */
+
+  .site-footer .footer-quote {
+    position: relative;
+
+    display: block;
+
+    align-self: stretch;
+    justify-self: auto;
+
+    width: 100%;
+    max-width: 460px;
+    min-width: 0;
+
+    margin: 0 auto;
+
+    padding:
+      15px
+      7px
+      0
+      37px;
+
+    background: transparent;
+
+    border: 0;
+
+    text-align: left;
+  }
+
+
+  /* =====================================================
+     09. QUOTATION MARK
+     ===================================================== */
+
+  .site-footer .footer-quote::before {
+    content: "“";
+
+    position: absolute;
+
+    top: -6px;
+    left: 0;
+
+    color: #FD6325;
+
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+
+  /* =====================================================
+     10. QUOTE TEXT
+     ===================================================== */
+
+  .site-footer .footer-quote p {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    color: #FFFFFF;
+
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.65;
+
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     11. QUOTE AUTHOR
+     ===================================================== */
+
+  .site-footer .footer-quote cite {
+    display: block;
+
+    margin: 12px 0 0;
+    padding: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.4;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+
+  /* =====================================================
+     12. FOOTER STATUS
+     ===================================================== */
+
+  .site-footer .footer-status {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* =====================================================
+     13. STATUS PILLS
+     ===================================================== */
+
+  .site-footer .footer-stat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 1 auto;
+
+    gap: 7px;
+
+    width: auto;
+    min-width: 0;
+
+    min-height: 37px;
+    height: 37px;
+
+    margin: 0;
+    padding: 0 13px;
+
+    border-radius: 999px;
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    box-shadow:
+      0 5px 12px
+      rgba(0, 0, 0, 0.10);
+  }
+
+
+  /* =====================================================
+     14. VISITORS PILL
+     ===================================================== */
+
+  .site-footer .footer-visitors {
+    background: #F4EBD7;
+
+    border: 2px solid #FD6325;
+
+    color: #003E25;
+  }
+
+
+  /* =====================================================
+     15. WIB TIME PILL
+     ===================================================== */
+
+  .site-footer .footer-time {
+    background: #FD6325;
+
+    border: 2px solid #FD6325;
+
+    color: #FFFFFF;
+  }
+
+
+  /* =====================================================
+     16. STATUS ICONS
+     ===================================================== */
+
+  .site-footer .footer-stat-icon {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 17px;
+
+    width: 17px;
+    height: 17px;
+
+    margin: 0;
+    padding: 0;
+
+    color: inherit;
+
+    font-size: 14px;
+    line-height: 1;
+  }
+
+
+  /* =====================================================
+     17. VISITOR EYE ICON
+     ===================================================== */
+
+  .site-footer .footer-eye {
+    display: grid;
+    place-items: center;
+  }
+
+  .site-footer .footer-eye svg {
+    display: block;
+
+    width: 17px;
+    height: 17px;
+
+    max-width: 100%;
+  }
+
+
+  /* =====================================================
+     18. VISITOR COUNT + LABEL
+     ===================================================== */
+
+  .site-footer .footer-stat-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: auto;
+    min-width: 0;
+
+    color: inherit;
+
+    white-space: nowrap;
+  }
+
+  .site-footer #visitorCount {
+    color: #003E25;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    white-space: nowrap;
+  }
+
+  .site-footer #visitorLabel {
+    color: #003E25;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================================
+     19. WIB CLOCK
+     ===================================================== */
+
+  .site-footer #footerTime {
+    display: inline-block;
+
+    width: auto;
+
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-size: 10px;
+    font-weight: 850;
+    line-height: 1;
+
+    letter-spacing: 0.1px;
+
+    white-space: nowrap;
+  }
+
+  .site-footer .footer-clock-icon {
+    display: grid;
+    place-items: center;
+
+    color: #FFFFFF;
+
+    font-size: 15px;
+  }
+
+
+  /* =====================================================
+     20. BACK HOME BUTTON
+
+     Outside footer element,
+     but still inside footer-root.
+     ===================================================== */
+
+  .back-home {
+    position: fixed;
+
+    right: 12px;
+    bottom: calc(13px + env(safe-area-inset-bottom, 0px));
+
+    z-index: 900;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    width: 92px;
+    height: 39px;
+
+    margin: 0;
+    padding: 0 8px;
+
+    background: #F4EBD7;
+
+    border: 2px solid #003E25;
+    border-radius: 999px;
+
+    color: #003E25;
+
+    font-family:
+      "Trebuchet MS",
+      Arial,
+      sans-serif;
+
+    font-size: 9px;
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    box-shadow:
+      0 6px 16px
+      rgba(0, 62, 37, 0.14);
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease,
+      visibility 0.2s ease,
+      transform 0.2s ease;
+  }
+
+
+  /* =====================================================
+     21. BACK HOME HOVER / TOUCH
+     ===================================================== */
+
+  .back-home:hover,
+  .back-home:active {
+    background: #FD6325;
+    color: #FFFFFF;
+  }
+
+  .back-home:active {
+    transform: scale(0.97);
+  }
+
+
+  /* =====================================================
+     22. HOME ICON CIRCLE
+     ===================================================== */
+
+  .back-home .home-icon {
+    position: relative;
+
+    display: block;
+
+    flex: 0 0 25px;
+
+    width: 25px;
+    height: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    background: #003E25;
+
+    border: 2px solid #003E25;
+    border-radius: 50%;
+
+    color: transparent;
+
+    font-size: 0;
+    line-height: 0;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     23. ARROW STEM
+     ===================================================== */
+
+  .back-home .home-icon::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 2px;
+    height: 12px;
+
+    background: #FFFFFF;
+
+    border-radius: 999px;
+
+    transform:
+      translate(-50%, -40%);
+
+    transform-origin: center;
+
+    pointer-events: none;
+  }
+
+
+  /* =====================================================
+     24. ARROW HEAD
+     ===================================================== */
+
+  .back-home .home-icon::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    border-top: 2px solid #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+
+    transform:
+      translate(-50%, -78%)
+      rotate(45deg);
+
+    transform-origin: center;
+
+    pointer-events: none;
+  }
+
+
+  /* =====================================================
+     25. ICON HOVER
+     ===================================================== */
+
+  .back-home:hover .home-icon,
+  .back-home:active .home-icon {
+    background: transparent;
+    border-color: #FFFFFF;
+  }
+
+
+  /* =====================================================
+     26. HOME TEXT
+     ===================================================== */
+
+  .back-home .home-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: inherit;
+
+    font-size: 9px;
+    font-weight: 900;
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+
+  /* =====================================================
+     27. HIDDEN STATE
+
+     Controlled by js/footer.js.
+     ===================================================== */
+
+  .back-home.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+
+  /* =====================================================
+     28. SMALL PHONES
+     BELOW 390PX
+     ===================================================== */
+
+  @media screen and (max-width: 389px) {
+
+    .site-footer {
+      padding-top: 32px;
+      padding-bottom: 29px;
+    }
+
+    .site-footer .footer-card {
+      width: calc(100% - 28px);
+      gap: 23px;
+    }
+
+    .site-footer .footer-name {
+      font-size: clamp(25px, 7.7vw, 31px);
+    }
+
+    .site-footer .footer-rights {
+      font-size: 9px;
+    }
+
+    .site-footer .footer-quote {
+      padding-left: 32px;
+    }
+
+    .site-footer .footer-quote::before {
+      font-size: 56px;
+    }
+
+    .site-footer .footer-quote p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .site-footer .footer-stat {
+      height: 35px;
+      min-height: 35px;
+      padding: 0 10px;
+      gap: 6px;
+      font-size: 9px;
+    }
+
+    .back-home {
+      right: 9px;
+      bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      width: 88px;
+      height: 37px;
+    }
+  }
+
+
+  /* =====================================================
+     29. EXTRA SMALL PHONES
+     BELOW 340PX
+     ===================================================== */
+
+  @media screen and (max-width: 339px) {
+
+    .site-footer .footer-card {
+      width: calc(100% - 22px);
+    }
+
+    .site-footer .footer-name {
+      font-size: 25px;
+    }
+
+    .site-footer .footer-status {
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .site-footer .footer-stat {
+      width: min(100%, 180px);
+    }
+
+    .site-footer .footer-quote p {
+      font-size: 12px;
+    }
+  }
+
+
+  /* =====================================================
+     30. LARGE PHONES
+     480PX - 767PX
+     ===================================================== */
+
+  @media screen and (min-width: 480px) {
+
+    .site-footer {
+      padding-top: 47px;
+      padding-bottom: 43px;
+    }
+
+    .site-footer .footer-card {
+      width: calc(100% - 48px);
+      gap: 31px;
+    }
+
+    .site-footer .footer-name {
+      font-size: 40px;
+    }
+
+    .site-footer .footer-rights {
+      font-size: 11px;
+    }
+
+    .site-footer .footer-quote {
+      padding-left: 45px;
+    }
+
+    .site-footer .footer-quote::before {
+      font-size: 75px;
+    }
+
+    .site-footer .footer-quote p {
+      font-size: 17px;
+    }
+
+    .site-footer .footer-quote cite {
+      font-size: 11px;
+    }
+
+    .site-footer .footer-stat {
+      min-height: 42px;
+      height: 42px;
+      padding: 0 17px;
+      font-size: 11px;
+    }
+
+    .site-footer #visitorCount,
+    .site-footer #visitorLabel,
+    .site-footer #footerTime {
+      font-size: 11px;
+    }
+
+    .back-home {
+      right: 17px;
+      width: 103px;
+      height: 44px;
+    }
+
+    .back-home .home-icon {
+      flex-basis: 27px;
+      width: 27px;
+      height: 27px;
+    }
+
+    .back-home .home-text {
+      font-size: 10px;
+    }
+  }
+
+
+  /* =====================================================
+     31. MOBILE LANDSCAPE
+     ===================================================== */
+
+  @media screen and (orientation: landscape)
+  and (max-height: 500px) {
+
+    .site-footer {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    .site-footer .footer-card {
+      gap: 18px;
+    }
+
+    .site-footer .footer-quote p {
+      font-size: 13px;
+    }
+
+    .back-home {
+      bottom: 8px;
+    }
+  }
+
+
+  /* =====================================================
+     32. ACCESSIBILITY
+     ===================================================== */
+
+  .back-home:focus-visible {
+    outline: 3px solid #FD6325;
+    outline-offset: 4px;
+  }
+
+
+  /* =====================================================
+     33. REDUCED MOTION
+     ===================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .back-home {
+      transition: none;
+    }
+
+    .back-home:active {
+      transform: none;
+    }
+  }
+
+}
