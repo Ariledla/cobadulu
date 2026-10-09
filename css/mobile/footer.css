@@ -3,14 +3,15 @@
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    MOBILE — FOOTER
 
-   BREAKPOINT: 0px - 767px
+   FULL PORTRAIT + LANDSCAPE REVISION
 
-   BASED ON:
-   - components/footer.html
-   - css/desktop-laptop/footer.css
-   - js/footer.js
+   SUPPORT:
+   - Mobile portrait: width <= 767px
+   - Phone landscape:
+     width <= 932px
+     height <= 500px
 
-   MOBILE ELEMENTS:
+   ELEMENTS:
    01. Footer identity
    02. Copyright
    03. Tim Berners-Lee quote
@@ -21,48 +22,63 @@
    Existing HTML and JavaScript are preserved.
    ========================================================= */
 
-@media screen and (max-width: 767px) {
+
+/* =========================================================
+   01. MOBILE PORTRAIT + PHONE LANDSCAPE
+   ========================================================= */
+
+@media screen and (max-width: 767px),
+       screen and (orientation: landscape)
+       and (max-width: 932px)
+       and (max-height: 500px) {
+
 
   /* =====================================================
-     01. FOOTER ROOT
+     02. FOOTER ROOT
      ===================================================== */
 
   #footer-root {
     position: relative;
 
-    display: block;
+    display: block !important;
 
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     min-width: 0;
 
-    margin: 0;
-    padding: 0;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #003E25;
   }
 
 
   /* =====================================================
-     02. SITE FOOTER
+     03. SITE FOOTER
      ===================================================== */
 
   .site-footer {
     position: relative;
 
-    display: block;
+    display: block !important;
 
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     min-width: 0;
 
-    margin: 0;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
 
-    padding:
-      37px
-      0
-      32px;
+    margin: 0 !important;
+
+    padding: 37px 0 32px;
 
     background: #003E25;
-
     color: #FFFFFF;
 
     border: 0;
@@ -74,7 +90,7 @@
 
 
   /* =====================================================
-     03. BOX SIZING
+     04. BOX SIZING
      ===================================================== */
 
   .site-footer *,
@@ -85,14 +101,15 @@
 
 
   /* =====================================================
-     04. FOOTER CARD
+     05. FOOTER CARD
      ===================================================== */
 
   .site-footer .footer-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 
     gap: 26px;
 
@@ -107,15 +124,16 @@
 
     border: none;
     border-radius: 0;
-
     box-shadow: none;
 
-    grid-template-columns: none;
+    grid-template-columns: none !important;
+
+    transform: none !important;
   }
 
 
   /* =====================================================
-     05. FOOTER IDENTITY
+     06. FOOTER IDENTITY
      ===================================================== */
 
   .site-footer .footer-identity {
@@ -136,7 +154,7 @@
 
 
   /* =====================================================
-     06. FOOTER NAME
+     07. FOOTER NAME
      ===================================================== */
 
   .site-footer .footer-name {
@@ -162,13 +180,12 @@
     text-transform: uppercase;
 
     text-align: center;
-
     white-space: normal;
   }
 
 
   /* =====================================================
-     07. COPYRIGHT
+     08. COPYRIGHT
      ===================================================== */
 
   .site-footer .footer-rights {
@@ -189,13 +206,12 @@
     text-transform: uppercase;
 
     text-align: center;
-
     white-space: normal;
   }
 
 
   /* =====================================================
-     08. FOOTER QUOTE
+     09. FOOTER QUOTE
      ===================================================== */
 
   .site-footer .footer-quote {
@@ -212,11 +228,7 @@
 
     margin: 0 auto;
 
-    padding:
-      15px
-      7px
-      0
-      37px;
+    padding: 15px 7px 0 37px;
 
     background: transparent;
 
@@ -227,7 +239,7 @@
 
 
   /* =====================================================
-     09. QUOTATION MARK
+     10. QUOTATION MARK
      ===================================================== */
 
   .site-footer .footer-quote::before {
@@ -252,7 +264,7 @@
 
 
   /* =====================================================
-     10. QUOTE TEXT
+     11. QUOTE TEXT
      ===================================================== */
 
   .site-footer .footer-quote p {
@@ -282,7 +294,7 @@
 
 
   /* =====================================================
-     11. QUOTE AUTHOR
+     12. QUOTE AUTHOR
      ===================================================== */
 
   .site-footer .footer-quote cite {
@@ -309,13 +321,13 @@
 
 
   /* =====================================================
-     12. FOOTER STATUS
+     13. FOOTER STATUS
      ===================================================== */
 
   .site-footer .footer-status {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
 
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -333,7 +345,7 @@
 
 
   /* =====================================================
-     13. STATUS PILLS
+     14. STATUS PILLS
      ===================================================== */
 
   .site-footer .footer-stat {
@@ -368,13 +380,12 @@
     white-space: nowrap;
 
     box-shadow:
-      0 5px 12px
-      rgba(0, 0, 0, 0.10);
+      0 5px 12px rgba(0, 0, 0, 0.10);
   }
 
 
   /* =====================================================
-     14. VISITORS PILL
+     15. VISITORS PILL
      ===================================================== */
 
   .site-footer .footer-visitors {
@@ -387,7 +398,7 @@
 
 
   /* =====================================================
-     15. WIB TIME PILL
+     16. WIB TIME PILL
      ===================================================== */
 
   .site-footer .footer-time {
@@ -400,7 +411,7 @@
 
 
   /* =====================================================
-     16. STATUS ICONS
+     17. STATUS ICONS
      ===================================================== */
 
   .site-footer .footer-stat-icon {
@@ -423,7 +434,7 @@
 
 
   /* =====================================================
-     17. VISITOR EYE ICON
+     18. VISITOR EYE ICON
      ===================================================== */
 
   .site-footer .footer-eye {
@@ -442,7 +453,7 @@
 
 
   /* =====================================================
-     18. VISITOR COUNT + LABEL
+     19. VISITOR COUNT + LABEL
      ===================================================== */
 
   .site-footer .footer-stat-value {
@@ -456,7 +467,6 @@
     min-width: 0;
 
     color: inherit;
-
     white-space: nowrap;
   }
 
@@ -480,14 +490,13 @@
 
 
   /* =====================================================
-     19. WIB CLOCK
+     20. WIB CLOCK
      ===================================================== */
 
   .site-footer #footerTime {
     display: inline-block;
 
     width: auto;
-
     margin: 0;
 
     color: #FFFFFF;
@@ -497,7 +506,6 @@
     line-height: 1;
 
     letter-spacing: 0.1px;
-
     white-space: nowrap;
   }
 
@@ -506,16 +514,14 @@
     place-items: center;
 
     color: #FFFFFF;
-
     font-size: 15px;
   }
 
 
   /* =====================================================
-     20. BACK HOME BUTTON
+     21. BACK HOME BUTTON
 
-     Outside footer element,
-     but still inside footer-root.
+     Controlled by js/footer.js.
      ===================================================== */
 
   .back-home {
@@ -560,8 +566,7 @@
     text-decoration: none;
 
     box-shadow:
-      0 6px 16px
-      rgba(0, 62, 37, 0.14);
+      0 6px 16px rgba(0, 62, 37, 0.14);
 
     transition:
       background-color 0.2s ease,
@@ -573,7 +578,7 @@
 
 
   /* =====================================================
-     21. BACK HOME HOVER / TOUCH
+     22. BACK HOME HOVER / TOUCH
      ===================================================== */
 
   .back-home:hover,
@@ -588,7 +593,7 @@
 
 
   /* =====================================================
-     22. HOME ICON CIRCLE
+     23. HOME ICON CIRCLE
      ===================================================== */
 
   .back-home .home-icon {
@@ -615,13 +620,12 @@
     line-height: 0;
 
     overflow: hidden;
-
     box-sizing: border-box;
   }
 
 
   /* =====================================================
-     23. ARROW STEM
+     24. ARROW STEM
      ===================================================== */
 
   .back-home .home-icon::before {
@@ -636,12 +640,9 @@
     height: 12px;
 
     background: #FFFFFF;
-
     border-radius: 999px;
 
-    transform:
-      translate(-50%, -40%);
-
+    transform: translate(-50%, -40%);
     transform-origin: center;
 
     pointer-events: none;
@@ -649,7 +650,7 @@
 
 
   /* =====================================================
-     24. ARROW HEAD
+     25. ARROW HEAD
      ===================================================== */
 
   .back-home .home-icon::after {
@@ -677,7 +678,7 @@
 
 
   /* =====================================================
-     25. ICON HOVER
+     26. ICON HOVER
      ===================================================== */
 
   .back-home:hover .home-icon,
@@ -688,7 +689,7 @@
 
 
   /* =====================================================
-     26. HOME TEXT
+     27. HOME TEXT
      ===================================================== */
 
   .back-home .home-text {
@@ -707,9 +708,7 @@
 
 
   /* =====================================================
-     27. HIDDEN STATE
-
-     Controlled by js/footer.js.
+     28. HIDDEN STATE
      ===================================================== */
 
   .back-home.is-hidden {
@@ -720,11 +719,12 @@
 
 
   /* =====================================================
-     28. SMALL PHONES
+     29. SMALL PORTRAIT PHONES
      BELOW 390PX
      ===================================================== */
 
-  @media screen and (max-width: 389px) {
+  @media screen and (max-width: 389px)
+  and (orientation: portrait) {
 
     .site-footer {
       padding-top: 32px;
@@ -760,14 +760,21 @@
     .site-footer .footer-stat {
       height: 35px;
       min-height: 35px;
+
       padding: 0 10px;
+
       gap: 6px;
       font-size: 9px;
     }
 
     .back-home {
       right: 9px;
-      bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+
+      bottom:
+        calc(
+          10px + env(safe-area-inset-bottom, 0px)
+        );
+
       width: 88px;
       height: 37px;
     }
@@ -775,11 +782,12 @@
 
 
   /* =====================================================
-     29. EXTRA SMALL PHONES
+     30. EXTRA SMALL PORTRAIT PHONES
      BELOW 340PX
      ===================================================== */
 
-  @media screen and (max-width: 339px) {
+  @media screen and (max-width: 339px)
+  and (orientation: portrait) {
 
     .site-footer .footer-card {
       width: calc(100% - 22px);
@@ -805,11 +813,12 @@
 
 
   /* =====================================================
-     30. LARGE PHONES
+     31. LARGE PORTRAIT PHONES
      480PX - 767PX
      ===================================================== */
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 480px)
+  and (orientation: portrait) {
 
     .site-footer {
       padding-top: 47px;
@@ -848,7 +857,9 @@
     .site-footer .footer-stat {
       min-height: 42px;
       height: 42px;
+
       padding: 0 17px;
+
       font-size: 11px;
     }
 
@@ -860,12 +871,14 @@
 
     .back-home {
       right: 17px;
+
       width: 103px;
       height: 44px;
     }
 
     .back-home .home-icon {
       flex-basis: 27px;
+
       width: 27px;
       height: 27px;
     }
@@ -877,33 +890,169 @@
 
 
   /* =====================================================
-     31. MOBILE LANDSCAPE
+     32. PHONE LANDSCAPE
+
+     Width <= 932px
+     Height <= 500px
+
+     Keep portrait-style stacked footer.
      ===================================================== */
 
-  @media screen and (orientation: landscape)
+  @media screen
+  and (orientation: landscape)
+  and (max-width: 932px)
   and (max-height: 500px) {
 
-    .site-footer {
-      padding-top: 25px;
-      padding-bottom: 25px;
+    /* FOOTER */
+
+    #footer-root {
+      display: block !important;
+
+      width: 100% !important;
+
+      height: auto !important;
+      min-height: 0 !important;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      background: #003E25 !important;
     }
 
+    .site-footer {
+      display: block !important;
+
+      width: 100% !important;
+
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+
+      margin: 0 !important;
+
+      padding: 28px 0 30px !important;
+
+      background: #003E25 !important;
+      overflow: hidden !important;
+    }
+
+
+    /* CENTERED CARD */
+
     .site-footer .footer-card {
-      gap: 18px;
+      display: flex !important;
+
+      flex-direction: column !important;
+      align-items: center !important;
+
+      width: calc(100% - 40px) !important;
+      max-width: 540px !important;
+
+      gap: 22px !important;
+
+      margin: 0 auto !important;
+      padding: 0 !important;
+
+      grid-template-columns: none !important;
+
+      transform: none !important;
+    }
+
+
+    /* IDENTITY */
+
+    .site-footer .footer-identity {
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .site-footer .footer-name {
+      font-size: 34px !important;
+      line-height: 1.1 !important;
+    }
+
+    .site-footer .footer-rights {
+      font-size: 10px !important;
+    }
+
+
+    /* QUOTE */
+
+    .site-footer .footer-quote {
+      width: 100% !important;
+      max-width: 460px !important;
+
+      padding: 12px 7px 0 38px !important;
+
+      margin: 0 auto !important;
+    }
+
+    .site-footer .footer-quote::before {
+      font-size: 62px !important;
     }
 
     .site-footer .footer-quote p {
-      font-size: 13px;
+      font-size: 14px !important;
+      line-height: 1.65 !important;
     }
 
+    .site-footer .footer-quote cite {
+      font-size: 10px !important;
+    }
+
+
+    /* STATUS PILLS */
+
+    .site-footer .footer-status {
+      display: flex !important;
+
+      flex-direction: row !important;
+      justify-content: center !important;
+
+      flex-wrap: wrap !important;
+
+      gap: 11px !important;
+    }
+
+    .site-footer .footer-stat {
+      height: 38px !important;
+      min-height: 38px !important;
+
+      padding: 0 13px !important;
+
+      font-size: 10px !important;
+    }
+
+
+    /* FLOATING BACK HOME */
+
     .back-home {
-      bottom: 8px;
+      position: fixed !important;
+
+      right:
+        calc(
+          14px + env(safe-area-inset-right, 0px)
+        ) !important;
+
+      bottom:
+        calc(
+          8px + env(safe-area-inset-bottom, 0px)
+        ) !important;
+
+      width: 94px !important;
+      height: 38px !important;
+    }
+
+    .back-home .home-icon {
+      width: 24px !important;
+      height: 24px !important;
+      flex-basis: 24px !important;
     }
   }
 
 
   /* =====================================================
-     32. ACCESSIBILITY
+     33. ACCESSIBILITY
      ===================================================== */
 
   .back-home:focus-visible {
@@ -913,7 +1062,7 @@
 
 
   /* =====================================================
-     33. REDUCED MOTION
+     34. REDUCED MOTION
      ===================================================== */
 
   @media (prefers-reduced-motion: reduce) {

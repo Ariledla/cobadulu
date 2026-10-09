@@ -3,27 +3,42 @@
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    MOBILE — PROJECTS
 
-   BREAKPOINT: 0px - 767px
+   FULL PORTRAIT + LANDSCAPE REVISION
 
-   BASED ON:
-   sections/projects.html
+   BREAKPOINTS:
+   - Mobile: width <= 767px
+   - Phone landscape:
+     orientation: landscape
+     width <= 932px
+     height <= 500px
 
-   THREE ORIGINAL PROJECTS:
+   PROJECTS:
    01. Sales Performance Analysis
    02. Campaign Performance Analysis
    03. Delivery Performance Analysis
 
-   MOBILE:
+   FEATURES:
    - Vertical project cards
    - No horizontal carousel
+   - No desktop carousel navigation
+   - All project cards visible
    - Full original project details
    - Case Study modal
+   - Natural vertical scrolling
    ========================================================= */
 
-@media screen and (max-width: 767px) {
+
+/* =========================================================
+   01. MOBILE PORTRAIT + LANDSCAPE
+   ========================================================= */
+
+@media screen and (max-width: 767px),
+       screen and (orientation: landscape)
+       and (max-width: 932px)
+       and (max-height: 500px) {
 
   /* =====================================================
-     01. PROJECT VARIABLES
+     02. PROJECT VARIABLES / SECTION
      ===================================================== */
 
   #projects {
@@ -36,12 +51,13 @@
 
     display: block !important;
 
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
 
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
 
     margin: 0 !important;
     padding: 38px 0 68px !important;
@@ -49,7 +65,7 @@
     background: transparent;
     color: var(--pg);
 
-    overflow: visible;
+    overflow: visible !important;
   }
 
   #projects *,
@@ -60,35 +76,39 @@
 
 
   /* =====================================================
-     02. MAIN SHELL
+     03. MAIN SHELL
      ===================================================== */
 
   #projects > .shell {
-    display: block;
+    display: block !important;
 
-    width: calc(100% - 32px);
-    max-width: 540px;
-    min-width: 0;
+    width: calc(100% - 32px) !important;
+    max-width: 540px !important;
+    min-width: 0 !important;
 
-    margin: 0 auto;
-    padding: 0;
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    transform: none !important;
   }
 
 
   /* =====================================================
-     03. SECTION HEADER
+     04. SECTION HEADER
      ===================================================== */
 
   #projects .section-title-row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: flex !important;
+
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
 
     gap: 13px;
 
     width: 100%;
     max-width: 100%;
+    min-width: 0;
 
     margin: 0 0 27px;
     padding: 0;
@@ -96,18 +116,21 @@
 
 
   /* =====================================================
-     04. SELECTED WORK TITLE
+     05. SELECTED WORK TITLE
      ===================================================== */
 
   #projects .section-title {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex !important;
+
+    flex-wrap: wrap !important;
     align-items: baseline;
 
     column-gap: 9px;
     row-gap: 0;
 
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
 
     margin: 0;
     padding: 0;
@@ -139,7 +162,7 @@
 
 
   /* =====================================================
-     05. SECTION DESCRIPTION
+     06. SECTION DESCRIPTION
      ===================================================== */
 
   #projects .section-copy {
@@ -162,23 +185,61 @@
 
 
   /* =====================================================
-     06. PROJECTS LIST
+     07. PROJECTS CAROUSEL WRAPPER
+
+     Disable desktop carousel layout.
+     ===================================================== */
+
+  #projects .projects-carousel {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    transform: none !important;
+    perspective: none !important;
+  }
+
+
+  /* =====================================================
+     08. PROJECTS LIST
+
+     Force vertical cards instead of carousel.
      ===================================================== */
 
   #projects .projects-static {
+    position: relative !important;
+
     display: flex !important;
+
     flex-direction: column !important;
     align-items: stretch !important;
+    justify-content: flex-start !important;
 
     grid-template-columns: none !important;
+    grid-auto-flow: row !important;
 
     gap: 18px !important;
 
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 0;
+    min-width: 0 !important;
 
-    height: auto;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
 
     margin: 0 !important;
     padding: 0 !important;
@@ -195,30 +256,42 @@
 
 
   /* =====================================================
-     07. PROJECT CARD
+     09. PROJECT CARDS
+
+     All cards use their normal document position.
      ===================================================== */
 
   #projects .projects-static > .project-tile {
-    position: relative;
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
 
     display: flex !important;
+
     flex-direction: column !important;
 
     flex: 0 0 auto !important;
 
+    grid-column: auto !important;
+    grid-row: auto !important;
+
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 0;
+    min-width: 0 !important;
 
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
 
     margin: 0 !important;
     padding: 22px 19px !important;
 
     background: var(--card) !important;
 
-    border: 2px solid var(--pg);
+    border: 2px solid var(--pg) !important;
     border-radius: 18px;
 
     box-shadow:
@@ -227,14 +300,18 @@
     color: var(--pg);
 
     opacity: 1 !important;
+    visibility: visible !important;
+
     filter: none !important;
+
     transform: none !important;
 
     overflow: hidden;
 
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
 
+    pointer-events: auto !important;
     cursor: default;
 
     transition:
@@ -244,7 +321,7 @@
 
 
   /* =====================================================
-     08. PROJECT CARD INTERACTION
+     10. CARD INTERACTION
      ===================================================== */
 
   #projects .project-tile:hover,
@@ -259,9 +336,11 @@
   #projects .projects-static >
   .project-tile:not(.pc-active) {
     opacity: 1 !important;
+    visibility: visible !important;
     filter: none !important;
 
     pointer-events: auto !important;
+
     cursor: default;
   }
 
@@ -280,7 +359,7 @@
 
 
   /* =====================================================
-     09. HIDE OLD PROJECT ART
+     11. HIDE DESKTOP-ONLY ART
      ===================================================== */
 
   #projects .project-art,
@@ -292,7 +371,7 @@
 
 
   /* =====================================================
-     10. PROJECT TITLE
+     12. PROJECT TITLE
      ===================================================== */
 
   #projects .project-tile > h3 {
@@ -322,10 +401,10 @@
 
 
   /* =====================================================
-     11. DESKTOP HEADER FALLBACK
+     13. OPTIONAL JS CARD HEADER
 
-     Desktop JS normally runs at >=1200px.
-     If a header already exists, keep it usable.
+     Preserve a generated header if already created
+     by projects-carousel.js.
      ===================================================== */
 
   #projects .pc-slide-header {
@@ -389,7 +468,7 @@
 
 
   /* =====================================================
-     12. PROJECT META
+     14. PROJECT META
      ===================================================== */
 
   #projects .project-meta {
@@ -414,7 +493,6 @@
     gap: 4px;
 
     min-width: 0;
-
     padding-right: 10px;
 
     border-right:
@@ -446,11 +524,12 @@
 
 
   /* =====================================================
-     13. PROBLEM + KEY FINDING
+     15. PROBLEM + KEY FINDING
      ===================================================== */
 
   #projects .project-insights {
     display: flex !important;
+
     flex-direction: column !important;
 
     grid-template-columns: none !important;
@@ -522,7 +601,7 @@
 
 
   /* =====================================================
-     14. ANALYSIS FOCUS
+     16. ANALYSIS FOCUS
      ===================================================== */
 
   #projects .focus-row {
@@ -599,13 +678,12 @@
     line-height: 1.2;
 
     text-align: center;
-
     white-space: normal;
   }
 
 
   /* =====================================================
-     15. BUSINESS IMPACT
+     17. BUSINESS IMPACT
      ===================================================== */
 
   #projects .impact-row {
@@ -666,7 +744,7 @@
 
 
   /* =====================================================
-     16. PROJECT FOOTER
+     18. PROJECT FOOTER
      ===================================================== */
 
   #projects .project-footer {
@@ -689,7 +767,7 @@
 
 
   /* =====================================================
-     17. PROJECT TAGS
+     19. PROJECT TAGS
      ===================================================== */
 
   #projects .project-tags {
@@ -733,7 +811,7 @@
 
 
   /* =====================================================
-     18. VIEW CASE STUDY BUTTON
+     20. VIEW CASE STUDY BUTTON
      ===================================================== */
 
   #projects .project-link {
@@ -786,9 +864,7 @@
 
 
   /* =====================================================
-     19. HIDE DESKTOP CAROUSEL CONTROLS
-
-     Mobile uses vertical cards.
+     21. HIDE DESKTOP CAROUSEL CONTROLS
      ===================================================== */
 
   #projects .pc-navigation,
@@ -797,18 +873,14 @@
     display: none !important;
   }
 
-  #projects .projects-carousel {
-    width: 100%;
-    overflow: visible !important;
-  }
-
 
   /* =====================================================
-     20. SMALL PHONES
-     WIDTH BELOW 390PX
+     22. SMALL PORTRAIT PHONES
+     BELOW 390PX
      ===================================================== */
 
-  @media screen and (max-width: 389px) {
+  @media screen and (max-width: 389px)
+  and (orientation: portrait) {
 
     #projects {
       padding-top: 32px !important;
@@ -816,7 +888,7 @@
     }
 
     #projects > .shell {
-      width: calc(100% - 26px);
+      width: calc(100% - 26px) !important;
     }
 
     #projects .section-title {
@@ -867,11 +939,12 @@
 
 
   /* =====================================================
-     21. LARGE PHONES
-     WIDTH 480PX - 767PX
+     23. LARGE PORTRAIT PHONES
+     480PX - 767PX
      ===================================================== */
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 480px)
+  and (orientation: portrait) {
 
     #projects {
       padding-top: 52px !important;
@@ -879,7 +952,7 @@
     }
 
     #projects > .shell {
-      width: calc(100% - 48px);
+      width: calc(100% - 48px) !important;
     }
 
     #projects .section-title-row {
@@ -907,10 +980,7 @@
       font-size: 36px;
     }
 
-    #projects .meta-item {
-      font-size: 12px;
-    }
-
+    #projects .meta-item,
     #projects .meta-item strong {
       font-size: 12px;
     }
@@ -933,7 +1003,234 @@
 
 
   /* =====================================================
-     22. ACCESSIBILITY
+     24. PHONE LANDSCAPE
+
+     Width <= 932px
+     Height <= 500px
+
+     Centered cards, same vertical mobile design.
+     ===================================================== */
+
+  @media screen
+  and (orientation: landscape)
+  and (max-width: 932px)
+  and (max-height: 500px) {
+
+    /* SECTION */
+
+    #projects {
+      display: block !important;
+
+      width: 100% !important;
+
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+
+      padding: 35px 0 65px !important;
+
+      overflow: visible !important;
+    }
+
+
+    /* CENTERED CONTENT */
+
+    #projects > .shell {
+      display: block !important;
+
+      width: calc(100% - 40px) !important;
+      max-width: 540px !important;
+
+      margin: 0 auto !important;
+      padding: 0 !important;
+
+      transform: none !important;
+    }
+
+
+    /* HEADER */
+
+    #projects .section-title-row {
+      display: flex !important;
+      flex-direction: column !important;
+
+      gap: 14px !important;
+
+      margin-bottom: 27px !important;
+    }
+
+    #projects .section-title {
+      display: flex !important;
+      flex-wrap: wrap !important;
+
+      font-size: clamp(46px, 7vw, 61px) !important;
+      line-height: 1 !important;
+
+      column-gap: 10px !important;
+    }
+
+    #projects .section-copy {
+      font-size: 14px !important;
+      line-height: 1.65 !important;
+    }
+
+
+    /* CAROUSEL DISABLED */
+
+    #projects .projects-carousel,
+    #projects .projects-static {
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+
+      overflow: visible !important;
+
+      transform: none !important;
+    }
+
+    #projects .projects-static {
+      display: flex !important;
+
+      flex-direction: column !important;
+      align-items: stretch !important;
+
+      grid-template-columns: none !important;
+
+      gap: 20px !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      scroll-snap-type: none !important;
+    }
+
+
+    /* ALL THREE CARDS */
+
+    #projects .projects-static > .project-tile {
+      position: relative !important;
+
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+
+      display: flex !important;
+      flex-direction: column !important;
+
+      flex: 0 0 auto !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+
+      margin: 0 !important;
+      padding: 25px 24px !important;
+
+      opacity: 1 !important;
+      visibility: visible !important;
+
+      filter: none !important;
+      transform: none !important;
+
+      pointer-events: auto !important;
+
+      overflow: hidden !important;
+    }
+
+
+    /* PROJECT TITLES */
+
+    #projects .project-tile > h3 {
+      font-size: 32px !important;
+      line-height: 1.1 !important;
+    }
+
+    #projects .pc-slide-title {
+      font-size: 30px !important;
+      line-height: 1.1 !important;
+    }
+
+
+    /* META */
+
+    #projects .project-meta {
+      margin-bottom: 20px !important;
+    }
+
+    #projects .meta-item,
+    #projects .meta-item strong {
+      font-size: 11px !important;
+    }
+
+
+    /* INSIGHTS */
+
+    #projects .project-insights {
+      display: flex !important;
+
+      flex-direction: column !important;
+
+      gap: 19px !important;
+
+      margin-bottom: 23px !important;
+    }
+
+    #projects .insight-item p,
+    #projects .impact-row p {
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+
+
+    /* ANALYSIS FOCUS */
+
+    #projects .focus-row {
+      margin-bottom: 23px !important;
+    }
+
+    #projects .focus-items {
+      display: flex !important;
+      flex-wrap: wrap !important;
+
+      gap: 9px !important;
+    }
+
+    #projects .focus-items span,
+    #projects .project-tag {
+      font-size: 10px !important;
+    }
+
+
+    /* BUTTON */
+
+    #projects .project-link {
+      width: 100% !important;
+
+      min-height: 46px !important;
+
+      font-size: 12px !important;
+    }
+
+
+    /* NO DESKTOP CAROUSEL CONTROLS */
+
+    #projects .pc-navigation,
+    #projects .pc-tabs,
+    #projects .pc-hint {
+      display: none !important;
+    }
+  }
+
+
+  /* =====================================================
+     25. ACCESSIBILITY
      ===================================================== */
 
   #projects .project-tile:focus-visible {
@@ -945,18 +1242,20 @@
     outline: 3px solid var(--pg);
     outline-offset: 3px;
   }
-
 }
 
 
 /* =========================================================
-   23. CASE STUDY MODAL — MOBILE
+   26. CASE STUDY MODAL
 
-   The modal is appended to document.body
-   by js/app.js, so these rules are global.
+   The modal is appended to document.body,
+   so its selectors must not be inside #projects.
    ========================================================= */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px),
+       screen and (orientation: landscape)
+       and (max-width: 932px)
+       and (max-height: 500px) {
 
   .case-study-modal {
     position: fixed !important;
@@ -968,8 +1267,8 @@
     align-items: center !important;
     justify-content: center !important;
 
-    width: 100vw;
-    height: 100dvh;
+    width: 100vw !important;
+    height: 100dvh !important;
 
     padding: 16px !important;
 
@@ -999,7 +1298,6 @@
 
   .case-study-panel {
     position: relative;
-
     z-index: 2;
 
     display: block;
@@ -1009,7 +1307,9 @@
 
     height: min(78dvh, 720px) !important;
     min-height: 0 !important;
-    max-height: calc(100dvh - 32px) !important;
+
+    max-height:
+      calc(100dvh - 32px) !important;
 
     margin: 0 !important;
     padding: 0;
@@ -1127,10 +1427,75 @@
 
 
 /* =========================================================
-   24. REDUCED MOTION
+   27. CASE STUDY MODAL — LANDSCAPE
+
+   Short screens need a nearly full-height modal
+   with an independently scrolling content area.
+   ========================================================= */
+
+@media screen
+and (orientation: landscape)
+and (max-width: 932px)
+and (max-height: 500px) {
+
+  .case-study-modal {
+    padding:
+      calc(8px + env(safe-area-inset-top, 0px))
+      calc(12px + env(safe-area-inset-right, 0px))
+      calc(8px + env(safe-area-inset-bottom, 0px))
+      calc(12px + env(safe-area-inset-left, 0px))
+      !important;
+  }
+
+  .case-study-panel {
+    width: 100% !important;
+
+    max-width: 650px !important;
+
+    height:
+      calc(
+        100dvh -
+        16px -
+        env(safe-area-inset-top, 0px) -
+        env(safe-area-inset-bottom, 0px)
+      ) !important;
+
+    max-height: 100% !important;
+
+    border-radius: 12px !important;
+  }
+
+  .case-study-content {
+    height: 100% !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .case-study-close {
+    top: 8px !important;
+    right: 8px !important;
+
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+
+/* =========================================================
+   28. REDUCED MOTION
    ========================================================= */
 
 @media screen and (max-width: 767px)
+and (prefers-reduced-motion: reduce),
+
+screen and (orientation: landscape)
+and (max-width: 932px)
+and (max-height: 500px)
 and (prefers-reduced-motion: reduce) {
 
   #projects .project-tile,
@@ -1138,5 +1503,4 @@ and (prefers-reduced-motion: reduce) {
   .case-study-modal {
     transition: none !important;
   }
-
 }
