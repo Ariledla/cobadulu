@@ -3,11 +3,14 @@
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    GLOBAL FOUNDATION
 
-   REVISED:
-   - Mobile bottom overscroll fix
+   REVISED: MOBILE LANDSCAPE SUPPORT
+
+   - Mobile portrait preserved
+   - Mobile landscape uses mobile foundation
+   - Short landscape screens can scroll vertically
+   - Prevent unintended horizontal overflow
    - Green background below footer
-   - No unnecessary bottom spacing
-   - Desktop and tablet layout preserved
+   - Desktop and tablet layouts preserved
    ========================================================= */
 
 
@@ -42,9 +45,9 @@
      Desktop laptop inner canvas:
      About / Projects / FAQ / Contact
 
-     Berlaku hanya pada 1200px–1599px.
+     Applies only at 1200px–1599px.
 
-     Monitor 1600px+ diatur oleh:
+     Monitor 1600px+ is handled by:
      css/desktop-monitor/*.css
   */
 
@@ -75,18 +78,15 @@
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
-
 
 html,
 body {
   width: 100%;
   min-height: 100%;
 }
-
 
 body {
   margin: 0;
@@ -110,7 +110,6 @@ body {
   overflow-x: hidden;
 
   text-rendering: optimizeLegibility;
-
   -webkit-font-smoothing: antialiased;
 }
 
@@ -124,7 +123,6 @@ a {
   text-decoration: none;
 }
 
-
 button,
 input,
 textarea,
@@ -132,11 +130,9 @@ select {
   font: inherit;
 }
 
-
 button {
   color: inherit;
 }
-
 
 img,
 svg {
@@ -144,17 +140,14 @@ svg {
   max-width: 100%;
 }
 
-
 img {
   height: auto;
 }
-
 
 svg {
   shape-rendering: geometricPrecision;
   text-rendering: geometricPrecision;
 }
-
 
 svg path,
 svg line,
@@ -176,12 +169,9 @@ svg polygon {
   width: 100%;
 }
 
-
 #navbar-root {
   position: sticky;
-
   top: 0;
-
   z-index: 1000;
 
   min-height: var(--nav-h);
@@ -189,12 +179,10 @@ svg polygon {
   background: var(--cream);
 }
 
-
 #main-root {
   width: 100%;
   min-width: 0;
 }
-
 
 #footer-root {
   width: 100%;
@@ -204,16 +192,14 @@ svg polygon {
 /* =========================================================
    06. NORMAL MASTER SHELL
 
-   Navbar + Home memakai ukuran besar.
+   Navbar + Home use the larger canvas.
    ========================================================= */
 
 .shell {
   width:
     min(
       var(--max-width),
-      calc(
-        100% - (var(--gutter) * 2)
-      )
+      calc(100% - (var(--gutter) * 2))
     );
 
   margin-left: auto;
@@ -229,7 +215,6 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
-
 .slide {
   min-height:
     calc(
@@ -241,7 +226,6 @@ section[id] {
     0;
 
   display: flex;
-
   align-items: center;
 }
 
@@ -257,34 +241,25 @@ section[id] {
    - Projects
    - FAQ
    - Contact
-
-   Monitor 1600px+ tidak dikunci.
    ========================================================= */
 
 @media screen and (min-width: 1200px)
 and (max-width: 1599px) {
 
   /* ABOUT */
-
   #main-root > #about > .shell,
 
   /* PROJECTS */
-
   #main-root > #projects > .shell,
 
   /* CONTACT */
-
   #main-root > #contact > .shell {
-
     width:
       min(
         var(--desktop-content-max),
-
         calc(
           100% -
-          (
-            var(--desktop-content-gutter) * 2
-          )
+          (var(--desktop-content-gutter) * 2)
         )
       );
 
@@ -292,30 +267,23 @@ and (max-width: 1599px) {
     margin-right: auto;
   }
 
-
   /*
-     FAQ menggunakan wrapper sendiri.
-     Tidak bergantung pada .shell.
+     FAQ uses its own wrapper.
   */
 
   #main-root > #faq .faq-wrap {
-
     width:
       min(
         var(--desktop-content-max),
-
         calc(
           100% -
-          (
-            var(--desktop-content-gutter) * 2
-          )
+          (var(--desktop-content-gutter) * 2)
         )
       );
 
     margin-left: auto;
     margin-right: auto;
   }
-
 }
 
 
@@ -323,28 +291,15 @@ and (max-width: 1599px) {
    09. DESKTOP MONITOR
    1600px+
 
-   Lebar masing-masing section ditentukan oleh:
+   Each section is controlled by:
 
    css/desktop-monitor/about.css
    css/desktop-monitor/projects.css
    css/desktop-monitor/faq.css
    css/desktop-monitor/contact.css
 
-   Tidak ada pembatas 1280px di sini.
+   No additional 1280px restriction.
    ========================================================= */
-
-@media screen and (min-width: 1600px) {
-
-  /*
-     Tidak menerapkan width atau max-width
-     tambahan pada About, Projects, FAQ,
-     maupun Contact.
-
-     Setiap section mengikuti stylesheet
-     monitor masing-masing.
-  */
-
-}
 
 
 /* =========================================================
@@ -353,16 +308,12 @@ and (max-width: 1599px) {
 
 .section-title-row {
   display: flex;
-
   align-items: flex-end;
-
   justify-content: space-between;
 
   gap: 24px;
-
   margin-bottom: 24px;
 }
-
 
 .section-title {
   margin: 0;
@@ -370,70 +321,83 @@ and (max-width: 1599px) {
   color: var(--green);
 
   font:
-    900
-    clamp(48px, 5vw, 82px) / 0.9
+    900 clamp(48px, 5vw, 82px) / 0.9
     Impact,
     "Arial Black",
     sans-serif;
 
   letter-spacing: 1px;
-
   text-transform: uppercase;
 }
 
-
 .section-copy {
   width: min(100%, 520px);
-
   margin: 0;
 
   color: var(--green);
 
   font-size: 15px;
-
   line-height: 1.62;
-
   font-weight: 700;
 }
 
 
 /* =========================================================
    11. TABLET
+
+   Standard tablet:
    768px–1199px
+
+   EXCEPTION:
+   Short phone landscape up to 932px wide
+   is handled by mobile rules below.
    ========================================================= */
 
 @media screen and (min-width: 768px)
+and (max-width: 1199px)
+and (min-height: 501px),
+
+screen and (min-width: 933px)
 and (max-width: 1199px) {
 
   .shell {
-    width:
-      calc(
-        100% - 48px
-      );
+    width: calc(100% - 48px);
   }
 
-
   #main-root .faq-wrap {
-    width:
-      calc(
-        100% - 48px
-      );
+    width: calc(100% - 48px);
 
     margin-left: auto;
     margin-right: auto;
   }
-
 }
 
 
 /* =========================================================
-   12. MOBILE
-   0px–767px
+   12. MOBILE PORTRAIT + PHONE LANDSCAPE
 
-   Includes bottom overscroll fix.
+   MATCHES index.html:
+
+   A. Width <= 767px
+
+   OR
+
+   B. Landscape
+      Width <= 932px
+      Height <= 500px
+
+   IMPORTANT:
+   This block controls the GLOBAL foundation.
+
+   The separate css/mobile/*.css files must
+   also use these same media conditions.
    ========================================================= */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px),
+
+screen and (orientation: landscape)
+and (max-width: 932px)
+and (max-height: 500px) {
 
   /* -----------------------------------------------------
      MOBILE DESIGN TOKENS
@@ -447,8 +411,8 @@ and (max-width: 1199px) {
   /* -----------------------------------------------------
      DOCUMENT BACKGROUND
 
-     Green is the document canvas background.
-     This helps avoid cream appearing past the footer.
+     Green outside the body helps prevent cream
+     appearing beneath the footer.
      ----------------------------------------------------- */
 
   html {
@@ -461,17 +425,12 @@ and (max-width: 1199px) {
     background-color: #003E25;
 
     overflow-x: clip;
-
     overscroll-behavior-y: none;
   }
 
 
   /* -----------------------------------------------------
      BODY BACKGROUND
-
-     Keep the content canvas cream.
-     Remove dotted texture on the root body to avoid
-     showing it beyond the footer.
      ----------------------------------------------------- */
 
   body {
@@ -488,6 +447,7 @@ and (max-width: 1199px) {
     background-image: none;
 
     overflow-x: clip;
+    overflow-y: visible;
 
     overscroll-behavior-y: none;
   }
@@ -516,7 +476,7 @@ and (max-width: 1199px) {
   /* -----------------------------------------------------
      MAIN ROOT
 
-     Do not leave trailing spacing after contact.
+     No unwanted gap before footer.
      ----------------------------------------------------- */
 
   #main-root {
@@ -529,8 +489,6 @@ and (max-width: 1199px) {
 
   /* -----------------------------------------------------
      FOOTER ROOT
-
-     Footer must be the final visible document section.
      ----------------------------------------------------- */
 
   #footer-root {
@@ -539,7 +497,6 @@ and (max-width: 1199px) {
     display: block;
 
     width: 100%;
-
     height: auto;
     min-height: 0;
 
@@ -552,15 +509,12 @@ and (max-width: 1199px) {
 
   /* -----------------------------------------------------
      SITE FOOTER
-
-     No trailing bottom gap.
      ----------------------------------------------------- */
 
   #footer-root .site-footer {
     display: block;
 
     width: 100%;
-
     margin: 0 !important;
 
     background-color: #003E25;
@@ -569,8 +523,6 @@ and (max-width: 1199px) {
 
   /* -----------------------------------------------------
      FOOTER LAST CHILD
-
-     Prevent margin collapsing after footer content.
      ----------------------------------------------------- */
 
   #footer-root .site-footer > :last-child {
@@ -580,8 +532,6 @@ and (max-width: 1199px) {
 
   /* -----------------------------------------------------
      DOCUMENT END
-
-     Avoid footer-root bottom margins from nested content.
      ----------------------------------------------------- */
 
   body > #footer-root:last-child {
@@ -595,10 +545,12 @@ and (max-width: 1199px) {
      ----------------------------------------------------- */
 
   .shell {
-    width:
-      calc(
-        100% - 32px
-      );
+    width: calc(100% - 32px);
+
+    max-width: calc(100% - 32px);
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
@@ -607,10 +559,9 @@ and (max-width: 1199px) {
      ----------------------------------------------------- */
 
   #main-root .faq-wrap {
-    width:
-      calc(
-        100% - 32px
-      );
+    width: calc(100% - 32px);
+
+    max-width: calc(100% - 32px);
 
     margin-left: auto;
     margin-right: auto;
@@ -627,48 +578,193 @@ and (max-width: 1199px) {
 
 
   /* -----------------------------------------------------
-     AVOID UNINTENDED HORIZONTAL OVERFLOW
+     PREVENT HORIZONTAL OVERFLOW
      ----------------------------------------------------- */
 
   #main-root > section {
+    width: 100%;
     max-width: 100%;
     min-width: 0;
   }
 
+  #main-root > section .shell,
+  #main-root > section .faq-wrap {
+    min-width: 0;
+  }
 }
 
 
 /* =========================================================
-   13. ACCESSIBILITY
+   13. PHONE LANDSCAPE — GLOBAL OVERRIDES
+
+   Short landscape screens should use vertical
+   document scrolling, not a fixed-height section.
+
+   Do not rotate the content or reduce the
+   entire website using CSS transform.
+   ========================================================= */
+
+@media screen
+and (orientation: landscape)
+and (max-width: 932px)
+and (max-height: 500px) {
+
+  /* -----------------------------------------------------
+     LANDSCAPE VARIABLES
+     ----------------------------------------------------- */
+
+  :root {
+    --gutter: 16px;
+
+    /*
+       Keep existing --nav-h value here.
+
+       The actual landscape navbar height is
+       handled in css/mobile/navbar.css.
+    */
+  }
+
+
+  /* -----------------------------------------------------
+     VERTICAL PAGE SCROLLING
+     ----------------------------------------------------- */
+
+  html {
+    height: auto;
+    min-height: 100%;
+
+    overflow-x: clip;
+    overflow-y: auto;
+  }
+
+  body {
+    height: auto !important;
+    min-height: 100%;
+
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+
+  /* -----------------------------------------------------
+     MAIN DOCUMENT
+
+     No fixed landscape height.
+     ----------------------------------------------------- */
+
+  #main-root {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    overflow: visible;
+  }
+
+
+  /* -----------------------------------------------------
+     GENERAL SECTION SIZING
+
+     Allow each section to fit its content.
+     ----------------------------------------------------- */
+
+  #main-root > section.slide {
+    height: auto;
+    min-height: 0;
+
+    max-height: none;
+
+    align-items: stretch;
+
+    overflow: visible;
+  }
+
+
+  /* -----------------------------------------------------
+     HORIZONTAL LAYOUT PROTECTION
+     ----------------------------------------------------- */
+
+  #main-root > section {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #main-root > section .shell {
+    min-width: 0;
+  }
+
+
+  /* -----------------------------------------------------
+     SECTION SCROLL POSITION
+
+     Adjusted for short landscape viewports.
+     ----------------------------------------------------- */
+
+  section[id] {
+    scroll-margin-top: 90px;
+  }
+
+
+  /* -----------------------------------------------------
+     SHARED SECTION TITLES
+
+     Avoid unnecessary overflow.
+     ----------------------------------------------------- */
+
+  .section-title-row {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .section-title {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .section-copy {
+    max-width: 100%;
+  }
+
+
+  /* -----------------------------------------------------
+     KEEP FOOTER AT NATURAL DOCUMENT END
+     ----------------------------------------------------- */
+
+  #footer-root {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   14. ACCESSIBILITY
    ========================================================= */
 
 :focus-visible {
   outline:
-    3px
-    solid
-    var(--orange);
+    3px solid var(--orange);
 
   outline-offset: 3px;
 }
 
 
 /* =========================================================
-   14. UTILITY
+   15. UTILITY
    ========================================================= */
 
 .is-hidden {
   opacity: 0;
-
   visibility: hidden;
-
   pointer-events: none;
 }
 
 
 /* =========================================================
-   15. REDUCED MOTION
-
-   Dashboard-specific animations removed.
+   16. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -677,26 +773,26 @@ and (max-width: 1199px) {
     scroll-behavior: auto;
   }
 
-
   .ticker-track,
   .availability-dot,
   .bars span {
     animation: none;
   }
 
-
   .contact-card,
   .faq-chevron svg {
     transition: none;
   }
-
 }
 
 
 /* =========================================================
-   DESKTOP FOOTER BOTTOM FIX
-   Laptop: 1200px - 1599px
+   17. DESKTOP FOOTER BOTTOM FIX
+
+   Laptop: 1200px–1599px
    Monitor: 1600px+
+
+   Preserves existing desktop appearance.
    ========================================================= */
 
 @media screen and (min-width: 1200px) {
@@ -709,6 +805,7 @@ and (max-width: 1199px) {
   body {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+
     overscroll-behavior-y: none;
   }
 
@@ -729,7 +826,9 @@ and (max-width: 1199px) {
 
   #footer-root .site-footer {
     width: 100%;
+
     margin: 0 !important;
+
     background-color: #003E25;
   }
 

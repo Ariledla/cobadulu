@@ -5,10 +5,13 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Mobile viewport: fixed initial scale -->
+  <!-- ================================================
+       VIEWPORT
+       ================================================ -->
+
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0"
   >
 
   <meta
@@ -18,11 +21,16 @@
 
   <title>Udin Saipudin — Data Analysis Portfolio</title>
 
+  <!-- ================================================
+       PRELOAD
+       ================================================ -->
+
   <link
     rel="preload"
     href="logo/hantu.gif"
     as="image"
   >
+
 
   <!-- ================================================
        GLOBAL STYLES
@@ -30,59 +38,61 @@
 
   <link
     rel="stylesheet"
-    href="css/global.css?v=20261009-zoomfix"
+    href="css/global.css?v=20261010-landscape"
   >
 
   <link
     rel="stylesheet"
-    href="css/intro.css?v=20261009-zoomfix"
+    href="css/intro.css?v=20261010-landscape"
   >
 
 
   <!-- ================================================
        DESKTOP LAPTOP
        1200px+
+
+       Applies to normal laptop/desktop screens.
        ================================================ -->
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/navbar.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/navbar.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/home.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/home.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/about.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/about.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/projects.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/projects.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/faq.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/faq.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/footer.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/footer.css?v=20261010-landscape"
     media="screen and (min-width: 1200px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-laptop/contact.css?v=20261009-zoomfix"
+    href="css/desktop-laptop/contact.css?v=20261010-landscape"
     media="screen and (min-width: 1200px) and (max-width: 1599px)"
   >
 
@@ -90,126 +100,147 @@
   <!-- ================================================
        DESKTOP MONITOR
        1600px+
+
+       Monitor styles override laptop styles.
        ================================================ -->
 
   <link
     rel="stylesheet"
-    href="css/desktop-monitor/about.css?v=20261009-zoomfix"
+    href="css/desktop-monitor/about.css?v=20261010-landscape"
     media="screen and (min-width: 1600px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-monitor/projects.css?v=20261009-zoomfix"
+    href="css/desktop-monitor/projects.css?v=20261010-landscape"
     media="screen and (min-width: 1600px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-monitor/faq.css?v=20261009-zoomfix"
+    href="css/desktop-monitor/faq.css?v=20261010-landscape"
     media="screen and (min-width: 1600px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/desktop-monitor/contact.css?v=20261009-zoomfix"
+    href="css/desktop-monitor/contact.css?v=20261010-landscape"
     media="screen and (min-width: 1600px)"
   >
 
 
   <!-- ================================================
        TABLET
+
+       Standard tablet:
        768px - 1199px
+
+       Short landscape screens with width <= 932px
+       are reserved for mobile landscape styles.
+
+       The CSS files themselves must use matching
+       media conditions.
        ================================================ -->
 
   <link
     rel="stylesheet"
-    href="css/tablet/navbar.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/navbar.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/home.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/home.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/about.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/about.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/projects.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/projects.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/faq.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/faq.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/contact.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/contact.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/tablet/footer.css?v=20261009-zoomfix"
-    media="screen and (min-width: 768px) and (max-width: 1199px)"
+    href="css/tablet/footer.css?v=20261010-landscape"
+    media="screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 501px), screen and (min-width: 933px) and (max-width: 1199px)"
   >
 
 
   <!-- ================================================
-       MOBILE
-       0px - 767px
+       MOBILE — PORTRAIT AND LANDSCAPE
+
+       Portrait / narrow screens:
+       width <= 767px
+
+       Phone landscape:
+       orientation: landscape
+       width <= 932px
+       height <= 500px
+
+       IMPORTANT:
+       Inside each mobile CSS file, its own @media
+       condition must be updated to match.
        ================================================ -->
 
   <link
     rel="stylesheet"
-    href="css/mobile/navbar.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/navbar.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/home.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/home.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/about.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/about.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/projects.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/projects.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/faq.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/faq.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/contact.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/contact.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
   <link
     rel="stylesheet"
-    href="css/mobile/footer.css?v=20261009-zoomfix"
-    media="screen and (max-width: 767px)"
+    href="css/mobile/footer.css?v=20261010-landscape"
+    media="screen and (max-width: 767px), screen and (orientation: landscape) and (max-width: 932px) and (max-height: 500px)"
   >
 
 </head>
@@ -225,6 +256,7 @@
     <div id="intro-content" class="intro-content">
 
       <div class="intro-ghost-wrap">
+
         <img
           id="intro-ghost"
           class="intro-ghost"
@@ -232,6 +264,7 @@
           alt=""
           draggable="false"
         >
+
       </div>
 
       <div class="intro-copy">
