@@ -2,6 +2,12 @@
 /* =========================================================
    UDIN SAIPUDIN — DATA ANALYSIS PORTFOLIO
    GLOBAL FOUNDATION
+
+   REVISED:
+   - Mobile bottom overscroll fix
+   - Green background below footer
+   - No unnecessary bottom spacing
+   - Desktop and tablet layout preserved
    ========================================================= */
 
 
@@ -41,6 +47,7 @@
      Monitor 1600px+ diatur oleh:
      css/desktop-monitor/*.css
   */
+
   --desktop-content-max: 1280px;
   --desktop-content-gutter: 56px;
 
@@ -422,14 +429,170 @@ and (max-width: 1199px) {
 /* =========================================================
    12. MOBILE
    0px–767px
+
+   Includes bottom overscroll fix.
    ========================================================= */
 
 @media screen and (max-width: 767px) {
+
+  /* -----------------------------------------------------
+     MOBILE DESIGN TOKENS
+     ----------------------------------------------------- */
 
   :root {
     --gutter: 16px;
   }
 
+
+  /* -----------------------------------------------------
+     DOCUMENT BACKGROUND
+
+     Green is the document canvas background.
+     This helps avoid cream appearing past the footer.
+     ----------------------------------------------------- */
+
+  html {
+    width: 100%;
+    min-height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #003E25;
+
+    overflow-x: clip;
+
+    overscroll-behavior-y: none;
+  }
+
+
+  /* -----------------------------------------------------
+     BODY BACKGROUND
+
+     Keep the content canvas cream.
+     Remove dotted texture on the root body to avoid
+     showing it beyond the footer.
+     ----------------------------------------------------- */
+
+  body {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background-color: var(--cream);
+    background-image: none;
+
+    overflow-x: clip;
+
+    overscroll-behavior-y: none;
+  }
+
+
+  /* -----------------------------------------------------
+     CONTENT ROOTS
+     ----------------------------------------------------- */
+
+  #navbar-root,
+  #main-root,
+  #footer-root {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    box-sizing: border-box;
+  }
+
+
+  /* -----------------------------------------------------
+     MAIN ROOT
+
+     Do not leave trailing spacing after contact.
+     ----------------------------------------------------- */
+
+  #main-root {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+
+    background-color: var(--cream);
+  }
+
+
+  /* -----------------------------------------------------
+     FOOTER ROOT
+
+     Footer must be the final visible document section.
+     ----------------------------------------------------- */
+
+  #footer-root {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+    min-height: 0;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background-color: #003E25;
+  }
+
+
+  /* -----------------------------------------------------
+     SITE FOOTER
+
+     No trailing bottom gap.
+     ----------------------------------------------------- */
+
+  #footer-root .site-footer {
+    display: block;
+
+    width: 100%;
+
+    margin: 0 !important;
+
+    background-color: #003E25;
+  }
+
+
+  /* -----------------------------------------------------
+     FOOTER LAST CHILD
+
+     Prevent margin collapsing after footer content.
+     ----------------------------------------------------- */
+
+  #footer-root .site-footer > :last-child {
+    margin-bottom: 0;
+  }
+
+
+  /* -----------------------------------------------------
+     DOCUMENT END
+
+     Avoid footer-root bottom margins from nested content.
+     ----------------------------------------------------- */
+
+  body > #footer-root:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+
+  /* -----------------------------------------------------
+     MOBILE SHELL
+     ----------------------------------------------------- */
 
   .shell {
     width:
@@ -439,6 +602,10 @@ and (max-width: 1199px) {
   }
 
 
+  /* -----------------------------------------------------
+     MOBILE FAQ WRAPPER
+     ----------------------------------------------------- */
+
   #main-root .faq-wrap {
     width:
       calc(
@@ -447,6 +614,25 @@ and (max-width: 1199px) {
 
     margin-left: auto;
     margin-right: auto;
+  }
+
+
+  /* -----------------------------------------------------
+     SECTION SCROLL OFFSET
+     ----------------------------------------------------- */
+
+  section[id] {
+    scroll-margin-top: 125px;
+  }
+
+
+  /* -----------------------------------------------------
+     AVOID UNINTENDED HORIZONTAL OVERFLOW
+     ----------------------------------------------------- */
+
+  #main-root > section {
+    max-width: 100%;
+    min-width: 0;
   }
 
 }
