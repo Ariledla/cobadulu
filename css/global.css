@@ -121,6 +121,21 @@ html {
 }
 
 html,
+::selection {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.portfolio-title,
+.about-name,
+#projects .section-title,
+#faq h2,
+.contact-title {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   width: 100%;
   min-height: 100%;
@@ -133,12 +148,7 @@ body {
 
   background-color: var(--cream);
 
-  background-image:
-    url(
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect x='1' y='1' width='1' height='1' fill='%23003E25' fill-opacity='.10'/%3E%3C/svg%3E"
-    );
-
-  background-size: 16px 16px;
+  background-image: none;
 
   font-family:
     "Trebuchet MS",
