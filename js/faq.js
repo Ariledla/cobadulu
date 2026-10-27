@@ -29,6 +29,7 @@
       const from = item.getBoundingClientRect().height;
       const answer = item.querySelector('.faq-answer');
       const answerOpacity = answer ? getComputedStyle(answer).opacity : '1';
+      const phone = window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches;
       // Preserve the answer's layout while only its outer clip gets shorter.
       const answerHeight = answer?.getBoundingClientRect().height;
       animations.get(item)?.cancel();
@@ -69,9 +70,20 @@
       if (answer) {
         const fade = answer.animate(
           [{ opacity: expanded && from <= collapsed + 1 ? 0 : Number(answerOpacity) }, { opacity: expanded ? 1 : 0 }],
-          { duration: expanded ? 340 : 240, easing: 'ease-out', fill: 'both' }
+          {
+            duration: expanded ? (phone ? 160 : 340) : 240,
+            delay: expanded && phone ? 420 : 0,
+            easing: 'ease-out',
+            fill: 'both'
+          }
         );
         answerAnimations.set(item, fade);
+        fade.onfinish = () => {
+          if (answerAnimations.get(item) !== fade) return;
+          if (!desired.get(item)) return;
+          answerAnimations.delete(item);
+          fade.cancel();
+        };
       }
       animation.onfinish = () => {
         if (animations.get(item) !== animation) return;
@@ -79,8 +91,10 @@
         if (!item.open) item.style.removeProperty('--faq-row-height');
         animations.delete(item);
         animation.cancel();
-        answerAnimations.get(item)?.cancel();
-        answerAnimations.delete(item);
+        if (!item.open || !phone) {
+          answerAnimations.get(item)?.cancel();
+          answerAnimations.delete(item);
+        }
         if (answer) {
           if (!item.open) answer.style.removeProperty('height');
           answer.style.removeProperty('flex-shrink');
@@ -105,6 +119,12 @@
         transition(item, expand);
       });
     }
+    document.addEventListener('click', event => {
+      if (event.target.closest('#faq .faq-item')) return;
+      for (const item of items) {
+        if (desired.get(item)) transition(item, false);
+      }
+    });
     root.dataset.faqInitialized = 'true';
     let previousWidth = root.clientWidth;
     new ResizeObserver(() => {
