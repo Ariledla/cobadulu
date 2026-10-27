@@ -2,8 +2,9 @@
 #contact .contact-list .contact-item {
   display: block;
   position: relative;
-  min-height: 128px;
-  padding: 20px;
+  min-height: 0;
+  height: auto;
+  padding: 13px 14px;
   border-radius: 12px;
   background: var(--card);
 }
@@ -11,7 +12,7 @@
   display: grid;
   grid-template-columns: 38px minmax(0, 1fr);
   align-items: center;
-  gap: 14px 12px;
+  gap: 7px 10px;
   min-width: 0;
   width: 100%;
 }
@@ -44,7 +45,7 @@
   overflow: visible; text-overflow: clip; overflow-wrap: anywhere;
 }
 #contact .contact-list .contact-item::after {
-  position: absolute; top: 26px; right: 16px;
+  position: absolute; top: 22px; right: 14px;
   width: 20px; height: 20px; margin: 0; padding: 0;
   border: 0; border-radius: 0;
   background-color: transparent;
@@ -52,6 +53,6 @@
 }
 #contact .contact-list .contact-item:hover::after { background-color: transparent; }
 @media (width < 390px) {
-  #contact .contact-list .contact-item { padding: 16px; min-height: 120px; }
-  #contact .contact-list .contact-item::after { top: 24px; right: 14px; }
+  #contact .contact-list .contact-item { padding: 12px; }
+  #contact .contact-list .contact-item::after { top: 21px; right: 12px; }
 }
