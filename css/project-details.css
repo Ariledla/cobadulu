@@ -128,3 +128,21 @@
   #projects .project-tile .impact-row p,
   #projects .project-tile .insight-item p { font-size: 16px; }
 }
+#projects .project-link,
+#projects .pc-tab,
+#projects .pc-tabs.has-preview .pc-tab.is-active:not(.is-preview) {
+  background: var(--pg);
+  border-color: var(--pg);
+  color: #fff;
+}
+
+#projects .project-link:hover,
+#projects .project-link:focus-visible,
+#projects .project-link:active,
+#projects .pc-tab.is-active,
+#projects .pc-tab.is-preview,
+#projects .pc-tab:hover {
+  background: var(--po);
+  border-color: var(--po);
+  color: #fff;
+}

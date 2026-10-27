@@ -22,15 +22,15 @@
   align-self: flex-end;
   display: inline-flex; align-items: center; gap: 7px;
   margin-top: 10px; padding: 5px 9px;
-  border: 1px solid var(--orange); border-radius: 6px;
-  background: var(--orange); color: #fff;
+  border: 1px solid var(--green); border-radius: 6px;
+  background: var(--green); color: #fff;
   font-family: inherit; font-size: 12px; font-weight: 700; line-height: 1.4;
   cursor: pointer;
 }
 #about .certificate-preview svg { width: 17px; height: 17px; }
 #about .certificate-preview:hover,
 #about .certificate-preview:active {
-  background: var(--green); border-color: var(--green); color: #fff;
+  background: var(--orange); border-color: var(--orange); color: #fff;
 }
 #about .certificate-dialog {
   position: fixed; inset: 0; margin: auto;
