@@ -496,12 +496,10 @@ body.intro-active {
 
 .intro-copy::after {
 
-  content:
-    "";
+  content: none;
 
 
-  display:
-    block;
+  display: none;
 
 
   width:
