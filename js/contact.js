@@ -940,7 +940,10 @@
       const button = customButton.getBoundingClientRect();
       const box = popover.getBoundingClientRect();
       const availableHeight = window.innerHeight;
-      popover.style.left = Math.max(12, Math.min(button.right - box.width, window.innerWidth - box.width - 12)) + 'px';
+      const mobile = window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches;
+      popover.style.left = (mobile
+        ? Math.max(12, (window.innerWidth - box.width) / 2)
+        : Math.max(12, Math.min(button.right - box.width, window.innerWidth - box.width - 12))) + 'px';
       const below = button.bottom + 10;
       const top = below + box.height <= availableHeight - 12 ? below : button.top - box.height - 10;
       popover.style.top = Math.max(12, Math.min(top, availableHeight - box.height - 12)) + 'px';
