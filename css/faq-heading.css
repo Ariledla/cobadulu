@@ -169,7 +169,6 @@
 #faq.faq-slide .faq-item[open] > summary {
   border-radius: calc(var(--faq-outer-radius) - 2px) calc(var(--faq-outer-radius) - 2px) 0 0;
 }
-#faq.faq-slide .faq-item[open] > summary,
 #faq.faq-slide .faq-item[open] .faq-answer {
   min-height: var(--faq-row-height, 68px);
   box-sizing: border-box;
