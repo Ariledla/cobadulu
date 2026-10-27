@@ -52,10 +52,22 @@
   padding-inline: var(--faq-text-inset);
   transition: background-color 160ms ease, color 160ms ease;
 }
-#faq.faq-slide .faq-item .faq-chevron { color: var(--green); }
+#faq.faq-slide .faq-item .faq-chevron {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
+  color: var(--green);
+}
 #faq.faq-slide .faq-item .faq-chevron::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%) rotate(45deg);
   border-right-color: currentColor;
   border-bottom-color: currentColor;
+}
+#faq.faq-slide .faq-item[open] .faq-chevron::before {
+  transform: translate(-50%, -35%) rotate(225deg);
 }
 #faq.faq-slide .faq-item > summary {
   background: var(--paper);
