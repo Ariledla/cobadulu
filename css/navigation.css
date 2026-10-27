@@ -40,7 +40,7 @@
 }
 /* Compact navigation with an aligned active marker. */
 .site-nav .nav-pill {
-  border-radius: 20px;
+  border-radius: 8px;
   border: 1px solid rgba(0, 62, 37, .08);
   background: var(--paper);
   box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
