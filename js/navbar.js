@@ -12,11 +12,8 @@
 
    Dashboard Gallery removed.
 
-   Preserved visual positions:
-   ABOUT    = 163px
-   PROJECTS = 190px
-   FAQ      = 155px
-   CONTACT  = bottom of page
+   Desktop destinations follow the visible navbar and section landmarks.
+   Small screens retain a readable heading offset below the navigation.
    ========================================================= */
 
 (() => {
@@ -202,8 +199,27 @@
     }
 
     const config = SECTION_VIEW[targetId];
-    const navbarBottom = getNavbarElement()?.getBoundingClientRect().bottom || 0;
+    const navbar = getNavbarRoot()?.querySelector('.nav-pill') || getNavbarElement();
+    const navbarRect = navbar?.getBoundingClientRect();
+    const navbarBottom = navbarRect?.bottom || 0;
     const visibleOffset = Math.max(0, navbarBottom) + 16;
+
+    if (window.matchMedia('(min-width: 1200px)').matches && navbarRect) {
+      const navbarCenter = navbarRect.top + navbarRect.height / 2;
+      if (targetId === 'about' || targetId === 'contact') {
+        const band = targetId === 'about'
+          ? document.querySelector('#home .ticker')
+          : section.querySelector('.contact-end-marquee');
+        if (band) {
+          return clampScroll(getAbsoluteTop(band) + band.getBoundingClientRect().height / 2 - navbarCenter);
+        }
+      }
+      if (targetId === 'projects' || targetId === 'faq') {
+        const anchor = findAnchor(section, SECTION_VIEW[targetId].selectors);
+        const gap = targetId === 'projects' ? 24 : 84;
+        return clampScroll(getAbsoluteTop(anchor) - navbarBottom - gap);
+      }
+    }
 
     if (!config) {
       return clampScroll(

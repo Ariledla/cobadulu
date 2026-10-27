@@ -9,19 +9,21 @@
 #about .certificates-heading h2 { font-size: 27px; letter-spacing: -1px; }
 #about .certificate-list { display: grid; gap: 12px; }
 #about .certificate-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 8px;
   width: 100%; max-width: 240px;
   padding: 12px; border: 1.5px solid var(--green);
   border-radius: 12px; background: var(--paper);
 }
 #about .certificate-sample { display: block; font-size: 10px; font-weight: 500; color: #476459; margin: 0 0 8px; }
-#about .certificate-card h3 { margin: 0 0 5px; font-size: 16px; font-weight: 700; line-height: 1.3; }
-#about .certificate-card p { margin: 0; font-size: 12px; line-height: 1.5; }
+#about .certificate-card h3 { grid-column: 1 / -1; margin: 0; font-size: 14px; font-weight: 700; line-height: 1.3; }
+#about .certificate-card p { margin: 0; min-width: 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
 #about .certificate-preview {
-  align-self: flex-end;
+  justify-self: end;
   display: inline-flex; align-items: center; gap: 7px;
-  margin-top: 10px; padding: 5px 9px;
+  margin-top: 0; padding: 5px 9px;
   border: 1px solid var(--green); border-radius: 6px;
   background: var(--green); color: #fff;
   font-family: inherit; font-size: 12px; font-weight: 700; line-height: 1.4;

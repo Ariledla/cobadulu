@@ -34,7 +34,15 @@
   box-shadow: none;
 }
 #about .record-item:hover { transform: none; box-shadow: none; }
-#about .skill-item { border: 1.5px solid var(--green); }
+#about .skill-item {
+  border: 1.5px solid var(--green);
+  background: var(--paper);
+  background-image: none;
+}
+#about .skill-name { font-size: 11px; }
+@media (width < 1200px), (width >= 1600px) {
+  #about .skill-name { font-size: clamp(13px, calc(7cqi - 2px), 22px); }
+}
 #about .record-marker { display: none; }
 #about .record-logo {
   grid-column: 1; grid-row: 1 / 3;
@@ -52,11 +60,11 @@
 }
 #about .record-content h3 {
   margin: 0 0 5px;
-  font-size: 18px; font-weight: 700; line-height: 1.3;
+  font-size: 16px; font-weight: 700; line-height: 1.3;
   letter-spacing: -.2px;
 }
 #about .record-content p {
-  margin: 0; font-size: 12px; font-weight: 650; line-height: 1.35;
+  margin: 0; font-size: 10px; font-weight: 650; line-height: 1.35;
   color: var(--green);
 }
 #about .record-date {
@@ -81,5 +89,5 @@
 @media (width < 390px) {
   #about .record-item { grid-template-columns: 40px minmax(0, 1fr) !important; padding: 14px; gap: 3px 12px; }
   #about .record-logo { width: 40px; height: 44px; }
-  #about .record-content h3 { font-size: 17px; }
+  #about .record-content h3 { font-size: 15px; }
 }

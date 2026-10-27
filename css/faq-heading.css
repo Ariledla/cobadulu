@@ -65,6 +65,12 @@
 #projects .section-title-row .section-title {
   font-size: clamp(24px, 4vw, 76px);
 }
+#faq.faq-slide .faq-heading h2 {
+  font-size: clamp(40px, 3.9vw, 64px);
+}
+@media (min-width: 1600px) {
+  #faq.faq-slide .faq-heading h2 { font-size: clamp(64px, 4vw, 80px); }
+}
 @media (width < 768px) {
   #projects .section-title-row .section-title { font-size: clamp(24px, 5.5vw, 40px); }
 }
