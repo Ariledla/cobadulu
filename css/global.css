@@ -120,9 +120,9 @@ html {
   }
 }
 
-html,
-::selection {
-  background-color: var(--green);
+::selection,
+*::selection {
+  background-color: #003E25;
   color: #fff;
 }
 
@@ -136,6 +136,7 @@ html,
   -webkit-tap-highlight-color: transparent;
 }
 
+html,
 body {
   width: 100%;
   min-height: 100%;

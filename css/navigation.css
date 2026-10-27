@@ -1,3 +1,12 @@
+/* Keep display headings unselectable, including nested accent spans on touch. */
+:is(.portfolio-title, .about-name, #projects .section-title, #faq .faq-heading h2, .contact-title),
+:is(.portfolio-title, .about-name, #projects .section-title, #faq .faq-heading h2, .contact-title) * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* An open, readable wordmark at the existing responsive size. */
 .site-nav .brand-circle {
   font-family: "Trebuchet MS", Arial, sans-serif;

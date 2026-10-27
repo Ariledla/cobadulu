@@ -27,6 +27,8 @@
       const from = item.getBoundingClientRect().height;
       const answer = item.querySelector('.faq-answer');
       const answerOpacity = answer ? getComputedStyle(answer).opacity : '1';
+      // Preserve the answer's layout while only its outer clip gets shorter.
+      const answerHeight = answer?.getBoundingClientRect().height;
       animations.get(item)?.cancel();
       animations.delete(item);
       answerAnimations.get(item)?.cancel();
@@ -43,13 +45,19 @@
       probe.remove();
 
       if (reduced.matches || !item.animate) {
+        answer?.style.removeProperty('height');
+        answer?.style.removeProperty('flex-shrink');
         item.open = expanded;
         equalizeRows(item);
         return;
       }
       // Keep the answer rendered throughout both opening and closing.
       item.open = true;
-      equalizeRows(item);
+      if (expanded) equalizeRows(item);
+      if (answer) {
+        answer.style.height = (expanded ? answer.getBoundingClientRect().height : answerHeight) + 'px';
+        answer.style.flexShrink = '0';
+      }
       const to = expanded ? item.getBoundingClientRect().height : collapsed;
       const animation = item.animate(
         [{ height: from + 'px' }, { height: to + 'px' }],
@@ -71,6 +79,10 @@
         animation.cancel();
         answerAnimations.get(item)?.cancel();
         answerAnimations.delete(item);
+        if (answer) {
+          answer.style.removeProperty('height');
+          answer.style.removeProperty('flex-shrink');
+        }
       };
     }
 

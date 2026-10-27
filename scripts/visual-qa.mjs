@@ -107,8 +107,13 @@ try {
     const rapidClicks=items[4].open && items.filter(e=>e.open).length===1;
     const settled=items.every(e=>e.getAnimations().length===0);
     items[4].querySelector('summary').click();
-    await new Promise(r=>setTimeout(r,500));
-    return {mobileInterpolates,switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
+    await new Promise(r=>setTimeout(r,30));
+    const textOffset=()=>items[4].querySelector('.faq-answer p').getBoundingClientRect().top-items[4].getBoundingClientRect().top;
+    const firstOffset=textOffset();
+    await new Promise(r=>setTimeout(r,100));
+    const stableAnswerText=Math.abs(textOffset()-firstOffset)<1;
+    await new Promise(r=>setTimeout(r,400));
+    return {mobileInterpolates,stableAnswerText,switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
   })()`);
   console.log('FAQ animation:',JSON.stringify(faqAnimation));
   if(Object.values(faqAnimation).some(v=>!v)) process.exitCode=1;
