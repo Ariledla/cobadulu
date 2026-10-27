@@ -12,7 +12,7 @@
   color: #17191d;
 }
 #contact .color-picker-head { display: none; }
-#contact .sv-picker { height: auto; aspect-ratio: 2.64; border-radius: 13px; }
+#contact .sv-picker { height: auto; aspect-ratio: 2.64; border-radius: 13px; border: 0; box-shadow: none; outline: none !important; }
 #contact .sv-picker-cursor { width: 18px; height: 18px; border: 3px solid #fff; box-shadow: 0 1px 3px #0004; }
 #contact .hue-picker { margin-top: 12px; }
 #contact .hue-picker input {
@@ -37,12 +37,26 @@
 #contact .color-eyedropper { display: grid; place-items: center; width: 40px; height: 40px; padding: 9px; flex: 0 0 40px; border: 1px solid var(--green); border-radius: 12px; background: #fff; color: var(--green); cursor: pointer; }
 #contact .color-eyedropper svg { width: 22px; height: 22px; }
 #contact .color-eyedropper:hover { background: #f4f5f6; }
+#contact .custom-color-button { position: relative; }
+#contact .custom-color-plus {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--green);
+}
+#contact .custom-color-plus svg { display: block; width: 13px; height: 13px; }
 #contact .custom-color-plus::before,
-#contact .custom-color-plus::after { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+#contact .custom-color-plus::after { content: none; display: none; }
 #contact .avatar-color.is-active {
   border: 2px solid var(--card) !important;
-  outline: 1.5px solid var(--green) !important;
-  outline-offset: 1px !important;
+  outline: none !important;
+  outline-offset: 0 !important;
   box-shadow: none !important;
   background-clip: padding-box;
 }

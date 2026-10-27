@@ -8,7 +8,7 @@
   "use strict";
 
   const desktop = window.matchMedia(
-    "(min-width: 768px) and (height > 500px), (width > 932px)"
+    "(min-width: 0px)"
   );
 
   const names = [
@@ -204,6 +204,7 @@
         : `Project ${index + 1}`;
 
       label.textContent = names[index] || fallback;
+      button.setAttribute('aria-label', `Show project ${index + 1}: ${label.textContent}`);
 
       button.append(number, label);
 

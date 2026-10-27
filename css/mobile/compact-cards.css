@@ -1,6 +1,43 @@
 /* Compact phone cards, including short landscape viewports. */
 @media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
   #projects .projects-static { gap: 16px !important; }
+  #projects .projects-static {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 !important;
+  }
+  #projects .projects-static::-webkit-scrollbar { display: none; }
+  #projects .projects-static > .project-tile {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always;
+  }
+  #projects .pc-navigation { display: flex !important; flex-direction: column; align-items: center; margin-top: 12px; }
+  #projects .pc-tabs { display: flex !important; justify-content: center; gap: 4px; }
+  #projects .pc-tab {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  #projects .pc-tab::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--pg); opacity: .3; transition: width 200ms ease, background-color 200ms ease, opacity 200ms ease; }
+  #projects .pc-tab.is-active::before { width: 24px; background: var(--po); opacity: 1; }
+  #projects .pc-tab-number,
+  #projects .pc-tab-label { display: none; }
+  #projects .pc-hint { display: block !important; margin: 0; font-size: 11px; text-align: center; }
   #projects .projects-static > .project-tile {
     padding: 16px !important;
     border-radius: 16px !important;
