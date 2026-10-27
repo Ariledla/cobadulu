@@ -1,3 +1,12 @@
+/* Input focus uses the existing border instead of an additional outer ring. */
+#contact input:not([type="color"]):focus,
+#contact textarea:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border-color: var(--orange);
+  box-shadow: none;
+}
+
 /* Compact contact rows: brand mark, stacked identity, then a quiet arrow. */
 #contact .contact-list .contact-item {
   display: block;
