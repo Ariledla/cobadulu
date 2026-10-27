@@ -54,6 +54,13 @@
   }
 }
 
+#projects .section-title-row .section-title {
+  font-size: clamp(24px, 4vw, 76px);
+}
+@media (width < 768px) {
+  #projects .section-title-row .section-title { font-size: clamp(24px, 5.5vw, 40px); }
+}
+
 #faq.faq-slide .faq-item { --faq-text-inset: 24px; }
 #faq.faq-slide .faq-item > summary {
   padding-inline: var(--faq-text-inset);

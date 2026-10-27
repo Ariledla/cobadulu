@@ -6,23 +6,29 @@
   #contact .contact-shell { padding-block: 24px 40px; transform: none; }
   #contact .contact-title { font-size: calc(80 * var(--contact-unit)); }
   #contact .contact-intro { font-size: calc(11 * var(--contact-unit)); margin-block: calc(18 * var(--contact-unit)); max-width: none; }
-  #contact .contact-panel { padding: calc(15 * var(--contact-unit)); }
-  #contact .contact-panel-head { margin-bottom: calc(12 * var(--contact-unit)); }
+  #contact .contact-panel { padding: calc(12 * var(--contact-unit)); }
+  #contact .contact-panel-head { min-height: 44px; padding-bottom: 0; margin-bottom: 10px; }
   #contact .contact-panel-head-text h3 { font-size: calc(20 * var(--contact-unit)); }
   #contact .contact-panel-head-text p { font-size: calc(10 * var(--contact-unit)); }
   #contact .message-layout { gap: calc(13 * var(--contact-unit)) !important; }
   #contact .message-layout,
   #contact .message-compose,
-  #contact .message-comments { min-height: calc(420 * var(--contact-unit)); height: auto; }
+  #contact .message-comments { min-height: 0; height: auto; }
   #contact .message-compose,
-  #contact .message-comments { padding: calc(12 * var(--contact-unit)); }
-  #contact .contact-form { min-height: calc(395 * var(--contact-unit)); gap: calc(10 * var(--contact-unit)); }
+  #contact .message-comments { padding: calc(10 * var(--contact-unit)); }
+  #contact .contact-form { min-height: 0; gap: 8px; }
+  #contact .form-group { gap: 4px; }
   #contact .form-group label,
   #contact .form-group input,
   #contact .form-group textarea { font-size: calc(11 * var(--contact-unit)); }
-  #contact .form-group input { height: calc(37 * var(--contact-unit)); }
-  #contact .form-group textarea { height: calc(67 * var(--contact-unit)); min-height: calc(67 * var(--contact-unit)); max-height: calc(67 * var(--contact-unit)); }
-  #contact .profile-builder { padding: calc(12 * var(--contact-unit)); }
+  #contact .form-group input { height: calc(32 * var(--contact-unit)); }
+  #contact .form-group textarea { height: calc(50 * var(--contact-unit)); min-height: calc(50 * var(--contact-unit)); max-height: calc(50 * var(--contact-unit)); }
+  #contact .profile-builder { padding: 10px; }
+  #contact .profile-builder-head { margin-bottom: 6px; }
+  #contact .profile-controls { gap: 5px; }
+  #contact .profile-control label { margin-bottom: 5px; }
+  #contact .contact-ghost { flex: 0 0 auto; min-height: 0; height: 48px; margin-top: 2px; }
+  #contact .contact-ghost img { width: 48px; max-height: 48px; }
   #contact .profile-builder-copy strong { font-size: calc(12 * var(--contact-unit)); }
   #contact .profile-builder-copy p { font-size: calc(10 * var(--contact-unit)); }
   #contact .contact-submit { height: calc(36 * var(--contact-unit)); min-height: calc(36 * var(--contact-unit)); font-size: calc(11 * var(--contact-unit)); }
