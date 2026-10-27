@@ -27,7 +27,7 @@
   #contact .profile-builder-head { margin-bottom: 6px; }
   #contact .profile-controls { gap: 5px; }
   #contact .profile-control label { margin-bottom: 5px; }
-  #contact .contact-ghost { flex: 0 0 auto; min-height: 0; height: 48px; margin-top: 2px; }
+  #contact .contact-ghost { flex: 0 0 auto; min-height: 0; height: 84px; margin-top: 2px; }
   #contact .contact-ghost img { width: 48px; max-height: 48px; }
   #contact .profile-builder-copy strong { font-size: calc(12 * var(--contact-unit)); }
   #contact .profile-builder-copy p { font-size: calc(10 * var(--contact-unit)); }
