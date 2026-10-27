@@ -935,8 +935,12 @@
        08. OPEN / CLOSE COLOR PICKER
        ===================================================== */
 
+    let pickerAnimation = null;
+    let pickerClosing = false;
+    const pickerReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
     function positionPicker() {
-      if (!popover?.classList.contains('is-open')) return;
+      if (!popover?.classList.contains('is-open') || pickerClosing) return;
       const button = customButton.getBoundingClientRect();
       if (button.bottom <= 0 || button.top >= window.innerHeight) {
         closePicker();
@@ -974,6 +978,11 @@
       }
 
 
+      const wasVisible = popover.classList.contains('is-open');
+      const opacity = wasVisible ? getComputedStyle(popover).opacity : '0';
+      pickerAnimation?.cancel();
+      pickerClosing = false;
+      popover.style.pointerEvents = '';
       popover.classList.add(
         "is-open"
       );
@@ -988,9 +997,12 @@
       updatePickerUI();
       if (popover.showPopover) {
         popover.setAttribute('popover', 'manual');
-        popover.showPopover();
+        if (!popover.matches(':popover-open')) popover.showPopover();
       }
       positionPicker();
+      if (!pickerReducedMotion.matches) {
+        pickerAnimation = popover.animate([{ opacity: Number(opacity) }, { opacity: 1 }], { duration: 200, easing: 'ease-out' });
+      }
 
     }
 
@@ -1007,10 +1019,25 @@
       }
 
 
-      if (popover.hidePopover && popover.matches(':popover-open')) popover.hidePopover();
-      popover.classList.remove(
-        "is-open"
-      );
+      if (pickerClosing || !popover.classList.contains('is-open')) return;
+      const opacity = getComputedStyle(popover).opacity;
+      pickerAnimation?.cancel();
+      pickerClosing = true;
+      popover.style.pointerEvents = 'none';
+      const finishClose = () => {
+        if (!pickerClosing) return;
+        if (popover.hidePopover && popover.matches(':popover-open')) popover.hidePopover();
+        popover.classList.remove('is-open');
+        pickerClosing = false;
+        pickerAnimation?.cancel();
+        pickerAnimation = null;
+        popover.style.pointerEvents = '';
+      };
+      if (pickerReducedMotion.matches) finishClose();
+      else {
+        pickerAnimation = popover.animate([{ opacity: Number(opacity) }, { opacity: 0 }], { duration: 240, easing: 'ease-out', fill: 'forwards' });
+        pickerAnimation.onfinish = finishClose;
+      }
 
 
       customButton.setAttribute(
@@ -1029,7 +1056,7 @@
 
 
         if (
-          popover?.classList.contains(
+          !pickerClosing && popover?.classList.contains(
             "is-open"
           )
         ) {
