@@ -43,7 +43,7 @@
   letter-spacing: -.2px;
 }
 #about .record-content p {
-  margin: 0; font-size: 14px; font-weight: 650; line-height: 1.35;
+  margin: 0; font-size: 12px; font-weight: 650; line-height: 1.35;
   color: var(--green);
 }
 #about .record-date {
@@ -57,13 +57,15 @@
 #about .record-date .date-top,
 #about .record-date .date-bottom,
 #about .record-date .date-dash {
-  font-size: 11px; font-weight: 650; line-height: 1.35;
-  color: var(--green); letter-spacing: .3px;
+  font-size: 12px; font-weight: 650; line-height: 1.35;
+  color: var(--green); letter-spacing: 0;
 }
-#about .skill-desc { color: var(--green); font-weight: 650; line-height: 1.35; white-space: normal; overflow-wrap: anywhere; }
+#about .skill-desc { color: var(--green); font-size: 12px; font-weight: 650; line-height: 1.35; letter-spacing: 0; white-space: normal; overflow-wrap: anywhere; }
+#about .record-content p,
+#about .record-date span,
+#about .skill-desc { font-family: "Manrope", sans-serif; }
 @media (width < 390px) {
   #about .record-item { grid-template-columns: 40px minmax(0, 1fr) !important; padding: 14px; gap: 3px 12px; }
   #about .record-logo { width: 40px; height: 44px; }
   #about .record-content h3 { font-size: 17px; }
-  #about .record-content p { font-size: 13px; }
 }
