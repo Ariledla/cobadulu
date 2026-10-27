@@ -7,6 +7,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.site-nav .nav-pill {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    linear-gradient(90deg, var(--orange), var(--green) 50%, var(--orange)) border-box;
+}
+
 /* An open, readable wordmark at the existing responsive size. */
 .site-nav .brand-circle {
   font-family: "Trebuchet MS", Arial, sans-serif;
