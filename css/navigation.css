@@ -1,0 +1,40 @@
+/* Two-row navigation: shared mobile/tablet polish, preserving laptop layout. */
+@media (width < 1200px) {
+  .site-nav .nav-links {
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid rgba(0, 62, 37, .09);
+    border-radius: 999px;
+    background: rgba(0, 62, 37, .045);
+  }
+  .site-nav .nav-links a {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 36px;
+    padding: 8px 6px;
+    border-radius: 999px;
+    font-size: clamp(10px, 2.6vw, 17px);
+    font-weight: 700 !important;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: var(--green);
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  }
+  .site-nav .nav-links a::after { display: none !important; content: none !important; }
+  .site-nav .nav-links a:hover {
+    background: rgba(0, 62, 37, .08);
+    font-weight: 700 !important;
+  }
+  .site-nav .nav-links a.active,
+  .site-nav .nav-links a.is-active,
+  .site-nav .nav-links a[aria-current="page"] {
+    color: var(--paper) !important;
+    background: var(--green);
+    font-weight: 700 !important;
+    box-shadow: 0 3px 8px rgba(0, 62, 37, .15);
+  }
+  @media (min-width: 768px) {
+    .site-nav .nav-links { gap: 8px; padding: 5px; }
+    .site-nav .nav-links a { min-height: 42px; }
+  }
+}

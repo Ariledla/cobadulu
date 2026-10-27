@@ -211,7 +211,7 @@
   align-items: center;
   gap: 6px;
   padding-right: 13px;
-  border-right: 1px solid rgba(0,70,54,.28);
+  border-right: 0;
   color: var(--pg);
   font-size: 12px;
   line-height: 1.4;
