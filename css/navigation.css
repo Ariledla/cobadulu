@@ -1,3 +1,13 @@
+/* An open, readable wordmark at the existing responsive size. */
+.site-nav .brand-name {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
 /* Shared menu feedback, including the section selected while scrolling. */
 .site-nav .nav-links a:is(:hover, :active, :focus-visible, .active, .is-active, [aria-current="page"]) {
   color: var(--orange) !important;

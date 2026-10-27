@@ -1334,6 +1334,27 @@
        12. HEX INPUT
        ===================================================== */
 
+    const eyedropper = contact.querySelector('.color-eyedropper');
+    const nativeColor = contact.querySelector('.native-color-fallback');
+    eyedropper?.addEventListener('click', async () => {
+      if (!window.EyeDropper) {
+        nativeColor.value = currentColor;
+        nativeColor.click();
+        return;
+      }
+      try {
+        const result = await new window.EyeDropper().open();
+        hexInput.value = result.sRGBHex.replace('#', '');
+        applyHexInput();
+      } catch (error) {
+        if (error.name !== 'AbortError') console.warn('Color selection unavailable', error);
+      }
+    });
+    nativeColor?.addEventListener('input', () => {
+      hexInput.value = nativeColor.value.slice(1);
+      applyHexInput();
+    });
+
     function applyHexInput() {
 
       if (!hexInput) {

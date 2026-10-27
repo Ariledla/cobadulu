@@ -92,17 +92,17 @@ try {
     items[0].querySelector('summary').click();
     await new Promise(r=>setTimeout(r,80));
     items[4].querySelector('summary').click();
-    await new Promise(r=>setTimeout(r,400));
+    await new Promise(r=>setTimeout(r,500));
     const switched=items[4].open && !items[0].open;
     for(const i of [0,1,2,4]) {
       items[i].querySelector('summary').click();
       await new Promise(r=>setTimeout(r,30));
     }
-    await new Promise(r=>setTimeout(r,400));
+    await new Promise(r=>setTimeout(r,500));
     const rapidClicks=items[4].open && items.filter(e=>e.open).length===1;
     const settled=items.every(e=>e.getAnimations().length===0);
     items[4].querySelector('summary').click();
-    await new Promise(r=>setTimeout(r,350));
+    await new Promise(r=>setTimeout(r,500));
     return {switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
   })()`);
   console.log('FAQ animation:',JSON.stringify(faqAnimation));

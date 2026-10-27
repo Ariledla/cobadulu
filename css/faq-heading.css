@@ -190,5 +190,32 @@
   #faq.faq-slide .faq-item > summary { min-height: 60px; padding: 13px 14px; }
   #faq.faq-slide .faq-item .faq-question { font-size: 12.5px; line-height: 1.45; }
   #faq.faq-slide .faq-item[open] .faq-answer { padding: 18px var(--faq-text-inset); }
-  #faq.faq-slide .faq-item[open] .faq-answer p { font-size: 12px; line-height: 1.55; }
+  #faq.faq-slide .faq-item[open] .faq-answer p { font-size: 12.5px; line-height: 1.55; }
+}
+
+/* Both halves of an FAQ card use the same text size. */
+#faq.faq-slide .faq-item,
+#faq.faq-slide .faq-item > summary,
+#faq.faq-slide .faq-item .faq-question,
+#faq.faq-slide .faq-item .faq-chevron {
+  transition: background-color 450ms ease, color 450ms ease, border-color 450ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  #faq.faq-slide .faq-item:not([open]) > summary:hover { background: var(--green); }
+}
+#faq.faq-slide .faq-item:not([open]) > summary:active { background: var(--green); }
+@media (prefers-reduced-motion: reduce) {
+  #faq.faq-slide .faq-item,
+  #faq.faq-slide .faq-item > summary,
+  #faq.faq-slide .faq-item .faq-question,
+  #faq.faq-slide .faq-item .faq-chevron { transition: none; }
+}
+#faq.faq-slide { --faq-body-size: clamp(16px, 1.08vw, 20px); }
+#faq.faq-slide .faq-item .faq-question,
+#faq.faq-slide .faq-item[open] .faq-answer p { font-size: var(--faq-body-size); }
+@media (768px <= width < 1200px) {
+  #faq.faq-slide { --faq-body-size: clamp(18px, 2vw, 23px); }
+}
+@media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
+  #faq.faq-slide { --faq-body-size: 12.5px; }
 }

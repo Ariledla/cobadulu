@@ -1,6 +1,7 @@
 /* Input focus uses the existing border instead of an additional outer ring. */
 #contact input:not([type="color"]):focus,
-#contact textarea:focus {
+#contact .contact-form .form-group textarea:focus,
+#contact .contact-form .form-group input:focus {
   outline: none !important;
   outline-offset: 0 !important;
   border-color: var(--orange);
@@ -31,13 +32,13 @@
   width: 34px; height: 34px;
   min-width: 0; padding: 0;
   background: transparent; border: 0;
-  overflow: hidden; isolation: isolate;
+  overflow: visible; isolation: isolate;
 }
 #contact .contact-list .contact-item-logo img {
   display: block; width: 100%; height: 100%; max-width: none;
-  object-fit: contain; mix-blend-mode: multiply; transform: scale(1.16);
+  object-fit: contain; mix-blend-mode: multiply; transform: none;
 }
-#contact .contact-list .contact-item-logo img[src$="gmail.png"] { transform: scale(1.1); }
+#contact .contact-list .contact-item-logo img[src$="gmail.png"] { transform: none; }
 #contact .contact-list .contact-item-text {
   display: flex;
   flex-direction: column;
