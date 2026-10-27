@@ -7,10 +7,19 @@
   display: inline-flex; flex-direction: row; flex-wrap: nowrap;
   align-items: baseline; justify-content: flex-start; gap: 6px;
   min-width: 0; padding: 8px 11px;
-  border: 1px solid rgba(0,70,54,.22); border-radius: 6px;
+  border: 1.5px solid var(--pg); border-radius: 6px;
   background: transparent; line-height: 1.3;
 }
-#projects .project-tile .meta-icon { display: none; }
+#projects .project-tile .meta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 16px;
+  width: 16px;
+  color: var(--pg);
+  font-size: 15px;
+  line-height: 1;
+}
 #projects .project-tile .meta-item strong {
   color: var(--pg); font-family: inherit; font-size: 17px;
   font-weight: 800; letter-spacing: 0; line-height: 1.2;
@@ -48,6 +57,20 @@
 #projects .project-tile .insight-item p { font-size: 18px; line-height: 1.5; }
 #projects .project-tile .insight-label,
 #projects .project-tile .focus-label { font-size: 11px; }
+#projects .project-tile .insight-accent { display: none; }
+#projects .project-tile .insight-label {
+  display: table;
+  width: fit-content;
+}
+#projects .project-tile .insight-label::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: var(--po);
+}
 #projects .project-tile .project-insights { gap: 22px !important; margin-bottom: 22px; }
 #projects .project-tile .focus-row { margin-bottom: 22px; }
 #projects .project-tile .focus-items {
