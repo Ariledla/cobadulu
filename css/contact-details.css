@@ -25,7 +25,7 @@
   margin-bottom: 5px;
 }
 #contact .comment-name { display: block; margin: 0; font-size: 14px; font-weight: 700; overflow-wrap: anywhere; }
-#contact .comment-date { margin-left: auto; color: #55746a; font-size: 10px; line-height: 1.5; white-space: nowrap; }
+#contact .comment-date { margin-left: auto; color: var(--green); font-size: 11px; font-weight: 600; line-height: 1.5; white-space: nowrap; }
 #contact .comment-message { font-size: 12px; line-height: 1.5; color: #315b4e; }
 @media (width < 390px) {
   #contact .comment-card { grid-template-columns: 34px minmax(0, 1fr); gap: 9px; padding: 10px; }
