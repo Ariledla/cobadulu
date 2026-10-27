@@ -50,7 +50,20 @@
 #projects .project-tile .focus-label { font-size: 11px; }
 #projects .project-tile .project-insights { gap: 22px !important; margin-bottom: 22px; }
 #projects .project-tile .focus-row { margin-bottom: 22px; }
-#projects .project-tile .focus-items span { min-height: 38px; font-size: 13px; }
+#projects .project-tile .focus-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 0;
+}
+#projects .project-tile .focus-items span {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  min-height: 38px;
+  padding: 8px 14px;
+  font-size: 13px;
+}
 @media (width < 480px) {
   #projects .project-tile .meta-item { padding: 6px 9px; }
   #projects .project-tile .meta-item strong { font-size: 15px; }
