@@ -664,6 +664,41 @@
        On native scrolling, settle on the nearest card.
        ================================================ */
 
+    let touching = false;
+    function mostVisibleIndex() {
+      const bounds = track.getBoundingClientRect();
+      let largest = -1;
+      let result = activeIndex;
+      slides.forEach((slide, index) => {
+        const rect = slide.getBoundingClientRect();
+        const visible = Math.max(0, Math.min(bounds.right, rect.right) - Math.max(bounds.left, rect.left));
+        if (visible > largest) { largest = visible; result = index; }
+      });
+      return result;
+    }
+    function settleAfterRelease() {
+      clearTimeout(scrollTimer);
+      if (touching || dragging || animating) return;
+      scrollTimer = setTimeout(() => {
+        if (touching || dragging || animating) return;
+        const next = mostVisibleIndex();
+        if (Math.abs(getPosition(next) - track.scrollLeft) > 2) goTo(next);
+        else setActive(next);
+      }, 100);
+    }
+    function touchStart() {
+      touching = true;
+      clearTimeout(scrollTimer);
+      if (animating) cancelAnimation();
+    }
+    function touchEnd() {
+      touching = false;
+      settleAfterRelease();
+    }
+    track.addEventListener('touchstart', touchStart, { passive: true });
+    track.addEventListener('touchend', touchEnd, { passive: true });
+    track.addEventListener('touchcancel', touchEnd, { passive: true });
+
     function onScroll() {
       if (dragging || animating) return;
 
@@ -672,8 +707,10 @@
 
       clearTimeout(scrollTimer);
 
-      // Phone gestures remain native: never pull a partial swipe to a card.
-      if (window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches) return;
+      if (window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches) {
+        settleAfterRelease();
+        return;
+      }
 
       scrollTimer = setTimeout(() => {
         if (dragging || animating) return;
@@ -773,6 +810,9 @@
        ================================================ */
 
     function destroy() {
+      track.removeEventListener('touchstart', touchStart);
+      track.removeEventListener('touchend', touchEnd);
+      track.removeEventListener('touchcancel', touchEnd);
       cancelAnimation();
       clearTimeout(scrollTimer);
 
