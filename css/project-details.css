@@ -30,6 +30,18 @@
   font-weight: 400; text-transform: none; letter-spacing: 0;
   white-space: normal;
 }
+#projects .project-tile .meta-item {
+  transition: background-color 160ms ease, color 160ms ease;
+}
+#projects .project-tile .meta-item:hover,
+#projects .project-tile .meta-item:active {
+  background: var(--pg);
+  color: #fff;
+}
+#projects .project-tile .meta-item:hover > *,
+#projects .project-tile .meta-item:active > * {
+  color: #fff;
+}
 #projects .project-tile .impact-row {
   display: block; margin: 0; padding: 0;
   border: 0; border-radius: 0; background: transparent;
