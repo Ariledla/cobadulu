@@ -1648,10 +1648,18 @@
         message.message;
 
 
-      body.append(
-        name,
-        text
-      );
+      const header = document.createElement('div');
+      header.className = 'comment-header';
+      header.append(name);
+      const date = new Date(message.createdAt ?? message.id);
+      if (!Number.isNaN(date.getTime())) {
+        const time = document.createElement('time');
+        time.className = 'comment-date';
+        time.dateTime = date.toISOString();
+        time.textContent = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+        header.append(time);
+      }
+      body.append(header, text);
 
 
       card.append(
