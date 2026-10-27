@@ -8,11 +8,11 @@
 }
 
 .site-nav .nav-pill {
-  border: 1px solid var(--orange);
+  border: 1px solid var(--green);
   background: var(--paper);
   box-shadow:
-    0 0 0 3px var(--green),
-    0 0 0 4px var(--orange),
+    0 0 0 3px var(--orange),
+    0 0 0 4px var(--green),
     0 10px 24px rgba(0, 62, 37, .07);
 }
 
