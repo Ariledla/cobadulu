@@ -118,7 +118,7 @@ try {
     cards[0].querySelector('button').click();
     const dialog=document.querySelector('.certificate-dialog');
     const opened=dialog.open;
-    const title=dialog.querySelector('h2').textContent;
+    const title=dialog.getAttribute('aria-label');
     dialog.querySelector('.certificate-close').click();
     return {count:cards.length,opened,closed:!dialog.open,title,noImages:document.querySelectorAll('.certificates-section img').length===0};
   })()`);

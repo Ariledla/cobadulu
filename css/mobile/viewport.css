@@ -1,0 +1,25 @@
+@media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #003e25;
+    overscroll-behavior: none;
+  }
+  html { overflow-x: hidden; }
+  body { overflow-x: clip; min-height: 100dvh; }
+  #main-root { background: var(--cream); overflow-x: clip; }
+  #navbar-root { background: var(--cream); }
+  #footer-root,
+  #footer-root .site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    background: #003e25 !important;
+  }
+  #footer-root .site-footer {
+    padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
