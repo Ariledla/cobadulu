@@ -33,7 +33,7 @@
     box-shadow: none;
     cursor: pointer;
   }
-  #projects .pc-tab::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--pg); opacity: .3; transition: width 200ms ease, background-color 200ms ease, opacity 200ms ease; }
+  #projects .pc-tab::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--pg); opacity: .3; transition: width 90ms ease-out, background-color 90ms ease-out, opacity 90ms ease-out; }
   #projects .pc-tab.is-active::before { width: 24px; background: var(--po); opacity: 1; }
   #projects .pc-tab-number,
   #projects .pc-tab-label { display: none; }

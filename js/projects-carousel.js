@@ -391,6 +391,9 @@
       cancelAnimation();
 
       selectedIndex = next;
+      if (window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches) {
+        setActive(next);
+      }
       const currentToken = animationToken;
 
       const from = track.scrollLeft;
@@ -663,6 +666,9 @@
 
     function onScroll() {
       if (dragging || animating) return;
+
+      const visibleIndex = nearestIndex();
+      if (visibleIndex !== activeIndex) setActive(visibleIndex);
 
       clearTimeout(scrollTimer);
 
