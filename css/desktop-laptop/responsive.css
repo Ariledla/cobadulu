@@ -1,28 +1,6 @@
-/* Shared non-phone foundation is loaded before this file.
-   Breakpoints refer to browser space in CSS pixels, not screen inches.
-   Monitor overrides remain in desktop-monitor; phone styles stay in mobile. */
-
-/* Tablet refinements live in css/tablet/*.css. */
-
-/* Small laptops, including common 1280px and 1366px viewports. */
-@media (1200px <= width < 1400px) {
-  :root { --desktop-content-gutter: 32px; }
-  #contact .contact-shell { width: calc(100% - 64px); }
-  #contact .contact-layout { gap: 24px; }
-  .site-footer .footer-card {
-    width: calc(100% - 64px);
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
-    column-gap: 24px;
-  }
-}
-
-/* Larger laptops: retain the existing composition with more side space. */
-@media (1400px <= width < 1600px) {
-  :root { --desktop-content-gutter: 48px; }
-}
-
-/* Short laptop windows scroll naturally instead of clipping content. */
-@media (width < 1600px) and (height <= 700px) {
+/* Original laptop section styles are preserved without size overrides.
+   This helper is loaded only for tablet-sized windows by index.html. */
+@media (width < 1200px) and (height <= 700px) {
   .hero { min-height: max(320px, calc(100svh - var(--nav-h))); }
   .hero-main { flex-shrink: 0; }
 }

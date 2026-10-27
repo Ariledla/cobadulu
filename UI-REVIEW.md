@@ -7,7 +7,8 @@ and publishing are deferred at the owner's request.
 
 - Card contents scale with each card's available width via `css/cards.css`:
   larger record logos/text, project copy/tags/buttons, and contact icons/text.
-  Laptop About uses the full content canvas. Narrow contact columns use a single
+  Laptop 1200?1599px retains the original section styles and excludes these
+  shared card overrides. Narrow contact columns use a single
   column so larger contents remain readable. Form text is enlarged and stacked
   empty comment panels use less unnecessary vertical space.
 

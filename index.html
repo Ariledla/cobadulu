@@ -131,8 +131,8 @@
 
 
   <!-- Shared laptop foundation stays active on tablet-sized windows. -->
-  <link rel="stylesheet" href="css/desktop-laptop/responsive.css?v=20261027"
-    media="screen and (min-width: 768px) and (height > 500px), screen and (width > 932px)">
+  <link rel="stylesheet" href="css/desktop-laptop/responsive.css?v=20261027-preserve-laptop"
+    media="screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px)">
 
   <!-- ================================================
        TABLET
@@ -249,7 +249,8 @@
   >
 
   <!-- Shared card content sizing follows the available card width. -->
-  <link rel="stylesheet" href="css/cards.css?v=20261027-card-content">
+  <link rel="stylesheet" href="css/cards.css?v=20261027-preserve-laptop"
+    media="screen and (width < 1200px), screen and (width >= 1600px)">
 </head>
 
 <body class="intro-active">

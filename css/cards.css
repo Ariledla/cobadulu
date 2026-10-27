@@ -1,3 +1,4 @@
+/* Laptop 1200-1599px is excluded by the link media in index.html. */
 /* Content scales with its card, so a wide tablet card gets larger contents
    even when its viewport is narrower than a desktop. Loaded after device CSS. */
 #about .record-item { container-type: inline-size; container-name: record; }
@@ -96,19 +97,4 @@
   #about .record-content h3 { font-size: 16px; }
   #about .record-content p { font-size: 12px; }
   #contact .contact-item { padding: 12px; }
-}
-
-/* Use the laptop canvas instead of retaining a small left-aligned About grid. */
-@media (1200px <= width < 1600px) {
-  #about { padding-inline: 48px; }
-  #about .about-layout { width: 100%; max-width: 1280px; margin-inline: auto; }
-  #about .about-content-grid {
-    width: 100%; max-width: 100%;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px;
-  }
-  #about .about-records, #about .record-section, #about .skills-section {
-    width: 100%; max-width: 100%; min-width: 0;
-  }
-  #about .skills-grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #about .skill-item { width: 100%; max-width: 100%; min-width: 0; }
 }
