@@ -3,14 +3,77 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  font-size: clamp(32px, 4.5vw, 64px);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -.035em;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: clamp(52px, 4.9vw, 80px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -3px;
   text-transform: uppercase;
   text-align: center;
   color: var(--green);
 }
 #faq.faq-slide .faq-heading h2 span { display: block; }
 #faq.faq-slide .faq-heading h2 .faq-heading-accent { color: #dc6d40; }
+
+#projects .section-title-row .section-title {
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: clamp(52px, 4.9vw, 80px);
+  font-weight: 900;
+  line-height: .91;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+  color: #004636;
+}
+#projects .section-title-row .section-title span { display: block; }
+#projects .section-title-row .section-title .title-green { color: #004636; }
+#projects .section-title-row .section-title .title-orange { color: #dc6d40; }
+@media (768px <= width < 1200px) {
+  #faq.faq-slide .faq-heading h2,
+  #projects .section-title-row .section-title { font-size: clamp(52px, 7vw, 80px); }
+}
+@media (min-width: 1600px) {
+  #faq.faq-slide .faq-heading h2,
+  #projects .section-title-row .section-title { font-size: clamp(90px, 5.5vw, 100px); }
+}
+@media (min-width: 1920px) {
+  #faq.faq-slide .faq-heading h2,
+  #projects .section-title-row .section-title { font-size: 91px; }
+}
+@media (width < 768px) {
+  #faq.faq-slide .faq-heading h2,
+  #projects .section-title-row .section-title {
+    font-size: clamp(32px, 8vw, 52px);
+    letter-spacing: -1px;
+  }
+}
+
+#faq.faq-slide .faq-item > summary { transition: background-color 160ms ease, color 160ms ease; }
+#faq.faq-slide .faq-item .faq-chevron { color: var(--green); }
+#faq.faq-slide .faq-item .faq-chevron::before {
+  border-right-color: currentColor;
+  border-bottom-color: currentColor;
+}
+#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) > summary {
+  background: var(--green);
+  color: #fff;
+}
+#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) .faq-question,
+#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) .faq-chevron {
+  color: #fff;
+}
+
+#faq.faq-slide .faq-item[open] .faq-answer {
+  margin: 0;
+  padding: 24px clamp(20px, 3vw, 40px);
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+}
+#faq.faq-slide .faq-item[open] .faq-answer p {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 0;
+  color: #fff;
+  line-height: 1.65;
+  text-align: center;
+}
