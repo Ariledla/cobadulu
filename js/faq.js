@@ -15,7 +15,7 @@
       const summary = item.querySelector('summary');
       const answer = item.querySelector('.faq-answer');
       if (!summary || !answer) return;
-      const height = Math.ceil(Math.max(summary.getBoundingClientRect().height, answer.getBoundingClientRect().height));
+      const height = Math.ceil(summary.getBoundingClientRect().height);
       item.style.setProperty('--faq-row-height', height + 'px');
     }
 

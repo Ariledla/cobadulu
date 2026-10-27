@@ -131,7 +131,7 @@
 }
 #faq.faq-slide .faq-item[open] .faq-answer {
   margin: 0;
-  padding: 24px var(--faq-text-inset);
+  padding: 12px var(--faq-text-inset);
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -188,7 +188,7 @@
   #faq.faq-slide .faq-list { gap: 10px; }
   #faq.faq-slide .faq-item > summary { min-height: 60px; padding: 13px 14px; }
   #faq.faq-slide .faq-item .faq-question { font-size: 12.5px; line-height: 1.45; }
-  #faq.faq-slide .faq-item[open] .faq-answer { padding: 18px var(--faq-text-inset); }
+  #faq.faq-slide .faq-item[open] .faq-answer { padding: 12px var(--faq-text-inset); }
   #faq.faq-slide .faq-item[open] .faq-answer p { font-size: 12.5px; line-height: 1.55; }
 }
 
