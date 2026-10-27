@@ -53,27 +53,35 @@
   border-right-color: currentColor;
   border-bottom-color: currentColor;
 }
-#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) > summary {
-  background: var(--green);
-  color: #fff;
+#faq.faq-slide .faq-item > summary {
+  background: var(--paper);
+  color: var(--green);
 }
-#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) .faq-question,
-#faq.faq-slide .faq-item:is(:hover, :active, :focus-within, [open]) .faq-chevron {
-  color: #fff;
+#faq.faq-slide .faq-item .faq-question,
+#faq.faq-slide .faq-item .faq-chevron {
+  color: var(--green);
 }
+@media (hover: hover) and (pointer: fine) {
+  #faq.faq-slide .faq-item > summary:hover { background: var(--green); color: #fff; }
+  #faq.faq-slide .faq-item > summary:hover .faq-question,
+  #faq.faq-slide .faq-item > summary:hover .faq-chevron { color: #fff; }
+}
+#faq.faq-slide .faq-item > summary:active { background: var(--green); color: #fff; }
+#faq.faq-slide .faq-item > summary:active .faq-question,
+#faq.faq-slide .faq-item > summary:active .faq-chevron { color: #fff; }
 
 #faq.faq-slide .faq-item[open] .faq-answer {
   margin: 0;
   padding: 24px clamp(20px, 3vw, 40px);
   background: var(--green);
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
 #faq.faq-slide .faq-item[open] .faq-answer p {
-  max-width: 80ch;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0;
   color: #fff;
   line-height: 1.65;
-  text-align: center;
+  text-align: left;
 }
