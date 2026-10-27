@@ -1,84 +1,55 @@
-/* Portfolio Index: paper card with a solid offset edge. */
+/* Shared navigation styling. */
 .site-nav .nav-pill {
-  position: relative;
-  border: 1px solid rgba(0, 62, 37, .24);
-  border-radius: 5px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 62, 37, .10);
+  border-bottom: 3px solid var(--orange);
   background: var(--paper);
-  box-shadow: 4px 4px 0 var(--green);
+  box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
 }
-.site-nav .nav-pill::before {
-  content: "";
-  position: absolute;
-  left: -1px;
-  top: calc(50% - 14px);
-  width: 4px;
-  height: 28px;
-  background: var(--orange);
-  pointer-events: none;
-}
-.site-nav .brand-name { color: var(--green); }
-.site-nav .brand-circle {
-  border-radius: 6px;
-  background: var(--green);
-  color: var(--paper);
-  box-shadow: none;
-}
-.site-nav .nav-links { gap: 6px; }
-.site-nav .nav-links a {
-  border-radius: 4px;
-  color: var(--green) !important;
-  font-weight: 700 !important;
-  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
-}
-.site-nav .nav-links a::after { content: none !important; display: none !important; }
-.site-nav .nav-links a:hover { background: rgba(0, 62, 37, .06); }
+.site-nav .brand-name,
+.site-nav .nav-links a { color: var(--green) !important; }
+.site-nav .brand-circle { background: var(--green); color: var(--paper); }
+.site-nav .resume-link { background: var(--orange); color: #fff; }
 .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]),
 .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
   background: var(--green);
-  color: var(--paper) !important;
-  box-shadow: inset 0 -3px 0 var(--orange);
+  color: #fff !important;
 }
-.site-nav .resume-link {
-  background: transparent;
-  border: 1px solid rgba(0, 62, 37, .28);
-  border-radius: 4px;
-  color: var(--green);
-  box-shadow: none;
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
-}
-.site-nav .resume-link span,
-.site-nav .resume-link svg { color: inherit; }
-.site-nav .resume-link:hover {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--paper);
-}
-.site-nav .resume-link:hover span,
-.site-nav .resume-link:hover svg { color: inherit; }
+.site-nav .nav-links a:hover { background: rgba(0, 62, 37, .07); }
+.site-nav .nav-links a::after { display: none !important; }
 @media (min-width: 1200px) {
   .site-nav { align-items: center; padding-top: 0; }
   .site-nav .nav-pill { height: 76px; gap: 22px; padding-inline: 20px; }
-  .site-nav .brand-circle { width: 44px; height: 44px; flex: 0 0 44px; }
-  .site-nav .nav-links a { height: 40px; padding-inline: 14px; }
-  .site-nav .resume-link { height: 40px; padding-inline: 16px; }
+  .site-nav .nav-links { gap: 6px; }
+  .site-nav .nav-links a { height: 38px; padding-inline: 14px; border-radius: 12px; }
+  .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) { box-shadow: none; }
 }
 @media (width < 1200px) {
-  .site-nav .nav-links { gap: 4px; padding: 0; border: 0; background: transparent; }
+  .site-nav .nav-links {
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid rgba(0, 62, 37, .10);
+    border-radius: 999px;
+    background: transparent;
+  }
   .site-nav .nav-links a {
     flex: 1 1 0;
     min-width: 0;
-    min-height: 38px;
+    min-height: 36px;
     padding: 8px 6px;
+    border-radius: 999px;
     font-size: clamp(10px, 2.6vw, 17px);
+    font-weight: 700 !important;
     line-height: 1.2;
     letter-spacing: 0;
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
   }
-}
-@media (768px <= width < 1200px) {
-  .site-nav .nav-links { gap: 8px; }
-  .site-nav .nav-links a { min-height: 42px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .site-nav .nav-links a,
-  .site-nav .resume-link { transition: none; }
+  .site-nav .nav-links a::after { content: none !important; }
+  .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) {
+    box-shadow: 0 3px 8px rgba(0, 62, 37, .15);
+  }
+  @media (min-width: 768px) {
+    .site-nav .nav-links { gap: 8px; padding: 5px; }
+    .site-nav .nav-links a { min-height: 42px; }
+  }
 }
