@@ -6,7 +6,7 @@
   align-items: start;
   gap: 3px 14px;
   width: 100%;
-  max-width: 280px !important;
+  max-width: 260px !important;
   padding: 14px;
   min-height: 0 !important;
   border: 1.5px solid var(--green);
