@@ -87,7 +87,9 @@
 #faq.faq-slide .faq-item:not([open]) > summary:active .faq-chevron { color: #fff; }
 
 #faq.faq-slide .faq-item[open] {
-  background: var(--green);
+  background-color: var(--green);
+  background-image: none;
+  background-clip: border-box;
   border-color: var(--green);
   overflow: hidden;
   box-shadow: none;
@@ -99,13 +101,20 @@
 #faq.faq-slide .faq-item[open] .faq-answer {
   margin: 0;
   padding: 24px var(--faq-text-inset);
-  background: var(--green);
+  background: transparent;
   border: 0;
   border-radius: 0;
   box-shadow: none;
   color: #fff;
   text-align: left;
 }
+#faq.faq-slide .faq-item[open]::details-content {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+#faq.faq-slide .faq-answer::before,
+#faq.faq-slide .faq-answer::after { display: none; }
 #faq.faq-slide .faq-item[open] .faq-answer p {
   max-width: none;
   margin: 0;
