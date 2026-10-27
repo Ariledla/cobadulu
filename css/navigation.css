@@ -42,7 +42,9 @@
 .site-nav .nav-pill {
   border-radius: 8px;
   border: 2px solid var(--orange);
-  background: var(--green);
+  background-color: var(--orange);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='100' viewBox='0 0 260 100'%3E%3Cg fill='%23003E25' fill-opacity='.45'%3E%3Cpath d='m14 18 5-3 3 5-6 3zM81 76l3-6 5 2-2 5zM178 13l7 2-3 5-4-2zM233 81l4-5 5 3-3 4zM129 42l3-2 2 4-4 2z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 260px 100px;
   box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
 }
 
@@ -57,9 +59,14 @@
   color: var(--green);
 }
 
+.site-nav .resume-link {
+  background: var(--green);
+  color: #fff;
+}
+
 .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]),
 .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
-  background: var(--orange);
+  background: var(--green);
   color: #fff !important;
 }
 
@@ -82,11 +89,11 @@
   }
   .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) {
     color: #fff !important;
-    background: var(--orange);
+    background: var(--green);
     box-shadow: none;
   }
   .site-nav .nav-links a:hover { background: rgba(244, 235, 215, .12); }
   .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
-    background: var(--orange);
+    background: var(--green);
   }
 }
