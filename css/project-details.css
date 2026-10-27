@@ -38,8 +38,12 @@
   background: var(--pg);
   color: #fff;
 }
-#projects .project-tile .meta-item:hover > *,
-#projects .project-tile .meta-item:active > * {
+#projects .project-tile .meta-item:hover .meta-icon,
+#projects .project-tile .meta-item:hover strong,
+#projects .project-tile .meta-item:hover > span:last-child,
+#projects .project-tile .meta-item:active .meta-icon,
+#projects .project-tile .meta-item:active strong,
+#projects .project-tile .meta-item:active > span:last-child {
   color: #fff;
 }
 #projects .project-tile .impact-row {
