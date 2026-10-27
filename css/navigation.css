@@ -38,3 +38,8 @@
     .site-nav .nav-links a { min-height: 42px; }
   }
 }
+.site-nav .nav-pill {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 62, 37, .16);
+  box-shadow: 0 4px 12px rgba(0, 62, 37, .04);
+}
