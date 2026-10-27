@@ -938,6 +938,10 @@
     function positionPicker() {
       if (!popover?.classList.contains('is-open')) return;
       const button = customButton.getBoundingClientRect();
+      if (button.bottom <= 0 || button.top >= window.innerHeight) {
+        closePicker();
+        return;
+      }
       const box = popover.getBoundingClientRect();
       const availableHeight = window.innerHeight;
       const mobile = window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches;
@@ -950,6 +954,13 @@
     }
     window.addEventListener('resize', positionPicker);
     window.addEventListener('scroll', positionPicker, { passive: true });
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href^="#"]');
+      if (link && link.getAttribute('href') !== '#contact') closePicker();
+    });
+    new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) closePicker();
+    }).observe(contact);
 
     function openPicker() {
 
