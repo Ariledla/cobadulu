@@ -28,7 +28,7 @@
   .site-nav .nav-links a.active,
   .site-nav .nav-links a.is-active,
   .site-nav .nav-links a[aria-current="page"] {
-    color: var(--paper) !important;
+    color: var(--green) !important;
     background: var(--green);
     font-weight: 700 !important;
     box-shadow: 0 3px 8px rgba(0, 62, 37, .15);
@@ -40,27 +40,25 @@
 }
 /* Compact navigation with an aligned active marker. */
 .site-nav .nav-pill {
-  border-radius: 8px;
-  border: 2px solid var(--orange);
-  background-color: var(--orange);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='100' viewBox='0 0 260 100'%3E%3Cg fill='%23003E25' fill-opacity='.45'%3E%3Cpath d='m14 18 5-3 3 5-6 3zM81 76l3-6 5 2-2 5zM178 13l7 2-3 5-4-2zM233 81l4-5 5 3-3 4zM129 42l3-2 2 4-4 2z'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 260px 100px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 62, 37, .10);
+  border-bottom: 3px solid var(--orange);
+  background: var(--paper);
   box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
 }
 
 .site-nav .brand-name,
 .site-nav .nav-links a {
-  color: var(--paper) !important;
+  color: var(--green) !important;
 }
 
-.site-nav .brand-circle,
-.site-nav .resume-link {
-  background: var(--paper);
-  color: var(--green);
-}
-
-.site-nav .resume-link {
+.site-nav .brand-circle {
   background: var(--green);
+  color: var(--paper);
+}
+
+.site-nav .resume-link {
+  background: var(--orange);
   color: #fff;
 }
 
@@ -70,10 +68,10 @@
   color: #fff !important;
 }
 
-.site-nav .nav-links a:hover { background: rgba(244, 235, 215, .12); }
+.site-nav .nav-links a:hover { background: rgba(0, 62, 37, .07); }
 
 @media (width < 1200px) {
-  .site-nav .nav-links { background: transparent; border-color: rgba(244, 235, 215, .2); }
+  .site-nav .nav-links { background: transparent; border-color: rgba(0, 62, 37, .10); }
 }
 
 .site-nav .nav-links a::after { display: none !important; }
@@ -92,7 +90,7 @@
     background: var(--green);
     box-shadow: none;
   }
-  .site-nav .nav-links a:hover { background: rgba(244, 235, 215, .12); }
+  .site-nav .nav-links a:hover { background: rgba(0, 62, 37, .07); }
   .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
     background: var(--green);
   }
