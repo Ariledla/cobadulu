@@ -826,20 +826,20 @@
       if (svCursor) {
 
         svCursor.style.left =
-          `${clamp(
+          `clamp(9px, ${clamp(
             hsv.s,
             0,
             100
-          )}%`;
+          )}%, calc(100% - 9px))`;
 
 
         svCursor.style.top =
-          `${100 -
+          `clamp(9px, ${100 -
           clamp(
             hsv.v,
             0,
             100
-          )}%`;
+          )}%, calc(100% - 9px))`;
 
       }
 
@@ -935,6 +935,19 @@
        08. OPEN / CLOSE COLOR PICKER
        ===================================================== */
 
+    function positionPicker() {
+      if (!popover?.classList.contains('is-open')) return;
+      const button = customButton.getBoundingClientRect();
+      const box = popover.getBoundingClientRect();
+      const availableHeight = window.innerHeight;
+      popover.style.left = Math.max(12, Math.min(button.right - box.width, window.innerWidth - box.width - 12)) + 'px';
+      const below = button.bottom + 10;
+      const top = below + box.height <= availableHeight - 12 ? below : button.top - box.height - 10;
+      popover.style.top = Math.max(12, Math.min(top, availableHeight - box.height - 12)) + 'px';
+    }
+    window.addEventListener('resize', positionPicker);
+    window.addEventListener('scroll', positionPicker, { passive: true });
+
     function openPicker() {
 
       if (
@@ -959,6 +972,11 @@
 
 
       updatePickerUI();
+      if (popover.showPopover) {
+        popover.setAttribute('popover', 'manual');
+        popover.showPopover();
+      }
+      positionPicker();
 
     }
 
@@ -975,6 +993,7 @@
       }
 
 
+      if (popover.hidePopover && popover.matches(':popover-open')) popover.hidePopover();
       popover.classList.remove(
         "is-open"
       );

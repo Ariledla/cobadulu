@@ -1,4 +1,10 @@
 /* An open, readable wordmark at the existing responsive size. */
+.site-nav .brand-circle {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
 .site-nav .brand-name {
   font-family: "Trebuchet MS", Arial, sans-serif;
   font-weight: 700;
