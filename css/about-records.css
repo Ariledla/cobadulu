@@ -4,10 +4,12 @@
   grid-template-columns: 48px minmax(0, 1fr) !important;
   grid-template-rows: auto auto;
   align-items: start;
-  gap: 9px 16px;
-  padding: 18px;
-  min-height: 0;
-  border: 1px solid rgba(0, 62, 37, .35);
+  gap: 6px 14px;
+  width: 100%;
+  max-width: 360px !important;
+  padding: 14px;
+  min-height: 0 !important;
+  border: 1.5px solid var(--green);
   border-radius: 12px;
   background: var(--paper);
   box-shadow: none;
@@ -17,7 +19,8 @@
 #about .record-logo {
   grid-column: 1; grid-row: 1 / 3;
   width: 48px; max-width: 48px; height: 48px; min-height: 0;
-  margin: 0; padding: 0; align-self: start;
+  margin: 0; padding: 0; align-self: center; justify-self: center;
+  display: flex; align-items: center; justify-content: center;
 }
 #about .record-logo img {
   width: 100%; height: 100%; max-width: 100%; max-height: 48px;
