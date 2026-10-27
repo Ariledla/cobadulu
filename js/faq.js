@@ -11,12 +11,14 @@
 
     function equalizeRows(item) {
       item.style.removeProperty('--faq-row-height');
+      const answer = item.querySelector('.faq-answer');
+      answer?.style.removeProperty('height');
       if (!item.open) return;
       const summary = item.querySelector('summary');
-      const answer = item.querySelector('.faq-answer');
       if (!summary || !answer) return;
       const height = Math.ceil(summary.getBoundingClientRect().height);
       item.style.setProperty('--faq-row-height', height + 'px');
+      answer.style.height = Math.ceil(answer.getBoundingClientRect().height) + 'px';
     }
 
     function transition(item, expanded) {
@@ -55,7 +57,7 @@
       item.open = true;
       if (expanded) equalizeRows(item);
       if (answer) {
-        answer.style.height = (expanded ? answer.getBoundingClientRect().height : answerHeight) + 'px';
+        answer.style.height = Math.ceil(expanded ? answer.getBoundingClientRect().height : answerHeight) + 'px';
         answer.style.flexShrink = '0';
       }
       const to = expanded ? item.getBoundingClientRect().height : collapsed;
@@ -80,7 +82,7 @@
         answerAnimations.get(item)?.cancel();
         answerAnimations.delete(item);
         if (answer) {
-          answer.style.removeProperty('height');
+          if (!item.open) answer.style.removeProperty('height');
           answer.style.removeProperty('flex-shrink');
         }
       };

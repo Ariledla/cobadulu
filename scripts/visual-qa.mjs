@@ -96,6 +96,10 @@ try {
     const heights=motion?.effect.getKeyframes().map(frame=>parseFloat(frame.height));
     const currentHeight=items[0].getBoundingClientRect().height;
     const mobileInterpolates=!!heights && currentHeight>Math.min(...heights)+1 && currentHeight<Math.max(...heights)-1;
+    const openingText=items[0].querySelector('.faq-answer p');
+    const openingOffset=openingText.getBoundingClientRect().top-items[0].getBoundingClientRect().top;
+    await new Promise(r=>setTimeout(r,80));
+    const stableOpeningText=Math.abs(openingText.getBoundingClientRect().top-items[0].getBoundingClientRect().top-openingOffset)<1;
     items[4].querySelector('summary').click();
     await new Promise(r=>setTimeout(r,500));
     const switched=items[4].open && !items[0].open;
@@ -113,7 +117,7 @@ try {
     await new Promise(r=>setTimeout(r,100));
     const stableAnswerText=Math.abs(textOffset()-firstOffset)<1;
     await new Promise(r=>setTimeout(r,400));
-    return {mobileInterpolates,stableAnswerText,switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
+    return {mobileInterpolates,stableOpeningText,stableAnswerText,switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
   })()`);
   console.log('FAQ animation:',JSON.stringify(faqAnimation));
   if(Object.values(faqAnimation).some(v=>!v)) process.exitCode=1;

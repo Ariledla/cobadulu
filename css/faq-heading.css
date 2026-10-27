@@ -147,6 +147,8 @@
 #faq.faq-slide .faq-answer::before,
 #faq.faq-slide .faq-answer::after { display: none; }
 #faq.faq-slide .faq-item[open] .faq-answer p {
+  transform: translateZ(0);
+  backface-visibility: hidden;
   max-width: none;
   margin: 0;
   padding: 0;
