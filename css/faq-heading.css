@@ -86,10 +86,23 @@
 #faq.faq-slide .faq-item:not([open]) > summary:active .faq-question,
 #faq.faq-slide .faq-item:not([open]) > summary:active .faq-chevron { color: #fff; }
 
+#faq.faq-slide .faq-item[open] {
+  background: var(--green);
+  border-color: var(--green);
+  overflow: hidden;
+  box-shadow: none;
+}
+#faq.faq-slide .faq-item[open] > summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 #faq.faq-slide .faq-item[open] .faq-answer {
   margin: 0;
   padding: 24px var(--faq-text-inset);
   background: var(--green);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: #fff;
   text-align: left;
 }
