@@ -703,3 +703,38 @@ and (max-height: 850px) {
   }
 
 }
+
+/* Laptop project contents: use both sides of the existing card.
+   Other laptop sections and other device layouts keep their current styles. */
+@media screen and (1200px <= width < 1600px) {
+  #projects .pc-slide-title { font-size: clamp(32px, 2.7vw, 42px); }
+  #projects .pc-number { font-size: 54px; }
+  #projects .project-meta {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px; margin-bottom: 26px;
+  }
+  #projects .meta-item { font-size: 15px; flex-wrap: wrap; padding-right: 8px; }
+  #projects .project-insights {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px !important; margin-bottom: 28px;
+  }
+  #projects .insight-label, #projects .focus-label, #projects .impact-label {
+    font-size: 13px; letter-spacing: 1px;
+  }
+  #projects .insight-item p, #projects .impact-row p {
+    font-size: 20px; line-height: 1.5;
+  }
+  #projects .focus-items {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%; padding-left: 0; gap: 12px;
+  }
+  #projects .focus-items span {
+    min-height: 46px; font-size: 15px; line-height: 1.35;
+    text-align: center; white-space: normal;
+  }
+  #projects .impact-row > div { flex: 1; }
+  #projects .project-tag { min-height: 40px; font-size: 13px; }
+  #projects .project-link { min-height: 48px; font-size: 16px; padding-inline: 24px; }
+  #projects .project-footer { margin-top: 0; padding-top: 22px; }
+}
