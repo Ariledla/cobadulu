@@ -16,6 +16,14 @@
 }
 #faq.faq-slide .faq-heading h2 span { display: block; }
 #faq.faq-slide .faq-heading h2 .faq-heading-accent { color: #dc6d40; }
+@media (min-width: 1600px) {
+  #faq.faq-slide .faq-heading h2 {
+    max-width: 1280px;
+  }
+  #faq.faq-slide .faq-heading h2 > span {
+    white-space: nowrap;
+  }
+}
 
 #projects .section-title-row .section-title {
   font-family: "Manrope", Arial, sans-serif;
