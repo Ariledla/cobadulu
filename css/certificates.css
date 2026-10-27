@@ -35,11 +35,17 @@
   background: var(--orange); border-color: var(--orange); color: #fff;
 }
 #about .certificate-dialog {
-  position: fixed; inset: 0; margin: auto;
-  width: min(520px, calc(100% - 40px)); max-height: 85svh;
-  height: min(440px, 80svh);
+  position: fixed; inset: 0; margin: auto !important;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
   padding: 48px 28px 28px; border: 2px solid var(--green);
   border-radius: 16px; background: var(--paper); color: var(--green);
+}
+@media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
+  #about .certificate-dialog.case-study-panel { width: calc(100vw - 32px) !important; }
+}
+@media (orientation: landscape) and (width <= 932px) and (height <= 500px) {
+  #about .certificate-dialog.case-study-panel { width: calc(100vw - 16px) !important; }
 }
 #about .certificate-dialog::backdrop { background: rgb(0 30 20 / .6); }
 #about .certificate-dialog h2 { font-size: 24px; margin: 0 0 16px; }

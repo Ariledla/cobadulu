@@ -17,3 +17,5 @@
 }
 #home .ticker-track > .ticker-group { gap: 40px; padding-right: 40px; }
 #home .ticker-item { flex: 0 0 auto; white-space: nowrap; }
+#home .hero-main::before { font-weight: 900; -webkit-text-stroke: .25px currentColor; }
+#home .hero-main::after { border-right-width: 3.5px; border-bottom-width: 3.5px; }
