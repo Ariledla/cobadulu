@@ -1,0 +1,50 @@
+#about .certificates-section { width: 100%; min-width: 0; }
+#about .certificates-heading::before { display: none; }
+#about .certificate-heading-icon {
+  display: grid; place-items: center; flex: 0 0 40px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--green); color: var(--paper);
+}
+#about .certificate-heading-icon svg { width: 23px; height: 23px; }
+#about .certificates-heading h2 { font-size: 27px; letter-spacing: -1px; }
+#about .certificate-list { display: grid; gap: 12px; }
+#about .certificate-card {
+  padding: 16px; border: 1.5px solid var(--green);
+  border-radius: 12px; background: var(--paper);
+}
+#about .certificate-sample { display: block; font-size: 10px; font-weight: 500; color: #476459; margin: 0 0 8px; }
+#about .certificate-card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; line-height: 1.3; }
+#about .certificate-card p { margin: 0; font-size: 12px; line-height: 1.5; }
+#about .certificate-preview {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 18px; padding: 7px 11px;
+  border: 1px solid var(--green); border-radius: 6px;
+  background: transparent; color: var(--green);
+  font-family: inherit; font-size: 12px; font-weight: 700; line-height: 1.4;
+  cursor: pointer;
+}
+#about .certificate-preview svg { width: 17px; height: 17px; }
+#about .certificate-preview:hover { background: var(--green); color: white; }
+#about .certificate-dialog {
+  position: fixed; inset: 0; margin: auto;
+  width: min(520px, calc(100% - 40px)); max-height: 85svh;
+  padding: 48px 28px 28px; border: 2px solid var(--green);
+  border-radius: 16px; background: var(--paper); color: var(--green);
+}
+#about .certificate-dialog::backdrop { background: rgb(0 30 20 / .6); }
+#about .certificate-dialog h2 { font-size: 24px; margin: 0 0 16px; }
+#about .certificate-dialog > p:last-child { font-size: 14px; line-height: 1.5; }
+#about .certificate-close { position: absolute; right: 16px; top: 12px; border: 0; background: transparent; color: var(--green); font-size: 28px; cursor: pointer; }
+@media (min-width: 1200px) {
+  #about .about-layout { width: 100%; max-width: 1280px; }
+  #about .about-content-grid {
+    grid-template-columns: 260px minmax(0, 374px) minmax(220px, 280px);
+    column-gap: 28px;
+  }
+}
+@media (1000px <= width < 1200px) {
+  #about .certificates-section { grid-column: 2; }
+}
+@media (width < 1000px) {
+  #about .certificates-section { margin-top: 28px; }
+}

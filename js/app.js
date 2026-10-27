@@ -468,7 +468,11 @@
 
       const sectionPromises = sectionFiles.map(
         async ({ id, file }) => {
-          const html = await getHTML(file);
+          let html = await getHTML(file);
+          if (id === 'about') {
+            const certificates = await getHTML('sections/certificates.html');
+            html = html.replace('<!-- CERTIFICATES -->', certificates);
+          }
 
           return extractSection(html, id);
         }

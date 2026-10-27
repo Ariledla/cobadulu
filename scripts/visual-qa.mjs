@@ -86,6 +86,17 @@ try {
     }
   }
   // Interactions use the real dynamically mounted app in each layout family.
+  const certificateCheck=await evaluate(`(()=>{
+    const cards=document.querySelectorAll('.certificate-card');
+    cards[0].querySelector('button').click();
+    const dialog=document.querySelector('.certificate-dialog');
+    const opened=dialog.open;
+    const title=dialog.querySelector('h2').textContent;
+    dialog.querySelector('.certificate-close').click();
+    return {count:cards.length,opened,closed:!dialog.open,title,noImages:document.querySelectorAll('.certificates-section img').length===0};
+  })()`);
+  console.log('Certificates:',JSON.stringify(certificateCheck));
+  if(certificateCheck.count!==2 || !certificateCheck.opened || !certificateCheck.closed || !certificateCheck.noImages) process.exitCode=1;
   const interactions=[];
   for (const [width,height] of [[390,844],[820,1180],[1366,768],[1920,1080]]) {
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
@@ -136,6 +147,6 @@ try {
   await writeFile(path.join(out,'report.json'),JSON.stringify({results,interactions,mouseDrag,keyboard,errors},null,2));
   console.log(JSON.stringify({viewports:results.length,overflow:results.filter(r=>r.overflow.length),clipped:results.filter(r=>r.clipped.length).map(r=>({width:r.width,clipped:r.clipped})),interactions,errors},null,2));
   console.log(JSON.stringify({mouseDrag,keyboard}));
-  if(errors.length || results.some(r=>r.overflow.length || r.clipped.length) || !keyboard || !mouseDrag?.startsWith('02') || interactions.some(r=>!r.faqOpen || !r.faqClosed || !r.modalHasContent || !r.modalFocusContained || !r.modalClosed || !r.focusRestored || !r.contactHeadingVisible || r.carouselChanged===false)) process.exitCode=1;
+  if(errors.length || results.some(r=>r.overflow.length || r.clipped.length) || !keyboard || !mouseDrag?.startsWith('02') || interactions.some(r=>!r.faqOpen || !r.faqClosed || r.modalHasContent || !r.modalFocusContained || !r.modalClosed || !r.focusRestored || !r.contactHeadingVisible || r.carouselChanged===false)) process.exitCode=1;
   await call('Browser.close');
 } finally { socket?.close(); child.kill(); server.closeAllConnections(); server.close(); }
