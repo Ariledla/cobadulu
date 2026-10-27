@@ -41,9 +41,32 @@
 /* Compact navigation with an aligned active marker. */
 .site-nav .nav-pill {
   border-radius: 8px;
-  border: 1px solid rgba(0, 62, 37, .08);
-  background: var(--paper);
+  border: 2px solid var(--orange);
+  background: var(--green);
   box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
+}
+
+.site-nav .brand-name,
+.site-nav .nav-links a {
+  color: var(--paper) !important;
+}
+
+.site-nav .brand-circle,
+.site-nav .resume-link {
+  background: var(--paper);
+  color: var(--green);
+}
+
+.site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]),
+.site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
+  background: var(--orange);
+  color: #fff !important;
+}
+
+.site-nav .nav-links a:hover { background: rgba(244, 235, 215, .12); }
+
+@media (width < 1200px) {
+  .site-nav .nav-links { background: transparent; border-color: rgba(244, 235, 215, .2); }
 }
 
 .site-nav .nav-links a::after { display: none !important; }
@@ -59,11 +82,11 @@
   }
   .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) {
     color: #fff !important;
-    background: var(--green);
+    background: var(--orange);
     box-shadow: none;
   }
-  .site-nav .nav-links a:hover { background: rgba(0, 62, 37, .07); }
+  .site-nav .nav-links a:hover { background: rgba(244, 235, 215, .12); }
   .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
-    background: var(--green);
+    background: var(--orange);
   }
 }
