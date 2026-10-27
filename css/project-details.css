@@ -29,6 +29,12 @@
   font-size: 15px;
   line-height: 1;
 }
+#projects .project-tile .meta-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
 #projects .project-tile .meta-item strong {
   color: var(--pg); font-family: inherit; font-size: 17px;
   font-weight: 800; letter-spacing: 0; line-height: 1.2;
@@ -36,23 +42,23 @@
 }
 #projects .project-tile .meta-item > span:last-child {
   color: var(--pg); font-family: inherit; font-size: 13px;
-  font-weight: 400; text-transform: none; letter-spacing: 0;
+  font-weight: 800; line-height: 1.4; text-transform: none; letter-spacing: 0;
   white-space: normal;
 }
 #projects .project-tile .meta-item {
   transition: background-color 160ms ease, color 160ms ease;
 }
-#projects .project-tile .meta-item:hover,
-#projects .project-tile .meta-item:active {
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:hover,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:active {
   background: var(--pg);
   color: #fff;
 }
-#projects .project-tile .meta-item:hover .meta-icon,
-#projects .project-tile .meta-item:hover strong,
-#projects .project-tile .meta-item:hover > span:last-child,
-#projects .project-tile .meta-item:active .meta-icon,
-#projects .project-tile .meta-item:active strong,
-#projects .project-tile .meta-item:active > span:last-child {
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:hover .meta-icon,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:hover strong,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:hover > span:last-child,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:active .meta-icon,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:active strong,
+#projects .project-tile:is(.pc-active, :not(.pc-ready)) .meta-item:active > span:last-child {
   color: #fff;
 }
 #projects .project-tile .impact-row {
@@ -110,12 +116,15 @@
   max-width: 100%;
   min-height: 38px;
   padding: 8px 14px;
+  font-family: inherit;
   font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 @media (width < 480px) {
   #projects .project-tile .meta-item { padding: 6px 9px; }
   #projects .project-tile .meta-item strong { font-size: 15px; }
-  #projects .project-tile .meta-item > span:last-child { font-size: 12px; }
   #projects .project-tile .impact-row p,
   #projects .project-tile .insight-item p { font-size: 16px; }
 }

@@ -4,9 +4,9 @@
   grid-template-columns: 48px minmax(0, 1fr) !important;
   grid-template-rows: auto auto;
   align-items: start;
-  gap: 6px 14px;
+  gap: 3px 14px;
   width: 100%;
-  max-width: 310px !important;
+  max-width: 280px !important;
   padding: 14px;
   min-height: 0 !important;
   border: 1.5px solid var(--green);
@@ -37,8 +37,8 @@
   letter-spacing: -.2px;
 }
 #about .record-content p {
-  margin: 0; font-size: 14px; line-height: 1.5;
-  color: #315b4e;
+  margin: 0; font-size: 14px; font-weight: 650; line-height: 1.35;
+  color: var(--green);
 }
 #about .record-date {
   grid-column: 2; grid-row: 2;
@@ -51,11 +51,12 @@
 #about .record-date .date-top,
 #about .record-date .date-bottom,
 #about .record-date .date-dash {
-  font-size: 11px; font-weight: 500; line-height: 1.5;
-  color: #476459; letter-spacing: .3px;
+  font-size: 11px; font-weight: 650; line-height: 1.35;
+  color: var(--green); letter-spacing: .3px;
 }
+#about .skill-desc { color: var(--green); font-weight: 650; line-height: 1.35; }
 @media (width < 390px) {
-  #about .record-item { grid-template-columns: 40px minmax(0, 1fr) !important; padding: 14px; gap: 8px 12px; }
+  #about .record-item { grid-template-columns: 40px minmax(0, 1fr) !important; padding: 14px; gap: 3px 12px; }
   #about .record-logo { width: 40px; height: 44px; }
   #about .record-content h3 { font-size: 17px; }
   #about .record-content p { font-size: 13px; }
