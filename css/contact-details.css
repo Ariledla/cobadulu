@@ -1,0 +1,42 @@
+/* Contact copy stays readable without changing the surrounding laptop layout. */
+#contact .contact-list .contact-item-logo {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+#contact .contact-list .contact-item-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(1.16);
+}
+#contact .contact-list .contact-item-logo img[src$="gmail.png"] {
+  transform: scale(1.1);
+}
+#contact .contact-list .contact-item-main { min-width: 0; }
+#contact .contact-list .contact-item-text { flex: 1; min-width: 0; }
+#contact .contact-list .contact-item-text h3 {
+  margin: 0 0 6px;
+  color: var(--green);
+  font-size: clamp(19px, 1.5vw, 25px);
+  font-weight: 800;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#contact .contact-list .contact-item-text p {
+  margin: 0;
+  color: #315b4e;
+  font-size: clamp(14px, 1.05vw, 17px);
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+}
