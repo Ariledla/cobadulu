@@ -672,6 +672,9 @@
 
       clearTimeout(scrollTimer);
 
+      // Phone gestures remain native: never pull a partial swipe to a card.
+      if (window.matchMedia('(width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px)').matches) return;
+
       scrollTimer = setTimeout(() => {
         if (dragging || animating) return;
 

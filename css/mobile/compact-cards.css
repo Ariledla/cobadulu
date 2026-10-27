@@ -6,7 +6,7 @@
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
+    scroll-snap-type: none !important;
     overscroll-behavior-x: contain;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -17,7 +17,7 @@
     flex: 0 0 100% !important;
     width: 100% !important;
     scroll-snap-align: start !important;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
   }
   #projects .pc-navigation { display: flex !important; flex-direction: column; align-items: center; margin-top: 12px; }
   #projects .pc-tabs { display: flex !important; justify-content: center; gap: 4px; }
