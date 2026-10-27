@@ -1,4 +1,6 @@
 /* A readable, open heading with the same green/orange hierarchy as Contact. */
+#faq.faq-slide .faq-list { overflow-anchor: none; }
+#faq.faq-slide .faq-item { overflow: hidden; }
 #faq.faq-slide .faq-heading h2 {
   width: 100%;
   max-width: 900px;

@@ -86,6 +86,28 @@ try {
     }
   }
   // Interactions use the real dynamically mounted app in each layout family.
+  await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  const faqAnimation=await evaluate(`(async()=>{
+    const items=[...document.querySelectorAll('#faq .faq-item')];
+    items[0].querySelector('summary').click();
+    await new Promise(r=>setTimeout(r,80));
+    items[4].querySelector('summary').click();
+    await new Promise(r=>setTimeout(r,400));
+    const switched=items[4].open && !items[0].open;
+    for(const i of [0,1,2,4]) {
+      items[i].querySelector('summary').click();
+      await new Promise(r=>setTimeout(r,30));
+    }
+    await new Promise(r=>setTimeout(r,400));
+    const rapidClicks=items[4].open && items.filter(e=>e.open).length===1;
+    const settled=items.every(e=>e.getAnimations().length===0);
+    items[4].querySelector('summary').click();
+    await new Promise(r=>setTimeout(r,350));
+    return {switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
+  })()`);
+  console.log('FAQ animation:',JSON.stringify(faqAnimation));
+  if(Object.values(faqAnimation).some(v=>!v)) process.exitCode=1;
+  await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   const certificateCheck=await evaluate(`(()=>{
     const cards=document.querySelectorAll('.certificate-card');
     cards[0].querySelector('button').click();
