@@ -1,36 +1,11 @@
-/* Shared navigation styling. */
-.site-nav .nav-pill {
-  border-radius: 14px;
-  border: 1px solid rgba(0, 62, 37, .10);
-  border-bottom: 3px solid var(--orange);
-  background: var(--paper);
-  box-shadow: 0 5px 16px rgba(0, 62, 37, .05);
-}
-.site-nav .brand-name,
-.site-nav .nav-links a { color: var(--green) !important; }
-.site-nav .brand-circle { background: var(--green); color: var(--paper); }
-.site-nav .resume-link { background: var(--orange); color: #fff; }
-.site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]),
-.site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]):hover {
-  background: var(--green);
-  color: #fff !important;
-}
-.site-nav .nav-links a:hover { background: rgba(0, 62, 37, .07); }
-.site-nav .nav-links a::after { display: none !important; }
-@media (min-width: 1200px) {
-  .site-nav { align-items: center; padding-top: 0; }
-  .site-nav .nav-pill { height: 76px; gap: 22px; padding-inline: 20px; }
-  .site-nav .nav-links { gap: 6px; }
-  .site-nav .nav-links a { height: 38px; padding-inline: 14px; border-radius: 12px; }
-  .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) { box-shadow: none; }
-}
+/* Two-row navigation: shared mobile/tablet polish, preserving laptop layout. */
 @media (width < 1200px) {
   .site-nav .nav-links {
     gap: 4px;
     padding: 4px;
-    border: 1px solid rgba(0, 62, 37, .10);
+    border: 1px solid rgba(0, 62, 37, .09);
     border-radius: 999px;
-    background: transparent;
+    background: rgba(0, 62, 37, .045);
   }
   .site-nav .nav-links a {
     flex: 1 1 0;
@@ -42,10 +17,20 @@
     font-weight: 700 !important;
     line-height: 1.2;
     letter-spacing: 0;
+    color: var(--green);
     transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
   }
-  .site-nav .nav-links a::after { content: none !important; }
-  .site-nav .nav-links a:is(.active, .is-active, [aria-current="page"]) {
+  .site-nav .nav-links a::after { display: none !important; content: none !important; }
+  .site-nav .nav-links a:hover {
+    background: rgba(0, 62, 37, .08);
+    font-weight: 700 !important;
+  }
+  .site-nav .nav-links a.active,
+  .site-nav .nav-links a.is-active,
+  .site-nav .nav-links a[aria-current="page"] {
+    color: var(--paper) !important;
+    background: var(--green);
+    font-weight: 700 !important;
     box-shadow: 0 3px 8px rgba(0, 62, 37, .15);
   }
   @media (min-width: 768px) {
