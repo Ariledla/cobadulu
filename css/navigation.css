@@ -8,10 +8,12 @@
 }
 
 .site-nav .nav-pill {
-  border: 2px solid transparent;
-  background:
-    linear-gradient(var(--paper), var(--paper)) padding-box,
-    linear-gradient(90deg, var(--orange), var(--green) 50%, var(--orange)) border-box;
+  border: 1px solid var(--orange);
+  background: var(--paper);
+  box-shadow:
+    0 0 0 1px var(--green),
+    0 0 0 2px var(--orange),
+    0 10px 24px rgba(0, 62, 37, .07);
 }
 
 /* An open, readable wordmark at the existing responsive size. */
