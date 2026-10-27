@@ -5,7 +5,8 @@
     padding-right: max(0px, calc(100% - var(--slide-w)));
     scroll-padding-left: 0;
   }
-  #projects .projects-static > .project-tile { scroll-snap-align: start; }
+  #projects .projects-static > .project-tile { scroll-snap-align: center; }
+  #projects .projects-static > .project-tile:first-child { scroll-snap-align: start; }
 }
 #projects .project-tile .project-meta {
   display: flex; flex-wrap: wrap; gap: 8px;

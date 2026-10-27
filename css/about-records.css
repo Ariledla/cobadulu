@@ -6,7 +6,7 @@
   align-items: start;
   gap: 6px 14px;
   width: 100%;
-  max-width: 360px !important;
+  max-width: 310px !important;
   padding: 14px;
   min-height: 0 !important;
   border: 1.5px solid var(--green);
@@ -15,6 +15,7 @@
   box-shadow: none;
 }
 #about .record-item:hover { transform: none; box-shadow: none; }
+#about .skill-item { border: 1.5px solid var(--green); }
 #about .record-marker { display: none; }
 #about .record-logo {
   grid-column: 1; grid-row: 1 / 3;
