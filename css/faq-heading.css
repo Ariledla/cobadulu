@@ -52,6 +52,7 @@
 #faq.faq-slide .faq-item { --faq-text-inset: 24px; }
 #faq.faq-slide .faq-item > summary {
   padding-inline: var(--faq-text-inset);
+  border-radius: 0;
   transition: background-color 160ms ease, color 160ms ease;
 }
 #faq.faq-slide .faq-item .faq-chevron {
@@ -80,11 +81,13 @@
   color: var(--green);
 }
 @media (hover: hover) and (pointer: fine) {
-  #faq.faq-slide .faq-item:not([open]) > summary:hover { background: var(--green); color: #fff; }
+  #faq.faq-slide .faq-item:not([open]):has(> summary:hover) { background: var(--green); border-color: var(--green); }
+  #faq.faq-slide .faq-item:not([open]) > summary:hover { background: transparent; color: #fff; }
   #faq.faq-slide .faq-item:not([open]) > summary:hover .faq-question,
   #faq.faq-slide .faq-item:not([open]) > summary:hover .faq-chevron { color: #fff; }
 }
-#faq.faq-slide .faq-item:not([open]) > summary:active { background: var(--green); color: #fff; }
+#faq.faq-slide .faq-item:not([open]):has(> summary:active) { background: var(--green); border-color: var(--green); }
+#faq.faq-slide .faq-item:not([open]) > summary:active { background: transparent; color: #fff; }
 #faq.faq-slide .faq-item:not([open]) > summary:active .faq-question,
 #faq.faq-slide .faq-item:not([open]) > summary:active .faq-chevron { color: #fff; }
 
