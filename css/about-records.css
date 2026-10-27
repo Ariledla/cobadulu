@@ -1,5 +1,6 @@
 /* Education and experience: quiet identity cards with inline dates. */
 #about .intro-block .about-name {
+  color: var(--green);
   font-family: "Trebuchet MS", Arial, sans-serif;
   font-size: clamp(40px, 4.5vw, 68px);
   font-weight: 800;
@@ -7,6 +8,7 @@
   letter-spacing: -.035em;
 }
 #about .intro-block .about-name span {
+  color: var(--green);
   font-family: inherit;
   font-weight: inherit;
 }
@@ -72,7 +74,7 @@
   text-transform: none;
   color: var(--green); letter-spacing: 0;
 }
-#about .skill-desc { color: var(--green); font-size: 12px; font-weight: 650; line-height: 1.35; letter-spacing: 0; white-space: normal; overflow-wrap: anywhere; }
+#about .skill-desc { color: var(--green); font-size: 10px; font-weight: 500; line-height: 1.4; letter-spacing: 0; white-space: normal; overflow-wrap: anywhere; }
 #about .record-content p,
 #about .record-date span,
 #about .skill-desc { font-family: "Manrope", sans-serif; }
