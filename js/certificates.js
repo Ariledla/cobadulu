@@ -4,6 +4,6 @@ document.addEventListener('click', event => {
   const section = button.closest('.certificates-section');
   const dialog = section?.querySelector('.certificate-dialog');
   if (!dialog) return;
-  dialog.querySelector('#certificate-preview-title').textContent = button.dataset.certificatePreview;
+  dialog.setAttribute('aria-label', button.dataset.certificatePreview + ' preview');
   dialog.showModal();
 });
