@@ -277,13 +277,13 @@
 
       const trackRect = track.getBoundingClientRect();
       const slideRect = slide.getBoundingClientRect();
+      const startAligned = getComputedStyle(slide).scrollSnapAlign === "start";
 
       const raw =
         track.scrollLeft +
         slideRect.left -
         trackRect.left +
-        slideRect.width / 2 -
-        track.clientWidth / 2;
+        (startAligned ? 0 : (slideRect.width - track.clientWidth) / 2);
 
       const maximum = Math.max(
         0,

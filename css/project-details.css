@@ -1,4 +1,12 @@
 /* Compact project details; actions remain anchored to the bottom of each card. */
+@media (min-width: 1200px) {
+  #projects .projects-static {
+    padding-left: 0;
+    padding-right: max(0px, calc(100% - var(--slide-w)));
+    scroll-padding-left: 0;
+  }
+  #projects .projects-static > .project-tile { scroll-snap-align: start; }
+}
 #projects .project-tile .project-meta {
   display: flex; flex-wrap: wrap; gap: 8px;
   margin: 0 0 22px;
