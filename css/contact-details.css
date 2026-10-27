@@ -1,24 +1,25 @@
-/* Four contact cards: a balanced identity row and a full-width address row. */
+/* Compact contact rows: brand mark, stacked identity, then a quiet arrow. */
 #contact .contact-list .contact-item {
   display: block;
   position: relative;
   min-height: 0;
   height: auto;
-  padding: 13px 14px;
+  padding: 16px 14px;
   border-radius: 12px;
   background: var(--card);
 }
 #contact .contact-list .contact-item-main {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
+  grid-template-columns: 34px minmax(0, 1fr);
   align-items: center;
-  gap: 7px 10px;
+  gap: 12px;
+  padding-right: 22px;
   min-width: 0;
   width: 100%;
 }
 #contact .contact-list .contact-item-logo {
   grid-column: 1; grid-row: 1;
-  width: 38px; height: 38px;
+  width: 34px; height: 34px;
   min-width: 0; padding: 0;
   background: transparent; border: 0;
   overflow: hidden; isolation: isolate;
@@ -28,31 +29,35 @@
   object-fit: contain; mix-blend-mode: multiply; transform: scale(1.16);
 }
 #contact .contact-list .contact-item-logo img[src$="gmail.png"] { transform: scale(1.1); }
-#contact .contact-list .contact-item-text { display: contents; }
+#contact .contact-list .contact-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
 #contact .contact-list .contact-item-text h3 {
-  grid-column: 2; grid-row: 1;
-  margin: 0; padding-right: 24px;
+  margin: 0; padding-right: 0;
   min-width: 0; color: var(--green);
-  font-size: clamp(18px, 1.35vw, 22px);
+  font-size: 17px;
   font-weight: 700; line-height: 1.25;
   white-space: normal; overflow-wrap: normal;
 }
 #contact .contact-list .contact-item-text p {
-  grid-column: 1 / -1; grid-row: 2;
   margin: 0; min-width: 0; color: #315b4e;
-  font-size: clamp(13px, 1vw, 16px); font-weight: 400;
+  font-size: 13px; font-weight: 400;
   line-height: 1.5; white-space: normal;
   overflow: visible; text-overflow: clip; overflow-wrap: anywhere;
 }
 #contact .contact-list .contact-item::after {
-  position: absolute; top: 22px; right: 14px;
-  width: 20px; height: 20px; margin: 0; padding: 0;
+  position: absolute; top: 50%; right: 12px;
+  transform: translateY(-50%);
+  width: 16px; height: 16px; margin: 0; padding: 0;
   border: 0; border-radius: 0;
   background-color: transparent;
-  background-size: 18px 18px;
+  background-size: 16px 16px;
 }
 #contact .contact-list .contact-item:hover::after { background-color: transparent; }
 @media (width < 390px) {
   #contact .contact-list .contact-item { padding: 12px; }
-  #contact .contact-list .contact-item::after { top: 21px; right: 12px; }
+  #contact .contact-list .contact-item::after { right: 10px; }
 }

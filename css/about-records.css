@@ -54,7 +54,7 @@
   font-size: 11px; font-weight: 650; line-height: 1.35;
   color: var(--green); letter-spacing: .3px;
 }
-#about .skill-desc { color: var(--green); font-weight: 650; line-height: 1.35; }
+#about .skill-desc { color: var(--green); font-weight: 650; line-height: 1.35; white-space: normal; overflow-wrap: anywhere; }
 @media (width < 390px) {
   #about .record-item { grid-template-columns: 40px minmax(0, 1fr) !important; padding: 14px; gap: 3px 12px; }
   #about .record-logo { width: 40px; height: 44px; }
