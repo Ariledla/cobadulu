@@ -38,8 +38,10 @@
   position: fixed; inset: 0; margin: auto !important;
   max-width: calc(100vw - 32px);
   max-height: calc(100dvh - 32px);
-  padding: 48px 28px 28px; border: 2px solid var(--green);
-  border-radius: 16px; background: var(--paper); color: var(--green);
+  padding: 0;
+}
+#about .certificate-dialog:not([open]) {
+  display: none !important;
 }
 @media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
   #about .certificate-dialog.case-study-panel { width: calc(100vw - 32px) !important; }
@@ -50,7 +52,10 @@
 #about .certificate-dialog::backdrop { background: rgb(0 30 20 / .6); }
 #about .certificate-dialog h2 { font-size: 24px; margin: 0 0 16px; }
 #about .certificate-dialog > p:last-child { font-size: 14px; line-height: 1.5; }
-#about .certificate-close { position: absolute; right: 16px; top: 12px; border: 0; background: transparent; color: var(--green); font-size: 28px; cursor: pointer; }
+.case-study-close {
+  background: #004636;
+  color: #E2D7B9;
+}
 @media (min-width: 1200px) {
   #about .about-layout { width: 100%; max-width: 1280px; }
   #about .about-content-grid {
