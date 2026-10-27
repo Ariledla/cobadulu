@@ -1,0 +1,19 @@
+#home .ticker-track,
+#contact .contact-end-track {
+  display: flex;
+  width: max-content;
+  min-width: max-content;
+  gap: 0;
+  animation: none;
+  will-change: transform;
+}
+#home .ticker-track > .ticker-group,
+#contact .contact-end-track > .contact-end-sequence {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  white-space: nowrap;
+}
+#home .ticker-track > .ticker-group { gap: 40px; padding-right: 40px; }
+#home .ticker-item { flex: 0 0 auto; white-space: nowrap; }

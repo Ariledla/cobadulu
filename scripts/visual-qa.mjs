@@ -166,7 +166,16 @@ try {
   await evaluate("document.querySelector('.project-tile.pc-active .project-link').click()");
   const modalShot=await call('Page.captureScreenshot',{format:'png'});
   await writeFile(path.join(out,'project-dialog.png'),Buffer.from(modalShot.data,'base64'));
-  await writeFile(path.join(out,'report.json'),JSON.stringify({results,interactions,mouseDrag,keyboard,errors},null,2));
+  const marqueeChecks = await evaluate(`(() => [...document.querySelectorAll('.ticker-track,.contact-end-track')].map(track => {
+    const groups = [...track.children];
+    const width = groups[0].getBoundingClientRect().width;
+    return { identical: groups.length === 2 && groups[0].innerHTML === groups[1].innerHTML,
+      fillsViewport: width >= track.parentElement.clientWidth,
+      equalWidths: Math.abs(width - groups[1].getBoundingClientRect().width) < .5 };
+  }))()`);
+  console.log(JSON.stringify({marqueeChecks}));
+  if (marqueeChecks.length !== 2 || marqueeChecks.some(check => !check.identical || !check.fillsViewport || !check.equalWidths)) process.exitCode = 1;
+  await writeFile(path.join(out,'report.json'),JSON.stringify({results,interactions,mouseDrag,keyboard,marqueeChecks,errors},null,2));
   console.log(JSON.stringify({viewports:results.length,overflow:results.filter(r=>r.overflow.length),clipped:results.filter(r=>r.clipped.length).map(r=>({width:r.width,clipped:r.clipped})),interactions,errors},null,2));
   console.log(JSON.stringify({mouseDrag,keyboard}));
   if(errors.length || results.some(r=>r.overflow.length || r.clipped.length) || !keyboard || !mouseDrag?.startsWith('02') || interactions.some(r=>!r.faqOpen || !r.faqClosed || r.modalHasContent || !r.modalFocusContained || !r.modalClosed || !r.focusRestored || !r.contactHeadingVisible || r.carouselChanged===false)) process.exitCode=1;

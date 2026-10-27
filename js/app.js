@@ -541,6 +541,7 @@
 
         /* NAVBAR */
 
+        window.initMarquees?.();
         window.initNavbar?.();
 
         /* PROJECT MODAL */
