@@ -202,10 +202,12 @@
     }
 
     const config = SECTION_VIEW[targetId];
+    const navbarBottom = getNavbarElement()?.getBoundingClientRect().bottom || 0;
+    const visibleOffset = Math.max(0, navbarBottom) + 16;
 
     if (!config) {
       return clampScroll(
-        getAbsoluteTop(section)
+        getAbsoluteTop(section) - visibleOffset
       );
     }
 
@@ -217,7 +219,7 @@
     const anchorTop = getAbsoluteTop(anchor);
 
     return clampScroll(
-      anchorTop - config.top
+      anchorTop - Math.max(config.top, visibleOffset)
     );
   }
 
@@ -228,10 +230,6 @@
   function getDestination(targetId) {
     if (targetId === "home") {
       return 0;
-    }
-
-    if (targetId === "contact") {
-      return getMaximumScrollTop();
     }
 
     return getVisualDestination(targetId);

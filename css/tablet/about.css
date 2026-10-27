@@ -1,0 +1,39 @@
+/* TABLET ABOUT
+   Inherits desktop-laptop/about.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  .about-section { min-height: auto; padding: 40px var(--gutter) 48px; }
+  .about-layout { width: 100%; max-width: 1120px; margin-inline: auto; }
+  .intro-block, .about-copy { width: 100%; max-width: 800px; }
+  .about-name { font-size: clamp(48px, 6vw, 72px); }
+  .about-copy p { font-size: 15px; line-height: 1.7; }
+  .about-content-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px 28px; margin-top: 28px;
+  }
+  .about-records, .record-section, .skills-section {
+    width: 100%; max-width: 100%; min-width: 0;
+  }
+  .record-item {
+    width: 100%; max-width: 100%;
+    grid-template-columns: 72px 1px 48px minmax(0, 1fr); column-gap: 12px;
+  }
+  .record-content { width: auto; max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+  .record-content h3 { font-size: 15px; white-space: normal; }
+  .record-content p { white-space: normal; font-size: 13px; }
+  .record-date { width: 100%; min-width: 0; }
+  .record-logo { width: 100%; max-width: 48px; }
+  .record-date .date-top, .record-date .date-bottom { font-size: 10px; }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .skill-item, .skill-content { width: 100%; max-width: 100%; min-width: 0; }
+  .skill-name { font-size: 15px; }
+  .skill-desc { font-size: 12px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; }
+  @media (width < 1000px) {
+    .about-content-grid { grid-template-columns: minmax(0, 1fr); }
+    .record-item { grid-template-columns: 88px 1px 58px minmax(0, 1fr); }
+    .record-content h3 { font-size: 17px; }
+  }
+}

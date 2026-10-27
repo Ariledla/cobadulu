@@ -1,0 +1,23 @@
+/* TABLET FOOTER
+   Inherits desktop-laptop/footer.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  .site-footer { padding-block: 28px; }
+  .site-footer .footer-card {
+    width: calc(100% - var(--gutter) * 2); max-width: 1120px;
+    grid-template-columns: minmax(0, 1fr) auto; gap: 28px;
+  }
+  .site-footer .footer-identity { min-width: 0; }
+  .site-footer .footer-name { font-size: clamp(30px, 3.8vw, 44px); white-space: normal; }
+  .site-footer .footer-quote {
+    grid-column: 1 / -1; grid-row: 2;
+    width: 100%; max-width: 760px; min-width: 0; justify-self: center;
+  }
+  .site-footer .footer-quote p { white-space: normal; overflow-wrap: anywhere; }
+  .site-footer .footer-status { min-width: 0; }
+  .site-footer .footer-stat { min-height: 44px; height: auto; padding-block: 10px; }
+  .back-home { max-width: calc(100vw - 32px); }
+}

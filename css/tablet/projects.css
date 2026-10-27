@@ -1,0 +1,28 @@
+/* TABLET PROJECTS
+   Inherits desktop-laptop/projects.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  #projects {
+    margin-top: 0; padding-block: 32px 48px;
+    --slide-w: min(820px, calc(100vw - var(--gutter) * 2));
+    --slide-gap: 24px;
+  }
+  #projects .section-title-row {
+    width: calc(100% - var(--gutter) * 2); max-width: 1120px;
+    margin: 0 auto 28px; gap: 20px;
+  }
+  #projects .section-title { font-size: clamp(44px, 5.8vw, 68px); }
+  #projects .section-copy { max-width: 340px; font-size: 14px; }
+  #projects .projects-static > .project-tile { padding: 26px !important; }
+  #projects .pc-slide-title { font-size: clamp(28px, 3.4vw, 38px); }
+  #projects .pc-navigation { padding-inline: var(--gutter); }
+  #projects .pc-tab { min-height: 44px; white-space: normal; }
+  .case-study-panel { width: calc(100vw - 48px) !important; max-height: 90svh; }
+  @media (width < 1000px) {
+    #projects .section-title-row { align-items: flex-start; flex-direction: column; }
+    #projects .section-copy { max-width: 100%; }
+  }
+}

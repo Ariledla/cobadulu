@@ -1,0 +1,26 @@
+/* TABLET CONTACT
+   Inherits desktop-laptop/contact.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  #contact .contact-shell {
+    width: calc(100% - var(--gutter) * 2); max-width: 1120px;
+    padding-block: 16px 40px; transform: none;
+  }
+  #contact .contact-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  #contact .contact-left, #contact .contact-right { min-width: 0; }
+  #contact .contact-intro { max-width: 760px; font-size: 15px; }
+  #contact .contact-title { font-size: clamp(52px, 7vw, 80px); }
+  #contact .contact-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #contact .contact-item { min-height: 92px; }
+  #contact .contact-item-text p { overflow-wrap: anywhere; }
+  #contact .message-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #contact .message-compose, #contact .message-comments { min-width: 0; }
+  #contact .contact-end-marquee { transform: none; margin-bottom: 24px; }
+  #contact .form-group input, #contact .form-group textarea { font-size: 16px; }
+  @media (width < 900px) {
+    #contact .message-layout { grid-template-columns: minmax(0, 1fr); }
+  }
+}

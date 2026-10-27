@@ -1,0 +1,30 @@
+/* TABLET NAVBAR
+   Inherits desktop-laptop/navbar.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  :root { --nav-h: 168px; --gutter: clamp(24px, 3vw, 36px); }
+  section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
+  .nav-shell { width: calc(100% - var(--gutter) * 2); max-width: 1120px; }
+  .nav-pill {
+    width: 100%; height: auto; min-height: 140px;
+    display: grid; grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px; padding: 18px 24px; border-radius: 32px;
+  }
+  .brand { min-width: 0; }
+  .brand-name { font-size: clamp(20px, 2.8vw, 30px); }
+  .resume-link { grid-column: 2; grid-row: 1; }
+  .resume-link svg { width: 20px; height: 20px; flex: 0 0 20px; }
+  .nav-links {
+    grid-column: 1 / -1; grid-row: 2;
+    width: 100%; min-width: 0;
+    justify-content: space-between; gap: 12px;
+  }
+  .nav-links a { font-size: clamp(16px, 1.8vw, 20px); }
+  @media (height <= 600px) {
+    :root { --nav-h: 144px; }
+    .nav-pill { min-height: 124px; padding-block: 12px; gap: 14px; }
+  }
+}

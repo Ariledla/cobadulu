@@ -28,6 +28,12 @@ document.addEventListener(
         "intro-ghost"
       );
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      introScreen?.remove();
+      document.body.classList.remove('intro-active');
+      return;
+    }
+
 
 
     /* =====================================================

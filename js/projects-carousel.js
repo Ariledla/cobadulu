@@ -8,7 +8,7 @@
   "use strict";
 
   const desktop = window.matchMedia(
-    "(min-width: 1200px)"
+    "(min-width: 768px) and (height > 500px), (width > 932px)"
   );
 
   const names = [

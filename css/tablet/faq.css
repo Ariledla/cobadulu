@@ -1,0 +1,22 @@
+/* TABLET FAQ
+   Inherits desktop-laptop/faq.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  #faq { padding-block: 32px 48px; }
+  #faq .faq-wrap { width: calc(100% - var(--gutter) * 2); max-width: 1120px; }
+  #faq .faq-heading { margin-bottom: 28px; }
+  #faq .faq-heading h2 { font-size: clamp(44px, 6vw, 68px); }
+  #faq .faq-list { gap: 18px; }
+  #faq .faq-item { border-radius: 26px; }
+  #faq .faq-item > summary {
+    min-height: 88px; padding: 22px 26px;
+    grid-template-columns: minmax(0, 1fr) 30px; gap: 20px;
+  }
+  #faq .faq-question { font-size: clamp(18px, 2vw, 23px); line-height: 1.45; overflow-wrap: anywhere; }
+  @media (width < 900px) {
+    #faq .faq-item > summary { padding: 20px; gap: 16px; }
+  }
+}

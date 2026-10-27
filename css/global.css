@@ -82,6 +82,44 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keyboard focus stays visible across every device stylesheet. */
+:focus-visible {
+  outline: 3px solid var(--orange) !important;
+  outline-offset: 4px !important;
+}
+
+/* The project dialog shares one readable content layout at every breakpoint. */
+.case-study-content {
+  padding: clamp(24px, 4vw, 56px);
+  padding-top: 80px;
+  color: var(--green);
+}
+.case-study-content h2 {
+  margin: 0 0 28px;
+  font: 900 clamp(28px, 4vw, 48px)/1.1 Impact, sans-serif;
+  overflow-wrap: anywhere;
+}
+.case-study-overview { display: grid; gap: 28px; font-size: 16px; line-height: 1.6; }
+.case-study-overview .project-meta, .case-study-overview .focus-items,
+.case-study-overview .project-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.case-study-overview .project-insights { display: grid; gap: 24px; }
+.case-study-overview .insight-label, .case-study-overview .focus-label,
+.case-study-overview .impact-label { color: #a43e18; font-weight: 700; }
+.case-study-overview p { margin: 8px 0 0; }
+.case-study-overview .project-tag, .case-study-overview .focus-items > span {
+  border: 1px solid var(--green); border-radius: 8px; padding: 6px 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html,
 body {
   width: 100%;
@@ -393,7 +431,7 @@ and (max-width: 1199px) {
    also use these same media conditions.
    ========================================================= */
 
-@media screen and (max-width: 767px),
+@media screen and (width < 768px),
 
 screen and (orientation: landscape)
 and (max-width: 932px)

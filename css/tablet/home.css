@@ -1,0 +1,20 @@
+/* TABLET HOME
+   Inherits desktop-laptop/home.css: same content, colors and components.
+   Only spacing, sizing and layout change here. Wider viewports use laptop styles;
+   narrow and short phone-landscape viewports use mobile styles. */
+
+@media screen and (768px <= width < 1200px) and (height > 500px), screen and (932px < width < 1200px) {
+
+  .shell { width: calc(100% - var(--gutter) * 2); }
+  .hero {
+    min-height: max(360px, calc(100svh - var(--nav-h)));
+    height: auto; padding-top: 16px;
+  }
+  .hero-main { min-height: 220px; flex-shrink: 0; padding-inline: 8px; }
+  .portfolio-title { font-size: clamp(140px, 25vw, 300px); }
+  .ticker { max-width: 100%; flex-shrink: 0; }
+  @media (height <= 600px) {
+    .hero { min-height: 320px; }
+    .hero-main { min-height: 200px; }
+  }
+}
