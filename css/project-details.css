@@ -1,28 +1,29 @@
 /* Project statistics and outcome share the same hierarchy on every screen. */
 #projects .project-tile .project-meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
   margin-bottom: 24px;
 }
 #projects .project-tile .meta-item {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 6px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 7px;
   min-width: 0;
-  padding: 16px;
+  padding: 0;
   border: 0;
-  border-radius: 14px;
-  background: rgba(0, 70, 54, .065);
+  border-radius: 0;
+  background: transparent;
   line-height: 1.25;
 }
 #projects .project-tile .meta-icon { display: none; }
 #projects .project-tile .meta-item strong {
   color: var(--pg);
-  font-size: clamp(24px, 2.5vw, 36px);
-  font-weight: 900;
+  font-size: clamp(20px, 1.7vw, 26px);
+  font-weight: 800;
   line-height: 1;
 }
 #projects .project-tile .meta-item > span:last-child {
@@ -54,15 +55,14 @@
   line-height: 1.4;
 }
 #projects .project-tile .project-footer {
-  margin-top: 20px;
-  padding-top: 0;
+  margin-top: auto;
+  padding-top: 24px;
   border-top: 0;
 }
 @media (width < 480px) {
-  #projects .project-tile .project-meta { gap: 7px; }
-  #projects .project-tile .meta-item { padding: 12px 9px; border-radius: 10px; }
-  #projects .project-tile .meta-item strong { font-size: 24px; }
-  #projects .project-tile .meta-item > span:last-child { font-size: 11px; }
+  #projects .project-tile .project-meta { gap: 10px 18px; }
+  #projects .project-tile .meta-item strong { font-size: 20px; }
+  #projects .project-tile .meta-item > span:last-child { font-size: 13px; }
   #projects .project-tile .impact-row { padding: 18px; }
   #projects .project-tile .impact-row p { font-size: 19px; }
 }
