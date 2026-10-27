@@ -1,4 +1,10 @@
 /* Education and experience: quiet identity cards with inline dates. */
+@media (min-width: 1000px) {
+  #about .about-content-grid {
+    grid-template-columns: 260px minmax(0, 1fr);
+    column-gap: 28px;
+  }
+}
 #about .record-item {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr) !important;
