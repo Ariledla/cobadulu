@@ -87,10 +87,15 @@ try {
   }
   // Interactions use the real dynamically mounted app in each layout family.
   await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'no-preference'}]});
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});
   const faqAnimation=await evaluate(`(async()=>{
     const items=[...document.querySelectorAll('#faq .faq-item')];
     items[0].querySelector('summary').click();
     await new Promise(r=>setTimeout(r,80));
+    const motion=items[0].getAnimations().find(a=>a.effect.getKeyframes()[0].height);
+    const heights=motion?.effect.getKeyframes().map(frame=>parseFloat(frame.height));
+    const currentHeight=items[0].getBoundingClientRect().height;
+    const mobileInterpolates=!!heights && currentHeight>Math.min(...heights)+1 && currentHeight<Math.max(...heights)-1;
     items[4].querySelector('summary').click();
     await new Promise(r=>setTimeout(r,500));
     const switched=items[4].open && !items[0].open;
@@ -103,7 +108,7 @@ try {
     const settled=items.every(e=>e.getAnimations().length===0);
     items[4].querySelector('summary').click();
     await new Promise(r=>setTimeout(r,500));
-    return {switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
+    return {mobileInterpolates,switched,rapidClicks,settled,closed:items.every(e=>!e.open)};
   })()`);
   console.log('FAQ animation:',JSON.stringify(faqAnimation));
   if(Object.values(faqAnimation).some(v=>!v)) process.exitCode=1;

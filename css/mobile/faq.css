@@ -192,7 +192,7 @@
     max-width: 100% !important;
     min-width: 0 !important;
 
-    height: auto !important;
+    height: auto;
     min-height: 0 !important;
     max-height: none !important;
 
@@ -452,7 +452,7 @@
   #faq .faq-item[open] {
     background: #F4EBD7;
 
-    height: auto !important;
+    height: auto;
     max-height: none !important;
   }
 
@@ -754,7 +754,7 @@
 
       width: 100% !important;
 
-      height: auto !important;
+      height: auto;
       min-height: 0 !important;
       max-height: none !important;
 
