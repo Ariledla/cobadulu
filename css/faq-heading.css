@@ -47,7 +47,11 @@
   }
 }
 
-#faq.faq-slide .faq-item > summary { transition: background-color 160ms ease, color 160ms ease; }
+#faq.faq-slide .faq-item { --faq-text-inset: 24px; }
+#faq.faq-slide .faq-item > summary {
+  padding-inline: var(--faq-text-inset);
+  transition: background-color 160ms ease, color 160ms ease;
+}
 #faq.faq-slide .faq-item .faq-chevron { color: var(--green); }
 #faq.faq-slide .faq-item .faq-chevron::before {
   border-right-color: currentColor;
@@ -62,17 +66,17 @@
   color: var(--green);
 }
 @media (hover: hover) and (pointer: fine) {
-  #faq.faq-slide .faq-item > summary:hover { background: var(--green); color: #fff; }
-  #faq.faq-slide .faq-item > summary:hover .faq-question,
-  #faq.faq-slide .faq-item > summary:hover .faq-chevron { color: #fff; }
+  #faq.faq-slide .faq-item:not([open]) > summary:hover { background: var(--green); color: #fff; }
+  #faq.faq-slide .faq-item:not([open]) > summary:hover .faq-question,
+  #faq.faq-slide .faq-item:not([open]) > summary:hover .faq-chevron { color: #fff; }
 }
-#faq.faq-slide .faq-item > summary:active { background: var(--green); color: #fff; }
-#faq.faq-slide .faq-item > summary:active .faq-question,
-#faq.faq-slide .faq-item > summary:active .faq-chevron { color: #fff; }
+#faq.faq-slide .faq-item:not([open]) > summary:active { background: var(--green); color: #fff; }
+#faq.faq-slide .faq-item:not([open]) > summary:active .faq-question,
+#faq.faq-slide .faq-item:not([open]) > summary:active .faq-chevron { color: #fff; }
 
 #faq.faq-slide .faq-item[open] .faq-answer {
   margin: 0;
-  padding: 24px clamp(20px, 3vw, 40px);
+  padding: 24px var(--faq-text-inset);
   background: var(--green);
   color: #fff;
   text-align: left;
@@ -84,4 +88,18 @@
   color: #fff;
   line-height: 1.65;
   text-align: left;
+}
+
+/* A slightly more compact FAQ on phones, without scaling the whole page. */
+@media (width < 768px) {
+  #faq.faq-slide .faq-item { --faq-text-inset: 14px; }
+  #faq.faq-slide .faq-heading h2 {
+    font-size: clamp(30px, 7.5vw, 48px);
+  }
+  #faq.faq-slide .faq-wrap { width: calc(100% - 40px); margin-inline: auto; }
+  #faq.faq-slide .faq-list { gap: 10px; }
+  #faq.faq-slide .faq-item > summary { min-height: 60px; padding: 13px 14px; }
+  #faq.faq-slide .faq-item .faq-question { font-size: 12.5px; line-height: 1.45; }
+  #faq.faq-slide .faq-item[open] .faq-answer { padding: 18px var(--faq-text-inset); }
+  #faq.faq-slide .faq-item[open] .faq-answer p { font-size: 12px; line-height: 1.55; }
 }
