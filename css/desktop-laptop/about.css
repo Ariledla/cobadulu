@@ -35,6 +35,16 @@
     hidden;
 }
 
+/* Use the same left edge as the Projects shell below, without resizing About. */
+@media (1200px <= width < 1600px) {
+  #about.about-section {
+    padding-left: max(
+      var(--desktop-content-gutter),
+      calc((100% - var(--desktop-content-max)) / 2)
+    );
+  }
+}
+
 
 .about-section *,
 .about-section *::before,
