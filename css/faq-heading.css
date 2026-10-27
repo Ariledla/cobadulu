@@ -26,25 +26,30 @@
   text-transform: uppercase;
   color: #004636;
 }
-#projects .section-title-row .section-title span { display: block; }
+#projects .section-title-row .section-title span { display: inline; }
+#projects .section-title-row .section-title {
+  white-space: nowrap;
+  font-size: clamp(28px, 5.2vw, 100px);
+  letter-spacing: -.035em;
+}
 #projects .section-title-row .section-title .title-green { color: #004636; }
 #projects .section-title-row .section-title .title-orange { color: #dc6d40; }
 @media (768px <= width < 1200px) {
   #faq.faq-slide .faq-heading h2,
-  #projects .section-title-row .section-title { font-size: clamp(52px, 7vw, 80px); }
+  #projects .section-title-row .section-title { font-size: clamp(36px, 5.2vw, 62px); }
 }
 @media (min-width: 1600px) {
   #faq.faq-slide .faq-heading h2,
-  #projects .section-title-row .section-title { font-size: clamp(90px, 5.5vw, 100px); }
+  #projects .section-title-row .section-title { font-size: clamp(80px, 5.2vw, 100px); }
 }
 @media (min-width: 1920px) {
   #faq.faq-slide .faq-heading h2,
-  #projects .section-title-row .section-title { font-size: 91px; }
+  #projects .section-title-row .section-title { font-size: 100px; }
 }
 @media (width < 768px) {
   #faq.faq-slide .faq-heading h2,
   #projects .section-title-row .section-title {
-    font-size: clamp(32px, 8vw, 52px);
+    font-size: clamp(28px, 6.5vw, 48px);
     letter-spacing: -1px;
   }
 }
@@ -129,9 +134,33 @@
   text-align: left;
 }
 
+/* Concentric inner and outer corners keep the outline the same thickness. */
+#faq.faq-slide .faq-item {
+  --faq-outer-radius: 28px;
+  border: 2px solid var(--green);
+  border-radius: var(--faq-outer-radius);
+  background-color: var(--green);
+}
+#faq.faq-slide .faq-item > summary {
+  border: 0;
+  border-radius: calc(var(--faq-outer-radius) - 2px);
+}
+#faq.faq-slide .faq-item[open] > summary {
+  border-radius: calc(var(--faq-outer-radius) - 2px) calc(var(--faq-outer-radius) - 2px) 0 0;
+}
+#faq.faq-slide .faq-item[open] > summary,
+#faq.faq-slide .faq-item[open] .faq-answer {
+  min-height: var(--faq-row-height, 68px);
+  box-sizing: border-box;
+}
+#faq.faq-slide .faq-item[open] .faq-answer {
+  display: flex;
+  align-items: center;
+}
+
 /* A slightly more compact FAQ on phones, without scaling the whole page. */
 @media (width < 768px) {
-  #faq.faq-slide .faq-item { --faq-text-inset: 14px; }
+  #faq.faq-slide .faq-item { --faq-text-inset: 14px; --faq-outer-radius: 17px; }
   #faq.faq-slide .faq-heading h2 {
     font-size: clamp(30px, 7.5vw, 48px);
   }

@@ -1,0 +1,35 @@
+/* One content edge for About, Projects, FAQ, and Contact at every viewport. */
+:root {
+  --section-content-width: min(var(--max-width), calc(100% - var(--gutter) * 2));
+}
+
+@media (1200px <= width < 1600px) {
+  :root {
+    --section-content-width: min(var(--desktop-content-max), calc(100% - var(--desktop-content-gutter) * 2));
+  }
+}
+
+@media (width < 768px), (orientation: landscape) and (width <= 932px) and (height <= 500px) {
+  :root { --section-content-width: min(540px, calc(100% - 32px)); }
+}
+
+#main-root > #about.about-section {
+  padding-inline: 0 !important;
+}
+
+#main-root > #about > .about-layout,
+#main-root > #projects > .shell,
+#main-root > #faq > .faq-wrap,
+#main-root > #contact > .contact-shell {
+  width: var(--section-content-width) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+  padding-inline: 0 !important;
+}
+
+#main-root > #projects .section-title-row {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}

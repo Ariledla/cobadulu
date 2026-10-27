@@ -57,6 +57,13 @@
   background-size: 16px 16px;
 }
 #contact .contact-list .contact-item:hover::after { background-color: transparent; }
+@media (min-width: 1600px) {
+  #contact .contact-list .contact-item { padding: calc(16 * var(--contact-unit)) calc(14 * var(--contact-unit)); }
+  #contact .contact-list .contact-item-main { grid-template-columns: calc(34 * var(--contact-unit)) minmax(0, 1fr); gap: calc(12 * var(--contact-unit)); }
+  #contact .contact-list .contact-item-logo { width: calc(34 * var(--contact-unit)); height: calc(34 * var(--contact-unit)); }
+  #contact .contact-list .contact-item-text h3 { font-size: calc(17 * var(--contact-unit)); }
+  #contact .contact-list .contact-item-text p { font-size: calc(13 * var(--contact-unit)); }
+}
 @media (width < 390px) {
   #contact .contact-list .contact-item { padding: 12px; }
   #contact .contact-list .contact-item::after { right: 10px; }

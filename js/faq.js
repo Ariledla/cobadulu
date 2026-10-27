@@ -8,6 +8,16 @@
     const animations = new WeakMap();
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    function equalizeRows(item) {
+      item.style.removeProperty('--faq-row-height');
+      if (!item.open) return;
+      const summary = item.querySelector('summary');
+      const answer = item.querySelector('.faq-answer');
+      if (!summary || !answer) return;
+      const height = Math.ceil(Math.max(summary.getBoundingClientRect().height, answer.getBoundingClientRect().height));
+      item.style.setProperty('--faq-row-height', height + 'px');
+    }
+
     function transition(item, expanded) {
       const summary = item.querySelector('summary');
       if (!summary) return;
@@ -19,10 +29,12 @@
 
       if (reduced.matches || !item.animate) {
         item.open = expanded;
+        equalizeRows(item);
         return;
       }
       // Keep the answer rendered throughout both opening and closing.
       item.open = true;
+      equalizeRows(item);
       const style = getComputedStyle(item);
       const collapsed = summary.getBoundingClientRect().height +
         parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
@@ -57,6 +69,13 @@
       });
     }
     root.dataset.faqInitialized = 'true';
+    let previousWidth = root.clientWidth;
+    new ResizeObserver(() => {
+      if (root.clientWidth === previousWidth) return;
+      previousWidth = root.clientWidth;
+      items.forEach(equalizeRows);
+    }).observe(root);
+    document.fonts?.ready.then(() => items.forEach(equalizeRows));
   }
   window.initFaq = initFaq;
 })();
