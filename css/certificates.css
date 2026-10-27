@@ -59,6 +59,12 @@
   color: #E2D7B9;
   outline: none !important;
   outline-offset: 0 !important;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+.case-study-close:is(:hover, :active, :focus-visible) {
+  background: #FD6325;
+  border-color: #FD6325;
+  color: #E2D7B9;
 }
 .case-study-close:focus-visible { outline: none !important; }
 @media (min-width: 1200px) {
