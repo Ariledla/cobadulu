@@ -1,0 +1,16 @@
+/* A readable, open heading with the same green/orange hierarchy as Contact. */
+#faq.faq-slide .faq-heading h2 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--green);
+}
+#faq.faq-slide .faq-heading h2 span { display: block; }
+#faq.faq-slide .faq-heading h2 .faq-heading-accent { color: #dc6d40; }

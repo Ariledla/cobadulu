@@ -243,18 +243,8 @@
 
       if (content) {
         content.replaceChildren();
-        const title = document.createElement('h2');
-        title.id = 'case-study-title';
-        title.textContent = projectTitle;
-        const overview = document.createElement('div');
-        overview.className = 'case-study-overview';
-        // Reuse only the existing project facts; do not invent case study data.
-        for (const selector of ['.project-meta', '.project-insights', '.focus-row', '.impact-row', '.project-tags']) {
-          const section = card?.querySelector(selector);
-          if (section) overview.appendChild(section.cloneNode(true));
-        }
-        content.append(title, overview);
-        panel?.setAttribute('aria-labelledby', title.id);
+        panel?.removeAttribute('aria-labelledby');
+        panel?.setAttribute('aria-label', projectTitle);
       }
 
       previousFocus = document.activeElement;
